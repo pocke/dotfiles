@@ -26,6 +26,11 @@ zstyle ':completion:*' group-name ''
 # 矢印とかで移動
 #zstyle ':completion:*:default' menu select=1
 
+# syntax highlighting
+if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ]; then
+  source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+fi
+
 setopt complete_aliases
 ### alias
 alias ls="ls --color=auto -F"
