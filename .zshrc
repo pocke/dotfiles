@@ -42,6 +42,7 @@ alias cp='cp -v'
 alias mv='mv -v'
 alias :q="exit"
 alias vi='vim'
+which yaourt > /dev/null 2>&1 && alias yao='yaourt -Syua'
 ### global alias
 alias -g G='| grep'
 alias -g L='| less'
