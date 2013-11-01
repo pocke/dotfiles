@@ -77,8 +77,8 @@ setopt pushd_ignore_dups
 ### prompt
 # git branch
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats 'branch: %b'
-zstyle ':vcs_info:*' actionformats 'branch: %b / %a'
+zstyle ':vcs_info:*' formats '*** branch: %b'
+zstyle ':vcs_info:*' actionformats '*** branch: %b / %a'
 precmd () {
     psvar=()
     LANG=en_US.UTF-8 vcs_info
