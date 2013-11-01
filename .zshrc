@@ -36,6 +36,7 @@ setopt complete_aliases
 alias ls="ls --color=auto -F"
 alias la="ls -A"
 alias ll="ls -l"
+alias lla='ls -Al'
 alias df="df -h"
 alias du='du -h'
 alias cp='cp -v'
