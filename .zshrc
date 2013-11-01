@@ -75,16 +75,31 @@ function chpwd() { ls }
 setopt pushd_ignore_dups
 
 ### prompt
-PROMPT='%B%F{cyan}%n%f[%F{cyan}INS%f] %#%b '
+# git branch
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats 'branch: %b'
+zstyle ':vcs_info:*' actionformats 'branch: %b / %a'
+precmd () {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+
+# default
+prompt_git='%B%1(v|%F{cyan}%1v
+%f|)'
+prompt_exit_status="(%(?.%F{green}%?%f.%F{red}%?%f))"
+PROMPT="%B${prompt_git}%F{cyan}%n%f[%F{cyan}INS%f]${prompt_exit_status} %#%b "
 #RPROMPT='%B[%F{magenta}%~%f]%b'
 RPROMPT='%B( %F{magenta}%~%f )Oo%b'
 
+# vim keybind mode
 function zle-line-init zle-keymap-select {
   local vim_mode='%F{cyan}INS%f'
   if [ "${KEYMAP}" = 'vicmd' ]; then
     vim_mode='%F{red}NOR%f'
   fi
-  PROMPT="%B%F{cyan}%n%f[${vim_mode}] %#%b "
+  PROMPT="%B${prompt_git}%F{cyan}%n%f[${vim_mode}]${prompt_exit_status} %#%b "
   zle reset-prompt
 }
 zle -N zle-line-init
