@@ -80,14 +80,11 @@ PROMPT='%B%F{cyan}%n%f[%F{cyan}INS%f] %#%b '
 RPROMPT='%B( %F{magenta}%~%f )Oo%b'
 
 function zle-line-init zle-keymap-select {
-  case $KEYMAP in
-    viins|main)
-    PROMPT='%B%F{cyan}%n%f[%F{cyan}INS%f] %#%b '
-    ;;
-    vicmd)
-    PROMPT='%B%F{cyan}%n%f[%F{red}NOR%f] %#%b '
-    ;;
-  esac
+  local vim_mode='%F{cyan}INS%f'
+  if [ "${KEYMAP}" = 'vicmd' ]; then
+    vim_mode='%F{red}NOR%f'
+  fi
+  PROMPT="%B%F{cyan}%n%f[${vim_mode}] %#%b "
   zle reset-prompt
 }
 zle -N zle-line-init
