@@ -1,0 +1,20 @@
+# Usage
+# file: ~/.gitconfig
+#   [include]
+#     path = this/file/path/.gitconfig
+#   [user]
+#     name = hoge
+#     email = your@mail.address
+
+[color]
+  ui = auto
+[alias]
+  st = status
+  onelog = log --oneline --graph
+  co = checkout
+  br = branch
+  ci = commit
+[push]
+  default = matching
+[core]
+  excludesfile = .gitignore_global
