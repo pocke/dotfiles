@@ -1,0 +1,16 @@
+!change CapsLock to Ctrl
+remove Lock = Caps_Lock
+keysym Caps_Lock = Control_L
+add Control = Control_L
+
+!Swap Alt_L and Super_L
+remove mod1 = Alt_L
+remove mod4 = Super_L
+keysym Alt_L = Super_L
+keysym Super_L = Alt_L
+add mod1 = Alt_L
+add mod4 = Super_L
+
+!change Shift_R to Zenkaku_Hankaku
+remove Shift = Shift_R
+keysym Shift_R = Zenkaku_Hankaku
