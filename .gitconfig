@@ -5,6 +5,8 @@
 #   [user]
 #     name = hoge
 #     email = your@mail.address
+#   [core]
+#     excludesfile = /your/file/path/.gitignore_global
 
 [color]
   ui = auto
@@ -16,5 +18,5 @@
   ci = commit
 [push]
   default = matching
-[core]
-  excludesfile = .gitignore_global
+#[core]
+#  excludesfile = .gitignore_global
