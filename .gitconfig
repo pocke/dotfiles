@@ -16,7 +16,9 @@
   co = checkout
   br = branch
   ci = commit
+  fix = commit --amend
 [push]
   default = matching
-#[core]
+[core]
+  editor = vim -c 'set fenc=utf-8'
 #  excludesfile = .gitignore_global

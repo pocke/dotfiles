@@ -50,6 +50,7 @@ alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
 alias -g C='| xsel --input --clipboard'
+alias -g N='> /dev/null 2>&1'
 ### suffix alias
 function extract() {
   case $1 in
