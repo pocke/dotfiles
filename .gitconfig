@@ -15,8 +15,8 @@
   onelog = log --oneline --graph
   co = checkout
   br = branch
-  ci = commit
-  fix = commit --amend
+  ci = commit -v
+  fix = commit --amend -v
 [push]
   default = matching
 [core]
