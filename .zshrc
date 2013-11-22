@@ -157,8 +157,6 @@ zle -N show_buffer_stack
 setopt noflowcontrol
 bindkey '^Q' show_buffer_stack
 
-export PATH=$PATH:/home/pocke/.gem/ruby/2.0.0/bin
-
 # function
 function take()
 {
