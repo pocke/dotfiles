@@ -134,6 +134,8 @@ setopt share_history
 ### keybind
 bindkey -v
 bindkey "[Z" reverse-menu-complete    # Shift-Tabで補完を逆順
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
 bindkey 'OH' beginning-of-line        # Homeキーがうまく効かないのを修正
 bindkey 'OF' end-of-line              # Endキーがうまく効かないのを修正
 zle -A .backward-kill-word vi-backward-kill-word
