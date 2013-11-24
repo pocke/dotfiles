@@ -166,3 +166,14 @@ function take()
     mkdir -p $1 && cd $1 && echo -e "\e[1;35m***\e[mCreated \e[1;34m$1\e[m and cd to it"
   fi
 }
+
+# コマンドラインが空の場合、Enterで補完を更新する。
+function _rehash()
+{
+  zle accept-line  # accept-line がデフォルトのEnterに割り当てられている
+  if [[ -z "$BUFFER" ]]; then
+    rehash
+  fi
+}
+zle -N _rehash
+bindkey "\C-m" _rehash
