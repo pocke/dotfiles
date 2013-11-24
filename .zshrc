@@ -41,7 +41,6 @@ alias df="df -h"
 alias du='du -h'
 alias cp='cp -v'
 alias mv='mv -v'
-alias :q="exit"
 alias vi='vim'
 which yaourt > /dev/null 2>&1 && alias yao='yaourt -Syua'
 ### global alias
