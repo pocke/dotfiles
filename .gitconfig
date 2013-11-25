@@ -17,6 +17,7 @@
   br = branch
   ci = commit -v
   fix = commit --amend -v
+  ca = commit -v -a
 [push]
   default = matching
 [core]
