@@ -85,13 +85,12 @@ precmd () {
     LANG=en_US.UTF-8 vcs_info
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
-
-# default
 prompt_git='%B%1(v|%F{cyan}%1v
 %f|)'
+
+# default
 prompt_exit_status="(%(?.%F{green}%?%f.%F{red}%?%f))"
 PROMPT="%B${prompt_git}%F{cyan}%n%f[%F{cyan}INS%f]${prompt_exit_status} %#%b "
-#RPROMPT='%B[%F{magenta}%~%f]%b'
 RPROMPT='%B( %F{magenta}%~%f )Oo%b'
 
 # vim keybind mode
@@ -105,21 +104,6 @@ function zle-line-init zle-keymap-select {
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
-
-#case ${UID} in
-#0)
-#  PROMPT='%B_( _ %F{magenta}｡%f-ω -)_.｡oO( %d なうー )
-#_( _ %F{magenta}｡%f-ω -)_.｡oO( %b'
-#  RPROMPT='%B)%b'
-#  PROMPT2='_(_ _ %F{magenta}｡%f-ω -)_ < '
-#  ;;
-#*)
-#  PROMPT='%B[▓ ▓ ]%F{magenta}｡%f-ω -)_.｡oO( %d なうー )
-#[▓ ▓ ]%F{magenta}｡%f-ω -)_.｡oO( %b'
-#  RPROMPT='%B)%b'
-#  PROMPT2='[▓ ▓ ]%F{magenta}｡%f-ω -)_ < '
-#  ;;
-#esac
 
 ### history
 HISTFILE=~/.zsh_history
