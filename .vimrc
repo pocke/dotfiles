@@ -28,6 +28,10 @@ set shiftwidth=2
 set list
 set listchars=tab:>-
 
+" タブ移動
+nnoremap <C-l> gt
+nnoremap <C-h> gT
+
 "--------------------------------------------------------------------------
 " neobundle
 set nocompatible               " Be iMproved
