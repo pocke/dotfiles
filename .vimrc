@@ -29,8 +29,8 @@ set list
 set listchars=tab:>-
 
 " タブ移動
-nnoremap <C-l> gt
-nnoremap <C-h> gT
+nnoremap <C-l> :tabnext<CR>
+nnoremap <C-h> :tabprevious<CR>
 
 "--------------------------------------------------------------------------
 " neobundle
