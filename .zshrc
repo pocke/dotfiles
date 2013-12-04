@@ -7,6 +7,7 @@ setopt noautoremoveslash    #パスの最後のスラッシュを削除しない
 export EDITOR=vim
 setopt mark_dirs # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
 setopt print_eight_bit #日本語ファイル名等8ビットを通す
+setopt extended_glob
 
 disable r
 
@@ -50,6 +51,7 @@ alias -g H='| head'
 alias -g T='| tail'
 alias -g C='| xsel --input --clipboard'
 alias -g N='> /dev/null 2>&1'
+alias -g ALL='**/*~.git/*~*/.git/*(.)'
 ### suffix alias
 function extract() {
   case $1 in
