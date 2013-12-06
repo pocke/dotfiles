@@ -54,19 +54,63 @@ alias -g N='> /dev/null 2>&1'
 alias -g ALL='**/*~.git/*~*/.git/*(.)'
 ### suffix alias
 function extract() {
+  local tmp_dir="$(mktemp -d)"
+  local zip_file_name="$(basename "$1")"
   case $1 in
-    *.tar.gz|*.tgz) tar xzvf $1;;
-    *.tar.xz) tar Jxvf $1;;
-    *.zip) unzip $1;;
-    *.lzh) lha e $1;;
-    *.tar.bz2|*.tbz) tar xjvf $1;;
-    *.tar.Z) tar zxvf $1;;
-    *.gz) gzip -dc $1;;
-    *.bz2) bzip2 -dc $1;;
-    *.Z) uncompress $1;;
-    *.tar) tar xvf $1;;
-    *.arj) unarj $1;;
+    (*.tar.gz)
+      local command='tar xzvf'
+      local suffix='.tar.gz' ;;
+    (*.tgz)
+      local command='tar xzvf'
+      local suffix='.tgz' ;;
+    (*.tar.xz)
+      local command='tar Jxvf'
+      local suffix='.tar.xz' ;;
+    (*.zip)
+      local command='unzip'
+      local suffix='.zip' ;;
+    (*.lzh)
+      local command='lha e'
+      local suffix='.lzh' ;;
+    (*.tar.bz2)
+      local command='tar xjvf'
+      local suffix='.tar.bz2' ;;
+    (*.tbz)
+      local command='tar xjvf'
+      local suffix='.tbz' ;;
+    (*.tar.Z)
+      local command='tar zxvf'
+      local suffix='.tar.Z' ;;
+    (*.gz)
+      local command='gzip -dc'
+      local suffix='.gz' ;;
+    (*.bz2)
+      local command='bzip2 -dc'
+      local suffix='.bz2' ;;
+    (*.Z)
+      local command='uncompress'
+      local suffix='.Z' ;;
+    (*.tar)
+      local command='tar xvf'
+      local suffix='.tar' ;;
+    (*.arj)
+      local command='unarj'
+      local suffix='.arg' ;;
   esac
+  'cp' "$1" "${tmp_dir}"
+  (
+    cd "${tmp_dir}"
+    eval "${command} ${zip_file_name}"
+    rm "${zip_file_name}"
+  )
+  if [[ "$(ls "${tmp_dir}" | wc -l)" == '1' && "$(ls -F "${tmp_dir}" | grep '/' | wc -l)" == '1' ]]; then
+    'cp' "${tmp_dir}/"* ./ -R
+  else
+    local d="$(basename "${zip_file_name}" "${suffix}")"
+    mkdir "${d}"
+    'cp' "${tmp_dir}/"* "${d}" -R
+  fi
+  rm -rf "${tmp_dir}"
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 alias -s rb=ruby
