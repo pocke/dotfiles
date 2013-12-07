@@ -23,6 +23,8 @@ alias -g ALL='**/*~.git/*~*/.git/*(.)'
 function extract() {
   local tmp_dir="$(mktemp -d)"
   local zip_file_name="$(basename "$1")"
+  # /dev/null に投げてるのはchpwd対策
+  local absolute_path="$(cd $(dirname $1) > /dev/null 2>&1 && pwd)/${zip_file_name}"
   case $1 in
     (*.tar.gz)
       local command='tar xzvf'
@@ -64,9 +66,9 @@ function extract() {
       local command='unarj'
       local suffix='.arg' ;;
   esac
-  'cp' "$1" "${tmp_dir}"
+  ln -s "${absolute_path}" "${tmp_dir}/${zip_file_name}"
   (
-    cd "${tmp_dir}"
+    cd "${tmp_dir}" > /dev/null 2>&1
     ${=command} ${zip_file_name}
     rm "${zip_file_name}"
   )
