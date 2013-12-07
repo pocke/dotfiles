@@ -22,60 +22,41 @@ alias -g ALL='**/*~.git/*~*/.git/*(.)'
 ### suffix alias
 function extract() {
   local tmp_dir="$(mktemp -d)"
-  local zip_file_name="$(basename "$1")"
+  local archive_file_name="$(basename "$1")"
   # /dev/null に投げてるのはchpwd対策
-  local absolute_path="$(cd $(dirname $1) > /dev/null 2>&1 && pwd)/${zip_file_name}"
-  case $1 in
-    (*.tar.gz)
-      local command='tar xzvf'
-      local suffix='.tar.gz' ;;
-    (*.tgz)
-      local command='tar xzvf'
-      local suffix='.tgz' ;;
-    (*.tar.xz)
-      local command='tar Jxvf'
-      local suffix='.tar.xz' ;;
-    (*.zip)
-      local command='unzip'
-      local suffix='.zip' ;;
-    (*.lzh)
-      local command='lha e'
-      local suffix='.lzh' ;;
-    (*.tar.bz2)
-      local command='tar xjvf'
-      local suffix='.tar.bz2' ;;
-    (*.tbz)
-      local command='tar xjvf'
-      local suffix='.tbz' ;;
-    (*.tar.Z)
-      local command='tar zxvf'
-      local suffix='.tar.Z' ;;
-    (*.gz)
-      local command='gzip -dc'
-      local suffix='.gz' ;;
-    (*.bz2)
-      local command='bzip2 -dc'
-      local suffix='.bz2' ;;
-    (*.Z)
-      local command='uncompress'
-      local suffix='.Z' ;;
-    (*.tar)
-      local command='tar xvf'
-      local suffix='.tar' ;;
-    (*.arj)
-      local command='unarj'
-      local suffix='.arg' ;;
-  esac
-  ln -s "${absolute_path}" "${tmp_dir}/${zip_file_name}"
+  local absolute_path="$(cd $(dirname $1) > /dev/null 2>&1 && pwd)/${archive_file_name}"
+
+  while read line; do
+    local s=$(echo -n $line | cut -d' ' -f1)
+    if [[ ${archive_file_name} == *${s} ]] then
+      local suffix=$s
+      local command="$(echo $line | sed -E 's/^[.a-zA-Z0-9]+ +//')"
+      break
+    fi
+  done < <(echo  \
+'.tar.gz  tar xzvf
+.tgz     tar xzvf
+.tar.xz  tar Jxvf
+.zip     unzip
+.lzh     lha e
+.tar.bz2 tar xjvf
+.tbz     tar xjvf
+.tar.Z   tar zxvf
+.gz      gzip -dc
+.bz2     bzip2 -dc
+.Z       uncompress
+.tar     tar xvf')
+
+  ln -s "${absolute_path}" "${tmp_dir}/${archive_file_name}"
   (
     cd "${tmp_dir}" > /dev/null 2>&1
-    ${=command} ${zip_file_name}
-    rm "${zip_file_name}"
+    ${=command} ${archive_file_name}
+    rm "${archive_file_name}"
   )
   if [[ "$(ls "${tmp_dir}" | wc -l)" == '1' && "$(ls -F "${tmp_dir}" | grep '/' | wc -l)" == '1' ]]; then
     'cp' "${tmp_dir}/"* ./ -R
   else
-    local d="$(basename "${zip_file_name}" "${suffix}")"
+    local d="$(basename "${archive_file_name}" "${suffix}")"
     mkdir "${d}"
     'cp' "${tmp_dir}/"* "${d}" -R
   fi
