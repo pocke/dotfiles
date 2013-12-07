@@ -67,7 +67,7 @@ function extract() {
   'cp' "$1" "${tmp_dir}"
   (
     cd "${tmp_dir}"
-    eval "${command} ${zip_file_name}"
+    ${=command} ${zip_file_name}
     rm "${zip_file_name}"
   )
   if [[ "$(ls "${tmp_dir}" | wc -l)" == '1' && "$(ls -F "${tmp_dir}" | grep '/' | wc -l)" == '1' ]]; then
