@@ -33,43 +33,10 @@ if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ]; the
 fi
 
 setopt complete_aliases
+
 ### alias
-alias ls="ls --color=auto -F"
-alias la="ls -A"
-alias ll="ls -l"
-alias lla='ls -Al'
-alias df="df -h"
-alias du='du -h'
-alias cp='cp -v'
-alias mv='mv -v'
-alias vi='vim'
-which yaourt > /dev/null 2>&1 && alias yao='yaourt -Syua'
-### global alias
-alias -g G='| grep'
-alias -g L='| less'
-alias -g H='| head'
-alias -g T='| tail'
-alias -g C='| xsel --input --clipboard'
-alias -g N='> /dev/null 2>&1'
-alias -g ALL='**/*~.git/*~*/.git/*(.)'
-### suffix alias
-function extract() {
-  case $1 in
-    *.tar.gz|*.tgz) tar xzvf $1;;
-    *.tar.xz) tar Jxvf $1;;
-    *.zip) unzip $1;;
-    *.lzh) lha e $1;;
-    *.tar.bz2|*.tbz) tar xjvf $1;;
-    *.tar.Z) tar zxvf $1;;
-    *.gz) gzip -dc $1;;
-    *.bz2) bzip2 -dc $1;;
-    *.Z) uncompress $1;;
-    *.tar) tar xvf $1;;
-    *.arj) unarj $1;;
-  esac
-}
-alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
-alias -s rb=ruby
+basedir=$(dirname $0)
+source "${basedir}/alias.zsh"
 
 ### cd
 setopt auto_cd
