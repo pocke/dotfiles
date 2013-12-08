@@ -8,14 +8,18 @@ alias du='du -h'
 alias cp='cp -v'
 alias mv='mv -v'
 alias vi='vim'
-which yaourt > /dev/null 2>&1 && alias yao='yaourt -Syua'
+if which yaourt > /dev/null 2>&1; then
+  alias yao='yaourt -Syua'
+fi
 
 ### global alias
 alias -g G='| grep'
 alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
-alias -g C='| xsel --input --clipboard'
+if which xsel > /dev/null 2&>1; then
+  alias -g C='| xsel --input --clipboard'
+fi
 alias -g N='> /dev/null 2>&1'
 alias -g ALL='**/*~.git/*~*/.git/*(.)'
 
