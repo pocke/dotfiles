@@ -17,7 +17,7 @@ alias -g G='| grep'
 alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
-if which xsel > /dev/null 2&>1; then
+if which xsel > /dev/null 2>&1; then
   alias -g C='| xsel --input --clipboard'
 fi
 alias -g N='> /dev/null 2>&1'
