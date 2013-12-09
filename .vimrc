@@ -51,30 +51,65 @@ if neobundle#exists_not_installed_bundles()
   "finish
 endif
 
-NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'scrooloose/snipmate-snippets'
 
+
+function! s:meet_neocomplete_requirements()
+  return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
+endfunction
+
+if s:meet_neocomplete_requirements()
+  NeoBundle 'Shougo/neocomplete.vim'
+  NeoBundleFetch 'Shougo/neocomplacache.vim'
+else
+  NeoBundleFetch 'Shougo/neocomplete.vim'
+  NeoBundle 'Shougo/neocomplcache.vim'
+endif
+
 filetype plugin indent on     " Required!
 
-"--------------------------------------------------------------------------
-" neocomplacache
-" 起動時に有効化
-let g:neocomplcache_enable_at_startup = 1
- 
-" 大文字が入力されるまで大文字小文字の区別を無視する
-let g:neocomplcache_enable_smart_case = 1
- 
-" _(アンダースコア)区切りの補完を有効化
-let g:neocomplcache_enable_underbar_completion = 1
- 
-let g:neocomplcache_enable_camel_case_completion  =  1
- 
-" ポップアップメニューで表示される候補の数
-let g:neocomplcache_max_list = 20
- 
-" シンタックスをキャッシュするときの最小文字長
-let g:neocomplcache_min_syntax_length = 3
+if s:meet_neocomplete_requirements()
+  "--------------------------------------------------------------------------
+  " neocomplete
+  " 起動時に有効化
+  let g:neocomplete#enable_at_startup = 1
+   
+  " 大文字が入力されるまで大文字小文字の区別を無視する
+  let g:neocomplete#enable_smart_case = 1
+   
+  " _(アンダースコア)区切りの補完を有効化
+  let g:neocomplete#enable_underbar_completion = 1
+   
+  let g:neocomplete#enable_camel_case_completion  =  1
+   
+  " ポップアップメニューで表示される候補の数
+  let g:neocomplete#max_list = 20
+   
+  " シンタックスをキャッシュするときの最小文字長
+  let g:neocomplete#min_syntax_length = 3
+
+else
+  "--------------------------------------------------------------------------
+  " neocomplacache
+  " 起動時に有効化
+  let g:neocomplcache_enable_at_startup = 1
+   
+  " 大文字が入力されるまで大文字小文字の区別を無視する
+  let g:neocomplcache_enable_smart_case = 1
+   
+  " _(アンダースコア)区切りの補完を有効化
+  let g:neocomplcache_enable_underbar_completion = 1
+   
+  let g:neocomplcache_enable_camel_case_completion  =  1
+   
+  " ポップアップメニューで表示される候補の数
+  let g:neocomplcache_max_list = 20
+   
+  " シンタックスをキャッシュするときの最小文字長
+  let g:neocomplcache_min_syntax_length = 3
+
+endif
 
 "--------------------------------------------------------------------------
 " neosnippet
