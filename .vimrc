@@ -43,6 +43,9 @@ set smartcase
 " 検索文字の強調
 set hlsearch
 
+"titleを表示
+set title
+
 "--------------------------------------------------------------------------
 " neobundle
 set nocompatible               " Be iMproved
