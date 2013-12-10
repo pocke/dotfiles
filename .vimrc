@@ -32,6 +32,9 @@ set listchars=tab:>-
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-h> :tabprevious<CR>
 
+" インサートモード時にバックスペースを使う
+set backspace=indent,eol,start
+
 "--------------------------------------------------------------------------
 " neobundle
 set nocompatible               " Be iMproved
