@@ -35,6 +35,14 @@ nnoremap <C-h> :tabprevious<CR>
 " インサートモード時にバックスペースを使う
 set backspace=indent,eol,start
 
+" search
+" 大文字小文字を区別しない
+" 但し、両方が含まれていれば区別する
+set ignorecase
+set smartcase
+" 検索文字の強調
+set hlsearch
+
 "--------------------------------------------------------------------------
 " neobundle
 set nocompatible               " Be iMproved
