@@ -42,6 +42,8 @@ set ignorecase
 set smartcase
 " 検索文字の強調
 set hlsearch
+" Esc 2回で強調を解除
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 "titleを表示
 set title
