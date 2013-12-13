@@ -71,6 +71,8 @@ endif
 
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'scrooloose/snipmate-snippets'
+" ぬるぬるスクロール
+NeoBundle 'yonchu/accelerated-smooth-scroll'
 
 
 function! s:meet_neocomplete_requirements()
