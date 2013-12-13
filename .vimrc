@@ -40,6 +40,8 @@ set backspace=indent,eol,start
 " 但し、両方が含まれていれば区別する
 set ignorecase
 set smartcase
+" インクリメンタルサーチ
+set incsearch
 " 検索文字の強調
 set hlsearch
 " Esc 2回で強調を解除
