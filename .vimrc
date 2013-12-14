@@ -1,55 +1,3 @@
-colorscheme desert "カラースキーマ
-set number
-set ruler
-syntax enable
-set autoindent "新しい行のインデントを現在行と同じに
-
-set foldmethod=syntax   "折りたたみ-展開
-set foldlevel=99
-
-set ttimeoutlen=10  " Shift-oで待たされるのを改善
-
-set hidden
-
-set encoding=utf-8
-" これで開こうとする
-set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
-" これで保存しようとする
-set fileencoding=utf-8    
-
-" json syntax highlight
-au BufNewFile,BufRead *.json setf javascript
-
-"indent
-set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set list
-set listchars=tab:>-
-
-" タブ移動
-nnoremap <C-l> :tabnext<CR>
-nnoremap <C-h> :tabprevious<CR>
-
-" インサートモード時にバックスペースを使う
-set backspace=indent,eol,start
-
-" search
-" 大文字小文字を区別しない
-" 但し、両方が含まれていれば区別する
-set ignorecase
-set smartcase
-" インクリメンタルサーチ
-set incsearch
-" 検索文字の強調
-set hlsearch
-" Esc 2回で強調を解除
-nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
-
-"titleを表示
-set title
-
 "--------------------------------------------------------------------------
 " neobundle
 set nocompatible               " Be iMproved
@@ -74,7 +22,8 @@ NeoBundle 'scrooloose/snipmate-snippets'
 " ぬるぬるスクロール
 NeoBundle 'yonchu/accelerated-smooth-scroll'
 NeoBundle 'sudo.vim'
-
+" colorscheme
+NeoBundle 'vim-scripts/rdark'
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -153,3 +102,58 @@ smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : 
 if has('conceal') 
   set conceallevel=2 concealcursor=i
 endif
+
+
+"--------------------------------------------------------------------------
+" other
+colorscheme rdark
+set number
+set ruler
+syntax enable
+set autoindent "新しい行のインデントを現在行と同じに
+
+set foldmethod=syntax   "折りたたみ-展開
+set foldlevel=99
+
+set ttimeoutlen=10  " Shift-oで待たされるのを改善
+
+set hidden
+
+set encoding=utf-8
+" これで開こうとする
+set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
+" これで保存しようとする
+set fileencoding=utf-8
+
+" json syntax highlight
+au BufNewFile,BufRead *.json setf javascript
+
+"indent
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set list
+set listchars=tab:>-
+
+" タブ移動
+nnoremap <C-l> :tabnext<CR>
+nnoremap <C-h> :tabprevious<CR>
+
+" インサートモード時にバックスペースを使う
+set backspace=indent,eol,start
+
+" search
+" 大文字小文字を区別しない
+" 但し、両方が含まれていれば区別する
+set ignorecase
+set smartcase
+" インクリメンタルサーチ
+set incsearch
+" 検索文字の強調
+set hlsearch
+" Esc 2回で強調を解除
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+
+"titleを表示
+set title
