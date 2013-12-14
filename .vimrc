@@ -30,11 +30,11 @@ function! s:meet_neocomplete_requirements()
 endfunction
 
 if s:meet_neocomplete_requirements()
-  NeoBundle 'Shougo/neocomplete.vim'
-  NeoBundleFetch 'Shougo/neocomplacache.vim'
+  NeoBundle 'Shougo/neocomplete'
+  NeoBundleFetch 'Shougo/neocomplcache'
 else
-  NeoBundleFetch 'Shougo/neocomplete.vim'
-  NeoBundle 'Shougo/neocomplcache.vim'
+  NeoBundleFetch 'Shougo/neocomplete'
+  NeoBundle 'Shougo/neocomplcache'
 endif
 
 filetype plugin indent on     " Required!
@@ -61,7 +61,7 @@ if s:meet_neocomplete_requirements()
 
 else
   "--------------------------------------------------------------------------
-  " neocomplacache
+  " neocomplcache
   " 起動時に有効化
   let g:neocomplcache_enable_at_startup = 1
    
