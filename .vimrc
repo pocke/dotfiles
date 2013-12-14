@@ -73,6 +73,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'scrooloose/snipmate-snippets'
 " ぬるぬるスクロール
 NeoBundle 'yonchu/accelerated-smooth-scroll'
+NeoBundle 'sudo.vim'
 
 
 function! s:meet_neocomplete_requirements()
