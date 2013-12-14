@@ -24,6 +24,7 @@ NeoBundle 'yonchu/accelerated-smooth-scroll'
 NeoBundle 'sudo.vim'
 " colorscheme
 NeoBundle 'vim-scripts/rdark'
+NeoBundle 'vimtaku/hl_matchit.vim.git'
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -105,12 +106,22 @@ endif
 
 
 "--------------------------------------------------------------------------
+" hl_matchit
+source $VIMRUNTIME/macros/matchit.vim
+
+let g:hl_matchit_enable_on_vim_startup = 1
+let g:hl_matchit_hl_groupname = 'Title'
+let g:hl_matchit_allow_ft = 'html\|vim\|ruby\|sh'
+
+
+"--------------------------------------------------------------------------
 " other
 colorscheme rdark
 set number
 set ruler
 syntax enable
 set autoindent "新しい行のインデントを現在行と同じに
+
 
 set foldmethod=syntax   "折りたたみ-展開
 set foldlevel=99
