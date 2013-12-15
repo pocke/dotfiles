@@ -76,12 +76,18 @@ zle -N zle-keymap-select
 
 ### history
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt hist_ignore_dups
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt hist_ignore_dups       # 連続した同じコマンドを記録しない
 setopt hist_ignore_space      # スペースからはじまるものをヒストリに登録しない
-setopt hist_no_store
-setopt share_history
+setopt extended_history       # タイムスタンプを記録
+# 5文字以上かつwhich $cmd が true のもののみhistoryに登録
+zshaddhistory()
+{
+  local line=${1%%$'\n'}
+  local cmd=${line%% *}
+  which $cmd > /dev/null 2>&1 && [[ ${#line} -ge 5 ]]
+}
 
 ### keybind
 bindkey -v
