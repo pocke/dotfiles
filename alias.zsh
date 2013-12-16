@@ -11,6 +11,7 @@ alias vi='vim'
 if which yaourt > /dev/null 2>&1; then
   alias yao='yaourt -Syua'
 fi
+alias grep='LANG=C grep'
 
 ### global alias
 alias -g G='| grep'
