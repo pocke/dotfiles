@@ -168,3 +168,6 @@ nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 "titleを表示
 set title
+
+" 余裕を持ってスクロール
+set scrolloff=4
