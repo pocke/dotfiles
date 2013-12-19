@@ -10,7 +10,7 @@ setopt extended_glob
 
 ### export variables
 export EDITOR=vim
-export GREP_OPTIONS='--binary-files=without-match --color=auto -n'
+export GREP_OPTIONS='--binary-files=without-match --color=auto'
 
 disable r
 

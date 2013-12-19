@@ -11,10 +11,10 @@ alias vi='vim'
 if which yaourt > /dev/null 2>&1; then
   alias yao='yaourt -Syua'
 fi
-alias grep='LANG=C grep'
+alias grep='LANG=C grep -n '
 
 ### global alias
-alias -g G='| grep'
+alias -g G='| "grep"'
 alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
