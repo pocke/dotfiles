@@ -4,10 +4,13 @@
 setopt list_packed    #補完を詰める
 setopt globdots    #ドットファイルを*で選択する
 setopt noautoremoveslash    #パスの最後のスラッシュを削除しない
-export EDITOR=vim
 setopt mark_dirs # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
 setopt print_eight_bit #日本語ファイル名等8ビットを通す
 setopt extended_glob
+
+### export variables
+export EDITOR=vim
+export GREP_OPTIONS='--binary-files=without-match --color=auto -n'
 
 disable r
 
