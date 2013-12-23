@@ -25,6 +25,7 @@ NeoBundle 'sudo.vim'
 " colorscheme
 NeoBundle 'vim-scripts/rdark'
 NeoBundle 'vimtaku/hl_matchit.vim.git'
+NeoBundle 'Shougo/unite.vim'
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
