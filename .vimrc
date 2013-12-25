@@ -26,6 +26,15 @@ NeoBundle 'sudo.vim'
 NeoBundle 'vim-scripts/rdark'
 NeoBundle 'vimtaku/hl_matchit.vim.git'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'rhysd/unite-ruby-require.vim'
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+    \ 'windows' : 'make -f make_mingw32.mak',
+    \ 'cygwin' : 'make -f make_cygwin.mak',
+    \ 'mac' : 'make -f make_mac.mak',
+    \ 'unix' : 'make -f make_unix.mak',
+  \ },
+\ }
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -127,10 +136,10 @@ nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 " ファイル一覧
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" レジスタ一覧
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 " 色々?
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+" ruby require
+nnoremap <silent> ,ur :<C-u>Unite ruby/require<CR>
 
 "--------------------------------------------------------------------------
 " other
