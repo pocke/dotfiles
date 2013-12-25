@@ -116,6 +116,23 @@ let g:hl_matchit_allow_ft = 'html\|vim\|ruby\|sh'
 
 
 "--------------------------------------------------------------------------
+" Unite.vim
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable=1
+let g:unite_source_file_mru_limit=200
+
+" yank履歴
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+" バッファ一覧
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+" ファイル一覧
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" レジスタ一覧
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+" 色々?
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+
+"--------------------------------------------------------------------------
 " other
 colorscheme rdark
 set number
