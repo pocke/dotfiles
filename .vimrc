@@ -21,12 +21,18 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'scrooloose/snipmate-snippets'
 " ぬるぬるスクロール
 NeoBundle 'yonchu/accelerated-smooth-scroll'
+
 NeoBundle 'sudo.vim'
 " colorscheme
 NeoBundle 'vim-scripts/rdark'
+
+" ruby のブロックとかがハイライト
 NeoBundle 'vimtaku/hl_matchit.vim.git'
+" ゆないと
 NeoBundle 'Shougo/unite.vim'
+" rubyのrequireを補完してくれるunite source
 NeoBundle 'rhysd/unite-ruby-require.vim'
+" 非同期処理
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -40,6 +46,8 @@ function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
 endfunction
 
+" 補完
+" luaが使えるかどうかでどっち使うか決める
 if s:meet_neocomplete_requirements()
   NeoBundle 'Shougo/neocomplete'
   NeoBundleFetch 'Shougo/neocomplcache'
@@ -118,13 +126,19 @@ endif
 "--------------------------------------------------------------------------
 " hl_matchit
 source $VIMRUNTIME/macros/matchit.vim
+" vim起動時にhl_matchitを起動するか
 let g:hl_matchit_enable_on_vim_startup = 1
+" highlightのパターン
+" :highlight に一覧がある
 let g:hl_matchit_hl_groupname = 'MatchParen'
+" 有効にするファイルの種類
 let g:hl_matchit_allow_ft = 'html\|xml\|vim\|ruby\|sh'
 
 
 "--------------------------------------------------------------------------
 " Unite.vim
+
+" インサートモードでスタート
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable=1
 let g:unite_source_file_mru_limit=200
@@ -143,17 +157,22 @@ nnoremap <silent> ,ur :<C-u>Unite ruby/require<CR>
 "--------------------------------------------------------------------------
 " other
 colorscheme rdark
+" 行番号を表示
 set number
+" 何行目の何列目にカーソルがいるか表示
 set ruler
 syntax enable
-set autoindent "新しい行のインデントを現在行と同じに
+" 新しい行のインデントを現在行と同じに
+set autoindent 
 
-
-set foldmethod=syntax   "折りたたみ-展開
+" 折りたたみ-展開
+set foldmethod=syntax
 set foldlevel=99
 
-set ttimeoutlen=10  " Shift-oで待たされるのを改善
+" Shift-oで待たされるのを改善
+set ttimeoutlen=10
 
+" 保存されていないバッファがあっても他のバッファを開ける
 set hidden
 
 set encoding=utf-8

@@ -1,12 +1,12 @@
 # Created by newuser for 5.0.2
 
 #setopt correct
-setopt list_packed    #補完を詰める
-setopt globdots    #ドットファイルを*で選択する
+setopt list_packed          #補完を詰める
+setopt globdots             #ドットファイルを*で選択する
 setopt noautoremoveslash    #パスの最後のスラッシュを削除しない
-setopt mark_dirs # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
-setopt print_eight_bit #日本語ファイル名等8ビットを通す
-setopt extended_glob
+setopt mark_dirs            # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
+setopt print_eight_bit      #日本語ファイル名等8ビットを通す
+setopt extended_glob        # 強いglob
 
 ### export variables
 export EDITOR=vim
@@ -15,10 +15,9 @@ export GREP_OPTIONS='--binary-files=without-match --color=auto'
 disable r
 
 ### compinit
-
-autoload -U compinit
+autoload -U compinit        # 補完が強くなる
 compinit
-setopt auto_param_slash # ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
+setopt auto_param_slash     # ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
 setopt magic_equal_subst    # = 以降でも補完
 #  補完の際(大|小)文字を区別しない,ドットの直前を*に置き換えて補完
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} l:|=.'
@@ -42,10 +41,10 @@ basedir=$(dirname $0)
 source "${basedir}/alias.zsh"
 
 ### cd
-setopt auto_cd
-setopt auto_pushd
-function chpwd() { ls }
-setopt pushd_ignore_dups
+setopt auto_cd            # ディレクトリ名だけでcd
+setopt auto_pushd         # 勝手にpush
+setopt pushd_ignore_dups  # 重複したディレクトリをpushしない
+function chpwd() { ls }   # ディレクトリを移動したらls
 
 ### prompt
 # git branch
@@ -78,7 +77,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 ### history
-HISTFILE=~/.zsh_history
+HISTFILE=~/.zsh_history       # ヒストリファイル
 HISTSIZE=1000000
 SAVEHIST=1000000
 setopt hist_ignore_dups       # 連続した同じコマンドを記録しない
@@ -95,15 +94,15 @@ zshaddhistory()
 ### keybind
 bindkey -v
 bindkey "[Z" reverse-menu-complete    # Shift-Tabで補完を逆順
-autoload history-search-end
+autoload history-search-end             # ヒストリを巡る時にカーソルを一番後ろに
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey '^P' history-beginning-search-backward-end
 bindkey '^N' history-beginning-search-forward-end
 bindkey 'OH' beginning-of-line        # Homeキーがうまく効かないのを修正
 bindkey 'OF' end-of-line              # Endキーがうまく効かないのを修正
-zle -A .backward-kill-word vi-backward-kill-word
-zle -A .backward-delete-char vi-backward-delete-char
+zle -A .backward-kill-word vi-backward-kill-word      # viキーバインドで
+zle -A .backward-delete-char vi-backward-delete-char  # インサートモードに入る前の文字を消す
 
 ### color
 # 色の設定
@@ -123,7 +122,8 @@ zle -N show_buffer_stack
 setopt noflowcontrol
 bindkey '^Q' show_buffer_stack
 
-# function
+### functions
+# mkdir して cd
 function take()
 {
   if [[ -d $1 ]]; then
