@@ -147,3 +147,13 @@ function _rehash()
 }
 zle -N _rehash
 bindkey "\C-m" _rehash
+
+# コマンドラインが空の場合、^Gでgit
+function _insert_git()
+{
+  if [[ -z "$BUFFER" ]]; then
+    LBUFFER='git '
+  fi
+}
+zle -N _insert_git
+bindkey "^G" _insert_git
