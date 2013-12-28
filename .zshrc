@@ -1,11 +1,11 @@
 # Created by newuser for 5.0.2
 
-#setopt correct
-setopt list_packed          #補完を詰める
-setopt globdots             #ドットファイルを*で選択する
-setopt noautoremoveslash    #パスの最後のスラッシュを削除しない
+#setopt correct             # command not foundな時にお節介する
+setopt list_packed          # 補完を詰める
+setopt globdots             # ドットファイルを*で選択する
+setopt noautoremoveslash    # パスの最後のスラッシュを削除しない
 setopt mark_dirs            # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
-setopt print_eight_bit      #日本語ファイル名等8ビットを通す
+setopt print_eight_bit      # 日本語ファイル名等8ビットを通す
 setopt extended_glob        # 強いglob
 
 ### export variables
@@ -93,14 +93,18 @@ zshaddhistory()
 
 ### keybind
 bindkey -v
+
 bindkey "[Z" reverse-menu-complete    # Shift-Tabで補完を逆順
+
 autoload history-search-end             # ヒストリを巡る時にカーソルを一番後ろに
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey '^P' history-beginning-search-backward-end
 bindkey '^N' history-beginning-search-forward-end
+
 bindkey 'OH' beginning-of-line        # Homeキーがうまく効かないのを修正
 bindkey 'OF' end-of-line              # Endキーがうまく効かないのを修正
+
 zle -A .backward-kill-word vi-backward-kill-word      # viキーバインドで
 zle -A .backward-delete-char vi-backward-delete-char  # インサートモードに入る前の文字を消す
 
