@@ -43,6 +43,10 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 " 整形、桁揃え
 NeoBundle 'Align'
+" 構文チェック
+NeoBundle 'scrooloose/syntastic'
+" (){}[]''とかの、囲うやつを編集
+NeoBundle 'tpope/vim-surround'
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
