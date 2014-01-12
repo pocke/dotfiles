@@ -52,12 +52,18 @@ function extract() {
 .Z       uncompress
 .tar     tar xvf')
 
+  # 展開
   ln -s "${absolute_path}" "${tmp_dir}/${archive_file_name}"
   (
     cd "${tmp_dir}" > /dev/null 2>&1
     ${=command} ${archive_file_name} || exit 1
     rm "${archive_file_name}"
-  ) || rm -rf "${tmp_dir}" && return 1
+  )
+  # 展開が失敗していれば、tmp_dirを消して1を返す
+  if [[ $? != '0' ]] ; then
+    rm -rf "${tmp_dir}"
+    return 1
+  fi
   if [[ "$(ls "${tmp_dir}" | wc -l)" == '1' && "$(ls -F "${tmp_dir}" | grep '/' | wc -l)" == '1' ]]; then
     'cp' "${tmp_dir}/"* ./ -R
   else
