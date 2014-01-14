@@ -16,7 +16,8 @@
   co = checkout
   br = branch
   ci = commit -v
-  fix = commit --amend -v -a
+  fix = commit --amend -v
+  fixa = commit --amend -v -a
   ca = commit -v -a
 [push]
   default = matching
