@@ -229,3 +229,8 @@ set title
 
 " 余裕を持ってスクロール
 set scrolloff=4
+
+" コマンドラインでの補完を強くする
+set wildmenu
+set wildmode=longest:full,full
+set history=1000000
