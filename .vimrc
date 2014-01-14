@@ -18,7 +18,6 @@ if neobundle#exists_not_installed_bundles()
 endif
 
 NeoBundle 'Shougo/neosnippet'
-NeoBundle 'scrooloose/snipmate-snippets'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'honza/vim-snippets'
 " ぬるぬるスクロール
