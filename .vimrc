@@ -234,3 +234,10 @@ set scrolloff=4
 set wildmenu
 set wildmode=longest:full,full
 set history=1000000
+
+" ファイルを閉じてもundo
+" undodir に指定したディレクトリを手で作成すること。
+if has('persistent_undo')
+  set undodir=~/.vim/undo
+  set undofile
+endif
