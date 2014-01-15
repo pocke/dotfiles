@@ -19,6 +19,7 @@
   fix = commit --amend -v
   fixa = commit --amend -v -a
   ca = commit -v -a
+  aa = add .
 [push]
   default = matching
 [core]
