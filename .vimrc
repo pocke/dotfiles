@@ -241,3 +241,6 @@ if has('persistent_undo')
   set undodir=~/.vim/undo
   set undofile
 endif
+
+" 前回終了したカーソル行に移動
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
