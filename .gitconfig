@@ -20,6 +20,7 @@
   fixa = commit --amend -v -a
   ca = commit -v -a
   aa = add .
+  k = !gitk
 [push]
   default = matching
 [core]
