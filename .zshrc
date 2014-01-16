@@ -83,12 +83,12 @@ SAVEHIST=1000000
 setopt hist_ignore_dups       # 連続した同じコマンドを記録しない
 setopt hist_ignore_space      # スペースからはじまるものをヒストリに登録しない
 setopt extended_history       # タイムスタンプを記録
-# 5文字以上かつwhich $cmd が true のもののみhistoryに登録
+# 5文字以上のもののみhistoryに登録
 zshaddhistory()
 {
   local line=${1%%$'\n'}
-  local cmd=${line%% *}
-  which $cmd > /dev/null 2>&1 && [[ ${#line} -ge 5 ]]
+  #local cmd=${line%% *}
+  [[ ${#line} -ge 5 ]]
 }
 
 ### keybind
