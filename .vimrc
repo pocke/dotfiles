@@ -247,3 +247,9 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 
 " md as markdown, instead of modula2
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+
+" コマンドラインでのC-n|p と Up, Downの入れ替え
+cnoremap <C-n>  <Down>
+cnoremap <C-p>  <Up>
+cnoremap <Down> <C-n>
+cnoremap <Up>   <C-p>
