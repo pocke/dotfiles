@@ -169,7 +169,7 @@ nnoremap <silent> ,ur :<C-u>Unite ruby/require<CR>
 
 "--------------------------------------------------------------------------
 " other
-colorscheme rdark
+colorscheme evening
 " 行番号を表示
 set number
 " 何行目の何列目にカーソルがいるか表示
