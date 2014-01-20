@@ -21,6 +21,7 @@
   ca = commit -v -a
   aa = add .
   k = !gitk
+  reh = reset --hard HEAD
 [push]
   default = matching
 [core]
