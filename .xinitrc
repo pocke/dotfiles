@@ -11,17 +11,17 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-#export LANG='ja_JP.utf8'
-
+# for ibus
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -drx
 
+xset r rate 200 30
+xset m 10 4
+
 xmodmap .Xmodmap
 xinput --disable "SynPS/2 Synaptics TouchPad"
-
-#export VTE_CJK_WIDTH=1
 
 exec awesome
 # exec gnome-session
