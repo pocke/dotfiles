@@ -26,7 +26,7 @@ alias -g ALL='**/*~.git/*~*/.git/*(.)'
 
 ### suffix alias
 function extract() {
-  local tmp_dir="$(mktemp -d)"
+  local tmp_dir="$(mktemp -d --tmpdir=./)"
   local archive_file_name="$(basename "$1")"
   # /dev/null に投げてるのはchpwd対策
   local absolute_path="$(cd $(dirname $1) > /dev/null 2>&1 && pwd)/${archive_file_name}"
@@ -65,11 +65,11 @@ function extract() {
     return 1
   fi
   if [[ "$(ls "${tmp_dir}" | wc -l)" == '1' && "$(ls -F "${tmp_dir}" | grep '/' | wc -l)" == '1' ]]; then
-    'cp' "${tmp_dir}/"* ./ -R
+    'mv' "${tmp_dir}/"* ./
   else
     local d="$(basename "${archive_file_name}" "${suffix}")"
     mkdir "${d}"
-    'cp' "${tmp_dir}/"* "${d}" -R
+    'mv' "${tmp_dir}/"* "${d}"
   fi
   rm -rf "${tmp_dir}"
 }
