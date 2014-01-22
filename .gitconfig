@@ -11,18 +11,18 @@
 [color]
   ui = auto
 [alias]
-  st = status
+  st     = status
   onelog = log --oneline --graph
-  co = checkout
-  br = branch
-  ci = commit -v
-  fix = commit --amend -v
-  fixa = commit --amend -v -a
-  ca = commit -v -a
-  aa = add .
-  k = !gitk
-  reh = reset --hard HEAD
-  ri  = rebase -i
+  co     = checkout
+  br     = branch
+  ci     = commit -v
+  fix    = commit --amend -v
+  fixa   = commit --amend -v -a
+  ca     = commit -v -a
+  aa     = add .
+  k      = !gitk
+  reh    = reset --hard HEAD
+  ri     = rebase -i
 [push]
   default = matching
 [core]
