@@ -22,6 +22,7 @@
   aa = add .
   k = !gitk
   reh = reset --hard HEAD
+  ri  = rebase -i
 [push]
   default = matching
 [core]
