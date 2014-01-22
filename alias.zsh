@@ -66,12 +66,11 @@ function extract() {
   fi
   if [[ "$(ls "${tmp_dir}" | wc -l)" == '1' && "$(ls -F "${tmp_dir}" | grep '/' | wc -l)" == '1' ]]; then
     'mv' "${tmp_dir}/"* ./
+    rm -rf "${tmp_dir}"
   else
     local d="$(basename "${archive_file_name}" "${suffix}")"
-    mkdir "${d}"
-    'mv' "${tmp_dir}/"* "${d}"
+    'mv' "${tmp_dir}" "${d}"
   fi
-  rm -rf "${tmp_dir}"
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 alias -s rb=ruby
