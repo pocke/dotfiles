@@ -23,6 +23,7 @@
   k      = !gitk
   reh    = reset --hard HEAD
   ri     = rebase -i
+  df     = diff
 [push]
   default = matching
 [core]
