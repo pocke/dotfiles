@@ -67,11 +67,26 @@ function extract() {
 
   local dir_name="$(ls -A "${tmp_dir}")"
   if [[ -d "${tmp_dir}/${dir_name}" ]]; then
-    'mv' "${tmp_dir}/"* ./
-    rm -rf "${tmp_dir}"
+    if [[ -d "./${dir_name}" ]]; then
+      (
+        echo "cannot move directory '${dir_name}': File exists"
+        echo "extracted files in ${tmp_dir}/${dir_name}"
+      ) 1>&2
+      return 1
+    else
+      'mv' "${tmp_dir}/${dir_name}" ./
+      rm -rf "${tmp_dir}"
+    fi
   else
-    local d="$(basename "${archive_file_name}" "${suffix}")"
-    'mv' "${tmp_dir}" "${d}"
+    local dir_name="$(basename "${archive_file_name}" "${suffix}")"
+    if [[ -d "./${dir_name}" ]]; then
+      (
+        echo "cannot move directory '${dir_name}': File exists"
+        echo "extracted directory as ${tmp_dir}"
+      ) 1>&2
+    else
+      'mv' "${tmp_dir}" "${dir_name}"
+    fi
   fi
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
