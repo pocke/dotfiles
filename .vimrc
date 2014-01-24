@@ -48,6 +48,7 @@ NeoBundle 'Align'
 NeoBundle 'scrooloose/syntastic'
 " (){}[]''とかの、囲うやつを編集
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'AndrewRadev/switch.vim'
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -166,6 +167,16 @@ nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 " ruby require
 nnoremap <silent> ,ur :<C-u>Unite ruby/require<CR>
+
+"--------------------------------------------------------------------------
+" switch.vim
+autocmd FileType gitrebase let b:switch_custom_definitions =
+\ [
+\   ['pick', 'squash', 'edit', 'reword', 'fixup', 'exec']
+\ ]
+
+" nnoremap + :call switch#Switch(g:variable_style_switch_definitions)<CR>
+nnoremap - :Switch<CR>
 
 "--------------------------------------------------------------------------
 " other
