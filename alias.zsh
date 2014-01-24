@@ -64,7 +64,9 @@ function extract() {
     rm -rf "${tmp_dir}"
     return 1
   fi
-  if [[ "$(ls -A "${tmp_dir}" | wc -l)" == '1' && "$(ls -AF "${tmp_dir}" | grep '/$' -c)" == '1' ]]; then
+
+  local dir_name="$(ls -A "${tmp_dir}")"
+  if [[ -d "${tmp_dir}/${dir_name}" ]]; then
     'mv' "${tmp_dir}/"* ./
     rm -rf "${tmp_dir}"
   else
