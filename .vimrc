@@ -188,13 +188,16 @@ let g:indentLine_char = '¦' "use ¦, ┆ or │
 
 "--------------------------------------------------------------------------
 " other
+syntax enable
+
+" 256色
 set t_Co=256
+" カラースキーム
 colorscheme evening
 " 行番号を表示
 set number
 " 何行目の何列目にカーソルがいるか表示
 set ruler
-syntax enable
 " 新しい行のインデントを現在行と同じに
 set autoindent 
 
