@@ -49,6 +49,7 @@ NeoBundle 'scrooloose/syntastic'
 " (){}[]''とかの、囲うやつを編集
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'Yggdroot/indentLine'
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -177,6 +178,13 @@ autocmd FileType gitrebase let b:switch_custom_definitions =
 
 " nnoremap + :call switch#Switch(g:variable_style_switch_definitions)<CR>
 nnoremap - :Switch<CR>
+
+"--------------------------------------------------------------------------
+" indentline
+
+let g:indentLine_color_term = 239
+" let g:indentLine_color_gui = '#708090'
+let g:indentLine_char = '¦' "use ¦, ┆ or │
 
 "--------------------------------------------------------------------------
 " other
