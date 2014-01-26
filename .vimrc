@@ -180,6 +180,7 @@ nnoremap - :Switch<CR>
 
 "--------------------------------------------------------------------------
 " other
+set t_Co=256
 colorscheme evening
 " 行番号を表示
 set number
