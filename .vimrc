@@ -48,7 +48,9 @@ NeoBundle 'Align'
 NeoBundle 'scrooloose/syntastic'
 " (){}[]''とかの、囲うやつを編集
 NeoBundle 'tpope/vim-surround'
+" true/false とかを簡単に切り替える
 NeoBundle 'AndrewRadev/switch.vim'
+" インデントに線を表示
 NeoBundle 'Yggdroot/indentLine'
 
 function! s:meet_neocomplete_requirements()
