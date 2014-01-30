@@ -17,7 +17,7 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 ibus-daemon -drx
 
-xset r rate 300 30
+xset r rate 250 30
 xset m 10 4
 
 xmodmap .Xmodmap
