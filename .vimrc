@@ -194,7 +194,9 @@ let g:indentLine_fileTypeExclude = ['gitcommit', 'diff']
 syntax enable
 
 " 256色
-set t_Co=256
+if $TERM == 'xterm'
+  set t_Co=256
+endif
 " カラースキーム
 colorscheme evening
 " 行番号を表示
