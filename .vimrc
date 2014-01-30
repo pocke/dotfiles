@@ -198,7 +198,7 @@ if $TERM == 'xterm'
   set t_Co=256
 endif
 " カラースキーム
-colorscheme evening
+colorscheme funya
 " 行番号を表示
 set number
 " 何行目の何列目にカーソルがいるか表示
