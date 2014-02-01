@@ -281,3 +281,6 @@ cnoremap <C-n>  <Down>
 cnoremap <C-p>  <Up>
 cnoremap <Down> <C-n>
 cnoremap <Up>   <C-p>
+
+" statuslineを表示
+set laststatus=2
