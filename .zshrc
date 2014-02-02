@@ -7,6 +7,7 @@ setopt noautoremoveslash    # パスの最後のスラッシュを削除しな�
 setopt mark_dirs            # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
 setopt print_eight_bit      # 日本語ファイル名等8ビットを通す
 setopt extended_glob        # 強いglob
+setopt no_beep
 
 ### export variables
 export EDITOR=vim

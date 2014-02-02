@@ -281,3 +281,8 @@ cnoremap <C-n>  <Down>
 cnoremap <C-p>  <Up>
 cnoremap <Down> <C-n>
 cnoremap <Up>   <C-p>
+
+
+" ビープ音を鳴らさない
+set visualbell t_vb=
+set noerrorbells
