@@ -21,7 +21,6 @@ xset r rate 250 30
 xset m 10 4
 
 xmodmap .Xmodmap
-xinput --disable "SynPS/2 Synaptics TouchPad"
 
 exec awesome
 # exec gnome-session

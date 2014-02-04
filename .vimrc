@@ -26,6 +26,7 @@ NeoBundle 'yonchu/accelerated-smooth-scroll'
 NeoBundle 'sudo.vim'
 " colorscheme
 NeoBundle 'vim-scripts/rdark'
+NeoBundle 'pocke/funyapoyo.vim'
 
 " ruby のブロックとかがハイライト
 NeoBundle 'vimtaku/hl_matchit.vim.git'
@@ -198,7 +199,7 @@ if $TERM == 'xterm'
   set t_Co=256
 endif
 " カラースキーム
-colorscheme funya
+colorscheme funyapoyo
 " 行番号を表示
 set number
 " 何行目の何列目にカーソルがいるか表示
@@ -284,3 +285,7 @@ cnoremap <Up>   <C-p>
 
 " statuslineを表示
 set laststatus=2
+
+" ビープ音を鳴らさない
+set visualbell t_vb=
+set noerrorbells
