@@ -28,7 +28,7 @@ alias -g ALL='**/*~.git/*~*/.git/*(.)'
 function extract() {
   local tmp_dir="$(mktemp -d --tmpdir=./)"
   local archive_file_name="$(basename "$1")"
-  # /dev/null $B$KEj$2$F$k$N$O(Bchpwd$BBP:v(B
+  # /dev/null に投げてるのはchpwd対策
   local absolute_path="$(cd $(dirname $1) > /dev/null 2>&1 && pwd)/${archive_file_name}"
 
   while read line; do
@@ -52,14 +52,14 @@ function extract() {
 .Z       uncompress
 .tar     tar xvf')
 
-  # $BE83+(B
+  # 展開
   ln -s "${absolute_path}" "${tmp_dir}/${archive_file_name}"
   (
     cd "${tmp_dir}" > /dev/null 2>&1
     ${=command} ${archive_file_name} || exit 1
     rm "${archive_file_name}"
   )
-  # $BE83+$,<:GT$7$F$$$l$P!"(Btmp_dir$B$r>C$7$F(B1$B$rJV$9(B
+  # 展開が失敗していれば、tmp_dirを消して1を返す
   if [[ $? != '0' ]] ; then
     rm -rf "${tmp_dir}"
     return 1
