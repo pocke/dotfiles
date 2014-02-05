@@ -12,6 +12,7 @@ if which yaourt > /dev/null 2>&1; then
   alias yao='yaourt -Syua'
 fi
 alias grep='LANG=C grep -n '
+alias jman='LANG=ja_JP.UTF-8 man'
 
 ### global alias
 alias -g G='| "grep"'
