@@ -19,7 +19,6 @@ endif
 
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'honza/vim-snippets'
 " ぬるぬるスクロール
 NeoBundle 'yonchu/accelerated-smooth-scroll'
 
@@ -139,8 +138,6 @@ endif
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
  
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 "--------------------------------------------------------------------------
 " hl_matchit
