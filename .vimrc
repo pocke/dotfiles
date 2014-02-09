@@ -31,9 +31,17 @@ NeoBundle 'itchyny/landscape.vim'
 " ruby のブロックとかがハイライト
 NeoBundle 'vimtaku/hl_matchit.vim.git'
 " ゆないと
-NeoBundle 'Shougo/unite.vim'
+NeoBundleLazy 'Shougo/unite.vim', {
+\   'autoload' : {
+\     'commands' : [ "Unite", "UniteWithBufferDir" ]
+\   }
+\ }
 " rubyのrequireを補完してくれるunite source
-NeoBundle 'rhysd/unite-ruby-require.vim'
+NeoBundleLazy 'rhysd/unite-ruby-require.vim', {
+\   'autoload' : {
+\     'unite_sources' : ['ruby/require']
+\   }
+\ }
 " 非同期処理
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -154,10 +162,14 @@ let g:hl_matchit_allow_ft = 'html\|xml\|vim\|ruby\|sh'
 "--------------------------------------------------------------------------
 " Unite.vim
 
-" インサートモードでスタート
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable=1
-let g:unite_source_file_mru_limit=200
+let s:bundle = neobundle#get("unite.vim")
+function! s:bundle.hooks.on_source(bundle)
+  " インサートモードでスタート
+  let g:unite_enable_start_insert=1
+  let g:unite_source_history_yank_enable=1
+  let g:unite_source_file_mru_limit=200
+endfunction
+unlet s:bundle
 
 " yank履歴
 nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
