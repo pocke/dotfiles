@@ -24,6 +24,7 @@
   reh    = reset --hard HEAD
   ri     = rebase -i
   df     = diff
+  sh     = show
 [push]
   default = matching
 [core]
