@@ -11,7 +11,7 @@
 [color]
   ui = auto
 [alias]
-  st     = status
+  st     = status --short --branch
   onelog = log --oneline --graph
   co     = checkout
   br     = branch
@@ -33,3 +33,10 @@
 #  excludesfile = .gitignore_global
 [gui]
   encoding = utf-8
+
+[url "git@github.com:"]
+  pushinsteadof = "git://github.com/"
+  pushinsteadof = "https://github.com"
+
+[rebase]
+  autosquash = true
