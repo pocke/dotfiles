@@ -25,6 +25,9 @@
   ri     = rebase -i
   df     = diff
   sh     = show
+  pl     = pull
+  ps     = push
+  gr     = grep
 [push]
   default = matching
 [core]
