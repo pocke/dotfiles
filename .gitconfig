@@ -12,7 +12,7 @@
   ui = auto
 [alias]
   st     = status --short --branch
-  onelog = log --oneline --graph
+  ol     = log --oneline --graph
   co     = checkout
   br     = branch
   ci     = commit -v
@@ -21,7 +21,8 @@
   ca     = commit -v -a
   aa     = add .
   k      = !gitk
-  reh    = reset --hard HEAD
+  reh    = reset --hard
+  rehh   = reset --hard HEAD
   ri     = rebase -i
   df     = diff
   sh     = show
