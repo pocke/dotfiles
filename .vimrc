@@ -1,3 +1,7 @@
+augroup MyVimrc
+  autocmd!
+augroup END
+
 "--------------------------------------------------------------------------
 " neobundle
 set nocompatible               " Be iMproved
@@ -191,7 +195,7 @@ nnoremap <silent> ,ur :<C-u>Unite ruby/require<CR>
 
 "--------------------------------------------------------------------------
 " switch.vim
-autocmd FileType gitrebase let b:switch_custom_definitions =
+autocmd MyVimrc FileType gitrebase let b:switch_custom_definitions =
 \ [
 \   ['pick', 'squash', 'edit', 'reword', 'fixup', 'exec']
 \ ]
@@ -241,7 +245,7 @@ set fileencodings=cp932,sjis,euc-jp,utf-8
 set fileencoding=utf-8
 
 " json syntax highlight
-au BufNewFile,BufRead *.json setf javascript
+au MyVimrc BufNewFile,BufRead *.json setf javascript
 
 "indent
 set expandtab
@@ -289,10 +293,10 @@ if has('persistent_undo')
 endif
 
 " 前回終了したカーソル行に移動
-autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+autocmd MyVimrc BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
 " md as markdown, instead of modula2
-autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+autocmd MyVimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 " コマンドラインでのC-n|p と Up, Downの入れ替え
 cnoremap <C-n>  <Down>
