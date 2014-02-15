@@ -69,6 +69,8 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'moznion/hateblo.vim', {
 \   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
 \ }
+" vimfiler
+NeoBundle 'Shougo/vimfiler'
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
