@@ -39,7 +39,7 @@
 
 # Examples of commands:
 
-#"xbindkeys_show" 
+#"xbindkeys_show"
 #  control+shift + q
 
 # set directly keycode (here control + f with my keyboard)

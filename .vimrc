@@ -91,18 +91,18 @@ if s:meet_neocomplete_requirements()
   " neocomplete
   " 起動時に有効化
   let g:neocomplete#enable_at_startup = 1
-   
+
   " 大文字が入力されるまで大文字小文字の区別を無視する
   let g:neocomplete#enable_smart_case = 1
-   
+
   " _(アンダースコア)区切りの補完を有効化
   let g:neocomplete#enable_underbar_completion = 1
-   
+
   let g:neocomplete#enable_camel_case_completion  =  1
-   
+
   " ポップアップメニューで表示される候補の数
   let g:neocomplete#max_list = 20
-   
+
   " シンタックスをキャッシュするときの最小文字長
   let g:neocomplete#sources#syntax#min_keyword_length = 3
 
@@ -114,18 +114,18 @@ else
   " neocomplcache
   " 起動時に有効化
   let g:neocomplcache_enable_at_startup = 1
-   
+
   " 大文字が入力されるまで大文字小文字の区別を無視する
   let g:neocomplcache_enable_smart_case = 1
-   
+
   " _(アンダースコア)区切りの補完を有効化
   let g:neocomplcache_enable_underbar_completion = 1
-   
+
   let g:neocomplcache_enable_camel_case_completion  =  1
-   
+
   " ポップアップメニューで表示される候補の数
   let g:neocomplcache_max_list = 20
-   
+
   " シンタックスをキャッシュするときの最小文字長
   let g:neocomplcache_min_syntax_length = 3
 
@@ -135,9 +135,9 @@ endif
 " neosnippet
 "http://kazuph.hateblo.jp/entry/2013/01/19/193745
 
-" <TAB>: completion.                                         
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"   
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>" 
+" <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Plugin key-mappings.
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -149,14 +149,14 @@ imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neos
 smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For snippet_complete marker.
-if has('conceal') 
+if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
 
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
- 
+
 
 "--------------------------------------------------------------------------
 " hl_matchit
@@ -226,7 +226,7 @@ set number
 " 何行目の何列目にカーソルがいるか表示
 set ruler
 " 新しい行のインデントを現在行と同じに
-set autoindent 
+set autoindent
 
 " 折りたたみ-展開
 set foldmethod=syntax
