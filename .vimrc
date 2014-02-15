@@ -309,3 +309,6 @@ set laststatus=2
 " ビープ音を鳴らさない
 set visualbell t_vb=
 set noerrorbells
+
+" 行末のハイライトを表示
+autocmd MyVimrc VimEnter,WinEnter * match Error /\s\+$/
