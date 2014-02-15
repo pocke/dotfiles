@@ -244,9 +244,6 @@ set fileencodings=cp932,sjis,euc-jp,utf-8
 " これで保存しようとする
 set fileencoding=utf-8
 
-" json syntax highlight
-au MyVimrc BufNewFile,BufRead *.json setf javascript
-
 "indent
 set expandtab
 set tabstop=2
@@ -297,6 +294,8 @@ autocmd MyVimrc BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | e
 
 " md as markdown, instead of modula2
 autocmd MyVimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+" json syntax highlight
+autocmd MyVimrc BufNewFile,BufRead *.json set filetype=javascript
 
 " コマンドラインでのC-n|p と Up, Downの入れ替え
 cnoremap <C-n>  <Down>
