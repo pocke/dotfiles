@@ -61,6 +61,10 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'AndrewRadev/switch.vim'
 " インデントに線を表示
 NeoBundle 'Yggdroot/indentLine'
+" はてなブログ
+NeoBundle 'moznion/hateblo.vim', {
+\   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
+\ }
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
