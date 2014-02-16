@@ -288,7 +288,8 @@ set smartcase
 " インクリメンタルサーチ
 set incsearch
 " 検索文字の強調
-set hlsearch
+" http://haya14busa.com/vim_highlight_search/
+set hlsearch | nohlsearch
 " Esc 2回で強調を解除
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
