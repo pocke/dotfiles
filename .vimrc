@@ -69,8 +69,10 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'moznion/hateblo.vim', {
 \   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
 \ }
-" vimfiler
+" ファイラ
 NeoBundle 'Shougo/vimfiler'
+" コマンド実行
+NeoBundle 'thinca/vim-quickrun'
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -212,6 +214,16 @@ let g:indentLine_color_term = 239
 " let g:indentLine_color_gui = '#708090'
 let g:indentLine_char = '¦' "use ¦, ┆ or │
 let g:indentLine_fileTypeExclude = ['gitcommit', 'diff']
+
+"--------------------------------------------------------------------------
+" quickrun
+let g:quickrun_config = {
+\   '_': {
+\     'runner': 'vimproc',
+\     'runner/vimproc/updatetime': 60
+\   }
+\ }
+
 
 "--------------------------------------------------------------------------
 " other
