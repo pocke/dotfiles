@@ -77,6 +77,8 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'superbrothers/vim-quickrun-markdown-gfm', {
 \   'depends': ['mattn/webapi-vim', 'thinca/vim-quickrun', 'tyru/open-browser.vim']
 \ }
+" 移動
+NeoBundle 'rhysd/clever-f.vim'
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -231,6 +233,14 @@ let g:quickrun_config = {
 \     'outputter': 'browser'
 \   }
 \ }
+
+"--------------------------------------------------------------------------
+" clever-f
+let g:clever_f_ignore_case           = 1
+let g:clever_f_use_migemo            = 1
+let g:clever_f_fix_key_direction     = 1
+let g:clever_f_chars_match_any_signs = ';'
+
 
 "--------------------------------------------------------------------------
 " other
