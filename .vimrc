@@ -349,3 +349,7 @@ nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 " タブ移動
 nnoremap <C-l> :tabnext<CR>
 nnoremap <C-h> :tabprevious<CR>
+
+" TABにて対応ペアにジャンプ
+nnoremap <Tab> %
+vnoremap <Tab> %
