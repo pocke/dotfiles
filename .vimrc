@@ -79,6 +79,8 @@ NeoBundle 'superbrothers/vim-quickrun-markdown-gfm', {
 \ }
 " 移動
 NeoBundle 'rhysd/clever-f.vim'
+" Visual Mode でも * で検索
+NeoBundle 'thinca/vim-visualstar'
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
