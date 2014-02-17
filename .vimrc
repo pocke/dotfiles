@@ -273,10 +273,6 @@ set shiftwidth=2
 set list
 set listchars=tab:>-
 
-" タブ移動
-nnoremap <C-l> :tabnext<CR>
-nnoremap <C-h> :tabprevious<CR>
-
 " インサートモード時にバックスペースを使う
 set backspace=indent,eol,start
 
@@ -290,8 +286,6 @@ set incsearch
 " 検索文字の強調
 " http://haya14busa.com/vim_highlight_search/
 set hlsearch | nohlsearch
-" Esc 2回で強調を解除
-nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 "titleを表示
 set title
@@ -319,11 +313,6 @@ autocmd MyVimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markd
 " json syntax highlight
 autocmd MyVimrc BufNewFile,BufRead *.json set filetype=javascript
 
-" コマンドラインでのC-n|p と Up, Downの入れ替え
-cnoremap <C-n>  <Down>
-cnoremap <C-p>  <Up>
-cnoremap <Down> <C-n>
-cnoremap <Up>   <C-p>
 
 " statuslineを表示
 set laststatus=2
@@ -334,3 +323,19 @@ set noerrorbells
 
 " 行末のハイライトを表示
 autocmd MyVimrc VimEnter,WinEnter * match Error /\s\+$/
+
+
+"--------------------------------------------------------------------------
+" keybind
+" コマンドラインでのC-n|p と Up, Downの入れ替え
+cnoremap <C-n>  <Down>
+cnoremap <C-p>  <Up>
+cnoremap <Down> <C-n>
+cnoremap <Up>   <C-p>
+
+" Esc 2回で強調を解除
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+
+" タブ移動
+nnoremap <C-l> :tabnext<CR>
+nnoremap <C-h> :tabprevious<CR>
