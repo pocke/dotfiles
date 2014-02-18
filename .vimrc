@@ -19,7 +19,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 " ぬるぬるスクロール
-NeoBundle 'yonchu/accelerated-smooth-scroll'
+NeoBundleLazy 'yonchu/accelerated-smooth-scroll', {
+\   'autoload': {
+\     'mappings': [
+\       '<Plug>(ac-smooth-scroll-c-d)',
+\       '<Plug>(ac-smooth-scroll-c-u)',
+\       '<Plug>(ac-smooth-scroll-c-f)',
+\       '<Plug>(ac-smooth-scroll-c-b)'
+\     ]
+\   }
+\ }
 
 NeoBundle 'sudo.vim'
 " colorscheme
@@ -185,6 +194,20 @@ endif
 
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
+
+"--------------------------------------------------------------------------
+" accelerated-smooth-scroll
+
+let s:bundle = neobundle#get("accelerated-smooth-scroll")
+function! s:bundle.hooks.on_source(bundle)
+  let g:ac_smooth_scroll_no_default_key_mappings = 1
+endfunction
+unlet s:bundle
+
+nmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d)
+nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
+nmap <silent> <C-f> <Plug>(ac-smooth-scroll-c-f)
+nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
 
 
 "--------------------------------------------------------------------------
