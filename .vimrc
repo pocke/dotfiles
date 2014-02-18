@@ -57,25 +57,47 @@ NeoBundle 'scrooloose/syntastic'
 " (){}[]''とかの、囲うやつを編集
 NeoBundle 'tpope/vim-surround'
 " true/false とかを簡単に切り替える
-NeoBundle 'AndrewRadev/switch.vim'
+NeoBundleLazy 'AndrewRadev/switch.vim', {
+\   'autoload': {
+\     'commands': 'Switch'
+\   }
+\ }
 " インデントに線を表示
 NeoBundle 'Yggdroot/indentLine'
 " はてなブログ
-NeoBundle 'moznion/hateblo.vim', {
+NeoBundleLazy 'moznion/hateblo.vim', {
 \   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
 \ }
 " ファイラ
 NeoBundle 'Shougo/vimfiler'
 " コマンド実行
-NeoBundle 'thinca/vim-quickrun'
+NeoBundleLazy 'thinca/vim-quickrun', {
+\   'autoload': {
+\     'mappings': [['nxo', '<Plug>(quickrun)']],
+\     'commands': 'QuickRun'
+\   }
+\ }
 " markdown
-NeoBundle 'superbrothers/vim-quickrun-markdown-gfm', {
-\   'depends': ['mattn/webapi-vim', 'thinca/vim-quickrun', 'tyru/open-browser.vim']
+NeoBundleLazy 'superbrothers/vim-quickrun-markdown-gfm', {
+\   'depends': ['mattn/webapi-vim', 'thinca/vim-quickrun', 'tyru/open-browser.vim'],
+\   'autoload': {
+\     'filetypes': 'markdown'
+\   }
 \ }
 " 移動
-NeoBundle 'rhysd/clever-f.vim'
+NeoBundleLazy 'rhysd/clever-f.vim', {
+\   'autoload': {
+\     'mappings': 'f'
+\   }
+\ }
 " Visual Mode でも * で検索
-NeoBundle 'thinca/vim-visualstar'
+NeoBundleLazy 'thinca/vim-visualstar', {
+\   'autoload': {
+\     'mappings': [
+\       ['xv', '*'], ['xv', '#'], ['xv', 'g'], ['xv', 'g*']
+\     ]
+\   }
+\ }
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -182,7 +204,6 @@ let g:hl_matchit_allow_ft = 'html\|xml\|vim\|ruby\|sh'
 
 let s:bundle = neobundle#get("unite.vim")
 function! s:bundle.hooks.on_source(bundle)
-  " インサートモードでスタート
   let g:unite_enable_start_insert=1
   let g:unite_source_history_yank_enable=1
   let g:unite_source_file_mru_limit=200
@@ -202,12 +223,15 @@ nnoremap <silent> ,ur :<C-u>Unite ruby/require<CR>
 
 "--------------------------------------------------------------------------
 " switch.vim
-autocmd MyVimrc FileType gitrebase let b:switch_custom_definitions =
-\ [
-\   ['pick', 'squash', 'edit', 'reword', 'fixup', 'exec']
-\ ]
+let s:bundle = neobundle#get("switch.vim")
+function! s:bundle.hooks.on_source(bundle)
+  autocmd MyVimrc FileType gitrebase let b:switch_custom_definitions =
+\   [
+\     ['pick', 'squash', 'edit', 'reword', 'fixup', 'exec']
+\   ]
+endfunction
+unlet s:bundle
 
-" nnoremap + :call switch#Switch(g:variable_style_switch_definitions)<CR>
 nnoremap - :Switch<CR>
 
 "--------------------------------------------------------------------------
@@ -220,23 +244,31 @@ let g:indentLine_fileTypeExclude = ['gitcommit', 'diff']
 
 "--------------------------------------------------------------------------
 " quickrun
-let g:quickrun_config = {
-\   '_': {
-\     'runner': 'vimproc',
-\     'runner/vimproc/updatetime': 60
-\   },
-\   'markdown': {
-\     'type':      'markdown/gfm',
-\     'outputter': 'browser'
+let s:bundle = neobundle#get("vim-quickrun")
+function! s:bundle.hooks.on_source(bundle)
+  let g:quickrun_config = {
+\     '_': {
+\       'runner': 'vimproc',
+\       'runner/vimproc/updatetime': 60
+\     },
+\     'markdown': {
+\       'type':      'markdown/gfm',
+\       'outputter': 'browser'
+\     }
 \   }
-\ }
+endfunction
+unlet s:bundle
 
 "--------------------------------------------------------------------------
 " clever-f
-let g:clever_f_ignore_case           = 1
-let g:clever_f_use_migemo            = 1
-let g:clever_f_fix_key_direction     = 1
-let g:clever_f_chars_match_any_signs = ';'
+let s:bundle = neobundle#get("clever-f.vim")
+function! s:bundle.hooks.on_source(bundle)
+  let g:clever_f_ignore_case           = 1
+  let g:clever_f_use_migemo            = 1
+  let g:clever_f_fix_key_direction     = 1
+  let g:clever_f_chars_match_any_signs = ';'
+endfunction
+unlet s:bundle
 
 
 "--------------------------------------------------------------------------
