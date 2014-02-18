@@ -336,6 +336,9 @@ set noerrorbells
 " 行末のハイライトを表示
 autocmd MyVimrc VimEnter,WinEnter * match Error /\s\+$/
 
+" コマンドラインウィンドウの末尾20行を除いて全て削除
+autocmd MyVimrc CmdwinEnter * :silent! 1,$-20 delete _ | call cursor("$", 1)
+
 
 "--------------------------------------------------------------------------
 " keybind
