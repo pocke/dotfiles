@@ -14,3 +14,8 @@ add mod4 = Super_L
 !change Shift_R to Zenkaku_Hankaku
 !remove Shift = Shift_R
 !keysym Shift_R = Zenkaku_Hankaku
+
+
+keycode 102 = Mode_switch
+!keycode 101 = Mode_switch
+keycode 100 = Mode_switch

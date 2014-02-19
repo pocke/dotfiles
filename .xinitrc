@@ -18,9 +18,10 @@ export QT_IM_MODULE=ibus
 ibus-daemon -drx
 
 xset r rate 250 30
-xset m 10 4
+xset m 10 2
 
 xmodmap .Xmodmap
+xbindkeys
 xcompmgr &
 
 exec awesome
