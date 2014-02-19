@@ -383,7 +383,7 @@ set laststatus=2
 set visualbell t_vb=
 set noerrorbells
 
-" 行末のハイライトを表示
+" 行末の空白をハイライト
 autocmd MyVimrc VimEnter,WinEnter * match Error /\s\+$/
 
 " コマンドラインウィンドウの末尾20行を除いて全て削除
