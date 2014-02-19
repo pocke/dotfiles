@@ -22,7 +22,6 @@
   aa     = add .
   k      = !gitk
   reh    = reset --hard
-  rehh   = reset --hard HEAD
   ri     = rebase -i
   df     = diff
   sh     = show
