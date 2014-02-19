@@ -32,9 +32,9 @@ NeoBundleLazy 'yonchu/accelerated-smooth-scroll', {
 
 NeoBundle 'sudo.vim'
 " colorscheme
-NeoBundle 'vim-scripts/rdark'
+NeoBundleLazy 'vim-scripts/rdark'
 NeoBundle 'pocke/funyapoyo.vim'
-NeoBundle 'itchyny/landscape.vim'
+NeoBundleLazy 'itchyny/landscape.vim'
 
 " ruby のブロックとかがハイライト
 NeoBundle 'vimtaku/hl_matchit.vim.git'
