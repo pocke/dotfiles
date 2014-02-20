@@ -78,7 +78,12 @@ NeoBundleLazy 'moznion/hateblo.vim', {
 \   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
 \ }
 " ファイラ
-NeoBundle 'Shougo/vimfiler'
+NeoBundleLazy 'Shougo/vimfiler', {
+\   'autoload': {
+\     'commands': ['VimFilerBufferDir', 'VimFiler']
+\   },
+\   'depends': 'Shougo/unite.vim'
+\ }
 " コマンド実行
 NeoBundleLazy 'thinca/vim-quickrun', {
 \   'autoload': {
@@ -264,6 +269,12 @@ let g:indentLine_color_term = 239
 " let g:indentLine_color_gui = '#708090'
 let g:indentLine_char = '¦' "use ¦, ┆ or │
 let g:indentLine_fileTypeExclude = ['gitcommit', 'diff']
+
+"--------------------------------------------------------------------------
+" vimfiler
+
+nnoremap ,ff :VimFiler<CR>
+nnoremap ,fi :VimFiler -split -simple -winwidth=35 -no-quit<CR>
 
 "--------------------------------------------------------------------------
 " quickrun
