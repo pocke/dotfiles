@@ -120,7 +120,9 @@ endfunction
 " 補完
 " luaが使えるかどうかでどっち使うか決める
 if s:meet_neocomplete_requirements()
-  NeoBundle 'Shougo/neocomplete'
+  NeoBundle 'Shougo/neocomplete', {
+\     'depends': ['Shougo/context_filetype.vim']
+\   }
   NeoBundleFetch 'Shougo/neocomplcache'
 else
   NeoBundleFetch 'Shougo/neocomplete'
