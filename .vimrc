@@ -395,7 +395,7 @@ set visualbell t_vb=
 set noerrorbells
 
 " 行末の空白をハイライト
-autocmd MyVimrc VimEnter,WinEnter * match Error /\s\+$/
+autocmd MyVimrc VimEnter,WinEnter * if &filetype == 'vimfiler' |  match Error /\s\+$/ | endif
 
 " コマンドラインウィンドウの末尾20行を除いて全て削除
 autocmd MyVimrc CmdwinEnter * :silent! 1,$-20 delete _ | call cursor("$", 1)
