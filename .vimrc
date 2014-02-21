@@ -112,9 +112,6 @@ NeoBundleLazy 'thinca/vim-visualstar', {
 \     ]
 \   }
 \ }
-NeoBundle 'osyo-manga/vim-precious', {
-\ 'depends': ['Shougo/context_filetype.vim']
-\ }
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
