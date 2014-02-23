@@ -119,7 +119,12 @@ NeoBundleLazy 'thinca/vim-visualstar', {
 
 " git
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'gregsexton/gitv'
+NeoBundleLazy 'gregsexton/gitv', {
+\   'depends': ['tpope/vim-fugitive'],
+\   'autoload': {
+\     'commands': ['Git', 'Gitv']
+\   }
+\ }
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -314,6 +319,22 @@ function! s:bundle.hooks.on_source(bundle)
 endfunction
 unlet s:bundle
 
+"--------------------------------------------------------------------------
+" gitv
+nnoremap ,gv :Gitv<CR>
+let s:bundle = neobundle#get('gitv')
+function! s:bundle.hooks.on_source(bundle)
+  function! g:gitv_get_current_hash()
+    return matchstr(getline('.'), '\[\zs.\{7\}\ze\]$')
+  endfunction
+
+  autocmd MyVimrc FileType gitv call s:my_gitv_settings()
+  function! s:my_gitv_settings()
+    setlocal iskeyword+=/,-,.
+    nnoremap <buffer> C :<C-u>Git checkout <C-r>=g:gitv_get_current_hash()<CR><CR>
+  endfunction
+endfunction
+unlet s:bundle
 
 "--------------------------------------------------------------------------
 " other
