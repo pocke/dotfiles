@@ -44,10 +44,14 @@ NeoBundleLazy 'Shougo/unite.vim', {
 \     'commands' : [ "Unite", "UniteWithBufferDir" ]
 \   }
 \ }
-" rubyのrequireを補完してくれるunite source
 NeoBundleLazy 'rhysd/unite-ruby-require.vim', {
 \   'autoload' : {
 \     'unite_sources' : ['ruby/require']
+\   }
+\ }
+NeoBundleLazy 'Shougo/unite-outline', {
+\   'autoload': {
+\     'unite_sources': ['outline']
 \   }
 \ }
 " 非同期処理
@@ -248,8 +252,8 @@ nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " 色々?
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
-" ruby require
 nnoremap <silent> ,ur :<C-u>Unite ruby/require<CR>
+nnoremap <silent> ,uo :<C-u>Unite outline<CR>
 
 "--------------------------------------------------------------------------
 " switch.vim
