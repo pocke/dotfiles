@@ -119,6 +119,7 @@ NeoBundleLazy 'thinca/vim-visualstar', {
 
 " git
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'gregsexton/gitv'
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
