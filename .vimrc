@@ -123,7 +123,11 @@ NeoBundleLazy 'thinca/vim-visualstar', {
 \ }
 
 " git
-NeoBundle 'tpope/vim-fugitive'
+NeoBundleLazy 'tpope/vim-fugitive', {
+\   'autoload': {
+\     'commands': ['Git', 'Gcd', 'Glcd', 'Gstatus', 'Gcommit', 'Ggrep', 'Glgrep', 'Glog', 'Gllog', 'Gedit', 'Gsplit', 'Gvsplit', 'Gtabedit', 'Gpedit', 'Gread', 'Gwrite', 'Gwq', 'Gdiff', 'Gsdiff', 'Gvdiff', 'Gmove', 'Gremove', 'Gblame', 'Gbrowse']
+\   }
+\ }
 NeoBundleLazy 'gregsexton/gitv', {
 \   'depends': ['tpope/vim-fugitive'],
 \   'autoload': {
@@ -330,6 +334,12 @@ nnoremap <silent> ,gc :<C-u>Gcommit <CR>
 nnoremap <silent> ,gb :<C-u>Gblame  <CR>
 nnoremap <silent> ,gd :<C-u>Gdiff   <CR>
 nnoremap <silent> ,ga :<C-u>Gwrite  <CR>
+
+let s:bundle = neobundle#get('vim-fugitive')
+function! s:bundle.hooks.on_post_source(bundle)
+  doautoall fugitive BufNewFile
+endfunction
+unlet s:bundle
 " }}}
 
 " gitv {{{
