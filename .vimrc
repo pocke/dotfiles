@@ -431,9 +431,9 @@ autocmd MyVimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markd
 " json syntax highlight
 autocmd MyVimrc BufNewFile,BufRead *.json set filetype=javascript
 
-
 " statuslineを表示
 set laststatus=2
+set noshowmode
 
 " ビープ音を鳴らさない
 set visualbell t_vb=
