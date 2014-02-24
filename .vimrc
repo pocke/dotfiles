@@ -2,8 +2,7 @@ augroup MyVimrc
   autocmd!
 augroup END
 
-"--------------------------------------------------------------------------
-" neobundle
+" neobundle {{{
 set nocompatible               " Be iMproved
 filetype off                   " Required!
 
@@ -145,10 +144,11 @@ else
 endif
 
 filetype plugin indent on     " Required!
+"}}}
 
+" plugins setting {{{
 if s:meet_neocomplete_requirements()
-  "--------------------------------------------------------------------------
-  " neocomplete
+  " neocomplete {{{
   " 起動時に有効化
   let g:neocomplete#enable_at_startup = 1
 
@@ -168,10 +168,9 @@ if s:meet_neocomplete_requirements()
 
   " 補完を表示する最小文字数
   let g:neocomplete#auto_completion_start_length = 2
-
+  "}}}
 else
-  "--------------------------------------------------------------------------
-  " neocomplcache
+  " neocomplcache {{{
   " 起動時に有効化
   let g:neocomplcache_enable_at_startup = 1
 
@@ -188,11 +187,10 @@ else
 
   " シンタックスをキャッシュするときの最小文字長
   let g:neocomplcache_min_syntax_length = 3
-
+  " }}}
 endif
 
-"--------------------------------------------------------------------------
-" neosnippet
+" neosnippet {{{
 "http://kazuph.hateblo.jp/entry/2013/01/19/193745
 
 " <TAB>: completion.
@@ -216,9 +214,9 @@ endif
 
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
+"}}}
 
-"--------------------------------------------------------------------------
-" accelerated-smooth-scroll
+" accelerated-smooth-scroll {{{
 
 let s:bundle = neobundle#get("accelerated-smooth-scroll")
 function! s:bundle.hooks.on_source(bundle)
@@ -230,10 +228,9 @@ nmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d)
 nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
 nmap <silent> <C-f> <Plug>(ac-smooth-scroll-c-f)
 nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
+" }}}
 
-
-"--------------------------------------------------------------------------
-" hl_matchit
+" hl_matchit {{{
 source $VIMRUNTIME/macros/matchit.vim
 " vim起動時にhl_matchitを起動するか
 let g:hl_matchit_enable_on_vim_startup = 1
@@ -242,10 +239,9 @@ let g:hl_matchit_enable_on_vim_startup = 1
 let g:hl_matchit_hl_groupname = 'MatchParen'
 " 有効にするファイルの種類
 let g:hl_matchit_allow_ft = 'html\|xml\|vim\|ruby\|sh'
+" }}}
 
-
-"--------------------------------------------------------------------------
-" Unite.vim
+" Unite.vim {{{
 
 let s:bundle = neobundle#get("unite.vim")
 function! s:bundle.hooks.on_source(bundle)
@@ -265,9 +261,9 @@ nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 nnoremap <silent> ,ur :<C-u>Unite ruby/require<CR>
 nnoremap <silent> ,uo :<C-u>Unite outline<CR>
+" }}}
 
-"--------------------------------------------------------------------------
-" switch.vim
+" switch.vim {{{
 let s:bundle = neobundle#get("switch.vim")
 function! s:bundle.hooks.on_source(bundle)
   autocmd MyVimrc FileType gitrebase let b:switch_custom_definitions =
@@ -278,23 +274,23 @@ endfunction
 unlet s:bundle
 
 nnoremap - :Switch<CR>
+" }}}
 
-"--------------------------------------------------------------------------
-" indentline
+" indentline {{{
 
 let g:indentLine_color_term = 239
 " let g:indentLine_color_gui = '#708090'
 let g:indentLine_char = '¦' "use ¦, ┆ or │
 let g:indentLine_fileTypeExclude = ['gitcommit', 'diff']
+" }}}
 
-"--------------------------------------------------------------------------
-" vimfiler
+" vimfiler {{{
 
 nnoremap ,ff :VimFiler<CR>
 nnoremap ,fi :VimFiler -split -simple -winwidth=35 -no-quit<CR>
+" }}}
 
-"--------------------------------------------------------------------------
-" quickrun
+" quickrun {{{
 let s:bundle = neobundle#get("vim-quickrun")
 function! s:bundle.hooks.on_source(bundle)
   let g:quickrun_config = {
@@ -309,9 +305,9 @@ function! s:bundle.hooks.on_source(bundle)
 \   }
 endfunction
 unlet s:bundle
+" }}}
 
-"--------------------------------------------------------------------------
-" clever-f
+" clever-f {{{
 let s:bundle = neobundle#get("clever-f.vim")
 function! s:bundle.hooks.on_source(bundle)
   let g:clever_f_ignore_case           = 1
@@ -320,18 +316,17 @@ function! s:bundle.hooks.on_source(bundle)
   let g:clever_f_chars_match_any_signs = ';'
 endfunction
 unlet s:bundle
+" }}}
 
-"--------------------------------------------------------------------------
-" vim-fugitive
+" vim-fugitive {{{
 nnoremap <silent> ,gs :<C-u>Gstatus <CR>
 nnoremap <silent> ,gc :<C-u>Gcommit <CR>
 nnoremap <silent> ,gb :<C-u>Gblame  <CR>
 nnoremap <silent> ,gd :<C-u>Gdiff   <CR>
 nnoremap <silent> ,ga :<C-u>Gwrite  <CR>
+" }}}
 
-
-"--------------------------------------------------------------------------
-" gitv
+" gitv {{{
 nnoremap ,gv :Gitv<CR>
 let s:bundle = neobundle#get('gitv')
 function! s:bundle.hooks.on_source(bundle)
@@ -346,9 +341,11 @@ function! s:bundle.hooks.on_source(bundle)
   endfunction
 endfunction
 unlet s:bundle
+" }}}
 
-"--------------------------------------------------------------------------
-" other
+" }}}
+
+" other {{{
 syntax enable
 
 " 256色
@@ -444,10 +441,9 @@ autocmd MyVimrc CmdwinEnter * :silent! 1,$-20 delete _ | call cursor("$", 1)
 
 " help で q だけで閉じる
 autocmd MyVimrc FileType help nnoremap <buffer> q <C-w>c
+" }}}
 
-
-"--------------------------------------------------------------------------
-" keybind
+" keybind {{{
 " コマンドラインでのC-n|p と Up, Downの入れ替え
 cnoremap <C-n>  <Down>
 cnoremap <C-p>  <Up>
@@ -464,3 +460,6 @@ nnoremap <C-h> :tabprevious<CR>
 " TABにて対応ペアにジャンプ
 nnoremap <Tab> %
 vnoremap <Tab> %
+" }}}
+
+" vim:set foldmethod=marker:
