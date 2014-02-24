@@ -320,6 +320,15 @@ endfunction
 unlet s:bundle
 
 "--------------------------------------------------------------------------
+" vim-fugitive
+nnoremap <silent> ,gs :<C-u>Gstatus <CR>
+nnoremap <silent> ,gc :<C-u>Gcommit <CR>
+nnoremap <silent> ,gb :<C-u>Gblame  <CR>
+nnoremap <silent> ,gd :<C-u>Gdiff   <CR>
+nnoremap <silent> ,ga :<C-u>Gwrite  <CR>
+
+
+"--------------------------------------------------------------------------
 " gitv
 nnoremap ,gv :Gitv<CR>
 let s:bundle = neobundle#get('gitv')
