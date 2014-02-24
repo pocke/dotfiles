@@ -43,3 +43,5 @@
 
 [rebase]
   autosquash = true
+[github]
+  user = pocke

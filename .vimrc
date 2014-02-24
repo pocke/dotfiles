@@ -80,6 +80,12 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundleLazy 'moznion/hateblo.vim', {
 \   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
 \ }
+NeoBundleLazy 'mattn/gist-vim', {
+\   'depends': ['mattn/webapi-vim'],
+\   'autoload': {
+\     'commands': 'Gist'
+\   }
+\ }
 " ファイラ
 NeoBundleLazy 'Shougo/vimfiler', {
 \   'autoload': {
