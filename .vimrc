@@ -126,6 +126,8 @@ NeoBundleLazy 'gregsexton/gitv', {
 \   }
 \ }
 
+NeoBundle 'itchyny/lightline.vim'
+
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
 endfunction
