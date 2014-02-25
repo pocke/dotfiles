@@ -161,21 +161,15 @@ if s:meet_neocomplete_requirements()
   " neocomplete {{{
   " 起動時に有効化
   let g:neocomplete#enable_at_startup = 1
-
   " 大文字が入力されるまで大文字小文字の区別を無視する
   let g:neocomplete#enable_smart_case = 1
-
   " _(アンダースコア)区切りの補完を有効化
   let g:neocomplete#enable_underbar_completion = 1
-
   let g:neocomplete#enable_camel_case_completion  =  1
-
   " ポップアップメニューで表示される候補の数
   let g:neocomplete#max_list = 20
-
   " シンタックスをキャッシュするときの最小文字長
   let g:neocomplete#sources#syntax#min_keyword_length = 3
-
   " 補完を表示する最小文字数
   let g:neocomplete#auto_completion_start_length = 2
   "}}}
@@ -183,18 +177,13 @@ else
   " neocomplcache {{{
   " 起動時に有効化
   let g:neocomplcache_enable_at_startup = 1
-
   " 大文字が入力されるまで大文字小文字の区別を無視する
   let g:neocomplcache_enable_smart_case = 1
-
   " _(アンダースコア)区切りの補完を有効化
   let g:neocomplcache_enable_underbar_completion = 1
-
   let g:neocomplcache_enable_camel_case_completion  =  1
-
   " ポップアップメニューで表示される候補の数
   let g:neocomplcache_max_list = 20
-
   " シンタックスをキャッシュするときの最小文字長
   let g:neocomplcache_min_syntax_length = 3
   " }}}
@@ -221,13 +210,11 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
-
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 "}}}
 
 " accelerated-smooth-scroll {{{
-
 let s:bundle = neobundle#get("accelerated-smooth-scroll")
 function! s:bundle.hooks.on_source(bundle)
   let g:ac_smooth_scroll_no_default_key_mappings = 1
@@ -252,7 +239,6 @@ let g:hl_matchit_allow_ft = 'html\|xml\|vim\|ruby\|sh'
 " }}}
 
 " Unite.vim {{{
-
 let s:bundle = neobundle#get("unite.vim")
 function! s:bundle.hooks.on_source(bundle)
   let g:unite_enable_start_insert=1
@@ -287,7 +273,6 @@ nnoremap - :Switch<CR>
 " }}}
 
 " indentline {{{
-
 let g:indentLine_color_term = 239
 " let g:indentLine_color_gui = '#708090'
 let g:indentLine_char = '¦' "use ¦, ┆ or │
@@ -295,7 +280,6 @@ let g:indentLine_fileTypeExclude = ['gitcommit', 'diff']
 " }}}
 
 " vimfiler {{{
-
 nnoremap ,ff :VimFiler<CR>
 nnoremap ,fi :VimFiler -split -simple -winwidth=35 -no-quit<CR>
 " }}}
