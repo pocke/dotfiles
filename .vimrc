@@ -123,11 +123,7 @@ NeoBundleLazy 'thinca/vim-visualstar', {
 \ }
 
 " git
-NeoBundleLazy 'tpope/vim-fugitive', {
-\   'autoload': {
-\     'commands': ['Git', 'Gcd', 'Glcd', 'Gstatus', 'Gcommit', 'Ggrep', 'Glgrep', 'Glog', 'Gllog', 'Gedit', 'Gsplit', 'Gvsplit', 'Gtabedit', 'Gpedit', 'Gread', 'Gwrite', 'Gwq', 'Gdiff', 'Gsdiff', 'Gvdiff', 'Gmove', 'Gremove', 'Gblame', 'Gbrowse']
-\   }
-\ }
+NeoBundle 'tpope/vim-fugitive'
 NeoBundleLazy 'gregsexton/gitv', {
 \   'depends': ['tpope/vim-fugitive'],
 \   'autoload': {
@@ -341,6 +337,23 @@ function! s:bundle.hooks.on_source(bundle)
   endfunction
 endfunction
 unlet s:bundle
+" }}}
+
+" lightline.vim {{{
+let g:lightline = {
+\   'active': {
+\     'left': [
+\       ['mode'],
+\       ['readonly', 'fugitive', 'filename', 'modified']
+\     ]
+\   },
+\   'component': {
+\     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+\   },
+\   'component_visible_condition': {
+\     'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+\   }
+\ }
 " }}}
 
 " }}}
