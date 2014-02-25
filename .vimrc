@@ -389,7 +389,7 @@ set hidden
 
 set encoding=utf-8
 " これで開こうとする
-set fileencodings=cp932,sjis,euc-jp,utf-8
+set fileencodings=utf-8,cp932,sjis,euc-jp
 " これで保存しようとする
 set fileencoding=utf-8
 
