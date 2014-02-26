@@ -134,6 +134,12 @@ NeoBundleLazy 'gregsexton/gitv', {
 \ }
 
 NeoBundle 'itchyny/lightline.vim'
+NeoBundleLazy 'Shougo/vimshell', {
+\   'depends': ['Shougo/unite.vim', 'Shougo/neocomplete'],
+\   'autoload': {
+\     'commands': ['VimShell', 'VimShellTab', 'VimShellCreate', 'VimShellPop']
+\   }
+\ }
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -356,6 +362,13 @@ let g:lightline = {
 \     'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
 \   }
 \ }
+" }}}
+
+" vimshell {{{
+nnoremap <silent> ,ss :<C-u>VimShell<CR>
+nnoremap <silent> ,sc :<C-u>VimShellCreate<CR>
+nnoremap <silent> ,sp :<C-u>VimShellPop<CR>
+nnoremap <silent> ,st :<C-u>VimShellTab<CR>
 " }}}
 
 " }}}
