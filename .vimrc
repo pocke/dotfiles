@@ -1,3 +1,5 @@
+" TODO: <C-u>
+
 augroup MyVimrc
   autocmd!
 augroup END
@@ -265,7 +267,7 @@ function! s:bundle.hooks.on_source(bundle)
 endfunction
 unlet s:bundle
 
-nnoremap - :Switch<CR>
+nnoremap - :<C-u>Switch<CR>
 " }}}
 
 " indentline {{{
@@ -276,8 +278,8 @@ let g:indentLine_fileTypeExclude = ['gitcommit', 'diff']
 " }}}
 
 " vimfiler {{{
-nnoremap ,ff :VimFiler<CR>
-nnoremap ,fi :VimFiler -split -simple -winwidth=35 -no-quit<CR>
+nnoremap ,ff :<C-u>VimFiler<CR>
+nnoremap ,fi :<C-u>VimFiler -split -simple -winwidth=35 -no-quit<CR>
 " }}}
 
 " quickrun {{{
@@ -323,7 +325,7 @@ unlet s:bundle
 " }}}
 
 " gitv {{{
-nnoremap ,gv :Gitv<CR>
+nnoremap ,gv :<C-u>Gitv<CR>
 let s:bundle = neobundle#get('gitv')
 function! s:bundle.hooks.on_source(bundle)
   function! g:gitv_get_current_hash()
@@ -450,7 +452,7 @@ set noerrorbells
 autocmd MyVimrc VimEnter,WinEnter * match Error /\s\+$/
 
 " コマンドラインウィンドウの末尾20行を除いて全て削除
-autocmd MyVimrc CmdwinEnter * :silent! 1,$-20 delete _ | call cursor("$", 1)
+autocmd MyVimrc CmdwinEnter * :<C-u>silent! 1,$-20 delete _ | call cursor("$", 1)
 
 " help で q だけで閉じる
 autocmd MyVimrc FileType help nnoremap <buffer> q <C-w>c
@@ -464,11 +466,11 @@ cnoremap <Down> <C-n>
 cnoremap <Up>   <C-p>
 
 " Esc 2回で強調を解除
-nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 
 " タブ移動
-nnoremap <C-l> :tabnext<CR>
-nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :<C-u>tabnext<CR>
+nnoremap <C-h> :<C-u>tabprevious<CR>
 
 " TABにて対応ペアにジャンプ
 nnoremap <Tab> %
