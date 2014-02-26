@@ -469,8 +469,8 @@ cnoremap <Up>   <C-p>
 nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 
 " タブ移動
-nnoremap <C-l> :<C-u>tabnext<CR>
-nnoremap <C-h> :<C-u>tabprevious<CR>
+nnoremap <silent> <C-l> :<C-u>tabnext<CR>
+nnoremap <silent> <C-h> :<C-u>tabprevious<CR>
 
 " TABにて対応ペアにジャンプ
 nnoremap <Tab> %
