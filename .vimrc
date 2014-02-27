@@ -1,5 +1,3 @@
-" TODO: <C-u>
-
 augroup MyVimrc
   autocmd!
 augroup END
