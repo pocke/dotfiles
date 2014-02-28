@@ -69,7 +69,8 @@ NeoBundle 'osyo-manga/vim-watchdogs', {
 \   'depends': [
 \     'thinca/vim-quickrun',
 \     'Shougo/vimproc',
-\     'osyo-manga/shabadou.vim'
+\     'osyo-manga/shabadou.vim',
+\     'jceb/vim-hier'
 \   ]
 \ }
 "NeoBundle 'scrooloose/syntastic'
@@ -268,6 +269,10 @@ nnoremap <silent> ,ur :<C-u>Unite ruby/require<CR>
 nnoremap <silent> ,uo :<C-u>Unite outline<CR>
 " }}}
 
+" watchdogs.vim {{{
+let g:watchdogs_check_BufWritePost_enable = 1
+" }}}
+
 " switch.vim {{{
 let s:bundle = neobundle#get("switch.vim")
 function! s:bundle.hooks.on_source(bundle)
@@ -304,8 +309,12 @@ function! s:bundle.hooks.on_source(bundle)
 \     'markdown': {
 \       'type':      'markdown/gfm',
 \       'outputter': 'browser'
+\     },
+\     'watchdogs_checker/_': {
+\       'hook/close_quickfix/enable_exit': 1
 \     }
 \   }
+  call watchdogs#setup(g:quickrun_config)
 endfunction
 unlet s:bundle
 " }}}
