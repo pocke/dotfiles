@@ -65,7 +65,14 @@ NeoBundle 'Shougo/vimproc', {
 " 整形、桁揃え
 NeoBundle 'Align'
 " 構文チェック
-NeoBundle 'scrooloose/syntastic'
+NeoBundle 'osyo-manga/vim-watchdogs', {
+\   'depends': [
+\     'thinca/vim-quickrun',
+\     'Shougo/vimproc',
+\     'osyo-manga/shabadou.vim'
+\   ]
+\ }
+"NeoBundle 'scrooloose/syntastic'
 " (){}[]''とかの、囲うやつを編集
 NeoBundle 'tpope/vim-surround'
 " true/false とかを簡単に切り替える
