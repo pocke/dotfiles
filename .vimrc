@@ -367,6 +367,15 @@ nnoremap <silent> ,ss :<C-u>VimShell<CR>
 nnoremap <silent> ,sc :<C-u>VimShellCreate<CR>
 nnoremap <silent> ,sp :<C-u>VimShellPop<CR>
 nnoremap <silent> ,st :<C-u>VimShellTab<CR>
+
+let s:bundle = neobundle#get('vimshell')
+function! s:bundle.hooks.on_source(bundle)
+  autocmd MyVimrc FileType vimshell call vimshell#hook#set('chpwd', ['g:my_chpwd'])
+  function! g:my_chpwd(args, context)
+    call vimshell#execute('ls')
+  endfunction
+endfunction
+unlet s:bundle
 " }}}
 
 " }}}
