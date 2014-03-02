@@ -311,7 +311,6 @@ function! s:bundle.hooks.on_source(bundle)
 \       'outputter': 'browser'
 \     },
 \     'watchdogs_checker/_': {
-\       'hook/close_quickfix/enable_exit': 1
 \     }
 \   }
   call watchdogs#setup(g:quickrun_config)
@@ -490,8 +489,8 @@ autocmd MyVimrc VimEnter,WinEnter * match Error /\s\+$/
 " コマンドラインウィンドウの末尾20行を除いて全て削除
 autocmd MyVimrc CmdwinEnter * :<C-u>silent! 1,$-20 delete _ | call cursor("$", 1)
 
-" help で q だけで閉じる
-autocmd MyVimrc FileType help nnoremap <buffer> q <C-w>c
+" q だけで Window を閉じる
+autocmd MyVimrc FileType help,qf nnoremap <buffer> q <C-w>c
 " }}}
 
 " keybind {{{
