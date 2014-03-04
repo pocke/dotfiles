@@ -76,6 +76,12 @@ NeoBundle 'osyo-manga/vim-watchdogs', {
 " text object
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'gcmt/wildfire.vim'
+NeoBundleLazy 'rhysd/vim-textobj-ruby', {
+\   'depends': 'kana/vim-textobj-user',
+\   'autoload': {
+\     'filetypes': 'ruby'
+\   }
+\ }
 " true/false とかを簡単に切り替える
 NeoBundleLazy 'AndrewRadev/switch.vim', {
 \   'autoload': {
