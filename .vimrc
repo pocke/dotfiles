@@ -272,16 +272,18 @@ function! s:bundle.hooks.on_source(bundle)
 endfunction
 unlet s:bundle
 
+nnoremap [unite] <Nop>
+nmap <Space>u [unite]
 " yank履歴
-nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
 " バッファ一覧
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 " ファイル一覧
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " 色々?
-nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
-nnoremap <silent> ,ur :<C-u>Unite ruby/require<CR>
-nnoremap <silent> ,uo :<C-u>Unite outline<CR>
+nnoremap <silent> [unite]u :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> [unite]r :<C-u>Unite ruby/require<CR>
+nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 " }}}
 
 " watchdogs.vim {{{
@@ -309,8 +311,8 @@ let g:indentLine_fileTypeExclude = ['gitcommit', 'diff']
 " }}}
 
 " vimfiler {{{
-nnoremap ,ff :<C-u>VimFiler<CR>
-nnoremap ,fi :<C-u>VimFiler -split -simple -winwidth=35 -no-quit<CR>
+nnoremap <Space>ff :<C-u>VimFiler<CR>
+nnoremap <Space>fi :<C-u>VimFiler -split -simple -winwidth=35 -no-quit<CR>
 " }}}
 
 " quickrun {{{
@@ -345,11 +347,11 @@ unlet s:bundle
 " }}}
 
 " vim-fugitive {{{
-nnoremap <silent> ,gs :<C-u>Gstatus <CR>
-nnoremap <silent> ,gc :<C-u>Gcommit <CR>
-nnoremap <silent> ,gb :<C-u>Gblame  <CR>
-nnoremap <silent> ,gd :<C-u>Gdiff   <CR>
-nnoremap <silent> ,ga :<C-u>Gwrite  <CR>
+nnoremap <silent> <Space>gs :<C-u>Gstatus <CR>
+nnoremap <silent> <Space>gc :<C-u>Gcommit <CR>
+nnoremap <silent> <Space>gb :<C-u>Gblame  <CR>
+nnoremap <silent> <Space>gd :<C-u>Gdiff   <CR>
+nnoremap <silent> <Space>ga :<C-u>Gwrite  <CR>
 
 let s:bundle = neobundle#get('vim-fugitive')
 function! s:bundle.hooks.on_post_source(bundle)
@@ -359,7 +361,7 @@ unlet s:bundle
 " }}}
 
 " gitv {{{
-nnoremap ,gv :<C-u>Gitv<CR>
+nnoremap <Space>gv :<C-u>Gitv<CR>
 let s:bundle = neobundle#get('gitv')
 function! s:bundle.hooks.on_source(bundle)
   function! g:gitv_get_current_hash()
@@ -393,10 +395,10 @@ let g:lightline = {
 " }}}
 
 " vimshell {{{
-nnoremap <silent> ,ss :<C-u>VimShell<CR>
-nnoremap <silent> ,sc :<C-u>VimShellCreate<CR>
-nnoremap <silent> ,sp :<C-u>VimShellPop<CR>
-nnoremap <silent> ,st :<C-u>VimShellTab<CR>
+nnoremap <silent> <Space>ss :<C-u>VimShell<CR>
+nnoremap <silent> <Space>sc :<C-u>VimShellCreate<CR>
+nnoremap <silent> <Space>sp :<C-u>VimShellPop<CR>
+nnoremap <silent> <Space>st :<C-u>VimShellTab<CR>
 
 let s:bundle = neobundle#get('vimshell')
 function! s:bundle.hooks.on_source(bundle)
