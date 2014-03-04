@@ -161,6 +161,11 @@ NeoBundleLazy 'Shougo/vimshell', {
 \     'commands': ['VimShell', 'VimShellTab', 'VimShellCreate', 'VimShellPop']
 \   }
 \ }
+NeoBundleLazy 'kana/vim-smartinput', {
+\   'autoload': {
+\     'insert': '1'
+\   }
+\ }
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -411,6 +416,44 @@ function! s:bundle.hooks.on_source(bundle)
   let g:vimshell_user_prompt = 'getcwd()'
 endfunction
 unlet s:bundle
+" }}}
+
+" vim-smartinput {{{
+let s:bundle = neobundle#get('vim-smartinput')
+function! s:bundle.hooks.on_source(bundle)
+  call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
+  call smartinput#define_rule({
+    \ 'at':    '(\%#)',
+    \ 'char':  '<Space>',
+    \ 'input': '<Space><Space><Left>',
+    \ })
+  call smartinput#define_rule({
+    \ 'at':    '( \%# )',
+    \ 'char':  '<BS>',
+    \ 'input': '<Del><BS>',
+    \ })
+  call smartinput#define_rule({
+    \   'at':    '\s\+\%#',
+    \   'char':  '<CR>',
+    \   'input': "<C-o>:call setline('.', substitute(getline('.'), '\\s\\+$', '', ''))<CR><CR>",
+    \ })
+  call smartinput#map_to_trigger('i', '#', '#', '#')
+  call smartinput#define_rule({
+    \   'at':       '\%#',
+    \   'char':     '#',
+    \   'input':    '#{}<Left>',
+    \   'filetype': ['ruby'],
+    \   'syntax':   ['Constant', 'Special'],
+    \ })
+
+  call smartinput#map_to_trigger('i', '<Bar>', '<Bar>', '<Bar>')
+  call smartinput#define_rule({
+    \   'at':       '\({\|\<do\>\)\s*\%#',
+    \   'char':     '<Bar>',
+    \   'input':    '<Bar><Bar><Left>',
+    \   'filetype': ['ruby'],
+    \ })
+endfunction
 " }}}
 
 " }}}
