@@ -406,6 +406,9 @@ function! s:bundle.hooks.on_source(bundle)
   function! g:my_chpwd(args, context)
     call vimshell#execute('ls')
   endfunction
+  let g:vimshell_prompt = '% '
+  let g:vimshell_secondary_prompt = '> '
+  let g:vimshell_user_prompt = 'getcwd()'
 endfunction
 unlet s:bundle
 " }}}
