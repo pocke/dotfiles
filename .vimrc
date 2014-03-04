@@ -166,6 +166,11 @@ NeoBundleLazy 'kana/vim-smartinput', {
 \     'insert': '1'
 \   }
 \ }
+NeoBundleLazy 'kana/vim-smartchr', {
+\   'autoload': {
+\     'insert': '1'
+\   }
+\ }
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -453,6 +458,13 @@ function! s:bundle.hooks.on_source(bundle)
     \   'input':    '<Bar><Bar><Left>',
     \   'filetype': ['ruby'],
     \ })
+endfunction
+" }}}
+
+" vim-smartchr {{{
+let s:bundle = neobundle#get('vim-smartchr')
+function! s:bundle.hooks.on_source(bundle)
+  inoremap <expr> , smartchr#loop(', ', ',')
 endfunction
 " }}}
 
