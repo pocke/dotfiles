@@ -73,9 +73,9 @@ NeoBundle 'osyo-manga/vim-watchdogs', {
 \     'jceb/vim-hier'
 \   ]
 \ }
-"NeoBundle 'scrooloose/syntastic'
-" (){}[]''とかの、囲うやつを編集
+" text object
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'gcmt/wildfire.vim'
 " true/false とかを簡単に切り替える
 NeoBundleLazy 'AndrewRadev/switch.vim', {
 \   'autoload': {
