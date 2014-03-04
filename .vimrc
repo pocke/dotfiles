@@ -82,6 +82,15 @@ NeoBundleLazy 'rhysd/vim-textobj-ruby', {
 \     'filetypes': 'ruby'
 \   }
 \ }
+NeoBundleLazy 'deris/vim-textobj-enclosedsyntax', {
+\   'depends': 'kana/vim-textobj-user',
+\   'autoload': {
+\     'filetypes': 'ruby'
+\   }
+\ }
+NeoBundle 'kana/vim-textobj-syntax', {
+\   'depends': 'kana/vim-textobj-user'
+\ }
 " true/false とかを簡単に切り替える
 NeoBundleLazy 'AndrewRadev/switch.vim', {
 \   'autoload': {
