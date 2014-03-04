@@ -450,6 +450,9 @@ set shiftwidth=2
 set list
 set listchars=tab:>-
 
+" ノーマルモードでoOで改行した時にコメントを追加しない
+autocmd MyVimrc FileType * setlocal formatoptions-=o
+
 " インサートモード時にバックスペースを使う
 set backspace=indent,eol,start
 
