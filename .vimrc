@@ -65,7 +65,7 @@ NeoBundle 'Shougo/vimproc', {
 " 整形、桁揃え
 NeoBundle 'Align'
 " 構文チェック
-NeoBundle 'osyo-manga/vim-watchdogs', {
+NeoBundleLazy 'osyo-manga/vim-watchdogs', {
 \   'depends': [
 \     'thinca/vim-quickrun',
 \     'Shougo/vimproc',
@@ -296,8 +296,14 @@ nnoremap <silent> [unite]r :<C-u>Unite ruby/require<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 " }}}
 
-" watchdogs.vim {{{
-let g:watchdogs_check_BufWritePost_enable = 1
+" vim-watchdogs {{{
+autocmd MyVimrc BufWritePre * NeoBundleSource vim-watchdogs
+let s:bundle = neobundle#get("vim-watchdogs")
+function! s:bundle.hooks.on_source(bundle)
+  let g:watchdogs_check_BufWritePost_enable = 1
+  call watchdogs#setup(g:quickrun_config)
+endfunction
+unlet s:bundle
 " }}}
 
 " switch.vim {{{
@@ -340,7 +346,6 @@ function! s:bundle.hooks.on_source(bundle)
 \     'watchdogs_checker/_': {
 \     }
 \   }
-  call watchdogs#setup(g:quickrun_config)
 endfunction
 unlet s:bundle
 " }}}
