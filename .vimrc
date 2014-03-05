@@ -332,6 +332,7 @@ nnoremap <Space>fi :<C-u>VimFiler -split -simple -winwidth=35 -no-quit<CR>
 " }}}
 
 " quickrun {{{
+nnoremap <silent><Leader>r :QuickRun<CR>
 let s:bundle = neobundle#get("vim-quickrun")
 function! s:bundle.hooks.on_source(bundle)
   let g:quickrun_config = {
