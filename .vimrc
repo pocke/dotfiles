@@ -432,17 +432,6 @@ unlet s:bundle
 " vim-smartinput {{{
 let s:bundle = neobundle#get('vim-smartinput')
 function! s:bundle.hooks.on_source(bundle)
-  call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
-  call smartinput#define_rule({
-    \ 'at':    '(\%#)',
-    \ 'char':  '<Space>',
-    \ 'input': '<Space><Space><Left>',
-    \ })
-  call smartinput#define_rule({
-    \ 'at':    '( \%# )',
-    \ 'char':  '<BS>',
-    \ 'input': '<Del><BS>',
-    \ })
   call smartinput#define_rule({
     \   'at':    '\s\+\%#',
     \   'char':  '<CR>',
