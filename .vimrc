@@ -557,7 +557,7 @@ set visualbell t_vb=
 set noerrorbells
 
 " コマンドラインウィンドウの末尾20行を除いて全て削除
-autocmd MyVimrc CmdwinEnter * :<C-u>silent! 1,$-20 delete _ | call cursor("$", 1)
+"autocmd MyVimrc CmdwinEnter * :<C-u>silent! 1,$-20 delete _ | call cursor("$", 1)
 
 " q だけで Window を閉じる
 autocmd MyVimrc FileType help,qf nnoremap <buffer> q <C-w>c
