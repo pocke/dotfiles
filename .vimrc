@@ -577,6 +577,9 @@ nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 nnoremap <silent> <C-l> :<C-u>tabnext<CR>
 nnoremap <silent> <C-h> :<C-u>tabprevious<CR>
 
+" タグジャンプを新しいタブで開く
+nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
+
 " TABにて対応ペアにジャンプ
 nnoremap <Tab> %
 vnoremap <Tab> %
