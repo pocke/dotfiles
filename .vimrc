@@ -171,7 +171,11 @@ NeoBundleLazy 'kana/vim-smartchr', {
 \     'insert': '1'
 \   }
 \ }
-NeoBundle 'osyo-manga/vim-over'
+NeoBundleLazy 'osyo-manga/vim-over', {
+\   'autoload': {
+\     'commands': 'OverCommandLine'
+\   }
+\ }
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
