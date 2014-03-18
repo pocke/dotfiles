@@ -171,6 +171,7 @@ NeoBundleLazy 'kana/vim-smartchr', {
 \     'insert': '1'
 \   }
 \ }
+NeoBundle 'osyo-manga/vim-over'
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -462,6 +463,10 @@ function! s:bundle.hooks.on_source(bundle)
   inoremap <expr> , smartchr#loop(', ', ',')
 endfunction
 " }}}
+
+" vim-over {{{
+cnoreabbrev <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>' : 's'
+"}}}
 
 " }}}
 
