@@ -91,10 +91,10 @@ NeoBundleLazy 'deris/vim-textobj-enclosedsyntax', {
 NeoBundle 'kana/vim-textobj-syntax', {
 \   'depends': 'kana/vim-textobj-user'
 \ }
-
 NeoBundle 'osyo-manga/vim-textobj-blockwise', {
 \   'depends': 'kana/vim-textobj-user'
 \ }
+
 " true/false とかを簡単に切り替える
 NeoBundleLazy 'AndrewRadev/switch.vim', {
 \   'autoload': {
