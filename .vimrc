@@ -353,6 +353,9 @@ function! s:bundle.hooks.on_source(bundle)
 \       'type':      'markdown/gfm',
 \       'outputter': 'browser'
 \     },
+\     'ruby.rspec': {
+\       'command': 'rspec'
+\     },
 \     'watchdogs_checker/_': {
 \     }
 \   }
@@ -556,10 +559,10 @@ endif
 " 前回終了したカーソル行に移動
 autocmd MyVimrc BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-" md as markdown, instead of modula2
+" filetype
 autocmd MyVimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-" json syntax highlight
 autocmd MyVimrc BufNewFile,BufRead *.json set filetype=javascript
+autocmd MyVimrc BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
 
 " statuslineを表示
 set laststatus=2
