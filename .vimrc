@@ -74,26 +74,25 @@ NeoBundleLazy 'osyo-manga/vim-watchdogs', {
 \   ]
 \ }
 " text object
-NeoBundle 'tpope/vim-surround'
+NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'gcmt/wildfire.vim'
 NeoBundleLazy 'rhysd/vim-textobj-ruby', {
-\   'depends': 'kana/vim-textobj-user',
 \   'autoload': {
 \     'filetypes': 'ruby'
 \   }
 \ }
 NeoBundleLazy 'deris/vim-textobj-enclosedsyntax', {
-\   'depends': 'kana/vim-textobj-user',
 \   'autoload': {
 \     'filetypes': 'ruby'
 \   }
 \ }
-NeoBundle 'kana/vim-textobj-syntax', {
-\   'depends': 'kana/vim-textobj-user'
-\ }
-NeoBundle 'osyo-manga/vim-textobj-blockwise', {
-\   'depends': 'kana/vim-textobj-user'
-\ }
+NeoBundle 'kana/vim-textobj-syntax'
+NeoBundle 'osyo-manga/vim-textobj-blockwise'
+
+" operator
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'kana/vim-operator-user'
+
 
 " true/false とかを簡単に切り替える
 NeoBundleLazy 'AndrewRadev/switch.vim', {
