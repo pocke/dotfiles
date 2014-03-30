@@ -90,8 +90,8 @@ NeoBundle 'kana/vim-textobj-syntax'
 NeoBundle 'osyo-manga/vim-textobj-blockwise'
 
 " operator
-NeoBundle 'tpope/vim-surround'
 NeoBundle 'kana/vim-operator-user'
+NeoBundle 'rhysd/vim-operator-surround'
 
 
 " true/false とかを簡単に切り替える
@@ -179,6 +179,8 @@ NeoBundleLazy 'osyo-manga/vim-over', {
 \     'commands': 'OverCommandLine'
 \   }
 \ }
+NeoBundle 'kana/vim-arpeggio'
+call arpeggio#load()
 
 function! s:meet_neocomplete_requirements()
   return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
@@ -312,6 +314,12 @@ function! s:bundle.hooks.on_source(bundle)
   call watchdogs#setup(g:quickrun_config)
 endfunction
 unlet s:bundle
+" }}}
+
+" vim-operator-surround {{{
+Arpeggio map <silent>sa <Plug>(operator-surround-append)
+Arpeggio map <silent>sd <Plug>(operator-surround-delete)
+Arpeggio map <silent>sr <Plug>(operator-surround-replace)
 " }}}
 
 " switch.vim {{{
