@@ -610,6 +610,7 @@ nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 " タブ移動
 nnoremap <silent> <C-l> :<C-u>tabnext<CR>
 nnoremap <silent> <C-h> :<C-u>tabprevious<CR>
+nnoremap <silent> <Space>tt :<C-u>tabnew<CR>
 
 " タグジャンプを新しいタブで開く
 nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
