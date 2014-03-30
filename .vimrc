@@ -92,6 +92,8 @@ NeoBundle 'osyo-manga/vim-textobj-blockwise'
 " operator
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'rhysd/vim-operator-surround'
+NeoBundle 'emonkak/vim-operator-comment'
+NeoBundle 'tyru/operator-camelize.vim'
 
 
 " true/false とかを簡単に切り替える
@@ -320,6 +322,15 @@ unlet s:bundle
 Arpeggio map <silent>sa <Plug>(operator-surround-append)
 Arpeggio map <silent>sd <Plug>(operator-surround-delete)
 Arpeggio map <silent>sr <Plug>(operator-surround-replace)
+" }}}
+
+" vim-operator-comment {{{
+Arpeggio map <silent>co <Plug>(operator-comment)
+Arpeggio map <silent>cu <Plug>(operator-uncomment)
+" }}}
+
+" operator-camelize.vim {{{
+Arpeggio map <silent>ca <Plug>(operator-camelize-toggle)
 " }}}
 
 " switch.vim {{{
