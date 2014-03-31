@@ -619,6 +619,8 @@ nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 " TABにて対応ペアにジャンプ
 nnoremap <Tab> %
 vnoremap <Tab> %
+
+Arpeggio nnoremap jk :<C-u>w<CR>
 " }}}
 
 " vim:set foldmethod=marker:
