@@ -117,7 +117,7 @@ NeoBundleLazy 'mattn/gist-vim', {
 " ファイラ
 NeoBundleLazy 'Shougo/vimfiler', {
 \   'autoload': {
-\     'commands': ['VimFilerBufferDir', 'VimFiler']
+\     'commands': ['VimFilerBufferDir', 'VimFiler', 'VimFilerTab']
 \   },
 \   'depends': 'Shougo/unite.vim'
 \ }
