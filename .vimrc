@@ -560,6 +560,9 @@ set hlsearch | nohlsearch
 "titleを表示
 set title
 
+" 入力中のコマンドを表示
+set showcmd
+
 " 余裕を持ってスクロール
 set scrolloff=4
 
