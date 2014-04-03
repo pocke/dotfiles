@@ -35,7 +35,7 @@ if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ]; the
   source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 fi
 
-setopt complete_aliases
+setopt no_complete_aliases
 
 ### alias
 basedir=$(dirname $0)
