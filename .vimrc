@@ -28,6 +28,7 @@ NeoBundleLazy 'yonchu/accelerated-smooth-scroll', {
 \     ]
 \   }
 \ }
+NeoBundle 'Lokaltog/vim-easymotion'
 
 NeoBundle 'sudo.vim'
 " colorscheme
@@ -270,6 +271,13 @@ nmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d)
 nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
 nmap <silent> <C-f> <Plug>(ac-smooth-scroll-c-f)
 nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
+" }}}
+
+" vim-easymotion {{{
+nmap <Plug>(arpeggio-default:s) <Plug>(easymotion-s2)
+nmap g/ <Plug>(easymotion-sn)
+xmap g/ <Plug>(easymotion-sn)
+omap g/ <Plug>(easymotion-tn)
 " }}}
 
 " hl_matchit {{{
