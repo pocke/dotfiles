@@ -173,6 +173,7 @@ NeoBundleLazy 'kana/vim-smartchr', {
 \     'insert': '1'
 \   }
 \ }
+NeoBundle 'kana/vim-submode'
 NeoBundleLazy 'osyo-manga/vim-over', {
 \   'autoload': {
 \     'commands': 'OverCommandLine'
@@ -491,6 +492,24 @@ let s:bundle = neobundle#get('vim-smartchr')
 function! s:bundle.hooks.on_source(bundle)
   inoremap <expr> , smartchr#loop(', ', ',')
 endfunction
+" }}}
+
+" vim-submode {{{
+call submode#enter_with('winsize', 'n', '', '<C-w>>', '<C-w>>')
+call submode#enter_with('winsize', 'n', '', '<C-w><', '<C-w><')
+call submode#enter_with('winsize', 'n', '', '<C-w>+', '<C-w>-')
+call submode#enter_with('winsize', 'n', '', '<C-w>-', '<C-w>+')
+call submode#map('winsize', 'n', '', '>', '<C-w>>')
+call submode#map('winsize', 'n', '', '<', '<C-w><')
+call submode#map('winsize', 'n', '', '+', '<C-w>-')
+call submode#map('winsize', 'n', '', '-', '<C-w>+')
+function! s:my_x()
+    undojoin
+    normal! "_x
+endfunction
+nnoremap <silent> <Plug>(my-x) :<C-u>call <SID>my_x()<CR>
+call submode#enter_with('my_x', 'n', '', 'x', '"_x')
+call submode#map('my_x', 'n', 'r', 'x', '<Plug>(my-x)')
 " }}}
 
 " vim-over {{{
