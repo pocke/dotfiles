@@ -8,11 +8,9 @@ alias du='du -h'
 alias cp='cp -v'
 alias mv='mv -v'
 alias vi='vim'
-if which yaourt > /dev/null 2>&1; then
-  alias yao='yaourt -Syua'
-fi
 alias grep='LANG=C grep -n '
 alias jman='LANG=ja_JP.UTF-8 man'
+alias be='bundle exec'
 
 ### global alias
 alias -g G='| "grep"'
