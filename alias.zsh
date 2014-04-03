@@ -11,6 +11,7 @@ alias vi='vim'
 alias grep='LANG=C grep -n '
 alias jman='LANG=ja_JP.UTF-8 man'
 alias be='bundle exec'
+alias g='git'
 
 ### global alias
 alias -g G='| "grep"'
