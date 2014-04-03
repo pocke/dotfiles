@@ -115,10 +115,7 @@ NeoBundleLazy 'mattn/gist-vim', {
 \   }
 \ }
 " ファイラ
-NeoBundleLazy 'Shougo/vimfiler', {
-\   'autoload': {
-\     'commands': ['VimFilerBufferDir', 'VimFiler', 'VimFilerTab']
-\   },
+NeoBundle 'Shougo/vimfiler', {
 \   'depends': 'Shougo/unite.vim'
 \ }
 " コマンド実行
@@ -354,6 +351,7 @@ let g:indentLine_fileTypeExclude = ['gitcommit', 'diff']
 " }}}
 
 " vimfiler {{{
+let g:vimfiler_as_default_explorer = 1
 nnoremap <Space>ff :<C-u>VimFiler<CR>
 nnoremap <Space>ft :<C-u>VimFilerTab<CR>
 nnoremap <Space>tf :<C-u>VimFilerTab<CR>
