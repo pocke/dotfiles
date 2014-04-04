@@ -274,10 +274,12 @@ nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
 " }}}
 
 " vim-easymotion {{{
+let g:EasyMotion_startofline = 0
 nmap <Plug>(arpeggio-default:s) <Plug>(easymotion-s2)
-nmap g/ <Plug>(easymotion-sn)
-xmap g/ <Plug>(easymotion-sn)
-omap g/ <Plug>(easymotion-tn)
+nmap <Space>/ <Plug>(easymotion-sn)
+xmap <Space>/ <Plug>(easymotion-sn)
+omap <Space>/ <Plug>(easymotion-tn)
+Arpeggio map jk <Plug>(easymotion-bd-jk)
 " }}}
 
 " hl_matchit {{{
@@ -649,7 +651,6 @@ nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 nnoremap <Tab> %
 vnoremap <Tab> %
 
-Arpeggio nnoremap jk :<C-u>w<CR>
 " }}}
 
 " vim:set foldmethod=marker:
