@@ -274,6 +274,7 @@ nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
 " }}}
 
 " vim-easymotion {{{
+let g:EasyMotion_smartcase   = 1
 let g:EasyMotion_startofline = 0
 nmap <Plug>(arpeggio-default:s) <Plug>(easymotion-s2)
 nmap <Space>/ <Plug>(easymotion-sn)
