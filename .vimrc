@@ -533,7 +533,7 @@ cnoreabbrev <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverComma
 syntax enable
 
 " 256色
-if $TERM == 'xterm'
+if $TERM == 'xterm' || $TERM == 'screen-256color'
   set t_Co=256
 endif
 " カラースキーム

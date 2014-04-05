@@ -12,6 +12,7 @@ alias grep='LANG=C grep -n '
 alias jman='LANG=ja_JP.UTF-8 man'
 alias be='bundle exec'
 alias g='git'
+alias tmux='TERM=screen-256color tmux -2'
 
 ### global alias
 alias -g G='| "grep"'
