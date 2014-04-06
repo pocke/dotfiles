@@ -105,6 +105,7 @@ NeoBundleLazy 'AndrewRadev/switch.vim', {
 \ }
 " インデントに線を表示
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'vim-scripts/AnsiEsc.vim'
 " はてなブログ
 NeoBundleLazy 'moznion/hateblo.vim', {
 \   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
@@ -384,11 +385,13 @@ function! s:bundle.hooks.on_source(bundle)
 \       'outputter': 'browser'
 \     },
 \     'ruby.rspec': {
-\       'command': 'rspec'
+\       'command': 'rspec',
+\       'exec': 'bundle exec %c --color --tty %s'
 \     },
 \     'watchdogs_checker/_': {
 \     }
 \   }
+  autocmd MyVimrc FileType quickrun AnsiEsc
 endfunction
 unlet s:bundle
 " }}}
