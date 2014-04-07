@@ -645,6 +645,10 @@ nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 nnoremap <silent> <C-l> :<C-u>tabnext<CR>
 nnoremap <silent> <C-h> :<C-u>tabprevious<CR>
 nnoremap <silent> <Space>tt :<C-u>tabnew<CR>
+call submode#enter_with('changetab', 'n', '', 'gt', 'gt')
+call submode#enter_with('changetab', 'n', '', 'gT', 'gT')
+call submode#map('changetab', 'n', '', 't', 'gt')
+call submode#map('changetab', 'n', '', 'T', 'gT')
 
 " タグジャンプを新しいタブで開く
 nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
