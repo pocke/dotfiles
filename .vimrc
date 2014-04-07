@@ -63,8 +63,6 @@ NeoBundle 'Shougo/vimproc', {
     \ 'unix' : 'make -f make_unix.mak',
   \ },
 \ }
-" 整形、桁揃え
-NeoBundle 'Align'
 " 構文チェック
 NeoBundleLazy 'osyo-manga/vim-watchdogs', {
 \   'depends': [
