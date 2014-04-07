@@ -28,6 +28,7 @@ NeoBundleLazy 'yonchu/accelerated-smooth-scroll', {
 \     ]
 \   }
 \ }
+NeoBundle 'Lokaltog/vim-easymotion'
 
 NeoBundle 'sudo.vim'
 " colorscheme
@@ -104,6 +105,7 @@ NeoBundleLazy 'AndrewRadev/switch.vim', {
 \ }
 " インデントに線を表示
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'vim-scripts/AnsiEsc.vim'
 " はてなブログ
 NeoBundleLazy 'moznion/hateblo.vim', {
 \   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
@@ -115,10 +117,7 @@ NeoBundleLazy 'mattn/gist-vim', {
 \   }
 \ }
 " ファイラ
-NeoBundleLazy 'Shougo/vimfiler', {
-\   'autoload': {
-\     'commands': ['VimFilerBufferDir', 'VimFiler', 'VimFilerTab']
-\   },
+NeoBundle 'Shougo/vimfiler', {
 \   'depends': 'Shougo/unite.vim'
 \ }
 " コマンド実行
@@ -176,6 +175,7 @@ NeoBundleLazy 'kana/vim-smartchr', {
 \     'insert': '1'
 \   }
 \ }
+NeoBundle 'kana/vim-submode'
 NeoBundleLazy 'osyo-manga/vim-over', {
 \   'autoload': {
 \     'commands': 'OverCommandLine'
@@ -274,6 +274,16 @@ nmap <silent> <C-f> <Plug>(ac-smooth-scroll-c-f)
 nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
 " }}}
 
+" vim-easymotion {{{
+let g:EasyMotion_smartcase   = 1
+let g:EasyMotion_startofline = 0
+nmap <Plug>(arpeggio-default:s) <Plug>(easymotion-s2)
+nmap <Space>/ <Plug>(easymotion-sn)
+xmap <Space>/ <Plug>(easymotion-sn)
+omap <Space>/ <Plug>(easymotion-tn)
+Arpeggio map jk <Plug>(easymotion-bd-jk)
+" }}}
+
 " hl_matchit {{{
 source $VIMRUNTIME/macros/matchit.vim
 " vim起動時にhl_matchitを起動するか
@@ -354,6 +364,7 @@ let g:indentLine_fileTypeExclude = ['gitcommit', 'diff']
 " }}}
 
 " vimfiler {{{
+let g:vimfiler_as_default_explorer = 1
 nnoremap <Space>ff :<C-u>VimFiler<CR>
 nnoremap <Space>ft :<C-u>VimFilerTab<CR>
 nnoremap <Space>tf :<C-u>VimFilerTab<CR>
@@ -374,11 +385,13 @@ function! s:bundle.hooks.on_source(bundle)
 \       'outputter': 'browser'
 \     },
 \     'ruby.rspec': {
-\       'command': 'rspec'
+\       'command': 'rspec',
+\       'exec': 'bundle exec %c --color --tty %s'
 \     },
 \     'watchdogs_checker/_': {
 \     }
 \   }
+  autocmd MyVimrc FileType quickrun AnsiEsc
 endfunction
 unlet s:bundle
 " }}}
@@ -495,6 +508,24 @@ function! s:bundle.hooks.on_source(bundle)
 endfunction
 " }}}
 
+" vim-submode {{{
+call submode#enter_with('winsize', 'n', '', '<C-w>>', '<C-w>>')
+call submode#enter_with('winsize', 'n', '', '<C-w><', '<C-w><')
+call submode#enter_with('winsize', 'n', '', '<C-w>+', '<C-w>-')
+call submode#enter_with('winsize', 'n', '', '<C-w>-', '<C-w>+')
+call submode#map('winsize', 'n', '', '>', '<C-w>>')
+call submode#map('winsize', 'n', '', '<', '<C-w><')
+call submode#map('winsize', 'n', '', '+', '<C-w>-')
+call submode#map('winsize', 'n', '', '-', '<C-w>+')
+function! s:my_x()
+    undojoin
+    normal! "_x
+endfunction
+nnoremap <silent> <Plug>(my-x) :<C-u>call <SID>my_x()<CR>
+call submode#enter_with('my_x', 'n', '', 'x', '"_x')
+call submode#map('my_x', 'n', 'r', 'x', '<Plug>(my-x)')
+" }}}
+
 " vim-over {{{
 cnoreabbrev <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>' : 's'
 "}}}
@@ -505,7 +536,7 @@ cnoreabbrev <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverComma
 syntax enable
 
 " 256色
-if $TERM == 'xterm'
+if $TERM == 'xterm' || $TERM == 'screen-256color'
   set t_Co=256
 endif
 " カラースキーム
@@ -624,7 +655,6 @@ nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 nnoremap <Tab> %
 vnoremap <Tab> %
 
-Arpeggio nnoremap jk :<C-u>w<CR>
 " }}}
 
 " vim:set foldmethod=marker:
