@@ -70,7 +70,7 @@ NeoBundleLazy 'osyo-manga/vim-watchdogs', {
 \     'thinca/vim-quickrun',
 \     'Shougo/vimproc',
 \     'osyo-manga/shabadou.vim',
-\     'jceb/vim-hier'
+\     'cohama/vim-hier'
 \   ]
 \ }
 " text object
