@@ -615,6 +615,7 @@ autocmd MyVimrc BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | e
 " filetype
 autocmd MyVimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 autocmd MyVimrc BufNewFile,BufRead *.json set filetype=javascript
+autocmd MyVimrc BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 autocmd MyVimrc BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
 
 " statuslineを表示
