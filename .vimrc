@@ -174,6 +174,11 @@ NeoBundleLazy 'Shougo/vimshell', {
 \     'commands': ['VimShell', 'VimShellTab', 'VimShellCreate', 'VimShellPop']
 \   }
 \ }
+NeoBundleLazy 'itchyny/calendar.vim', {
+\   'autoload': {
+\     'commands': ['Calendar']
+\   }
+\ }
 
 " Visual Mode でも * で検索
 NeoBundleLazy 'thinca/vim-visualstar', {
@@ -548,6 +553,14 @@ call submode#map('my_x', 'n', 'r', 'x', '<Plug>(my-x)')
 " vim-over {{{
 cnoreabbrev <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>' : 's'
 "}}}
+
+" calendar.vim {{{
+let s:bundle = neobundle#get('calendar.vim')
+function! s:bundle.hooks.on_source(bundle)
+  let g:calendar_google_calendar = 1
+  let g:calendar_google_task = 1
+endfunction
+" }}}
 
 " }}}
 
