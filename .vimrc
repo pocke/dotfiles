@@ -15,8 +15,70 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 
+" 入力系プラグイン {{{
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
+
+" true/false とかを簡単に切り替える
+NeoBundleLazy 'AndrewRadev/switch.vim', {
+\   'autoload': {
+\     'commands': 'Switch'
+\   }
+\ }
+
+NeoBundleLazy 'kana/vim-smartinput', {
+\   'autoload': {
+\     'insert': '1'
+\   }
+\ }
+NeoBundleLazy 'kana/vim-smartchr', {
+\   'autoload': {
+\     'insert': '1'
+\   }
+\ }
+
+" text object {{{
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'gcmt/wildfire.vim'
+NeoBundleLazy 'rhysd/vim-textobj-ruby', {
+\   'autoload': {
+\     'filetypes': 'ruby'
+\   }
+\ }
+NeoBundleLazy 'deris/vim-textobj-enclosedsyntax', {
+\   'autoload': {
+\     'filetypes': 'ruby'
+\   }
+\ }
+NeoBundle 'kana/vim-textobj-syntax'
+NeoBundle 'osyo-manga/vim-textobj-blockwise'
+" }}}
+
+" operator {{{
+NeoBundle 'kana/vim-operator-user'
+NeoBundle 'rhysd/vim-operator-surround'
+NeoBundle 'emonkak/vim-operator-comment'
+NeoBundle 'tyru/operator-camelize.vim'
+" }}}
+
+" }}}
+
+" 表示系プラグイン {{{
+NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'vim-scripts/AnsiEsc.vim'
+NeoBundle 'itchyny/lightline.vim'
+
+" ruby のブロックとかがハイライト
+NeoBundle 'vimtaku/hl_matchit.vim.git'
+
+" colorscheme {{{
+NeoBundleLazy 'vim-scripts/rdark'
+NeoBundle 'pocke/funyapoyo.vim'
+NeoBundleLazy 'itchyny/landscape.vim'
+" }}}
+" }}}
+
+" 移動系プラグイン {{{
 " ぬるぬるスクロール
 NeoBundleLazy 'yonchu/accelerated-smooth-scroll', {
 \   'autoload': {
@@ -29,16 +91,16 @@ NeoBundleLazy 'yonchu/accelerated-smooth-scroll', {
 \   }
 \ }
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundleLazy 'rhysd/clever-f.vim', {
+\   'autoload': {
+\     'mappings': 'f'
+\   }
+\ }
+" }}}
 
 NeoBundle 'sudo.vim'
-" colorscheme
-NeoBundleLazy 'vim-scripts/rdark'
-NeoBundle 'pocke/funyapoyo.vim'
-NeoBundleLazy 'itchyny/landscape.vim'
 
-" ruby のブロックとかがハイライト
-NeoBundle 'vimtaku/hl_matchit.vim.git'
-" ゆないと
+" Unite {{{
 NeoBundleLazy 'Shougo/unite.vim', {
 \   'autoload' : {
 \     'commands' : [ "Unite", "UniteWithBufferDir" ]
@@ -54,6 +116,8 @@ NeoBundleLazy 'Shougo/unite-outline', {
 \     'unite_sources': ['outline']
 \   }
 \ }
+" }}}
+
 " 非同期処理
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -62,6 +126,22 @@ NeoBundle 'Shougo/vimproc', {
     \ 'mac' : 'make -f make_mac.mak',
     \ 'unix' : 'make -f make_unix.mak',
   \ },
+\ }
+NeoBundle 'tyru/open-browser.vim'
+
+" コマンド実行
+NeoBundleLazy 'thinca/vim-quickrun', {
+\   'autoload': {
+\     'mappings': [['nxo', '<Plug>(quickrun)']],
+\     'commands': 'QuickRun'
+\   }
+\ }
+" markdown quickrun
+NeoBundleLazy 'superbrothers/vim-quickrun-markdown-gfm', {
+\   'depends': ['mattn/webapi-vim', 'thinca/vim-quickrun', 'tyru/open-browser.vim'],
+\   'autoload': {
+\     'filetypes': 'markdown'
+\   }
 \ }
 " 構文チェック
 NeoBundleLazy 'osyo-manga/vim-watchdogs', {
@@ -72,38 +152,7 @@ NeoBundleLazy 'osyo-manga/vim-watchdogs', {
 \     'cohama/vim-hier'
 \   ]
 \ }
-" text object
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'gcmt/wildfire.vim'
-NeoBundleLazy 'rhysd/vim-textobj-ruby', {
-\   'autoload': {
-\     'filetypes': 'ruby'
-\   }
-\ }
-NeoBundleLazy 'deris/vim-textobj-enclosedsyntax', {
-\   'autoload': {
-\     'filetypes': 'ruby'
-\   }
-\ }
-NeoBundle 'kana/vim-textobj-syntax'
-NeoBundle 'osyo-manga/vim-textobj-blockwise'
 
-" operator
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'rhysd/vim-operator-surround'
-NeoBundle 'emonkak/vim-operator-comment'
-NeoBundle 'tyru/operator-camelize.vim'
-
-
-" true/false とかを簡単に切り替える
-NeoBundleLazy 'AndrewRadev/switch.vim', {
-\   'autoload': {
-\     'commands': 'Switch'
-\   }
-\ }
-" インデントに線を表示
-NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'vim-scripts/AnsiEsc.vim'
 " はてなブログ
 NeoBundleLazy 'moznion/hateblo.vim', {
 \   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
@@ -114,37 +163,28 @@ NeoBundleLazy 'mattn/gist-vim', {
 \     'commands': 'Gist'
 \   }
 \ }
-" ファイラ
+
 NeoBundle 'Shougo/vimfiler', {
 \   'depends': 'Shougo/unite.vim'
 \ }
-" コマンド実行
-NeoBundleLazy 'thinca/vim-quickrun', {
+NeoBundleLazy 'Shougo/vimshell', {
+\   'depends': ['Shougo/unite.vim', 'Shougo/neocomplete'],
 \   'autoload': {
-\     'mappings': [['nxo', '<Plug>(quickrun)']],
-\     'commands': 'QuickRun'
+\     'commands': ['VimShell', 'VimShellTab', 'VimShellCreate', 'VimShellPop']
 \   }
 \ }
-" markdown
-NeoBundleLazy 'superbrothers/vim-quickrun-markdown-gfm', {
-\   'depends': ['mattn/webapi-vim', 'thinca/vim-quickrun', 'tyru/open-browser.vim'],
-\   'autoload': {
-\     'filetypes': 'markdown'
-\   }
-\ }
-NeoBundle 'tyru/open-browser.vim'
-" 移動
-NeoBundleLazy 'rhysd/clever-f.vim', {
-\   'autoload': {
-\     'mappings': 'f'
-\   }
-\ }
+
 " Visual Mode でも * で検索
 NeoBundleLazy 'thinca/vim-visualstar', {
 \   'autoload': {
 \     'mappings': [
 \       ['xv', '*'], ['xv', '#'], ['xv', 'g'], ['xv', 'g*']
 \     ]
+\   }
+\ }
+NeoBundleLazy 'osyo-manga/vim-over', {
+\   'autoload': {
+\     'commands': 'OverCommandLine'
 \   }
 \ }
 
@@ -157,29 +197,7 @@ NeoBundleLazy 'gregsexton/gitv', {
 \   }
 \ }
 
-NeoBundle 'itchyny/lightline.vim'
-NeoBundleLazy 'Shougo/vimshell', {
-\   'depends': ['Shougo/unite.vim', 'Shougo/neocomplete'],
-\   'autoload': {
-\     'commands': ['VimShell', 'VimShellTab', 'VimShellCreate', 'VimShellPop']
-\   }
-\ }
-NeoBundleLazy 'kana/vim-smartinput', {
-\   'autoload': {
-\     'insert': '1'
-\   }
-\ }
-NeoBundleLazy 'kana/vim-smartchr', {
-\   'autoload': {
-\     'insert': '1'
-\   }
-\ }
 NeoBundle 'kana/vim-submode'
-NeoBundleLazy 'osyo-manga/vim-over', {
-\   'autoload': {
-\     'commands': 'OverCommandLine'
-\   }
-\ }
 NeoBundle 'kana/vim-arpeggio'
 call arpeggio#load()
 
