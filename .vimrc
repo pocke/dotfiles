@@ -684,6 +684,8 @@ nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 nnoremap <Tab> %
 vnoremap <Tab> %
 
+nnoremap <Space>w :<C-u>w<CR>
+nnoremap <Space>q :<C-u>q<CR>
 " }}}
 
 " vim:set foldmethod=marker:
