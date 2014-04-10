@@ -100,6 +100,7 @@ NeoBundleLazy 'rhysd/clever-f.vim', {
 " }}}
 
 NeoBundle 'sudo.vim'
+NeoBundle 'editorconfig/editorconfig-vim'
 
 " Unite {{{
 NeoBundleLazy 'Shougo/unite.vim', {
