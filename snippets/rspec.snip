@@ -1,0 +1,33 @@
+snippet     describe
+abbr        describe do ... end
+	describe ${1:#:desc} do
+		${2:TARGET}
+	end
+
+snippet     context
+abbr        context do ... end
+	context ${1:#:desc} do
+		${2:TARGET}
+	end
+
+snippet     it
+abbr        it do ... end
+	it ${1:#:desc} do
+		${2:TARGET}
+	end
+
+snippet     before
+abbr        before do ... end
+	before do
+		${1:TARGET}
+	end
+
+snippet     after
+abbr        after do ... end
+	after do
+		${1:TARGET}
+	end
+
+snippet     expect
+abbr        expect().to be
+	expect(${1:subject}).to be_${2} ${0:TARGET}
