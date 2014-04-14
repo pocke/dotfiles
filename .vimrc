@@ -728,6 +728,15 @@ vnoremap <Tab> %
 
 nnoremap <Space>w :<C-u>w<CR>
 nnoremap <Space>q :<C-u>q<CR>
+
+nnoremap <Up>    <Nop>
+nnoremap <Down>  <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Left>  <Nop>
+vnoremap <Up>    <Nop>
+vnoremap <Down>  <Nop>
+vnoremap <Right> <Nop>
+vnoremap <Left>  <Nop>
 " }}}
 
 " vim:set foldmethod=marker:
