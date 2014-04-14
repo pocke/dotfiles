@@ -24,6 +24,7 @@
   reh    = reset --hard
   ri     = rebase -i
   df     = diff
+  dc     = diff --cached
   sh     = show
   pl     = pull
   ps     = push
