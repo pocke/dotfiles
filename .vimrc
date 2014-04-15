@@ -672,7 +672,7 @@ autocmd MyVimrc BufNewFile,BufRead *.json                     set filetype=javas
 autocmd MyVimrc BufWinEnter,BufNewFile *_spec.rb              set filetype=ruby.rspec
 
 autocmd MyVimrc BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
-autocmd MyVimrc FileType eruby exec 'set filetype=' . b:eruby_subtype . '.eruby'
+autocmd MyVimrc FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
 
 " statuslineを表示
 set laststatus=2
