@@ -743,6 +743,7 @@ call submode#map('changetab', 'n', '', 'T', 'gT')
 
 " タグジャンプを新しいタブで開く
 nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
+nnoremap <F1> :<C-u>help <C-r><C-w><CR>
 
 " TABにて対応ペアにジャンプ
 nnoremap <Tab> %
