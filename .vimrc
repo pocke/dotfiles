@@ -114,6 +114,14 @@ NeoBundleLazy 'rhysd/clever-f.vim', {
 \ }
 " }}}
 
+" syntax plugin {{{
+NeoBundleLazy 'jelera/vim-javascript-syntax',  {
+\   'autoload':{
+\     'filetypes':['javascript']
+\   }
+\ }
+" }}}
+
 NeoBundle 'sudo.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 
