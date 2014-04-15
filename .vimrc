@@ -36,6 +36,20 @@ NeoBundleLazy 'kana/vim-smartchr', {
 \     'insert': '1'
 \   }
 \ }
+NeoBundleLazy 'mattn/emmet-vim', {
+\   'autoload': {
+\     'filetypes': [
+\       'html',
+\       'xhtml',
+\       'css',
+\       'sass',
+\       'styl',
+\       'xml',
+\       'xls',
+\       'markdown'
+\     ]
+\   }
+\ }
 
 " text object {{{
 NeoBundle 'kana/vim-textobj-user'
