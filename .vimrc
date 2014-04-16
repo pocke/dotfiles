@@ -81,7 +81,11 @@ NeoBundle 'chikatoike/concealedyank.vim'
 
 " 表示系プラグイン {{{
 NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'vim-scripts/AnsiEsc.vim'
+NeoBundleLazy 'vim-scripts/AnsiEsc.vim', {
+\   'autoload' : {
+\     'commands' : ['AnsiEsc']
+\   }
+\ }
 NeoBundle 'itchyny/lightline.vim'
 
 " ruby のブロックとかがハイライト
