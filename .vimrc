@@ -184,7 +184,8 @@ NeoBundleLazy 'osyo-manga/vim-watchdogs', {
 
 " はてなブログ
 NeoBundleLazy 'moznion/hateblo.vim', {
-\   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
+\   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim'],
+\   'commands': ['HatebloCreate', 'HatebloCreateDraft', 'HatebloList']
 \ }
 NeoBundleLazy 'mattn/gist-vim', {
 \   'depends': ['mattn/webapi-vim'],
