@@ -765,6 +765,8 @@ vnoremap <Up>    <Nop>
 vnoremap <Down>  <Nop>
 vnoremap <Right> <Nop>
 vnoremap <Left>  <Nop>
+
+nnoremap Q <Nop>
 " }}}
 
 " vim:set foldmethod=marker:
