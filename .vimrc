@@ -728,6 +728,7 @@ endfunction
 
 " keybind {{{
 " コマンドラインでのC-n|p と Up, Downの入れ替え
+let mapleader = "'"
 cnoremap <C-n>  <Down>
 cnoremap <C-p>  <Up>
 cnoremap <Down> <C-n>
