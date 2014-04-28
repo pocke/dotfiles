@@ -759,14 +759,15 @@ vnoremap <Tab> %
 nnoremap <Space>w :<C-u>w<CR>
 nnoremap <Space>q :<C-u>q<CR>
 
-nnoremap <Up>    <Nop>
-nnoremap <Down>  <Nop>
-nnoremap <Right> <Nop>
-nnoremap <Left>  <Nop>
-vnoremap <Up>    <Nop>
-vnoremap <Down>  <Nop>
-vnoremap <Right> <Nop>
+nnoremap <Left>  <C-w>h
+nnoremap <Down>  <C-w>j
+nnoremap <Up>    <C-w>k
+nnoremap <Right> <C-w>l
+
 vnoremap <Left>  <Nop>
+vnoremap <Down>  <Nop>
+vnoremap <Up>    <Nop>
+vnoremap <Right> <Nop>
 
 nnoremap Q <Nop>
 " }}}
