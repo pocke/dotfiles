@@ -769,6 +769,11 @@ vnoremap <Down>  <Nop>
 vnoremap <Up>    <Nop>
 vnoremap <Right> <Nop>
 
+inoremap <Left>  <Nop>
+inoremap <Down>  <Nop>
+inoremap <Up>    <Nop>
+inoremap <Right> <Nop>
+
 nnoremap Q <Nop>
 " }}}
 
