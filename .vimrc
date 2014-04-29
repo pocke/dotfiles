@@ -763,6 +763,11 @@ nnoremap <Down>  <C-w>j
 nnoremap <Up>    <C-w>k
 nnoremap <Right> <C-w>l
 
+nnoremap <C-Left>  <C-w><
+nnoremap <C-Down>  <C-w>-
+nnoremap <C-Up>    <C-w>+
+nnoremap <C-Right> <C-w>>
+
 vnoremap <Left>  <Nop>
 vnoremap <Down>  <Nop>
 vnoremap <Up>    <Nop>
