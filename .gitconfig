@@ -27,6 +27,7 @@
   dc     = diff --cached
   sh     = show
   pl     = pull
+  plr    = pull --rebase
   ps     = push
   gr     = grep
 [push]
