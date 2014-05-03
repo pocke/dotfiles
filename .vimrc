@@ -67,6 +67,7 @@ NeoBundleLazy 'deris/vim-textobj-enclosedsyntax', {
 NeoBundle 'kana/vim-textobj-syntax'
 NeoBundle 'osyo-manga/vim-textobj-blockwise'
 NeoBundle 'sgur/vim-textobj-parameter'
+NeoBundle 'kana/vim-textobj-line'
 " }}}
 
 " operator {{{
