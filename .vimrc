@@ -691,6 +691,9 @@ autocmd MyVimrc FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
 set laststatus=2
 set noshowmode
 
+" 沢山表示
+set display& display+=lastline
+
 " ビープ音を鳴らさない
 set visualbell t_vb=
 set noerrorbells
