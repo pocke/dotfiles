@@ -759,6 +759,10 @@ nnoremap <F1> :<C-u>help <C-r><C-w><CR>
 nnoremap <Tab> %
 vnoremap <Tab> %
 
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+
 nnoremap <Space>w :<C-u>w<CR>
 nnoremap <Space>q :<C-u>q<CR>
 
