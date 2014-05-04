@@ -81,6 +81,7 @@ NeoBundle 'chikatoike/concealedyank.vim'
 " }}}
 
 " 表示系プラグイン {{{
+NeoBundle 'thinca/vim-splash'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundleLazy 'vim-scripts/AnsiEsc.vim', {
 \   'autoload' : {
@@ -420,6 +421,10 @@ nnoremap - :<C-u>Switch<CR>
 
 " ruby_hl_lvar.vim {{{
 let g:ruby_hl_lvar_hl_group = 'PreProc'
+" }}}
+
+" vim-splash {{{
+let g:splash#path = $HOME . '/dotfiles/octocat.txt'
 " }}}
 
 " indentline {{{
