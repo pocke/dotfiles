@@ -91,6 +91,11 @@ NeoBundle 'itchyny/lightline.vim'
 
 " ruby のブロックとかがハイライト
 NeoBundle 'vimtaku/hl_matchit.vim.git'
+NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
+\   'autoload': {
+\     'filetypes': ['ruby']
+\   }
+\ }
 
 " colorscheme {{{
 NeoBundleLazy 'vim-scripts/rdark'
@@ -411,6 +416,10 @@ endfunction
 unlet s:bundle
 
 nnoremap - :<C-u>Switch<CR>
+" }}}
+
+" ruby_hl_lvar.vim {{{
+let g:ruby_hl_lvar_hl_group = 'PreProc'
 " }}}
 
 " indentline {{{
