@@ -451,7 +451,8 @@ function! s:bundle.hooks.on_source(bundle)
   let g:quickrun_config = {
 \     '_': {
 \       'runner': 'vimproc',
-\       'runner/vimproc/updatetime': 60
+\       'runner/vimproc/updatetime': 60,
+\       'tempfile': '%{expand("%:p:h") . "/" . system("echo -n $(uuidgen)")}'
 \     },
 \     'markdown': {
 \       'type':      'markdown/gfm',
