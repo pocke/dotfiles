@@ -36,8 +36,6 @@
   editor = vim +1 -c 'set fenc=utf-8'
   preloadindex = true
 #  excludesfile = .gitignore_global
-[gui]
-  encoding = utf-8
 
 [url "git@github.com:"]
   pushinsteadof = "git://github.com/"
