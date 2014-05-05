@@ -187,7 +187,8 @@ NeoBundleLazy 'osyo-manga/vim-watchdogs', {
 \     'osyo-manga/shabadou.vim',
 \     'cohama/vim-hier',
 \     'syngan/vim-vimlint',
-\     'ynkdir/vim-vimlparser'
+\     'ynkdir/vim-vimlparser',
+\     'dannyob/quickfixstatus'
 \   ]
 \ }
 
@@ -448,6 +449,15 @@ nnoremap <Space>fi :<C-u>VimFiler -split -simple -winwidth=35 -no-quit<CR>
 nnoremap <silent><Leader>r :QuickRun<CR>
 let s:bundle = neobundle#get("vim-quickrun")
 function! s:bundle.hooks.on_source(bundle)
+  let s:quickfix4watchdogs = quickrun#outputter#quickfix#new()
+  function! s:quickfix4watchdogs.finish(session)
+    call call(quickrun#outputter#quickfix#new().finish, [a:session], self)
+    cclose
+    HierUpdate
+    QuickfixStatusEnable
+    copen
+  endfunction
+  call quickrun#register_outputter("quickfix4watchdogs", s:quickfix4watchdogs)
   let g:quickrun_config = {
 \     '_': {
 \       'runner': 'vimproc',
@@ -463,6 +473,7 @@ function! s:bundle.hooks.on_source(bundle)
 \       'exec': 'bundle exec %c --color --tty %s'
 \     },
 \     'watchdogs_checker/_': {
+\       "outputter": "quickfix4watchdogs"
 \     }
 \   }
   autocmd MyVimrc FileType quickrun AnsiEsc
@@ -704,6 +715,7 @@ autocmd MyVimrc BufWinEnter,BufNewFile *_spec.rb              set filetype=ruby.
 
 autocmd MyVimrc BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 autocmd MyVimrc FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
+autocmd MyVimrc FileType qf nnoremap <buffer> <CR> <CR>
 
 " statuslineを表示
 set laststatus=2
