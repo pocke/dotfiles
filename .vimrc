@@ -185,7 +185,9 @@ NeoBundleLazy 'osyo-manga/vim-watchdogs', {
 \     'thinca/vim-quickrun',
 \     'Shougo/vimproc',
 \     'osyo-manga/shabadou.vim',
-\     'cohama/vim-hier'
+\     'cohama/vim-hier',
+\     'syngan/vim-vimlint',
+\     'ynkdir/vim-vimlparser'
 \   ]
 \ }
 
