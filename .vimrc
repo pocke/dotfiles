@@ -508,19 +508,6 @@ unlet s:bundle
 
 " gitv {{{
 nnoremap <Space>gv :<C-u>Gitv<CR>
-let s:bundle = neobundle#get('gitv')
-function! s:bundle.hooks.on_source(bundle)
-  function! g:gitv_get_current_hash()
-    return matchstr(getline('.'), '\[\zs.\{7\}\ze\]$')
-  endfunction
-
-  autocmd MyVimrc FileType gitv call s:my_gitv_settings()
-  function! s:my_gitv_settings()
-    setlocal iskeyword+=/,-,.
-    nnoremap <buffer> C :<C-u>Git checkout <C-r>=g:gitv_get_current_hash()<CR><CR>
-  endfunction
-endfunction
-unlet s:bundle
 " }}}
 
 " lightline.vim {{{
