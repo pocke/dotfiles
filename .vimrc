@@ -462,6 +462,7 @@ function! s:bundle.hooks.on_source(bundle)
     HierUpdate
     QuickfixStatusEnable
     copen
+    execute "normal! \<C-w>\<C-p>"
   endfunction
   call quickrun#register_outputter("quickfix4watchdogs", s:quickfix4watchdogs)
   let g:quickrun_config = {
