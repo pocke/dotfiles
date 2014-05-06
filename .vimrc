@@ -117,7 +117,15 @@ NeoBundleLazy 'yonchu/accelerated-smooth-scroll', {
 \     ]
 \   }
 \ }
-NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundleLazy 'Lokaltog/vim-easymotion', {
+\   'autoload': {
+\     'mappings': [
+\       '<Plug>(easymotion-s2)',
+\       '<Plug>(easymotion-sn)',
+\       '<Plug>(easymotion-bd-jk)'
+\     ]
+\   }
+\ }
 NeoBundleLazy 'rhysd/clever-f.vim', {
 \   'autoload': {
 \     'mappings': 'f'
@@ -339,10 +347,8 @@ nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
 
 " vim-easymotion {{{
 let g:EasyMotion_smartcase   = 1
-nmap <Plug>(arpeggio-default:s) <Plug>(easymotion-s2)
+nmap e <Plug>(easymotion-s2)
 nmap <Space>/ <Plug>(easymotion-sn)
-xmap <Space>/ <Plug>(easymotion-sn)
-omap <Space>/ <Plug>(easymotion-tn)
 Arpeggio map jk <Plug>(easymotion-bd-jk)
 " }}}
 
