@@ -458,10 +458,8 @@ function! s:bundle.hooks.on_source(bundle)
   let s:quickfix4watchdogs = quickrun#outputter#quickfix#new()
   function! s:quickfix4watchdogs.finish(session)
     call call(quickrun#outputter#quickfix#new().finish, [a:session], self)
-    cclose
     HierUpdate
     QuickfixStatusEnable
-    copen
     execute "normal! \<C-w>\<C-p>"
   endfunction
   call quickrun#register_outputter("quickfix4watchdogs", s:quickfix4watchdogs)
