@@ -460,7 +460,9 @@ function! s:bundle.hooks.on_source(bundle)
     call call(quickrun#outputter#quickfix#new().finish, [a:session], self)
     HierUpdate
     QuickfixStatusEnable
-    execute "normal! \<C-w>\<C-p>"
+    if &filetype ==# 'qf'
+      execute "normal! \<C-w>\<C-p>"
+    endif
   endfunction
   call quickrun#register_outputter("quickfix4watchdogs", s:quickfix4watchdogs)
   let g:quickrun_config = {
