@@ -107,7 +107,7 @@ NeoBundleLazy 'itchyny/landscape.vim'
 
 " 移動系プラグイン {{{
 " ぬるぬるスクロール
-NeoBundleLazy 'pocke/accelerated-smooth-scroll', 'fix_func_name', {
+NeoBundleLazy 'pocke/accelerated-smooth-scroll', {
 \   'autoload': {
 \     'mappings': [
 \       '<Plug>(ac-smooth-scroll-c-d)',
