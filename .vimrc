@@ -330,6 +330,8 @@ endif
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/dotfiles/snippets'
+
+autocmd MyVimrc InsertLeave * syntax clear neosnippetConcealExpandSnippets
 "}}}
 
 " accelerated-smooth-scroll {{{
