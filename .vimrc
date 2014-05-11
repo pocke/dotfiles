@@ -250,6 +250,8 @@ NeoBundleLazy 'gregsexton/gitv', {
 \   }
 \ }
 
+NeoBundle 'vim-jp/vimdoc-ja'
+
 NeoBundle 'kana/vim-submode'
 NeoBundle 'kana/vim-arpeggio'
 call arpeggio#load()
@@ -653,6 +655,8 @@ set encoding=utf-8
 set fileencodings=utf-8,cp932,sjis,euc-jp
 " これで保存しようとする
 set fileencoding=utf-8
+
+set helplang=ja,en
 
 "indent
 set expandtab
