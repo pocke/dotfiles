@@ -546,8 +546,8 @@ nnoremap <silent> <Space>st :<C-u>VimShellTab<CR>
 
 let s:bundle = neobundle#get('vimshell')
 function! s:bundle.hooks.on_source(bundle)
-  autocmd MyVimrc FileType vimshell call vimshell#hook#set('chpwd', ['g:my_chpwd'])
-  function! g:my_chpwd(args, context)
+  autocmd MyVimrc FileType vimshell call vimshell#hook#set('chpwd', ['MyChpwd'])
+  function! MyChpwd(args, context)
     call vimshell#execute('ls')
   endfunction
   let g:vimshell_prompt = '% '
