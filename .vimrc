@@ -715,7 +715,7 @@ autocmd MyVimrc BufWinEnter,BufNewFile *_spec.rb              set filetype=ruby.
 
 autocmd MyVimrc BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 autocmd MyVimrc FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
-autocmd MyVimrc FileType qf nnoremap <buffer> <CR> <CR>
+autocmd MyVimrc FileType qf nnoremap <buffer> <CR> <CR> | setlocal cursorline
 
 " statuslineを表示
 set laststatus=2
