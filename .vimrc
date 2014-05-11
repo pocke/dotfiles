@@ -570,7 +570,7 @@ function! s:bundle.hooks.on_source(bundle)
     \   'at':       '\%#',
     \   'char':     '#',
     \   'input':    '#{}<Left>',
-    \   'filetype': ['ruby'],
+    \   'filetype': ['ruby', 'ruby.rspec'],
     \   'syntax':   ['Constant', 'Special'],
     \ })
 
@@ -579,7 +579,7 @@ function! s:bundle.hooks.on_source(bundle)
     \   'at':       '\({\|\<do\>\)\s*\%#',
     \   'char':     '<Bar>',
     \   'input':    '<Bar><Bar><Left>',
-    \   'filetype': ['ruby'],
+    \   'filetype': ['ruby', 'ruby.rspec'],
     \ })
 endfunction
 " }}}
