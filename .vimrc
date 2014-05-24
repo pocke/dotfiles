@@ -77,6 +77,7 @@ NeoBundle 'rhysd/vim-operator-surround'
 NeoBundle 'emonkak/vim-operator-comment'
 NeoBundle 'tyru/operator-camelize.vim'
 NeoBundle 'chikatoike/concealedyank.vim'
+NeoBundle 'kana/vim-operator-replace'
 " }}}
 
 " }}}
@@ -418,6 +419,10 @@ Arpeggio map <silent>ca <Plug>(operator-camelize-toggle)
 
 " operator concealedyank.vim {{{
 vmap Y <Plug>(operator-concealedyank)
+" }}}
+
+" operator-replace.vim {{{
+map _ <Plug>(operator-replace)
 " }}}
 
 " switch.vim {{{
