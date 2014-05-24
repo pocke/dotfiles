@@ -68,6 +68,7 @@ NeoBundle 'kana/vim-textobj-syntax'
 NeoBundle 'osyo-manga/vim-textobj-blockwise'
 NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'kana/vim-textobj-line'
+NeoBundle 'kana/vim-textobj-indent'
 " }}}
 
 " operator {{{
