@@ -799,6 +799,10 @@ nnoremap * *zz
 
 nnoremap <Space>w :<C-u>w<CR>
 nnoremap <Space>q :<C-u>q<CR>
+nnoremap <Space>Q :<C-u>q!<CR>
+
+nnoremap <Space>h ^
+nnoremap <Space>l $
 
 nnoremap <Left>  <C-w>h
 nnoremap <Down>  <C-w>j
