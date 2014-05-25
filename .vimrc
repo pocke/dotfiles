@@ -788,7 +788,6 @@ call submode#map('changetab', 'n', '', 'T', 'gT')
 
 " タグジャンプを新しいタブで開く
 nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
-nnoremap <F1> :<C-u>help <C-r><C-w><CR>
 
 " TABにて対応ペアにジャンプ
 nnoremap <Tab> %
@@ -823,5 +822,19 @@ inoremap <Right> <Nop>
 
 nnoremap Q <Nop>
 " }}}
+
+function! OperatorHelp(motion_wise)
+  if line("'[") != line("']")
+    return
+  endif
+  let start = col("'[") - 1
+  let end   = col("']")
+  let sel = strpart(getline('.'), start, end - start)
+  execute "help " . sel
+endfunction
+
+call operator#user#define('help', 'OperatorHelp')
+
+map <F1> <Plug>(operator-help)
 
 " vim:set foldmethod=marker:
