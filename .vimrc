@@ -628,6 +628,13 @@ function! s:bundle.hooks.on_source(bundle)
 endfunction
 " }}}
 
+" open-browser.vim {{{
+let g:openbrowser_browser_commands = [{
+\   "name": "google-chrome-stable",
+\   "args": ["{browser}", "{uri}"]
+\ }]
+" }}}
+
 " }}}
 
 " other {{{
