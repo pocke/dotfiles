@@ -141,6 +141,7 @@ NeoBundleLazy 'jelera/vim-javascript-syntax',  {
 \     'filetypes':['javascript']
 \   }
 \ }
+NeoBundle 'kchmck/vim-coffee-script'
 " }}}
 
 NeoBundle 'sudo.vim'
