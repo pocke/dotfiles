@@ -3,7 +3,7 @@ augroup MyVimrc
 augroup END
 
 " neobundle {{{
-set nocompatible               " Be iMproved
+"set nocompatible               " Be iMproved
 filetype off                   " Required!
 
 if has('vim_starting')
