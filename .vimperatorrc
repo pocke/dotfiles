@@ -1,0 +1,34 @@
+" vim: set ft=vimperator:
+
+"3.8.2 (created: 2014/02/13 23:52:43)
+
+" source! /home/pocke/.vimperatorrc.local
+
+
+
+
+
+
+
+"   -------------- keybind
+
+inoremap <C-a> <Ins><C-a><Ins>
+
+
+
+
+
+
+" --------------------- set options
+
+" ignore auto focus
+set focuscontent
+
+
+
+
+
+
+
+" -------------------------- highlight
+highlight! Hint font-size: 10pt; background: yellow; color: black; border: 1px solid black; font-family: Ricty; font-waight: bolder;
