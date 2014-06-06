@@ -798,8 +798,8 @@ call submode#map('changetab', 'n', '', 'T', 'gT')
 nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 
 " TABにて対応ペアにジャンプ
-nnoremap <Tab> %
-vnoremap <Tab> %
+nmap <Tab> %
+nmap <Tab> %
 
 nnoremap n nzz
 nnoremap N Nzz
