@@ -15,6 +15,12 @@ export GREP_OPTIONS='--binary-files=without-match --color=auto'
 
 WORDCHARS="${WORDCHARS:s!/!!}"
 REPORTTIME=3                # 3秒以上かかったコマンドは実行時間を表示する
+TIMEFMT='
+total  %E
+user   %U
+system %S
+CPU    %P
+cmd    %J'
 
 disable r
 
