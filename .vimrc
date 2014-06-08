@@ -299,6 +299,10 @@ if s:meet_neocomplete_requirements()
   let g:neocomplete#sources#syntax#min_keyword_length = 3
   " 補完を表示する最小文字数
   let g:neocomplete#auto_completion_start_length = 2
+
+
+  let g:neocomplete#delimiter_patterns = {}
+  let g:neocomplete#delimiter_patterns.ruby = ['::']
   "}}}
 else
   " neocomplcache {{{
@@ -313,6 +317,10 @@ else
   let g:neocomplcache_max_list = 20
   " シンタックスをキャッシュするときの最小文字長
   let g:neocomplcache_min_syntax_length = 3
+
+
+  let g:neocomplcache_delimiter_patterns = {}
+  let g:neocomplcache_delimiter_patterns.ruby = ['::']
   " }}}
 endif
 
