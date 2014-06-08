@@ -731,6 +731,10 @@ autocmd MyVimrc BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marke
 autocmd MyVimrc FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
 autocmd MyVimrc FileType qf nnoremap <buffer> <CR> <CR> | setlocal cursorline
 
+" 長いFiletypeを省略する
+autocmd MyVimrc FileType js nested setlocal ft=javascript
+autocmd MyVimrc FileType md nested setlocal ft=markdown
+
 " statuslineを表示
 set laststatus=2
 set noshowmode
