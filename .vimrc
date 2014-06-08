@@ -301,7 +301,9 @@ if s:meet_neocomplete_requirements()
   let g:neocomplete#auto_completion_start_length = 2
 
 
-  let g:neocomplete#delimiter_patterns = {}
+  if !exists('g:neocomplete#delimiter_patterns')
+    let g:neocomplete#delimiter_patterns= {}
+  endif
   let g:neocomplete#delimiter_patterns.ruby = ['::']
   "}}}
 else
