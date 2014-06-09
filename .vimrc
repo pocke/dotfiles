@@ -353,7 +353,7 @@ endif
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/dotfiles/snippets'
 
-autocmd MyVimrc InsertLeave * syntax clear neosnippetConcealExpandSnippets
+AutoCmd InsertLeave * syntax clear neosnippetConcealExpandSnippets
 "}}}
 
 " accelerated-smooth-scroll {{{
@@ -411,7 +411,7 @@ nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 " }}}
 
 " vim-watchdogs {{{
-autocmd MyVimrc BufWritePre * NeoBundleSource vim-watchdogs
+AutoCmd BufWritePre * NeoBundleSource vim-watchdogs
 let s:bundle = neobundle#get("vim-watchdogs")
 function! s:bundle.hooks.on_source(bundle)
   let g:watchdogs_check_BufWritePost_enable = 1
@@ -446,7 +446,7 @@ map _ <Plug>(operator-replace)
 " switch.vim {{{
 let s:bundle = neobundle#get("switch.vim")
 function! s:bundle.hooks.on_source(bundle)
-  autocmd MyVimrc FileType gitrebase let b:switch_custom_definitions =
+  AutoCmd FileType gitrebase let b:switch_custom_definitions =
 \   [
 \     ['pick', 'squash', 'edit', 'reword', 'fixup', 'exec']
 \   ]
@@ -511,7 +511,7 @@ function! s:bundle.hooks.on_source(bundle)
 \       "outputter": "quickfix4watchdogs"
 \     }
 \   }
-  autocmd MyVimrc FileType quickrun AnsiEsc
+  AutoCmd FileType quickrun AnsiEsc
 endfunction
 unlet s:bundle
 " }}}
@@ -570,7 +570,7 @@ nnoremap <silent> <Space>st :<C-u>VimShellTab<CR>
 
 let s:bundle = neobundle#get('vimshell')
 function! s:bundle.hooks.on_source(bundle)
-  autocmd MyVimrc FileType vimshell call vimshell#hook#set('chpwd', ['MyChpwd'])
+  AutoCmd FileType vimshell call vimshell#hook#set('chpwd', ['MyChpwd'])
   function! MyChpwd(args, context)
     call vimshell#execute('ls')
   endfunction
@@ -698,7 +698,7 @@ set list
 set listchars=tab:>-
 
 " ノーマルモードでoOで改行した時にコメントを追加しない
-autocmd MyVimrc FileType * setlocal formatoptions-=o
+AutoCmd FileType * setlocal formatoptions-=o
 
 " インサートモード時にバックスペースを使う
 set backspace=indent,eol,start
@@ -736,21 +736,21 @@ if has('persistent_undo')
 endif
 
 " 前回終了したカーソル行に移動
-autocmd MyVimrc BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+AutoCmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
 " filetype
-autocmd MyVimrc BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-autocmd MyVimrc BufNewFile,BufRead *.json                     set filetype=javascript
-autocmd MyVimrc BufNewFile,BufRead *.jbuilder                 set filetype=ruby
-autocmd MyVimrc BufWinEnter,BufNewFile *_spec.rb              set filetype=ruby.rspec
+AutoCmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+AutoCmd BufNewFile,BufRead *.json                     set filetype=javascript
+AutoCmd BufNewFile,BufRead *.jbuilder                 set filetype=ruby
+AutoCmd BufWinEnter,BufNewFile *_spec.rb              set filetype=ruby.rspec
 
-autocmd MyVimrc BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
-autocmd MyVimrc FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
-autocmd MyVimrc FileType qf nnoremap <buffer> <CR> <CR> | setlocal cursorline
+AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
+AutoCmd FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
+AutoCmd FileType qf nnoremap <buffer> <CR> <CR> | setlocal cursorline
 
 " 長いFiletypeを省略する
-autocmd MyVimrc FileType js nested setlocal ft=javascript
-autocmd MyVimrc FileType md nested setlocal ft=markdown
+AutoCmd FileType js nested setlocal ft=javascript
+AutoCmd FileType md nested setlocal ft=markdown
 
 " statuslineを表示
 set laststatus=2
@@ -764,10 +764,10 @@ set visualbell t_vb=
 set noerrorbells
 
 " コマンドラインウィンドウの末尾20行を除いて全て削除
-"autocmd MyVimrc CmdwinEnter * :<C-u>silent! 1,$-20 delete _ | call cursor("$", 1)
+"AutoCmd CmdwinEnter * :<C-u>silent! 1,$-20 delete _ | call cursor("$", 1)
 
 " q だけで Window を閉じる
-autocmd MyVimrc FileType help,qf nnoremap <buffer> q <C-w>c
+AutoCmd FileType help,qf nnoremap <buffer> q <C-w>c
 
 " http://deris.hatenablog.jp/entry/2013/07/05/023835 {{{
 call operator#user#define('open-neobundlepath', 'OpenNeoBundlePath')
