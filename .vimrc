@@ -1,3 +1,12 @@
+" encoding
+set encoding=utf-8
+scriptencoding utf-8
+" これで開こうとする
+set fileencodings=utf-8,cp932,sjis,euc-jp
+" これで保存しようとする
+set fileencoding=utf-8
+
+
 augroup MyVimrc
   autocmd!
 augroup END
@@ -681,11 +690,6 @@ set ttimeoutlen=10
 " 保存されていないバッファがあっても他のバッファを開ける
 set hidden
 
-set encoding=utf-8
-" これで開こうとする
-set fileencodings=utf-8,cp932,sjis,euc-jp
-" これで保存しようとする
-set fileencoding=utf-8
 
 set helplang=ja,en
 
