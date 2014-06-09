@@ -2,6 +2,8 @@ augroup MyVimrc
   autocmd!
 augroup END
 
+command! -nargs=* AutoCmd autocmd MyVimrc <args>
+
 " neobundle {{{
 "set nocompatible               " Be iMproved
 filetype off                   " Required!
