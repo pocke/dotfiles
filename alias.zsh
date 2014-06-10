@@ -5,6 +5,7 @@ alias ll="ls -l"
 alias lla='ls -Al'
 alias df="df -h"
 alias du='du -h'
+alias free='free -h'
 alias cp='cp -v'
 alias mv='mv -v'
 alias vi='vim'
