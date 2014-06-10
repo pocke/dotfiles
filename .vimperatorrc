@@ -13,6 +13,7 @@
 "   -------------- keybind
 
 inoremap <C-a> <Ins><C-a><Ins>
+inoremap <C-m> <CR>
 nnoremap s :tabopen<Space>google<Space>
 
 
