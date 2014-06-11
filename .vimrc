@@ -861,6 +861,8 @@ inoremap <Right> <Nop>
 " set undo point
 inoremap <CR> <C-g>u<CR>
 
+inoremap <C-o> <Esc>O
+
 nnoremap Q <Nop>
 " }}}
 
