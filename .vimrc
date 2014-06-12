@@ -880,4 +880,23 @@ call operator#user#define('help', 'OperatorHelp')
 
 map <F1> <Plug>(operator-help)
 
+function! s:set_vim_execute_operator()
+  function! OperatorVimExecute(motion_wise)
+    if line("'[") != line("']")
+      return
+    endif
+    let start = col("'[") - 1
+    let end   = col("']")
+    let sel = strpart(getline('.'), start, end - start)
+    execute sel
+  endfunction
+
+  call operator#user#define('vim-execute', 'OperatorVimExecute')
+
+  map <buffer> E <Plug>(operator-vim-execute)
+endfunction
+
+AutoCmd FileType vim call s:set_vim_execute_operator()
+
+
 " vim:set foldmethod=marker:
