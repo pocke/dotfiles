@@ -751,7 +751,7 @@ AutoCmd BufWinEnter,BufNewFile *_spec.rb              set filetype=ruby.rspec
 AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 AutoCmd FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
 AutoCmd FileType qf nnoremap <buffer> <CR> <CR> | setlocal cursorline
-AutoCmd FileType gitcommit startinsert
+AutoCmd FileType gitcommit if getline(1) == '' | startinsert | endif
 
 " 長いFiletypeを省略する
 AutoCmd FileType js nested setlocal ft=javascript
