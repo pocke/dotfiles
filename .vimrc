@@ -753,6 +753,20 @@ AutoCmd FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
 AutoCmd FileType qf nnoremap <buffer> <CR> <CR> | setlocal cursorline
 AutoCmd FileType gitcommit if getline(1) == '' | startinsert | endif
 
+function! s:when_gitrebase()
+  " TODO: operator
+  function! s:gitrebase_change_keyword(keyword)
+    execute 's/^\<\S\+\>/' . a:keyword . '/'
+  endfunction
+  nnoremap <buffer>s :<C-u>call <SID>gitrebase_change_keyword('squash')<CR>
+  nnoremap <buffer>e :<C-u>call <SID>gitrebase_change_keyword('edit')<CR>
+  nnoremap <buffer>r :<C-u>call <SID>gitrebase_change_keyword('reword')<CR>
+  nnoremap <buffer>f :<C-u>call <SID>gitrebase_change_keyword('fixup')<CR>
+ "nnoremap <buffer>p :<C-u>call <SID>gitrebase_change_keyword('pick')<CR>
+ "nnoremap <buffer>e :<C-u>call <SID>gitrebase_change_keyword('exec')<CR>
+endfunction
+AutoCmd FileType gitrebase call s:when_gitrebase()
+
 " 長いFiletypeを省略する
 AutoCmd FileType js nested setlocal ft=javascript
 AutoCmd FileType md nested setlocal ft=markdown
