@@ -754,17 +754,30 @@ AutoCmd FileType qf nnoremap <buffer> <CR> <CR> | setlocal cursorline
 AutoCmd FileType gitcommit if getline(1) == '' | startinsert | endif
 
 function! s:when_gitrebase()
-  " TODO: operator
-  function! s:gitrebase_change_keyword(keyword)
-    execute 's/^\<\S\+\>/' . a:keyword . '/'
+  function! s:gitrebase_change_keyword(keyword, start, end)
+    execute a:start . ',' . a:end . 's/^\<\S\+\>/' . a:keyword . '/g'
   endfunction
-  nnoremap <buffer>s :<C-u>call <SID>gitrebase_change_keyword('squash')<CR>
-  nnoremap <buffer>e :<C-u>call <SID>gitrebase_change_keyword('edit')<CR>
-  nnoremap <buffer>r :<C-u>call <SID>gitrebase_change_keyword('reword')<CR>
-  nnoremap <buffer>f :<C-u>call <SID>gitrebase_change_keyword('fixup')<CR>
- "nnoremap <buffer>p :<C-u>call <SID>gitrebase_change_keyword('pick')<CR>
- "nnoremap <buffer>e :<C-u>call <SID>gitrebase_change_keyword('exec')<CR>
+
+  function! s:camelize(word)
+    return toupper(a:word[0]) . tolower(a:word[1:])
+  endfunction
+
+  for cmd in ['squash', 'edit', 'reword', 'fixup']
+    let func_name = s:camelize(cmd)
+    let cmd_name  = 'operator-gitrebase-' . cmd
+    function! Operator{func_name}(motion_wise)
+      let start_l = line("'[")
+      let end_l   = line("']")
+
+      call s:gitrebase_change_keyword(cmd, start_l, end_l)
+    endfunction
+
+    call operator#user#define(cmd_name, 'Operator' . func_name)
+
+    execute 'map' '<buffer>' cmd[0] '<Plug>(' . cmd_name . ')'
+  endfor
 endfunction
+
 AutoCmd FileType gitrebase call s:when_gitrebase()
 
 " 長いFiletypeを省略する
