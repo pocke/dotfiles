@@ -25,6 +25,7 @@ if which xsel > /dev/null 2>&1; then
 fi
 alias -g N='> /dev/null 2>&1'
 alias -g ALL='**/*~.git/*~*/.git/*(.)'
+alias -g J="| ruby -rjson -e 'jj JSON.parse(STDIN.read)'"
 
 ### suffix alias
 function extract() {
