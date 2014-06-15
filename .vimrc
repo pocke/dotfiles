@@ -764,17 +764,17 @@ function! s:when_gitrebase()
 
   for cmd in ['squash', 'edit', 'reword', 'fixup']
     let func_name = s:camelize(cmd)
-    let cmd_name  = 'operator-gitrebase-' . cmd
-    function! Operator{func_name}(motion_wise)
-      let start_l = line("'[")
-      let end_l   = line("']")
-
-      call s:gitrebase_change_keyword(cmd, start_l, end_l)
-    endfunction
+    let cmd_name  = 'gitrebase-' . cmd
+    execute
+    \ 'function! Operator' . func_name . '(motion_wise)'                "\n"
+      \ 'let start_l = line("''[")'                                     "\n"
+      \ 'let end_l   = line("'']")'                                     "\n"
+      \ 'call s:gitrebase_change_keyword("' . cmd .'", start_l, end_l)' "\n"
+    \ 'endfunction'
 
     call operator#user#define(cmd_name, 'Operator' . func_name)
 
-    execute 'map' '<buffer>' cmd[0] '<Plug>(' . cmd_name . ')'
+    execute 'map' '<buffer>' cmd[0] '<Plug>(' . 'operator-' . cmd_name . ')'
   endfor
 endfunction
 
