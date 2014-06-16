@@ -27,6 +27,22 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 
 " 入力系プラグイン {{{
+function! s:meet_neocomplete_requirements()
+  return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
+endfunction
+
+" 補完
+" luaが使えるかどうかでどっち使うか決める
+if s:meet_neocomplete_requirements()
+  NeoBundle 'Shougo/neocomplete', {
+\     'depends': ['Shougo/context_filetype.vim']
+\   }
+  NeoBundleFetch 'Shougo/neocomplcache'
+else
+  NeoBundleFetch 'Shougo/neocomplete'
+  NeoBundle 'Shougo/neocomplcache'
+endif
+
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 
@@ -275,26 +291,14 @@ NeoBundle 'kana/vim-submode'
 NeoBundle 'kana/vim-arpeggio'
 call arpeggio#load()
 
-function! s:meet_neocomplete_requirements()
-  return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
-endfunction
-
-" 補完
-" luaが使えるかどうかでどっち使うか決める
-if s:meet_neocomplete_requirements()
-  NeoBundle 'Shougo/neocomplete', {
-\     'depends': ['Shougo/context_filetype.vim']
-\   }
-  NeoBundleFetch 'Shougo/neocomplcache'
-else
-  NeoBundleFetch 'Shougo/neocomplete'
-  NeoBundle 'Shougo/neocomplcache'
-endif
-
 filetype plugin indent on     " Required!
 "}}}
 
-" plugins setting {{{
+
+
+" plugins settings {{{
+
+" 入力系プラグイン {{{
 if s:meet_neocomplete_requirements()
   " neocomplete {{{
   " 起動時に有効化
@@ -365,69 +369,54 @@ let g:neosnippet#snippets_directory='~/dotfiles/snippets'
 AutoCmd InsertLeave * syntax clear neosnippetConcealExpandSnippets
 "}}}
 
-" accelerated-smooth-scroll {{{
-let s:bundle = neobundle#get("accelerated-smooth-scroll")
+" switch.vim {{{
+let s:bundle = neobundle#get("switch.vim")
 function! s:bundle.hooks.on_source(bundle)
-  let g:ac_smooth_scroll_no_default_key_mappings = 1
+  AutoCmd FileType gitrebase let b:switch_custom_definitions =
+\   [
+\     ['pick', 'squash', 'edit', 'reword', 'fixup', 'exec']
+\   ]
 endfunction
 unlet s:bundle
 
-nmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d)
-nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
-nmap <silent> <C-f> <Plug>(ac-smooth-scroll-c-f)
-nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
+nnoremap - :<C-u>Switch<CR>
 " }}}
 
-" vim-easymotion {{{
-let g:EasyMotion_smartcase   = 1
-nmap e <Plug>(easymotion-s2)
-nmap <Space>/ <Plug>(easymotion-sn)
-Arpeggio map jk <Plug>(easymotion-bd-jk)
-" }}}
-
-" hl_matchit {{{
-source $VIMRUNTIME/macros/matchit.vim
-" vim起動時にhl_matchitを起動するか
-let g:hl_matchit_enable_on_vim_startup = 1
-" highlightのパターン
-" :highlight に一覧がある
-let g:hl_matchit_hl_groupname = 'MatchParen'
-" 有効にするファイルの種類
-let g:hl_matchit_allow_ft = 'html\|xml\|vim\|ruby\|sh'
-" }}}
-
-" Unite.vim {{{
-let s:bundle = neobundle#get("unite.vim")
+" vim-smartinput {{{
+let s:bundle = neobundle#get('vim-smartinput')
 function! s:bundle.hooks.on_source(bundle)
-  let g:unite_enable_start_insert=1
-  let g:unite_source_history_yank_enable=1
-  let g:unite_source_file_mru_limit=200
-endfunction
-unlet s:bundle
+  call smartinput#define_rule({
+    \   'at':    '\s\+\%#',
+    \   'char':  '<CR>',
+    \   'input': "<C-o>:call setline('.', substitute(getline('.'), '\\s\\+$', '', ''))<CR><CR>",
+    \ })
+  call smartinput#map_to_trigger('i', '#', '#', '#')
+  call smartinput#define_rule({
+    \   'at':       '\%#',
+    \   'char':     '#',
+    \   'input':    '#{}<Left>',
+    \   'filetype': ['ruby', 'ruby.rspec'],
+    \   'syntax':   ['Constant', 'Special'],
+    \ })
 
-nnoremap [unite] <Nop>
-nmap <Space>u [unite]
-" yank履歴
-nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
-" バッファ一覧
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-" ファイル一覧
-nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" 色々?
-nnoremap <silent> [unite]u :<C-u>Unite file_mru buffer<CR>
-nnoremap <silent> [unite]r :<C-u>Unite ruby/require<CR>
-nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
+  call smartinput#map_to_trigger('i', '<Bar>', '<Bar>', '<Bar>')
+  call smartinput#define_rule({
+    \   'at':       '\({\|\<do\>\)\s*\%#',
+    \   'char':     '<Bar>',
+    \   'input':    '<Bar><Bar><Left>',
+    \   'filetype': ['ruby', 'ruby.rspec'],
+    \ })
+endfunction
 " }}}
 
-" vim-watchdogs {{{
-AutoCmd BufWritePre * NeoBundleSource vim-watchdogs
-let s:bundle = neobundle#get("vim-watchdogs")
+" vim-smartchr {{{
+let s:bundle = neobundle#get('vim-smartchr')
 function! s:bundle.hooks.on_source(bundle)
-  let g:watchdogs_check_BufWritePost_enable = 1
-  call watchdogs#setup(g:quickrun_config)
+  inoremap <expr> , smartchr#loop(', ', ',')
 endfunction
-unlet s:bundle
 " }}}
+
+" operator {{{
 
 " vim-operator-surround {{{
 Arpeggio map <silent>sa <Plug>(operator-surround-append)
@@ -452,22 +441,12 @@ vmap Y <Plug>(operator-concealedyank)
 map _ <Plug>(operator-replace)
 " }}}
 
-" switch.vim {{{
-let s:bundle = neobundle#get("switch.vim")
-function! s:bundle.hooks.on_source(bundle)
-  AutoCmd FileType gitrebase let b:switch_custom_definitions =
-\   [
-\     ['pick', 'squash', 'edit', 'reword', 'fixup', 'exec']
-\   ]
-endfunction
-unlet s:bundle
-
-nnoremap - :<C-u>Switch<CR>
 " }}}
 
-" ruby_hl_lvar.vim {{{
-let g:ruby_hl_lvar_hl_group = 'PreProc'
 " }}}
+
+
+" 表示系プラグイン {{{
 
 " vim-splash {{{
 let g:splash#path = $HOME . '/dotfiles/octocat.txt'
@@ -480,13 +459,109 @@ let g:indentLine_char = '¦' "use ¦, ┆ or │
 let g:indentLine_fileTypeExclude = ['gitcommit', 'diff']
 " }}}
 
-" vimfiler {{{
-let g:vimfiler_as_default_explorer = 1
-nnoremap <Space>ff :<C-u>VimFiler<CR>
-nnoremap <Space>ft :<C-u>VimFilerTab<CR>
-nnoremap <Space>tf :<C-u>VimFilerTab<CR>
-nnoremap <Space>fi :<C-u>VimFiler -split -simple -winwidth=35 -no-quit<CR>
+" lightline.vim {{{
+let g:lightline = {
+\   'active': {
+\     'left': [
+\       ['mode'],
+\       ['readonly', 'fugitive', 'filename', 'modified']
+\     ]
+\   },
+\   'component': {
+\     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+\   },
+\   'component_visible_condition': {
+\     'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+\   }
+\ }
 " }}}
+
+" hl_matchit {{{
+source $VIMRUNTIME/macros/matchit.vim
+" vim起動時にhl_matchitを起動するか
+let g:hl_matchit_enable_on_vim_startup = 1
+" highlightのパターン
+" :highlight に一覧がある
+let g:hl_matchit_hl_groupname = 'MatchParen'
+" 有効にするファイルの種類
+let g:hl_matchit_allow_ft = 'html\|xml\|vim\|ruby\|sh'
+" }}}
+
+" ruby_hl_lvar.vim {{{
+let g:ruby_hl_lvar_hl_group = 'PreProc'
+" }}}
+
+
+" }}}
+
+
+" 移動系プラグイン {{{
+
+" accelerated-smooth-scroll {{{
+let s:bundle = neobundle#get("accelerated-smooth-scroll")
+function! s:bundle.hooks.on_source(bundle)
+  let g:ac_smooth_scroll_no_default_key_mappings = 1
+endfunction
+unlet s:bundle
+
+nmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d)
+nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
+nmap <silent> <C-f> <Plug>(ac-smooth-scroll-c-f)
+nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
+" }}}
+
+" vim-easymotion {{{
+let g:EasyMotion_smartcase   = 1
+nmap e <Plug>(easymotion-s2)
+nmap <Space>/ <Plug>(easymotion-sn)
+Arpeggio map jk <Plug>(easymotion-bd-jk)
+" }}}
+
+" clever-f {{{
+let s:bundle = neobundle#get("clever-f.vim")
+function! s:bundle.hooks.on_source(bundle)
+  let g:clever_f_ignore_case           = 1
+  let g:clever_f_use_migemo            = 1
+  let g:clever_f_fix_key_direction     = 1
+  let g:clever_f_chars_match_any_signs = ';'
+endfunction
+unlet s:bundle
+" }}}
+
+" }}}
+
+
+" Unite.vim {{{
+let s:bundle = neobundle#get("unite.vim")
+function! s:bundle.hooks.on_source(bundle)
+  let g:unite_enable_start_insert=1
+  let g:unite_source_history_yank_enable=1
+  let g:unite_source_file_mru_limit=200
+endfunction
+unlet s:bundle
+
+nnoremap [unite] <Nop>
+nmap <Space>u [unite]
+" yank履歴
+nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
+" バッファ一覧
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+" ファイル一覧
+nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" 色々?
+nnoremap <silent> [unite]u :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> [unite]r :<C-u>Unite ruby/require<CR>
+nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
+" }}}
+
+
+" open-browser.vim {{{
+let g:openbrowser_browser_commands = [{
+\   "name": "google-chrome-stable",
+\   "args": ["{browser}", "{uri}"]
+\ }]
+" }}}
+
 
 " quickrun {{{
 nnoremap <silent><Leader>r :QuickRun<CR>
@@ -525,51 +600,26 @@ endfunction
 unlet s:bundle
 " }}}
 
-" clever-f {{{
-let s:bundle = neobundle#get("clever-f.vim")
+
+" vim-watchdogs {{{
+AutoCmd BufWritePre * NeoBundleSource vim-watchdogs
+let s:bundle = neobundle#get("vim-watchdogs")
 function! s:bundle.hooks.on_source(bundle)
-  let g:clever_f_ignore_case           = 1
-  let g:clever_f_use_migemo            = 1
-  let g:clever_f_fix_key_direction     = 1
-  let g:clever_f_chars_match_any_signs = ';'
+  let g:watchdogs_check_BufWritePost_enable = 1
+  call watchdogs#setup(g:quickrun_config)
 endfunction
 unlet s:bundle
 " }}}
 
-" vim-fugitive {{{
-nnoremap <silent> <Space>gs :<C-u>Gstatus <CR>
-nnoremap <silent> <Space>gc :<C-u>Gcommit <CR>
-nnoremap <silent> <Space>gb :<C-u>Gblame  <CR>
-nnoremap <silent> <Space>gd :<C-u>Gdiff   <CR>
-nnoremap <silent> <Space>ga :<C-u>Gwrite  <CR>
 
-let s:bundle = neobundle#get('vim-fugitive')
-function! s:bundle.hooks.on_post_source(bundle)
-  doautoall fugitive BufNewFile
-endfunction
-unlet s:bundle
+" vimfiler {{{
+let g:vimfiler_as_default_explorer = 1
+nnoremap <Space>ff :<C-u>VimFiler<CR>
+nnoremap <Space>ft :<C-u>VimFilerTab<CR>
+nnoremap <Space>tf :<C-u>VimFilerTab<CR>
+nnoremap <Space>fi :<C-u>VimFiler -split -simple -winwidth=35 -no-quit<CR>
 " }}}
 
-" gitv {{{
-nnoremap <Space>gv :<C-u>Gitv<CR>
-" }}}
-
-" lightline.vim {{{
-let g:lightline = {
-\   'active': {
-\     'left': [
-\       ['mode'],
-\       ['readonly', 'fugitive', 'filename', 'modified']
-\     ]
-\   },
-\   'component': {
-\     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-\   },
-\   'component_visible_condition': {
-\     'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-\   }
-\ }
-" }}}
 
 " vimshell {{{
 nnoremap <silent> <Space>ss :<C-u>VimShell<CR>
@@ -590,39 +640,40 @@ endfunction
 unlet s:bundle
 " }}}
 
-" vim-smartinput {{{
-let s:bundle = neobundle#get('vim-smartinput')
-function! s:bundle.hooks.on_source(bundle)
-  call smartinput#define_rule({
-    \   'at':    '\s\+\%#',
-    \   'char':  '<CR>',
-    \   'input': "<C-o>:call setline('.', substitute(getline('.'), '\\s\\+$', '', ''))<CR><CR>",
-    \ })
-  call smartinput#map_to_trigger('i', '#', '#', '#')
-  call smartinput#define_rule({
-    \   'at':       '\%#',
-    \   'char':     '#',
-    \   'input':    '#{}<Left>',
-    \   'filetype': ['ruby', 'ruby.rspec'],
-    \   'syntax':   ['Constant', 'Special'],
-    \ })
 
-  call smartinput#map_to_trigger('i', '<Bar>', '<Bar>', '<Bar>')
-  call smartinput#define_rule({
-    \   'at':       '\({\|\<do\>\)\s*\%#',
-    \   'char':     '<Bar>',
-    \   'input':    '<Bar><Bar><Left>',
-    \   'filetype': ['ruby', 'ruby.rspec'],
-    \ })
+" calendar.vim {{{
+let s:bundle = neobundle#get('calendar.vim')
+function! s:bundle.hooks.on_source(bundle)
+  let g:calendar_google_calendar = 1
+  let g:calendar_google_task = 1
 endfunction
 " }}}
 
-" vim-smartchr {{{
-let s:bundle = neobundle#get('vim-smartchr')
-function! s:bundle.hooks.on_source(bundle)
-  inoremap <expr> , smartchr#loop(', ', ',')
+
+" vim-over {{{
+cnoreabbrev <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>' : 's'
+"}}}
+
+
+" vim-fugitive {{{
+nnoremap <silent> <Space>gs :<C-u>Gstatus <CR>
+nnoremap <silent> <Space>gc :<C-u>Gcommit <CR>
+nnoremap <silent> <Space>gb :<C-u>Gblame  <CR>
+nnoremap <silent> <Space>gd :<C-u>Gdiff   <CR>
+nnoremap <silent> <Space>ga :<C-u>Gwrite  <CR>
+
+let s:bundle = neobundle#get('vim-fugitive')
+function! s:bundle.hooks.on_post_source(bundle)
+  doautoall fugitive BufNewFile
 endfunction
+unlet s:bundle
 " }}}
+
+
+" gitv {{{
+nnoremap <Space>gv :<C-u>Gitv<CR>
+" }}}
+
 
 " vim-submode {{{
 let g:submode_keep_leaving_key = 1
@@ -643,24 +694,8 @@ call submode#enter_with('my_x', 'n', '', 'x', '"_x')
 call submode#map('my_x', 'n', 'r', 'x', '<Plug>(my-x)')
 " }}}
 
-" vim-over {{{
-cnoreabbrev <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>' : 's'
-"}}}
 
-" calendar.vim {{{
-let s:bundle = neobundle#get('calendar.vim')
-function! s:bundle.hooks.on_source(bundle)
-  let g:calendar_google_calendar = 1
-  let g:calendar_google_task = 1
-endfunction
-" }}}
 
-" open-browser.vim {{{
-let g:openbrowser_browser_commands = [{
-\   "name": "google-chrome-stable",
-\   "args": ["{browser}", "{uri}"]
-\ }]
-" }}}
 
 " }}}
 
