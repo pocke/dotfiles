@@ -862,7 +862,7 @@ endfunction
 " }}}
 
 " keybind {{{
-let mapleader = "'"
+let g:mapleader = "'"
 " コマンドラインでのC-n|p と Up, Downの入れ替え
 cnoremap <C-n>  <Down>
 cnoremap <C-p>  <Up>
