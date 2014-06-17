@@ -105,6 +105,11 @@ NeoBundle 'emonkak/vim-operator-comment'
 NeoBundle 'tyru/operator-camelize.vim'
 NeoBundle 'chikatoike/concealedyank.vim'
 NeoBundle 'kana/vim-operator-replace'
+NeoBundleLazy 'pocke/vim-operator-gitrebase', {
+\   'autoload': {
+\     'filetypes': 'gitrebase'
+\   }
+\ }
 " }}}
 
 " }}}
@@ -439,6 +444,13 @@ vmap Y <Plug>(operator-concealedyank)
 
 " operator-replace.vim {{{
 map _ <Plug>(operator-replace)
+" }}}
+
+" operator-gitrebase {{{
+map <buffer> s <Plug>(operator-gitrebase-squash)
+map <buffer> e <Plug>(operator-gitrebase-edit)
+map <buffer> r <Plug>(operator-gitrebase-reword)
+map <buffer> f <Plug>(operator-gitrebase-fixup)
 " }}}
 
 " }}}
@@ -787,33 +799,6 @@ AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldma
 AutoCmd FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
 AutoCmd FileType qf nnoremap <buffer> <CR> <CR> | setlocal cursorline
 AutoCmd FileType gitcommit if getline(1) == '' | startinsert | endif
-
-function! s:when_gitrebase()
-  function! s:gitrebase_change_keyword(keyword, start, end)
-    execute a:start . ',' . a:end . 's/^\v<\S+>/' . a:keyword . '/ge'
-  endfunction
-
-  function! s:camelize(word)
-    return toupper(a:word[0]) . tolower(a:word[1:])
-  endfunction
-
-  for cmd in ['squash', 'edit', 'reword', 'fixup']
-    let func_name = s:camelize(cmd)
-    let cmd_name  = 'gitrebase-' . cmd
-    execute
-    \ 'function! Operator' . func_name . '(motion_wise)'                "\n"
-      \ 'let start_l = line("''[")'                                     "\n"
-      \ 'let end_l   = line("'']")'                                     "\n"
-      \ 'call s:gitrebase_change_keyword("' . cmd .'", start_l, end_l)' "\n"
-    \ 'endfunction'
-
-    call operator#user#define(cmd_name, 'Operator' . func_name)
-
-    execute 'map' '<buffer>' cmd[0] '<Plug>(' . 'operator-' . cmd_name . ')'
-  endfor
-endfunction
-
-AutoCmd FileType gitrebase call s:when_gitrebase()
 
 " 長いFiletypeを省略する
 AutoCmd FileType js nested setlocal ft=javascript
