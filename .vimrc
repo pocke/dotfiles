@@ -790,7 +790,7 @@ AutoCmd FileType gitcommit if getline(1) == '' | startinsert | endif
 
 function! s:when_gitrebase()
   function! s:gitrebase_change_keyword(keyword, start, end)
-    execute a:start . ',' . a:end . 's/^\v<\S+>/' . a:keyword . '/g'
+    execute a:start . ',' . a:end . 's/^\v<\S+>/' . a:keyword . '/ge'
   endfunction
 
   function! s:camelize(word)
