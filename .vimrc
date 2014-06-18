@@ -468,10 +468,13 @@ map _ <Plug>(operator-replace)
 " }}}
 
 " operator-gitrebase {{{
-map <buffer> s <Plug>(operator-gitrebase-squash)
-map <buffer> e <Plug>(operator-gitrebase-edit)
-map <buffer> r <Plug>(operator-gitrebase-reword)
-map <buffer> f <Plug>(operator-gitrebase-fixup)
+function! s:when_gitrebase()
+  map <buffer> s <Plug>(operator-gitrebase-squash)
+  map <buffer> e <Plug>(operator-gitrebase-edit)
+  map <buffer> r <Plug>(operator-gitrebase-reword)
+  map <buffer> f <Plug>(operator-gitrebase-fixup)
+endfunction
+AutoCmd FileType gitrebase call s:when_gitrebase()
 " }}}
 
 " }}}
