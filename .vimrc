@@ -80,7 +80,7 @@ NeoBundleLazy 'mattn/emmet-vim', {
 
 " text object {{{
 NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'gcmt/wildfire.vim'
+NeoBundle 'terryma/vim-expand-region'
 NeoBundleLazy 'rhysd/vim-textobj-ruby', {
 \   'autoload': {
 \     'filetypes': 'ruby'
@@ -419,6 +419,27 @@ let s:bundle = neobundle#get('vim-smartchr')
 function! s:bundle.hooks.on_source(bundle)
   inoremap <expr> , smartchr#loop(', ', ',')
 endfunction
+" }}}
+
+" text object {{{
+
+" vim-expand-region {{{
+map <CR> <Plug>(expand_region_expand)
+map <BS> <Plug>(expand_region_shrink)
+
+let g:expand_region_text_objects = {
+\   "i'": 0,
+\   'i"': 0,
+\   'i)': 0,
+\   'i}': 0,
+\   'il': 1,
+\ }
+let g:expand_region_text_objects_ruby = {
+\   'ir': 1,
+\   'ar': 1,
+\ }
+" }}}
+
 " }}}
 
 " operator {{{
