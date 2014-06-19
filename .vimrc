@@ -80,7 +80,14 @@ NeoBundleLazy 'mattn/emmet-vim', {
 
 " text object {{{
 NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'terryma/vim-expand-region'
+NeoBundleLazy 'terryma/vim-expand-region', {
+\   'autoload': {
+\     'mappings': [
+\       '<Plug>(expand_region_expand)',
+\       '<Plug>(expand_region_shrink)'
+\     ]
+\   }
+\ }
 NeoBundleLazy 'rhysd/vim-textobj-ruby', {
 \   'autoload': {
 \     'filetypes': 'ruby'
