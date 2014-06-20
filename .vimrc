@@ -162,8 +162,7 @@ NeoBundleLazy 'Lokaltog/vim-easymotion', {
 \   'autoload': {
 \     'mappings': [
 \       '<Plug>(easymotion-s2)',
-\       '<Plug>(easymotion-sn)',
-\       '<Plug>(easymotion-bd-jk)'
+\       '<Plug>(easymotion-sn)'
 \     ]
 \   }
 \ }
@@ -557,7 +556,6 @@ nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
 let g:EasyMotion_smartcase   = 1
 nmap e <Plug>(easymotion-s2)
 nmap <Space>/ <Plug>(easymotion-sn)
-Arpeggio map jk <Plug>(easymotion-bd-jk)
 " }}}
 
 " clever-f {{{
