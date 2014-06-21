@@ -7,6 +7,7 @@ set fileencodings=utf-8,cp932,sjis,euc-jp
 set fileencoding=utf-8
 
 
+" https://github.com/rhysd/dotfiles
 augroup MyVimrc
   autocmd!
 augroup END
