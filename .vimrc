@@ -936,7 +936,8 @@ inoremap <Up>    <Nop>
 inoremap <Right> <Nop>
 
 " set undo point
-inoremap <CR> <C-g>u<CR>
+call smartinput#map_to_trigger('i', '<Plug>(smartinput_CR)', '<Enter>', '<Enter>')
+imap <CR> <C-g>u<Plug>(smartinput_CR)
 
 inoremap <C-o> <Esc>O
 
