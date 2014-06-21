@@ -104,6 +104,7 @@ NeoBundle 'osyo-manga/vim-textobj-blockwise'
 NeoBundle 'sgur/vim-textobj-parameter'
 NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'kana/vim-textobj-indent'
+NeoBundle 'kana/vim-textobj-entire'
 " }}}
 
 " operator {{{
@@ -441,6 +442,7 @@ let g:expand_region_text_objects = {
 \   'i}': 0,
 \   'i]': 0,
 \   'il': 1,
+\   'ae': 1,
 \ }
 let g:expand_region_text_objects_ruby = copy(g:expand_region_text_objects)
 let g:expand_region_text_objects_ruby.ir = 1
