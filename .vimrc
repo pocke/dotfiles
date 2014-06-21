@@ -532,6 +532,11 @@ let g:hl_matchit_allow_ft = 'html\|xml\|vim\|ruby\|sh'
 
 " ruby_hl_lvar.vim {{{
 let g:ruby_hl_lvar_hl_group = 'PreProc'
+let s:bundle = neobundle#get('ruby_hl_lvar.vim')
+function! s:bundle.hooks.on_post_source(bundle)
+  silent! execute 'doautocmd FileType' &filetype
+endfunction
+unlet s:bundle
 " }}}
 
 
