@@ -111,6 +111,8 @@ NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
 \   'type': 'hg',
 \   'rtp':  'vimperator/contrib/vim/'
 \ }
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'clausreinke/typescript-tools'
 " }}}
 
 NeoBundle 'sudo.vim'
@@ -681,6 +683,17 @@ endif
 
 " vimperator-syntax {{{
 " TODO
+" }}}
+
+" typescript-tools {{{
+if neobundle#tap('typescript-tools')
+  call neobundle#config({
+  \   'autoload': {
+  \     'filetypes': ['typescript']
+  \   }
+  \ })
+  call neobundle#untap()
+endif
 " }}}
 
 " }}}
