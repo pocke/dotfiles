@@ -1,0 +1,7 @@
+snippet     tap
+abbr        if neobundle#tap(...)
+options     head
+  if neobundle#tap('${1:#:plugin_name}')
+    ${0}
+    call neobundle#untap()
+  endif
