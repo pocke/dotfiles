@@ -536,6 +536,23 @@ let g:hl_matchit_allow_ft = 'html\|xml\|vim\|ruby\|sh'
 let g:ruby_hl_lvar_hl_group = 'PreProc'
 let s:bundle = neobundle#get('ruby_hl_lvar.vim')
 function! s:bundle.hooks.on_post_source(bundle)
+  function! Ruby_hl_lvar_filetype()
+    let groupname = 'vim_hl_lvar_'.bufnr('%')
+    execute 'augroup '.groupname
+      autocmd!
+      if &filetype ==# 'ruby'
+        if g:ruby_hl_lvar_auto_enable
+          call ruby_hl_lvar#refresh(1)
+          "autocmd TextChanged <buffer> call ruby_hl_lvar#refresh(0)
+          "autocmd InsertEnter <buffer> call ruby_hl_lvar#disable(0)
+          autocmd InsertLeave <buffer> call ruby_hl_lvar#refresh(0)
+        else
+          call ruby_hl_lvar#disable(1)
+        endif
+      endif
+    augroup END
+  endfunction
+
   silent! execute 'doautocmd FileType' &filetype
 endfunction
 unlet s:bundle
