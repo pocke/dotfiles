@@ -1111,9 +1111,11 @@ set wildmode=longest:full,full
 set history=1000
 
 " ファイルを閉じてもundo
-" undodir に指定したディレクトリを手で作成すること。
 if has('persistent_undo')
   set undodir=~/.vim/undo
+  if ! isdirectory(&undodir)
+    call mkdir(&undodir, 'p')
+  endif
   set undofile
 endif
 
