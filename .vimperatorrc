@@ -27,6 +27,7 @@ nnoremap <silent> <Esc> :<C-u>nohlsearch<CR>
 " ignore auto focus
 set focuscontent
 
+set hintchars=iasdfghjklbnertyu
 
 
 
