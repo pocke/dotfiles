@@ -84,6 +84,7 @@ NeoBundle 'thinca/vim-splash'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundleLazy 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'osyo-manga/vim-spice'
 
 " ruby のブロックとかがハイライト
 NeoBundle 'vimtaku/hl_matchit.vim'
@@ -539,6 +540,14 @@ if neobundle#tap('lightline.vim')
   \   }
   \ }
 
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-spice {{{
+if neobundle#tap('vim-spice')
+  AutoCmd ColorScheme * hi pluginVimSpice ctermbg=239
+  let g:spice_highlight_group = 'pluginVimSpice'
   call neobundle#untap()
 endif
 " }}}
