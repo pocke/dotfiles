@@ -12,6 +12,7 @@ alias vi='vim'
 alias grep='LANG=C grep -n '
 alias jman='LANG=ja_JP.UTF-8 man'
 alias be='bundle exec'
+alias b='bundle'
 alias g='git'
 alias tmux='TERM=screen-256color tmux -2'
 
