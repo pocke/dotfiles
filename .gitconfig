@@ -31,7 +31,7 @@
   ps     = push
   gr     = grep
 [push]
-  default = matching
+  default = simple
 [core]
   editor = vim +1 -c 'set fenc=utf-8'
   preloadindex = true
