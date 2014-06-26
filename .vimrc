@@ -1087,6 +1087,9 @@ set softtabstop=2
 set shiftwidth=2
 set list
 set listchars=tab:>-
+if exists('+breakindent')
+  set breakindent
+endif
 
 " ノーマルモードでoOで改行した時にコメントを追加しない
 AutoCmd FileType * setlocal formatoptions-=o
