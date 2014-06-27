@@ -319,6 +319,9 @@ if neobundle#tap('vim-smartinput')
     \   'input':    '<Bar><Bar><Left>',
     \   'filetype': ['ruby', 'ruby.rspec'],
     \ })
+
+    call smartinput#map_to_trigger('i', '<Plug>(smartinput_CR)', '<Enter>', '<Enter>')
+    imap <CR> <C-g>u<Plug>(smartinput_CR)
   endfunction
   
   call neobundle#untap()
@@ -1259,8 +1262,7 @@ inoremap <Up>    <Nop>
 inoremap <Right> <Nop>
 
 " set undo point
-call smartinput#map_to_trigger('i', '<Plug>(smartinput_CR)', '<Enter>', '<Enter>')
-imap <CR> <C-g>u<Plug>(smartinput_CR)
+imap <CR> <C-g>u<CR>
 
 inoremap <C-o> <Esc>O
 
