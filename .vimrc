@@ -87,7 +87,7 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'osyo-manga/vim-spice'
 
 " ruby のブロックとかがハイライト
-NeoBundle 'vimtaku/hl_matchit.vim'
+NeoBundleLazy 'vimtaku/hl_matchit.vim'
 NeoBundleLazy 'todesking/ruby_hl_lvar.vim'
 
 " colorscheme {{{
@@ -554,14 +554,22 @@ endif
 
 " hl_matchit {{{
 if neobundle#tap('hl_matchit.vim')
-  source $VIMRUNTIME/macros/matchit.vim
-  " vim起動時にhl_matchitを起動するか
-  let g:hl_matchit_enable_on_vim_startup = 1
-  " highlightのパターン
-  " :highlight に一覧がある
-  let g:hl_matchit_hl_groupname = 'MatchParen'
-  " 有効にするファイルの種類
-  let g:hl_matchit_allow_ft = 'html\|xml\|vim\|ruby\|sh'
+  call neobundle#config({
+  \   'autoload': {
+  \     'filetypes': ['vim', 'ruby', 'sh']
+  \   }
+  \ })
+  
+  function! neobundle#tapped.hooks.on_source(bundle)
+    source $VIMRUNTIME/macros/matchit.vim
+    " vim起動時にhl_matchitを起動するか
+    let g:hl_matchit_enable_on_vim_startup = 1
+    " highlightのパターン
+    " :highlight に一覧がある
+    let g:hl_matchit_hl_groupname = 'MatchParen'
+    " 有効にするファイルの種類
+    let g:hl_matchit_allow_ft = 'vim\|ruby\|sh'
+  endfunction
   
   call neobundle#untap()
 endif
