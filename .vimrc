@@ -1155,7 +1155,7 @@ AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldma
 AutoCmd FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
 AutoCmd FileType qf   nnoremap <buffer> <CR> <CR> | setlocal cursorline
 AutoCmd CmdwinEnter * nnoremap <buffer> <CR> <CR> | setlocal cursorline
-AutoCmd CmdwinEnter * nnoremap <silent> q :q<CR>
+AutoCmd CmdwinEnter * nnoremap <buffer><silent> q :q<CR>
 AutoCmd FileType gitcommit if getline(1) == '' | startinsert | endif
 
 " 長いFiletypeを省略する
