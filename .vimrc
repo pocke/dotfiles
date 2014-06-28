@@ -1212,6 +1212,20 @@ cnoremap <C-p>  <Up>
 cnoremap <Down> <C-n>
 cnoremap <Up>   <C-p>
 
+
+" :h hogehoge@ とかなってhelpが見つからないのを解消
+cnoremap <CR> <C-\>e <SID>cmdline_cr()<CR><CR>
+function! s:cmdline_cr()
+  let cmdline_orig = getcmdline()
+  if cmdline_orig !~# '\v^h .+\@$'
+    return cmdline_orig
+  endif
+
+  let cmdline_ret = substitute(cmdline_orig, '\v\@$', '', '')
+  return cmdline_ret
+endfunction
+
+
 " Esc 2回で強調を解除
 nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 
