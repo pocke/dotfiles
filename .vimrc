@@ -1217,7 +1217,7 @@ cnoremap <Up>   <C-p>
 cnoremap <CR> <C-\>e <SID>cmdline_cr()<CR><CR>
 function! s:cmdline_cr()
   let cmdline_orig = getcmdline()
-  if cmdline_orig !~# '\v^h .+\@$'
+  if cmdline_orig !~# '\v^h%[elp] .+\@$'
     return cmdline_orig
   endif
 
