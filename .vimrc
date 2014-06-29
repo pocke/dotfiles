@@ -55,16 +55,15 @@ NeoBundleLazy 'kana/vim-smartchr'
 NeoBundleLazy 'mattn/emmet-vim'
 
 " text object {{{
-NeoBundle 'kana/vim-textobj-user'
 NeoBundleLazy 'terryma/vim-expand-region'
+NeoBundle 'osyo-manga/vim-textobj-blockwise'
+NeoBundleLazy 'kana/vim-textobj-user'
 NeoBundleLazy 'rhysd/vim-textobj-ruby'
 NeoBundleLazy 'deris/vim-textobj-enclosedsyntax'
-NeoBundle 'kana/vim-textobj-syntax'
-NeoBundle 'osyo-manga/vim-textobj-blockwise'
-NeoBundle 'sgur/vim-textobj-parameter'
-NeoBundle 'kana/vim-textobj-line'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-entire'
+NeoBundleLazy 'kana/vim-textobj-syntax'
+NeoBundleLazy 'sgur/vim-textobj-parameter'
+NeoBundleLazy 'kana/vim-textobj-line'
+NeoBundleLazy 'kana/vim-textobj-entire'
 " }}}
 
 " operator {{{
@@ -398,6 +397,19 @@ if neobundle#tap('vim-expand-region')
 endif
 " }}}
 
+function! s:depend_textobj_user()
+  call neobundle#config({'depends': 'kana/vim-textobj-user'})
+endfunction
+
+function! s:textobj_config(mappings)
+  call neobundle#config({
+  \   'depends': 'kana/vim-textobj-user',
+  \   'autoload': {
+  \     'mappings': map(a:mappings, '["xo", v:val]')
+  \   }
+  \ })
+endfunction
+
 " vim-textobj-ruby {{{
 if neobundle#tap('vim-textobj-ruby')
   call neobundle#config({
@@ -405,6 +417,7 @@ if neobundle#tap('vim-textobj-ruby')
   \     'filetypes': 'ruby'
   \   }
   \ })
+  call s:depend_textobj_user()
 
   call neobundle#untap()
 endif
@@ -417,6 +430,39 @@ if neobundle#tap('vim-textobj-enclosedsyntax')
   \     'filetypes': 'ruby'
   \   }
   \ })
+  call s:depend_textobj_user()
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-textobj-syntax {{{
+if neobundle#tap('vim-textobj-syntax')
+  call s:textobj_config(['ay', 'iy'])
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-textobj-parameter {{{
+if neobundle#tap('vim-textobj-parameter')
+  call s:textobj_config(['a,', 'i,'])
+
+  call neobundle#untap()
+endif
+" }}}
+
+"vim-textobj-line {{{
+if neobundle#tap('vim-textobj-line')
+  call s:textobj_config(['al', 'il'])
+
+  call neobundle#untap()
+endif
+"}}}
+
+" vim-textobj-entire {{{
+if neobundle#tap('vim-textobj-entire')
+  call s:textobj_config(['ae', 'ie'])
 
   call neobundle#untap()
 endif
