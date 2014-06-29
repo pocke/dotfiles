@@ -68,11 +68,11 @@ NeoBundleLazy 'kana/vim-textobj-entire'
 
 " operator {{{
 NeoBundle 'kana/vim-operator-user'
-NeoBundle 'rhysd/vim-operator-surround'
-NeoBundle 'emonkak/vim-operator-comment'
-NeoBundle 'tyru/operator-camelize.vim'
-NeoBundle 'chikatoike/concealedyank.vim'
-NeoBundle 'kana/vim-operator-replace'
+NeoBundleLazy 'rhysd/vim-operator-surround'
+NeoBundleLazy 'emonkak/vim-operator-comment'
+NeoBundleLazy 'tyru/operator-camelize.vim'
+NeoBundleLazy 'chikatoike/concealedyank.vim'
+NeoBundleLazy 'kana/vim-operator-replace'
 NeoBundleLazy 'pocke/vim-operator-gitrebase'
 " }}}
 
@@ -472,11 +472,22 @@ endif
 
 " operator {{{
 
+function! s:operator_config(mappings)
+  call neobundle#config({
+  \   'depends': 'kana/vim-operator-user',
+  \   'autoload': {
+  \     'mappings': a:mappings
+  \   }
+  \ })
+endfunction
+
 " vim-operator-surround {{{
 if neobundle#tap('vim-operator-surround')
   Arpeggio map <silent>sa <Plug>(operator-surround-append)
   Arpeggio map <silent>sd <Plug>(operator-surround-delete)
   Arpeggio map <silent>sr <Plug>(operator-surround-replace)
+
+  call s:operator_config('<Plug>(operator-surround-')
   
   call neobundle#untap()
 endif
@@ -486,6 +497,8 @@ endif
 if neobundle#tap('vim-operator-comment')
   Arpeggio map <silent>co <Plug>(operator-comment)
   Arpeggio map <silent>cu <Plug>(operator-uncomment)
+
+  call s:operator_config(['<Plug>(operator-comment)', '<Plug>(operator-uncomment)'])
   
   call neobundle#untap()
 endif
@@ -494,6 +507,8 @@ endif
 " operator-camelize.vim {{{
 if neobundle#tap('operator-camelize.vim')
   Arpeggio map <silent>ca <Plug>(operator-camelize-toggle)
+
+  call s:operator_config('<Plug>(operator-camelize-toggle)')
   
   call neobundle#untap()
 endif
@@ -502,6 +517,8 @@ endif
 " operator concealedyank.vim {{{
 if neobundle#tap('concealedyank.vim')
   vmap Y <Plug>(operator-concealedyank)
+
+  call s:operator_config('<Plug>(operator-concealedyank)')
   
   call neobundle#untap()
 endif
@@ -510,6 +527,8 @@ endif
 " operator-replace.vim {{{
 if neobundle#tap('vim-operator-replace')
   map _ <Plug>(operator-replace)
+
+  call s:operator_config('<Plug>(operator-replace)')
   
   call neobundle#untap()
 endif
