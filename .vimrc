@@ -1278,7 +1278,7 @@ inoremap <Up>    <Nop>
 inoremap <Right> <Nop>
 
 " set undo point
-imap <CR> <C-g>u<CR>
+inoremap <CR> <C-g>u<CR>
 
 inoremap <C-o> <Esc>O
 
