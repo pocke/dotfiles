@@ -113,7 +113,7 @@ NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
 \   'rtp':  'vimperator/contrib/vim/'
 \ }
 NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'clausreinke/typescript-tools'
+NeoBundleLazy 'clausreinke/typescript-tools'
 " }}}
 
 NeoBundle 'sudo.vim'
