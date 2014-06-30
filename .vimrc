@@ -74,7 +74,7 @@ NeoBundleLazy 'kana/vim-textobj-entire'
 " }}}
 
 " operator {{{
-NeoBundle 'kana/vim-operator-user'
+NeoBundleLazy 'kana/vim-operator-user'
 NeoBundleLazy 'rhysd/vim-operator-surround'
 NeoBundleLazy 'emonkak/vim-operator-comment'
 NeoBundleLazy 'tyru/operator-camelize.vim'
@@ -1251,29 +1251,6 @@ set noerrorbells
 " q だけで Window を閉じる
 AutoCmd FileType help,qf nnoremap <buffer> q <C-w>c
 
-" http://deris.hatenablog.jp/entry/2013/07/05/023835 {{{
-call operator#user#define('open-neobundlepath', 'OpenNeoBundlePath')
-map gz <Plug>(operator-open-neobundlepath)
-function! OpenNeoBundlePath(motion_wise)
-  if line("'[") != line("']")
-    return
-  endif
-  let start = col("'[") - 1
-  let end = col("']")
-  let sel = strpart(getline('.'), start, end - start)
-  let sel = substitute(sel, '^\%(github\|gh\|git@github\.com\):\(.\+\)', 'https://github.com/\1', '')
-  let sel = substitute(sel, '^\%(bitbucket\|bb\):\(.\+\)', 'https://bitbucket.org/\1', '')
-  let sel = substitute(sel, '^gist:\(.\+\)', 'https://gist.github.com/\1', '')
-  let sel = substitute(sel, '^git://', 'https://', '')
-  if sel =~ '^https\?://'
-    call openbrowser#open(sel)
-  elseif sel =~ '/'
-    call openbrowser#open('https://github.com/'.sel)
-  else
-    call openbrowser#open('https://github.com/vim-scripts/'.sel)
-  endif
-endfunction
-" }}}
 " }}}
 
 " keybind {{{
@@ -1357,21 +1334,10 @@ inoremap <C-o> <Esc>O
 nnoremap Q <Nop>
 " }}}
 
-function! s:operator_help(motion_wise)
-  if line("'[") != line("']")
-    return
-  endif
-  let start = col("'[") - 1
-  let end   = col("']")
-  let sel = strpart(getline('.'), start, end - start)
-  execute "help " . sel
-endfunction
 
-call operator#user#define('help', s:SID . 'operator_help')
-
-map <F1> <Plug>(operator-help)
-
-function! s:set_vim_execute_operator()
+" set vim operators {{{
+function! s:for_vim_operator()
+  NeoBundleSource vim-operator-user
   function! s:operator_vim_execute(motion_wise)
     if line("'[") != line("']")
       return
@@ -1385,9 +1351,52 @@ function! s:set_vim_execute_operator()
   call operator#user#define('vim-execute', s:SID . 'operator_vim_execute')
 
   map <buffer> E <Plug>(operator-vim-execute)
+
+
+  function! s:operator_help(motion_wise)
+    if line("'[") != line("']")
+      return
+    endif
+    let start = col("'[") - 1
+    let end   = col("']")
+    let sel = strpart(getline('.'), start, end - start)
+    execute "help " . sel
+  endfunction
+
+  call operator#user#define('help', s:SID . 'operator_help')
+
+  map <F1> <Plug>(operator-help)
+
+
+  " http://deris.hatenablog.jp/entry/2013/07/05/023835 {{{
+  function! s:open_neo_bundle_path(motion_wise)
+    if line("'[") != line("']")
+      return
+    endif
+    let start = col("'[") - 1
+    let end = col("']")
+    let sel = strpart(getline('.'), start, end - start)
+    let sel = substitute(sel, '^\%(github\|gh\|git@github\.com\):\(.\+\)', 'https://github.com/\1', '')
+    let sel = substitute(sel, '^\%(bitbucket\|bb\):\(.\+\)', 'https://bitbucket.org/\1', '')
+    let sel = substitute(sel, '^gist:\(.\+\)', 'https://gist.github.com/\1', '')
+    let sel = substitute(sel, '^git://', 'https://', '')
+    if sel =~ '^https\?://'
+      call openbrowser#open(sel)
+    elseif sel =~ '/'
+      call openbrowser#open('https://github.com/'.sel)
+    else
+      call openbrowser#open('https://github.com/vim-scripts/'.sel)
+    endif
+  endfunction
+
+  call operator#user#define('open-neobundlepath', s:SID . 'open_neo_bundle_path')
+
+  map gz <Plug>(operator-open-neobundlepath)
+  " }}}
 endfunction
 
-AutoCmd FileType vim call s:set_vim_execute_operator()
+AutoCmd FileType vim call s:for_vim_operator()
+" }}}
 
 
 " vim:set foldmethod=marker:
