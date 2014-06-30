@@ -14,6 +14,13 @@ augroup END
 
 command! -nargs=* AutoCmd autocmd MyVimrc <args>
 
+function! s:get_SID()
+  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeget_SID$')
+endfunction
+let s:SID = s:get_SID()
+delfunction s:get_SID
+
+
 " neobundle {{{
 "set nocompatible               " Be iMproved
 filetype off                   " Required!
@@ -1350,7 +1357,7 @@ inoremap <C-o> <Esc>O
 nnoremap Q <Nop>
 " }}}
 
-function! OperatorHelp(motion_wise)
+function! s:operator_help(motion_wise)
   if line("'[") != line("']")
     return
   endif
@@ -1360,12 +1367,12 @@ function! OperatorHelp(motion_wise)
   execute "help " . sel
 endfunction
 
-call operator#user#define('help', 'OperatorHelp')
+call operator#user#define('help', s:SID . 'operator_help')
 
 map <F1> <Plug>(operator-help)
 
 function! s:set_vim_execute_operator()
-  function! OperatorVimExecute(motion_wise)
+  function! s:operator_vim_execute(motion_wise)
     if line("'[") != line("']")
       return
     endif
@@ -1375,7 +1382,7 @@ function! s:set_vim_execute_operator()
     execute sel
   endfunction
 
-  call operator#user#define('vim-execute', 'OperatorVimExecute')
+  call operator#user#define('vim-execute', s:SID . 'operator_vim_execute')
 
   map <buffer> E <Plug>(operator-vim-execute)
 endfunction
