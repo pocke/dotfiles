@@ -1373,7 +1373,7 @@ function! s:for_vim_operator()
 
   call operator#user#define('help', s:SID . 'operator_help')
 
-  map <F1> <Plug>(operator-help)
+  map <buffer> <F1> <Plug>(operator-help)
 
 
   " http://deris.hatenablog.jp/entry/2013/07/05/023835 {{{
@@ -1399,7 +1399,7 @@ function! s:for_vim_operator()
 
   call operator#user#define('open-neobundlepath', s:SID . 'open_neo_bundle_path')
 
-  map gz <Plug>(operator-open-neobundlepath)
+  map <buffer> gz <Plug>(operator-open-neobundlepath)
   " }}}
 endfunction
 
