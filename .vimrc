@@ -268,7 +268,11 @@ if neobundle#tap('neosnippet')
   let g:neosnippet#enable_snipmate_compatibility = 1
   let g:neosnippet#snippets_directory='~/dotfiles/snippets'
 
-  AutoCmd InsertLeave * syntax clear neosnippetConcealExpandSnippets
+  augroup disable-neosnippet-conceal
+    autocmd!
+    autocmd InsertLeave * syntax clear neosnippetConcealExpandSnippets
+    autocmd InsertLeave * autocmd! disable-neosnippet-conceal
+  augroup END
 
   call neobundle#untap()
 endif
@@ -946,7 +950,11 @@ endif
 
 " vim-watchdogs {{{
 if neobundle#tap('vim-watchdogs')
-  AutoCmd BufWritePre * NeoBundleSource vim-watchdogs
+  augroup source-watchdogs
+    autocmd!
+    autocmd BufWritePre * NeoBundleSource vim-watchdogs
+    autocmd BufWritePre * autocmd! source-watchdogs
+  augroup END
 
   function! neobundle#tapped.hooks.on_source(bundle)
     let g:watchdogs_check_BufWritePost_enable = 1
