@@ -268,11 +268,7 @@ if neobundle#tap('neosnippet')
   let g:neosnippet#enable_snipmate_compatibility = 1
   let g:neosnippet#snippets_directory='~/dotfiles/snippets'
 
-  augroup disable-neosnippet-conceal
-    autocmd!
-    autocmd InsertLeave * syntax clear neosnippetConcealExpandSnippets
-    autocmd InsertLeave * autocmd! disable-neosnippet-conceal
-  augroup END
+  AutoCmd InsertLeave * syntax clear neosnippetConcealExpandSnippets
 
   call neobundle#untap()
 endif
