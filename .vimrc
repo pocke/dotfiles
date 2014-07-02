@@ -544,6 +544,7 @@ endif
 " operator-gitrebase {{{
 if neobundle#tap('vim-operator-gitrebase')
   call neobundle#config({
+  \   'depends': 'kana/vim-operator-user',
   \   'autoload': {
   \     'filetypes': 'gitrebase'
   \   }
