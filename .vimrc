@@ -120,6 +120,7 @@ NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
 \ }
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundleLazy 'clausreinke/typescript-tools'
+NeoBundle 'groenewege/vim-less'
 " }}}
 
 NeoBundle 'sudo.vim'
