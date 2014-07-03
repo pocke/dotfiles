@@ -1159,6 +1159,9 @@ endif
 
 
 
+" netrw {{{
+let g:netrw_http_xcmd = '-L -o'
+" }}}
 
 " }}}
 
