@@ -212,6 +212,9 @@ if s:meet_neocomplete_requirements()
     " 補完を表示する最小文字数
     let g:neocomplete#auto_completion_start_length = 2
 
+    " 遅延補完
+    let g:neocomplete#enable_cursor_hold_i = 1
+
 
     if !exists('g:neocomplete#delimiter_patterns')
       let g:neocomplete#delimiter_patterns= {}
@@ -1250,6 +1253,8 @@ set display& display+=lastline
 " ビープ音を鳴らさない
 set visualbell t_vb=
 set noerrorbells
+
+set updatetime=200
 
 " コマンドラインウィンドウの末尾20行を除いて全て削除
 "AutoCmd CmdwinEnter * :<C-u>silent! 1,$-20 delete _ | call cursor("$", 1)
