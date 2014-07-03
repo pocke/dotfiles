@@ -182,6 +182,7 @@ NeoBundleLazy 'gregsexton/gitv', {
 \ }
 
 NeoBundle 'vim-jp/vimdoc-ja'
+NeoBundleLazy 'LeafCage/vimhelpgenerator'
 
 NeoBundle 'kana/vim-submode'
 NeoBundle 'kana/vim-arpeggio'
@@ -1107,6 +1108,24 @@ if neobundle#tap('gitv')
   \ })
 
   nnoremap <Space>gv :<C-u>Gitv<CR>
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vimhelpgenerator {{{
+if neobundle#tap('vimhelpgenerator')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': 'VimHelpGenerator'
+  \   }
+  \ })
+
+  function! neobundle#tapped.hooks.on_post_source(bundle)
+    let g:vimhelpgenerator_author  = 'Author  : pocke <p.ck.t22@gmail.com>'
+    let g:vimhelpgenerator_license = 'vimhelpgenerator/MIT'
+    let g:vimhelpgenerator_uri     = 'https://github.com/pocke/'
+  endfunction
 
   call neobundle#untap()
 endif
