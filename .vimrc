@@ -727,8 +727,8 @@ endif
 
 " accelerated-jk {{{
 if neobundle#tap('accelerated-jk')
-  map j <Plug>(accelerated_jk_j)
-  map k <Plug>(accelerated_jk_k)
+  nmap j <Plug>(accelerated_jk_j)
+  nmap k <Plug>(accelerated_jk_k)
   call neobundle#untap()
 endif
 " }}}
