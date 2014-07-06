@@ -186,9 +186,11 @@ NeoBundleLazy 'gregsexton/gitv', {
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundleLazy 'LeafCage/vimhelpgenerator'
 
+" keybind {{{
 NeoBundle 'kana/vim-submode'
 NeoBundle 'kana/vim-arpeggio'
 call arpeggio#load()
+" }}}
 
 filetype plugin indent on     " Required!
 "}}}
@@ -1141,6 +1143,7 @@ if neobundle#tap('vimhelpgenerator')
 endif
 " }}}
 
+" keybind {{{
 
 " vim-submode {{{
 if neobundle#tap('vim-submode')
@@ -1165,6 +1168,8 @@ if neobundle#tap('vim-submode')
   
   call neobundle#untap()
 endif
+" }}}
+
 " }}}
 
 
