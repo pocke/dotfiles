@@ -53,6 +53,7 @@ endif
 
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'pocke/neosnippet-modeline'
 
 " true/false とかを簡単に切り替える
 NeoBundleLazy 'AndrewRadev/switch.vim'
