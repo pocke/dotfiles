@@ -1296,6 +1296,10 @@ AutoCmd FileType help,qf nnoremap <buffer> q <C-w>c
 " }}}
 
 " keybind {{{
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 let g:mapleader = "'"
 " コマンドラインでのC-n|p と Up, Downの入れ替え
 cnoremap <C-n>  <Down>
