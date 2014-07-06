@@ -61,6 +61,7 @@ NeoBundleLazy 'AndrewRadev/switch.vim'
 NeoBundleLazy 'kana/vim-smartinput'
 NeoBundleLazy 'kana/vim-smartchr'
 NeoBundleLazy 'mattn/emmet-vim'
+NeoBundleLazy 'LeafCage/yankround.vim'
 
 " text object {{{
 NeoBundleLazy 'terryma/vim-expand-region'
@@ -375,6 +376,29 @@ if neobundle#tap('emmet-vim')
   \     ]
   \   }
   \ })
+
+  call neobundle#untap()
+endif
+" }}}
+
+" yankround.vim {{{
+if neobundle#tap('yankround.vim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'mappings': ['<Plug>(yankround-']
+  \   }
+  \ })
+
+  nmap p <Plug>(yankround-p)
+  xmap p <Plug>(yankround-p)
+  nmap P <Plug>(yankround-P)
+
+  nmap gp <Plug>(yankround-gp)
+  xmap gp <Plug>(yankround-gp)
+  nmap gP <Plug>(yankround-gP)
+
+  nmap <C-p> <Plug>(yankround-prev)
+  nmap <C-n> <Plug>(yankround-next)
 
   call neobundle#untap()
 endif
