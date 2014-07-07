@@ -187,6 +187,8 @@ NeoBundleLazy 'gregsexton/gitv', {
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundleLazy 'LeafCage/vimhelpgenerator'
 
+NeoBundleLazy 'sjl/gundo.vim'
+
 " keybind {{{
 NeoBundle 'kana/vim-submode'
 NeoBundle 'kana/vim-arpeggio'
@@ -1167,6 +1169,23 @@ if neobundle#tap('vimhelpgenerator')
     let g:vimhelpgenerator_license = 'vimhelpgenerator/MIT'
     let g:vimhelpgenerator_uri     = 'https://github.com/pocke/'
   endfunction
+
+  call neobundle#untap()
+endif
+" }}}
+
+" gundo.vim {{{
+if neobundle#tap('gundo.vim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': [
+  \       'GundoToggle',
+  \       'GundoShow',
+  \       'GundoHide',
+  \       'GundoRenderGraph'
+  \     ]
+  \   }
+  \ })
 
   call neobundle#untap()
 endif
