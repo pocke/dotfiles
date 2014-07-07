@@ -389,6 +389,11 @@ if neobundle#tap('yankround.vim')
   \   }
   \ })
 
+  function! neobundle#tapped.hooks.on_source(bundle)
+    let g:yankround_dir         = '~/.vim/cache/yankround'
+    let g:yankround_max_history = 64
+  endfunction
+
   nmap p <Plug>(yankround-p)
   xmap p <Plug>(yankround-p)
   nmap P <Plug>(yankround-P)
