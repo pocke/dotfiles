@@ -347,7 +347,7 @@ if neobundle#tap('vim-smartinput')
     \ })
 
     call smartinput#map_to_trigger('i', '<Plug>(smartinput_CR)', '<Enter>', '<Enter>')
-    imap <CR> <C-g>u<Plug>(smartinput_CR)
+    imap <silent> <CR> <C-g>u<Plug>(smartinput_CR)
   endfunction
 
   call neobundle#untap()
