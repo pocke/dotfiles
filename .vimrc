@@ -117,14 +117,15 @@ NeoBundleLazy 'rhysd/clever-f.vim'
 " syntax plugins {{{
 NeoBundleLazy 'jelera/vim-javascript-syntax'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundleLazy 'clausreinke/typescript-tools'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'slim-template/vim-slim'
 NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
 \   'name': 'vimperator-syntax',
 \   'type': 'hg',
 \   'rtp':  'vimperator/contrib/vim/'
 \ }
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundleLazy 'clausreinke/typescript-tools'
-NeoBundle 'groenewege/vim-less'
 " }}}
 
 " Application Plugins {{{
