@@ -93,6 +93,7 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundleLazy 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'osyo-manga/vim-spice'
+NeoBundleLazy 'osyo-manga/vim-over'
 
 " ruby のブロックとかがハイライト
 NeoBundleLazy 'vimtaku/hl_matchit.vim'
@@ -126,14 +127,38 @@ NeoBundleLazy 'clausreinke/typescript-tools'
 NeoBundle 'groenewege/vim-less'
 " }}}
 
-NeoBundle 'sudo.vim'
-NeoBundle 'editorconfig/editorconfig-vim'
+" Application Plugins {{{
 
 " Unite {{{
 NeoBundleLazy 'Shougo/unite.vim'
 NeoBundleLazy 'rhysd/unite-ruby-require.vim'
 NeoBundleLazy 'Shougo/unite-outline'
 " }}}
+
+NeoBundle 'Shougo/vimfiler', {
+\   'depends': 'Shougo/unite.vim'
+\ }
+NeoBundleLazy 'Shougo/vimshell', {
+\   'depends': ['Shougo/unite.vim', 'Shougo/neocomplete']
+\ }
+NeoBundleLazy 'itchyny/calendar.vim'
+
+NeoBundleLazy 'sjl/gundo.vim'
+
+" Web service {{{
+" はてなブログ
+NeoBundleLazy 'moznion/hateblo.vim', {
+\   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
+\ }
+NeoBundleLazy 'mattn/gist-vim', {
+\   'depends': ['mattn/webapi-vim']
+\ }
+" }}}
+
+" }}}
+
+NeoBundle 'sudo.vim'
+NeoBundle 'editorconfig/editorconfig-vim'
 
 " 非同期処理
 NeoBundle 'Shougo/vimproc'
@@ -158,25 +183,9 @@ NeoBundleLazy 'osyo-manga/vim-watchdogs', {
 \   ]
 \ }
 
-" はてなブログ
-NeoBundleLazy 'moznion/hateblo.vim', {
-\   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
-\ }
-NeoBundleLazy 'mattn/gist-vim', {
-\   'depends': ['mattn/webapi-vim']
-\ }
-
-NeoBundle 'Shougo/vimfiler', {
-\   'depends': 'Shougo/unite.vim'
-\ }
-NeoBundleLazy 'Shougo/vimshell', {
-\   'depends': ['Shougo/unite.vim', 'Shougo/neocomplete']
-\ }
-NeoBundleLazy 'itchyny/calendar.vim'
 
 " Visual Mode でも * で検索
 NeoBundleLazy 'thinca/vim-visualstar'
-NeoBundleLazy 'osyo-manga/vim-over'
 
 " git
 NeoBundle 'tpope/vim-fugitive'
@@ -187,7 +196,6 @@ NeoBundleLazy 'gregsexton/gitv', {
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundleLazy 'LeafCage/vimhelpgenerator'
 
-NeoBundleLazy 'sjl/gundo.vim'
 
 " keybind {{{
 NeoBundle 'kana/vim-submode'
@@ -341,7 +349,7 @@ if neobundle#tap('vim-smartinput')
     call smartinput#map_to_trigger('i', '<Plug>(smartinput_CR)', '<Enter>', '<Enter>')
     imap <CR> <C-g>u<Plug>(smartinput_CR)
   endfunction
-  
+
   call neobundle#untap()
 endif
 " }}}
@@ -357,7 +365,7 @@ if neobundle#tap('vim-smartchr')
   function! neobundle#tapped.hooks.on_source(bundle)
     inoremap <expr> , smartchr#loop(', ', ',')
   endfunction
-  
+
   call neobundle#untap()
 endif
 " }}}
@@ -439,7 +447,7 @@ if neobundle#tap('vim-expand-region')
   let g:expand_region_text_objects_ruby = copy(g:expand_region_text_objects)
   let g:expand_region_text_objects_ruby.ir = 1
   let g:expand_region_text_objects_ruby.ar = 1
-  
+
   call neobundle#untap()
 endif
 " }}}
@@ -535,7 +543,7 @@ if neobundle#tap('vim-operator-surround')
   Arpeggio map <silent>sr <Plug>(operator-surround-replace)
 
   call s:operator_config('<Plug>(operator-surround-')
-  
+
   call neobundle#untap()
 endif
 " }}}
@@ -546,7 +554,7 @@ if neobundle#tap('vim-operator-comment')
   Arpeggio map <silent>cu <Plug>(operator-uncomment)
 
   call s:operator_config(['<Plug>(operator-comment)', '<Plug>(operator-uncomment)'])
-  
+
   call neobundle#untap()
 endif
 " }}}
@@ -556,7 +564,7 @@ if neobundle#tap('operator-camelize.vim')
   Arpeggio map <silent>ca <Plug>(operator-camelize-toggle)
 
   call s:operator_config('<Plug>(operator-camelize-toggle)')
-  
+
   call neobundle#untap()
 endif
 " }}}
@@ -566,7 +574,7 @@ if neobundle#tap('concealedyank.vim')
   vmap Y <Plug>(operator-concealedyank)
 
   call s:operator_config('<Plug>(operator-concealedyank)')
-  
+
   call neobundle#untap()
 endif
 " }}}
@@ -576,7 +584,7 @@ if neobundle#tap('vim-operator-replace')
   map _ <Plug>(operator-replace)
 
   call s:operator_config('<Plug>(operator-replace)')
-  
+
   call neobundle#untap()
 endif
 " }}}
@@ -611,7 +619,7 @@ endif
 " vim-splash {{{
 if neobundle#tap('vim-splash')
   let g:splash#path = $HOME . '/dotfiles/octocat.txt'
-  
+
   call neobundle#untap()
 endif
 " }}}
@@ -622,7 +630,7 @@ if neobundle#tap('indentLine')
   " let g:indentLine_color_gui = '#708090'
   let g:indentLine_char = '¦' "use ¦, ┆ or │
   let g:indentLine_fileTypeExclude = ['gitcommit', 'diff']
-  
+
   call neobundle#untap()
 endif
 " }}}
@@ -668,6 +676,20 @@ if neobundle#tap('vim-spice')
 endif
 " }}}
 
+" vim-over {{{
+if neobundle#tap('vim-over')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': 'OverCommandLine'
+  \   }
+  \ })
+
+  cnoreabbrev <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>' : 's'
+
+  call neobundle#untap()
+endif
+"}}}
+
 " hl_matchit {{{
 if neobundle#tap('hl_matchit.vim')
   call neobundle#config({
@@ -675,7 +697,7 @@ if neobundle#tap('hl_matchit.vim')
   \     'filetypes': ['vim', 'ruby', 'sh']
   \   }
   \ })
-  
+
   function! neobundle#tapped.hooks.on_source(bundle)
     source $VIMRUNTIME/macros/matchit.vim
     " vim起動時にhl_matchitを起動するか
@@ -686,7 +708,7 @@ if neobundle#tap('hl_matchit.vim')
     " 有効にするファイルの種類
     let g:hl_matchit_allow_ft = 'vim\|ruby\|sh'
   endfunction
-  
+
   call neobundle#untap()
 endif
 " }}}
@@ -721,7 +743,7 @@ if neobundle#tap('ruby_hl_lvar.vim')
 
     silent! execute 'doautocmd FileType' &filetype
   endfunction
-  
+
   call neobundle#untap()
 endif
 " }}}
@@ -744,7 +766,7 @@ if neobundle#tap('accelerated-smooth-scroll')
   \     ]
   \   }
   \ })
-  
+
   function! neobundle#tapped.hooks.on_source(bundle)
     let g:ac_smooth_scroll_no_default_key_mappings = 1
   endfunction
@@ -808,6 +830,7 @@ endif
 
 " }}}
 
+
 " syntax plugins {{{
 
 " vim-javascript-syntax {{{
@@ -839,6 +862,8 @@ endif
 
 " }}}
 
+
+" Application Plugins {{{
 
 " Unite{{{
 
@@ -903,6 +928,113 @@ endif
 " }}}
 
 
+" vimfiler {{{
+if neobundle#tap('vimfiler')
+  let g:vimfiler_as_default_explorer = 1
+
+  nnoremap <Space>ff :<C-u>VimFiler<CR>
+  nnoremap <Space>ft :<C-u>VimFilerTab<CR>
+  nnoremap <Space>tf :<C-u>VimFilerTab<CR>
+  nnoremap <Space>fi :<C-u>VimFiler -split -simple -winwidth=35 -no-quit<CR>
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vimshell {{{
+if neobundle#tap('vimshell')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': ['VimShell', 'VimShellTab', 'VimShellCreate', 'VimShellPop']
+  \   }
+  \ })
+
+  function! neobundle#tapped.hooks.on_source(bundle)
+    AutoCmd FileType vimshell call vimshell#hook#set('chpwd', ['MyChpwd'])
+
+    function! MyChpwd(args, context)
+      call vimshell#execute('ls')
+    endfunction
+
+    let g:vimshell_prompt = '% '
+    let g:vimshell_secondary_prompt = '> '
+    let g:vimshell_user_prompt = 'getcwd()'
+  endfunction
+
+  nnoremap <silent> <Space>ss :<C-u>VimShell<CR>
+  nnoremap <silent> <Space>sc :<C-u>VimShellCreate<CR>
+  nnoremap <silent> <Space>sp :<C-u>VimShellPop<CR>
+  nnoremap <silent> <Space>st :<C-u>VimShellTab<CR>
+
+  call neobundle#untap()
+endif
+" }}}
+
+" calendar.vim {{{
+if neobundle#tap('calendar.vim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': ['Calendar']
+  \   }
+  \ })
+
+  function! neobundle#tapped.hooks.on_source(bundle)
+    let g:calendar_google_calendar = 1
+    let g:calendar_google_task = 1
+  endfunction
+
+  call neobundle#untap()
+endif
+" }}}
+
+" gundo.vim {{{
+if neobundle#tap('gundo.vim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': [
+  \       'GundoToggle',
+  \       'GundoShow',
+  \       'GundoHide',
+  \       'GundoRenderGraph'
+  \     ]
+  \   }
+  \ })
+
+  nnoremap <F2> :<C-u>GundoToggle<CR>
+  call neobundle#untap()
+endif
+" }}}
+
+" }}}
+
+
+" Web Service {{{
+" hateblo.vim {{{
+if neobundle#tap('hateblo.vim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': ['HatebloCreate', 'HatebloCreateDraft', 'HatebloList']
+  \   }
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
+
+" gist-vim {{{
+if neobundle#tap('gist-vim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': 'Gist'
+  \   }
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
+" }}}
+
+
 " vimproc {{{
 if neobundle#tap('vimproc')
   call neobundle#config({
@@ -925,7 +1057,7 @@ if neobundle#tap('open-browser.vim')
   \   "name": "google-chrome-stable",
   \   "args": ["{browser}", "{uri}"]
   \ }]
-  
+
   call neobundle#untap()
 endif
 " }}}
@@ -975,7 +1107,7 @@ if neobundle#tap('vim-quickrun')
   endfunction
 
   nnoremap <silent><Leader>r :QuickRun<CR>
-  
+
   call neobundle#untap()
 endif
 " }}}
@@ -1010,91 +1142,11 @@ if neobundle#tap('vim-watchdogs')
 endif
 " }}}
 
-" hateblo.vim {{{
-if neobundle#tap('hateblo.vim')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': ['HatebloCreate', 'HatebloCreateDraft', 'HatebloList']
-  \   }
-  \ })
-
-  call neobundle#untap()
-endif
-" }}}
-
-" gist-vim {{{
-if neobundle#tap('gist-vim')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': 'Gist'
-  \   }
-  \ })
-
-  call neobundle#untap()
-endif
-" }}}
 
 
-" vimfiler {{{
-if neobundle#tap('vimfiler')
-  let g:vimfiler_as_default_explorer = 1
-
-  nnoremap <Space>ff :<C-u>VimFiler<CR>
-  nnoremap <Space>ft :<C-u>VimFilerTab<CR>
-  nnoremap <Space>tf :<C-u>VimFilerTab<CR>
-  nnoremap <Space>fi :<C-u>VimFiler -split -simple -winwidth=35 -no-quit<CR>
-
-  call neobundle#untap()
-endif
-" }}}
 
 
-" vimshell {{{
-if neobundle#tap('vimshell')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': ['VimShell', 'VimShellTab', 'VimShellCreate', 'VimShellPop']
-  \   }
-  \ })
 
-  function! neobundle#tapped.hooks.on_source(bundle)
-    AutoCmd FileType vimshell call vimshell#hook#set('chpwd', ['MyChpwd'])
-
-    function! MyChpwd(args, context)
-      call vimshell#execute('ls')
-    endfunction
-
-    let g:vimshell_prompt = '% '
-    let g:vimshell_secondary_prompt = '> '
-    let g:vimshell_user_prompt = 'getcwd()'
-  endfunction
-
-  nnoremap <silent> <Space>ss :<C-u>VimShell<CR>
-  nnoremap <silent> <Space>sc :<C-u>VimShellCreate<CR>
-  nnoremap <silent> <Space>sp :<C-u>VimShellPop<CR>
-  nnoremap <silent> <Space>st :<C-u>VimShellTab<CR>
-
-  call neobundle#untap()
-endif
-" }}}
-
-
-" calendar.vim {{{
-if neobundle#tap('calendar.vim')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': ['Calendar']
-  \   }
-  \ })
-
-  function! neobundle#tapped.hooks.on_source(bundle)
-    let g:calendar_google_calendar = 1
-    let g:calendar_google_task = 1
-  endfunction
-  
-  call neobundle#untap()
-endif
-" }}}
 
 " vim-visualstar {{{
 if neobundle#tap('vim-visualstar')
@@ -1110,19 +1162,6 @@ if neobundle#tap('vim-visualstar')
 endif
 " }}}
 
-" vim-over {{{
-if neobundle#tap('vim-over')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': 'OverCommandLine'
-  \   }
-  \ })
-  
-  cnoreabbrev <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>' : 's'
-
-  call neobundle#untap()
-endif
-"}}}
 
 
 " vim-fugitive {{{
@@ -1174,23 +1213,6 @@ if neobundle#tap('vimhelpgenerator')
 endif
 " }}}
 
-" gundo.vim {{{
-if neobundle#tap('gundo.vim')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': [
-  \       'GundoToggle',
-  \       'GundoShow',
-  \       'GundoHide',
-  \       'GundoRenderGraph'
-  \     ]
-  \   }
-  \ })
-
-  nnoremap <F2> :<C-u>GundoToggle<CR>
-  call neobundle#untap()
-endif
-" }}}
 
 " keybind {{{
 
@@ -1214,7 +1236,7 @@ if neobundle#tap('vim-submode')
   nnoremap <silent> <Plug>(my-x) :<C-u>call <SID>my_x()<CR>
   call submode#enter_with('my_x', 'n', '', 'x', '"_x')
   call submode#map('my_x', 'n', 'r', 'x', '<Plug>(my-x)')
-  
+
   call neobundle#untap()
 endif
 " }}}
