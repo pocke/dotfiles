@@ -1187,6 +1187,7 @@ if neobundle#tap('gundo.vim')
   \   }
   \ })
 
+  nnoremap <F2> :<C-u>GundoToggle<CR>
   call neobundle#untap()
 endif
 " }}}
