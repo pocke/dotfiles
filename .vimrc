@@ -1062,7 +1062,8 @@ if neobundle#tap('TweetVim')
   \   }
   \ })
 
-  let g:tweetvim_config_dir = expand('~/.vim/cache/tweetvim/')
+  let g:tweetvim_tweet_per_page = 100
+  let g:tweetvim_config_dir     = expand('~/.vim/cache/tweetvim/')
   call neobundle#untap()
 endif
 " }}}
