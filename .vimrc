@@ -154,7 +154,7 @@ NeoBundleLazy 'moznion/hateblo.vim', {
 NeoBundleLazy 'mattn/gist-vim', {
 \   'depends': ['mattn/webapi-vim']
 \ }
-NeoBundle 'basyura/TweetVim', {
+NeoBundleLazy 'basyura/TweetVim', {
 \   'depends': [
 \     'tyru/open-browser.vim',
 \     'basyura/twibill.vim'
@@ -1042,6 +1042,25 @@ endif
 
 "TweetVim {{{
 if neobundle#tap('TweetVim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': [
+  \       'TweetVimVersioni',
+  \       'TweetVimAddAccount',
+  \       'TweetVimSwitchAccount',
+  \       'TweetVimHomeTimeline',
+  \       'TweetVimMentions',
+  \       'TweetVimUserTimeline',
+  \       'TweetVimListStatuses',
+  \       'TweetVimSearch',
+  \       'TweetVimSay',
+  \       'TweetVimUserStream',
+  \       'TweetVimCommandSay',
+  \       'TweetVimCurrentLineSay',
+  \       'TweetVimClearIcon'
+  \     ]
+  \   }
+  \ })
 
   let g:tweetvim_config_dir = expand('~/.vim/cache/tweetvim/')
   call neobundle#untap()
