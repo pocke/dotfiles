@@ -154,6 +154,12 @@ NeoBundleLazy 'moznion/hateblo.vim', {
 NeoBundleLazy 'mattn/gist-vim', {
 \   'depends': ['mattn/webapi-vim']
 \ }
+NeoBundle 'basyura/TweetVim', {
+\   'depends': [
+\     'tyru/open-browser.vim',
+\     'basyura/twibill.vim'
+\   ]
+\ }
 " }}}
 
 " }}}
@@ -1033,6 +1039,15 @@ if neobundle#tap('gist-vim')
   call neobundle#untap()
 endif
 " }}}
+
+"TweetVim {{{
+if neobundle#tap('TweetVim')
+
+  let g:tweetvim_config_dir = expand('~/.vim/cache/tweetvim/')
+  call neobundle#untap()
+endif
+" }}}
+
 " }}}
 
 
