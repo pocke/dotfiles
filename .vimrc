@@ -898,6 +898,8 @@ if neobundle#tap('unite.vim')
   nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
   " 色々?
   nnoremap <silent> [unite]u :<C-u>Unite file_mru buffer<CR>
+  " 行
+  nnoremap <silent> [unite]l :<C-u>Unite line<CR>
 
   call neobundle#untap()
 endif
