@@ -48,8 +48,14 @@ fi
 
 setopt no_complete_aliases
 
-### alias
+### peco
 basedir=$(dirname $0)
+
+if which peco > /dev/null 2>&1 && [ -e "${basedir}/peco.zsh" ]; then
+  source "${basedir}/peco.zsh"
+fi
+
+### alias
 source "${basedir}/alias.zsh"
 
 ### cd
