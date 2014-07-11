@@ -626,6 +626,7 @@ endif
 " vim-splash {{{
 if neobundle#tap('vim-splash')
   let g:splash#path = $HOME . '/dotfiles/octocat.txt'
+  AutoCmd StdinReadPre * autocmd! plugin-splash
 
   call neobundle#untap()
 endif
