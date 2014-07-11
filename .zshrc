@@ -12,6 +12,8 @@ setopt no_beep
 ### export variables
 export EDITOR=vim
 export GREP_OPTIONS='--binary-files=without-match --color=auto'
+export GOPATH="$HOME/go"
+export PATH=$PATH:$GOPATH/bin
 
 WORDCHARS="${WORDCHARS:s!/!!}"
 REPORTTIME=3                # 3秒以上かかったコマンドは実行時間を表示する
