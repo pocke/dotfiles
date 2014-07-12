@@ -126,6 +126,10 @@ bindkey 'OF' end-of-line              # Endキーがうまく効かないのを
 zle -A .backward-kill-word vi-backward-kill-word      # viキーバインドで
 zle -A .backward-delete-char vi-backward-delete-char  # インサートモードに入る前の文字を消す
 
+# vicmd mode
+bindkey -a ';' execute-named-cmd
+
+
 ### color
 # 色の設定
 export LSCOLORS=Exfxcxdxbxegedabagacad
