@@ -12,5 +12,3 @@ Vim
 Other
 -------------
 
-- percol
-  - peco も良さそう?
