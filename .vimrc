@@ -7,6 +7,10 @@ set fileencodings=utf-8,cp932,sjis,euc-jp
 set fileencoding=utf-8
 
 
+nnoremap ' <Nop>
+let g:mapleader = "'"
+
+
 " https://github.com/rhysd/dotfiles
 augroup MyVimrc
   autocmd!
@@ -1452,7 +1456,6 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
-let g:mapleader = "'"
 " コマンドラインでのC-n|p と Up, Downの入れ替え
 cnoremap <C-n>  <Down>
 cnoremap <C-p>  <Up>
