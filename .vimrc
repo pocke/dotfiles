@@ -146,6 +146,8 @@ NeoBundleLazy 'itchyny/calendar.vim'
 
 NeoBundleLazy 'sjl/gundo.vim'
 
+NeoBundleLazy 'thinca/vim-ref'
+
 " Web service {{{
 " はてなブログ
 NeoBundleLazy 'moznion/hateblo.vim', {
@@ -1011,6 +1013,27 @@ if neobundle#tap('gundo.vim')
   \ })
 
   nnoremap <silent> <F2> :<C-u>GundoToggle<CR>
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-ref {{{
+if neobundle#tap('vim-ref')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': ['Ref'],
+  \     'mappings': ['<Plug>(ref-keyword)']
+  \   }
+  \ })
+
+  silent! nmap <silent> <unique> K <Plug>(ref-keyword)
+  silent! vmap <silent> <unique> K <Plug>(ref-keyword)
+
+  AutoCmd FileType ref nnoremap q <C-w>c
+
+  " refe のインストール方法
+  " gem install refe2
+  " bitclust setup --version=2.1.0
   call neobundle#untap()
 endif
 " }}}
