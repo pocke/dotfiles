@@ -143,10 +143,9 @@ NeoBundleLazy 'Shougo/vimshell', {
 \   'depends': ['Shougo/unite.vim', 'Shougo/neocomplete']
 \ }
 NeoBundleLazy 'itchyny/calendar.vim'
-
 NeoBundleLazy 'sjl/gundo.vim'
-
 NeoBundleLazy 'thinca/vim-ref'
+NeoBundleLazy 'thinca/vim-scouter'
 
 " Web service {{{
 " はてなブログ
@@ -1035,6 +1034,18 @@ if neobundle#tap('vim-ref')
   " refe のインストール方法
   " gem install refe2
   " bitclust setup --version=2.1.0
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-scouter {{{
+if neobundle#tap('vim-scouter')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': ['Scouter', 'Scouter!']
+  \   }
+  \ })
+
   call neobundle#untap()
 endif
 " }}}
