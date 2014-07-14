@@ -1221,7 +1221,13 @@ if neobundle#tap('vim-watchdogs')
 endif
 " }}}
 
+" vim-vimlint {{{
+if neobundle#tap('vim-vimlint')
+  let g:vimlint#config = { "EVL103": 1 }
 
+  call neobundle#untap()
+endif
+" }}}
 
 
 
