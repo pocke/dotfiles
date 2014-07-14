@@ -1033,7 +1033,7 @@ if neobundle#tap('vim-ref')
   silent! nmap <silent> <unique> K <Plug>(ref-keyword)
   silent! vmap <silent> <unique> K <Plug>(ref-keyword)
 
-  AutoCmd FileType ref nnoremap q <C-w>c
+  AutoCmd FileType ref nnoremap <buffer> q <C-w>c
 
   " refe のインストール方法
   " gem install refe2
