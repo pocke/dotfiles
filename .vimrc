@@ -1399,6 +1399,7 @@ set scrolloff=4
 " コマンドラインでの補完を強くする
 set wildmenu
 set wildmode=longest:full,full
+set wildignorecase
 set history=1000
 
 " ファイルを閉じてもundo
