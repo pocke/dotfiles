@@ -1033,6 +1033,8 @@ if neobundle#tap('vim-ref')
   silent! nmap <silent> <unique> K <Plug>(ref-keyword)
   silent! vmap <silent> <unique> K <Plug>(ref-keyword)
 
+  let g:ref_cache_dir = $HOME . '/.vim/cache/vim-ref'
+
   AutoCmd FileType ref nnoremap <buffer> q <C-w>c
 
   " refe のインストール方法
