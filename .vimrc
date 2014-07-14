@@ -1426,6 +1426,9 @@ AutoCmd FileType qf   nnoremap <buffer> <CR> <CR> | setlocal cursorline
 AutoCmd CmdwinEnter * nnoremap <buffer> <CR> <CR> | setlocal cursorline
 AutoCmd CmdwinEnter * nnoremap <buffer><silent> q :q<CR>
 AutoCmd FileType gitcommit if getline(1) == '' | startinsert | endif
+" TODO: kramdownを書いていると、markdownItalic ではないところで_を使えるが、
+"       そのような場合にだけ markdownItalic を無効にしたい。
+AutoCmd Syntax markdown syntax clear markdownItalic
 
 " 長いFiletypeを省略する
 AutoCmd FileType js nested setlocal ft=javascript
