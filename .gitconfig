@@ -29,7 +29,7 @@
   pl     = pull
   plr    = pull --rebase
   ps     = push
-  gr     = grep
+  gr     = grep -I
 [push]
   default = simple
 [core]
