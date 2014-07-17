@@ -1039,7 +1039,7 @@ if neobundle#tap('vim-ref')
 
   " refe のインストール方法
   " gem install refe2
-  " bitclust setup --version=2.1.0
+  " bitclust setup --versions=2.1.0
   call neobundle#untap()
 endif
 " }}}
