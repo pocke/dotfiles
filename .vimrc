@@ -1364,6 +1364,8 @@ set ttimeoutlen=10
 " 保存されていないバッファがあっても他のバッファを開ける
 set hidden
 
+" swapファイルを作らない
+set noswapfile
 
 set helplang=ja,en
 
