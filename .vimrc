@@ -1618,5 +1618,18 @@ endfunction
 AutoCmd FileType vim call s:for_vim_operator()
 " }}}
 
+function! s:show_cursor()
+  set cursorline!
+  set cursorcolumn!
+
+  redraw
+  sleep 50 m
+
+  set cursorline!
+  set cursorcolumn!
+endfunction
+nnoremap <C-s> :<C-u>call <SID>show_cursor()<CR>
+
+
 
 " vim:set foldmethod=marker:
