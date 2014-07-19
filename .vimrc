@@ -118,7 +118,7 @@ NeoBundleLazy 'Lokaltog/vim-easymotion'
 NeoBundleLazy 'rhysd/clever-f.vim'
 " }}}
 
-" syntax plugins {{{
+" syntax and filetype plugins {{{
 NeoBundleLazy 'jelera/vim-javascript-syntax'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'leafgarland/typescript-vim'
