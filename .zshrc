@@ -110,6 +110,9 @@ zshaddhistory()
 }
 
 ### keybind
+# C-s でのサスペンドを無効
+stty stop '' -ixoff
+
 bindkey -v
 
 bindkey "[Z" reverse-menu-complete    # Shift-Tabで補完を逆順
