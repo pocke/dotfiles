@@ -1627,8 +1627,10 @@ function! s:show_cursor()
 
   set cursorline!
   set cursorcolumn!
+  return ''
 endfunction
 nnoremap <C-s> :<C-u>call <SID>show_cursor()<CR>
+inoremap <C-s> <C-r>=<SID>show_cursor()<CR>
 
 
 
