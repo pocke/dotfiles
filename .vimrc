@@ -1629,8 +1629,8 @@ function! s:show_cursor()
   set cursorcolumn!
   return ''
 endfunction
-nnoremap <C-s> :<C-u>call <SID>show_cursor()<CR>
-inoremap <C-s> <C-r>=<SID>show_cursor()<CR>
+nnoremap <silent><C-s> :<C-u>call <SID>show_cursor()<CR>
+inoremap <silent><C-s> <C-r>=<SID>show_cursor()<CR>
 
 
 
