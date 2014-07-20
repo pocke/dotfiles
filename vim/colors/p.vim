@@ -2,10 +2,11 @@
 " Licensed MIT
 " http://opensource.org/licenses/mit-license.php
 
+scriptencoding utf-8
 
 set background=dark
 hi clear
-if exists("syntax_on")
+if exists("g:syntax_on")
   syntax reset
 endif
 let g:colors_name = expand('<sfile>:t:r')
