@@ -139,12 +139,8 @@ NeoBundleLazy 'rhysd/unite-ruby-require.vim'
 NeoBundleLazy 'Shougo/unite-outline'
 " }}}
 
-NeoBundle 'Shougo/vimfiler', {
-\   'depends': 'Shougo/unite.vim'
-\ }
-NeoBundleLazy 'Shougo/vimshell', {
-\   'depends': ['Shougo/unite.vim', 'Shougo/neocomplete']
-\ }
+NeoBundle 'Shougo/vimfiler'
+NeoBundleLazy 'Shougo/vimshell'
 NeoBundleLazy 'itchyny/calendar.vim'
 NeoBundleLazy 'sjl/gundo.vim'
 NeoBundleLazy 'thinca/vim-ref'
@@ -152,18 +148,9 @@ NeoBundleLazy 'thinca/vim-scouter'
 
 " Web service {{{
 " はてなブログ
-NeoBundleLazy 'moznion/hateblo.vim', {
-\   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
-\ }
-NeoBundleLazy 'mattn/gist-vim', {
-\   'depends': ['mattn/webapi-vim']
-\ }
-NeoBundleLazy 'basyura/TweetVim', {
-\   'depends': [
-\     'tyru/open-browser.vim',
-\     'basyura/twibill.vim'
-\   ]
-\ }
+NeoBundleLazy 'moznion/hateblo.vim'
+NeoBundleLazy 'mattn/gist-vim'
+NeoBundleLazy 'basyura/TweetVim'
 " }}}
 
 " }}}
@@ -178,21 +165,9 @@ NeoBundle 'tyru/open-browser.vim'
 " コマンド実行
 NeoBundleLazy 'thinca/vim-quickrun'
 " markdown quickrun
-NeoBundleLazy 'superbrothers/vim-quickrun-markdown-gfm', {
-\   'depends': ['mattn/webapi-vim', 'thinca/vim-quickrun', 'tyru/open-browser.vim']
-\ }
+NeoBundleLazy 'superbrothers/vim-quickrun-markdown-gfm'
 " 構文チェック
-NeoBundleLazy 'osyo-manga/vim-watchdogs', {
-\   'depends': [
-\     'thinca/vim-quickrun',
-\     'Shougo/vimproc',
-\     'osyo-manga/shabadou.vim',
-\     'cohama/vim-hier',
-\     'syngan/vim-vimlint',
-\     'ynkdir/vim-vimlparser',
-\     'dannyob/quickfixstatus'
-\   ]
-\ }
+NeoBundleLazy 'osyo-manga/vim-watchdogs'
 
 
 " Visual Mode でも * で検索
@@ -200,9 +175,7 @@ NeoBundleLazy 'thinca/vim-visualstar'
 
 " git
 NeoBundle 'tpope/vim-fugitive'
-NeoBundleLazy 'gregsexton/gitv', {
-\   'depends': ['tpope/vim-fugitive']
-\ }
+NeoBundleLazy 'gregsexton/gitv'
 
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundleLazy 'LeafCage/vimhelpgenerator'
@@ -944,6 +917,10 @@ endif
 
 " vimfiler {{{
 if neobundle#tap('vimfiler')
+  call neobundle#config({
+  \   'depends': 'Shougo/unite.vim'
+  \ })
+
   let g:vimfiler_as_default_explorer = 1
   let g:vimfiler_force_overwrite_statusline = 0
   let g:vimfiler_ignore_pattern = ''
@@ -962,7 +939,8 @@ if neobundle#tap('vimshell')
   call neobundle#config({
   \   'autoload': {
   \     'commands': ['VimShell', 'VimShellTab', 'VimShellCreate', 'VimShellPop']
-  \   }
+  \   },
+  \   'depends': ['Shougo/unite.vim', 'Shougo/neocomplete']
   \ })
 
   function! neobundle#tapped.hooks.on_source(bundle)
@@ -1065,7 +1043,8 @@ if neobundle#tap('hateblo.vim')
   call neobundle#config({
   \   'autoload': {
   \     'commands': ['HatebloCreate', 'HatebloCreateDraft', 'HatebloList']
-  \   }
+  \   },
+  \   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
   \ })
 
   call neobundle#untap()
@@ -1077,7 +1056,8 @@ if neobundle#tap('gist-vim')
   call neobundle#config({
   \   'autoload': {
   \     'commands': 'Gist'
-  \   }
+  \   },
+  \   'depends': ['mattn/webapi-vim']
   \ })
 
   call neobundle#untap()
@@ -1103,7 +1083,11 @@ if neobundle#tap('TweetVim')
   \       'TweetVimCurrentLineSay',
   \       'TweetVimClearIcon'
   \     ]
-  \   }
+  \   },
+  \   'depends': [
+  \     'tyru/open-browser.vim',
+  \     'basyura/twibill.vim'
+  \   ]
   \ })
 
   function! neobundle#tapped.hooks.on_source(bundle)
@@ -1207,7 +1191,12 @@ if neobundle#tap('vim-quickrun-markdown-gfm')
   call neobundle#config({
   \   'autoload': {
   \     'filetypes': 'markdown'
-  \   }
+  \   },
+  \   'depends': [
+  \     'mattn/webapi-vim',
+  \     'thinca/vim-quickrun',
+  \     'tyru/open-browser.vim'
+  \   ]
   \ })
 
   call neobundle#untap()
@@ -1217,6 +1206,18 @@ endif
 
 " vim-watchdogs {{{
 if neobundle#tap('vim-watchdogs')
+  call neobundle#config({
+  \   'depends': [
+  \     'thinca/vim-quickrun',
+  \     'Shougo/vimproc',
+  \     'osyo-manga/shabadou.vim',
+  \     'cohama/vim-hier',
+  \     'syngan/vim-vimlint',
+  \     'ynkdir/vim-vimlparser',
+  \     'dannyob/quickfixstatus'
+  \   ]
+  \ })
+
   augroup source-watchdogs
     autocmd!
     autocmd BufWritePre * NeoBundleSource vim-watchdogs
@@ -1234,6 +1235,10 @@ endif
 
 " vim-vimlint {{{
 if neobundle#tap('vim-vimlint')
+  call neobundle#config({
+  \   'depends': ['tpope/vim-fugitive']
+  \ })
+
   let g:vimlint#config = { "EVL103": 1 }
 
   call neobundle#untap()
