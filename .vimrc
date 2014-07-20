@@ -105,7 +105,6 @@ NeoBundleLazy 'todesking/ruby_hl_lvar.vim'
 
 " colorscheme {{{
 NeoBundleLazy 'vim-scripts/rdark'
-NeoBundle 'pocke/funyapoyo.vim'
 NeoBundleLazy 'itchyny/landscape.vim'
 " }}}
 " }}}
@@ -1351,7 +1350,7 @@ if $TERM == 'xterm' || $TERM == 'screen-256color'
   set t_Co=256
 endif
 " カラースキーム
-colorscheme funyapoyo
+colorscheme p
 " 行番号を表示
 set number
 " 何行目の何列目にカーソルがいるか表示
