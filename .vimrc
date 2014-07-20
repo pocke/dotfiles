@@ -1495,7 +1495,13 @@ endfunction
 
 
 " Esc 2回で強調を解除
-nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
+" Can't use noh in function
+function! s:hier_clear()
+  if exists(':HierClear')
+    HierClear
+  endif
+endfunction
+nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>:<C-u>call <SID>hier_clear()<CR>
 
 " タブ移動
 nnoremap <silent> <C-l> :<C-u>tabnext<CR>
