@@ -62,7 +62,23 @@ source "${basedir}/alias.zsh"
 setopt auto_cd            # ディレクトリ名だけでcd
 setopt auto_pushd         # 勝手にpush
 setopt pushd_ignore_dups  # 重複したディレクトリをpushしない
+setopt cdable_vars        # 名前付きディレクトリの~を省略
 function chpwd() { ls }   # ディレクトリを移動したらls
+function name_dir() # dir, name
+{
+  local dir=$1
+  local name=$2
+
+  if [ -d $dir ]; then
+    hash -d $name=$dir
+    return 0
+  else
+    return 1
+  fi
+}
+name_dir ~/dotfiles/ d
+name_dir ~/project/ p
+name_dir ~/.vim/bundle/ v
 
 ### prompt
 # git branch
