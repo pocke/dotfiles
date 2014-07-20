@@ -1105,13 +1105,17 @@ if neobundle#tap('TweetVim')
   \   }
   \ })
 
-  let g:tweetvim_tweet_per_page = 100
-  let g:tweetvim_config_dir     = expand('~/.vim/cache/tweetvim/')
-  let g:tweetvim_display_source = 1
-  let g:tweetvim_say_insert_account = 1
-  let g:tweetvim_expand_t_co = 1
-  let g:tweetvim_align_right = 1
-  let g:tweetvim_async_post = 1
+  function! neobundle#tapped.hooks.on_source(bundle)
+    AutoCmd FileType tweetvim nnoremap <silent><buffer> s :<C-u>TweetVimSay<CR>
+
+    let g:tweetvim_tweet_per_page = 100
+    let g:tweetvim_config_dir     = expand('~/.vim/cache/tweetvim/')
+    let g:tweetvim_display_source = 1
+    let g:tweetvim_say_insert_account = 1
+    let g:tweetvim_expand_t_co = 1
+    let g:tweetvim_align_right = 1
+    let g:tweetvim_async_post = 1
+  endfunction
 
   call neobundle#untap()
 endif
