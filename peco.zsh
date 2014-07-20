@@ -14,6 +14,7 @@ function peco-select-history()
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+
 function peco-kill-process()
 {
   local ps_cmd='ps aux'
@@ -30,3 +31,13 @@ function peco-kill-process()
 }
 zle -N peco-kill-process
 bindkey '^k' peco-kill-process
+
+
+function peco-pushd-dirs()
+{
+  local dir="$(dirs -p | peco)"
+  eval cd "${dir}"
+  zle reset-prompt
+}
+zle -N peco-pushd-dirs
+bindkey '^A' peco-pushd-dirs
