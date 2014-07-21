@@ -47,9 +47,7 @@ function! s:load_bundles()
   " 補完
   " luaが使えるかどうかでどっち使うか決める
   if s:meet_neocomplete_requirements()
-    NeoBundle 'Shougo/neocomplete', {
-  \     'depends': ['Shougo/context_filetype.vim']
-  \   }
+    NeoBundle 'Shougo/neocomplete'
     NeoBundleFetch 'Shougo/neocomplcache'
   else
     NeoBundleFetch 'Shougo/neocomplete'
@@ -207,6 +205,10 @@ call arpeggio#load()
 if s:meet_neocomplete_requirements()
   " neocomplete {{{
   if neobundle#tap('neocomplete')
+    call neobundle#config({
+    \   'depends': ['Shougo/context_filetype.vim']
+    \ })
+
     " 起動時に有効化
     let g:neocomplete#enable_at_startup = 1
     " 大文字が入力されるまで大文字小文字の区別を無視する
