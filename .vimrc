@@ -139,7 +139,7 @@ function! s:load_bundles()
   NeoBundleLazy 'Shougo/unite-outline'
   " }}}
 
-  NeoBundle 'Shougo/vimfiler'
+  NeoBundleLazy 'Shougo/vimfiler'
   NeoBundleLazy 'Shougo/vimshell'
   NeoBundleLazy 'itchyny/calendar.vim'
   NeoBundleLazy 'sjl/gundo.vim'
@@ -921,6 +921,20 @@ endif
 " vimfiler {{{
 if neobundle#tap('vimfiler')
   call neobundle#config({
+  \   'autoload': {
+  \     'commands': [
+  \       'VimFiler',
+  \       'VimFilerTab',
+  \       'VimFilerBufferDir',
+  \       'VimFilerExplorer',
+  \       'Edit',
+  \       'Write',
+  \       'Read',
+  \       'Source'
+  \     ],
+  \     'mappings' : '<Plug>(vimfiler_',
+  \     'explorer': 1
+  \   },
   \   'depends': 'Shougo/unite.vim'
   \ })
 
