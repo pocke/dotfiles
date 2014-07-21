@@ -26,172 +26,182 @@ delfunction s:get_SID
 
 
 " neobundle {{{
-"set nocompatible               " Be iMproved
-filetype off                   " Required!
+function! s:meet_neocomplete_requirements()
+  return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
+endfunction
+
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+"call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+
+function! s:load_bundles()
+  NeoBundleFetch 'Shougo/neobundle.vim'
+
+  " 入力系プラグイン {{{
+
+  " 補完
+  " luaが使えるかどうかでどっち使うか決める
+  if s:meet_neocomplete_requirements()
+    NeoBundle 'Shougo/neocomplete', {
+  \     'depends': ['Shougo/context_filetype.vim']
+  \   }
+    NeoBundleFetch 'Shougo/neocomplcache'
+  else
+    NeoBundleFetch 'Shougo/neocomplete'
+    NeoBundle 'Shougo/neocomplcache'
+  endif
+
+  NeoBundle 'Shougo/neosnippet'
+  NeoBundle 'Shougo/neosnippet-snippets'
+  NeoBundle 'pocke/neosnippet-modeline'
+
+  " true/false とかを簡単に切り替える
+  NeoBundleLazy 'AndrewRadev/switch.vim'
+
+  NeoBundleLazy 'kana/vim-smartinput'
+  NeoBundleLazy 'kana/vim-smartchr'
+  NeoBundleLazy 'mattn/emmet-vim'
+  NeoBundleLazy 'LeafCage/yankround.vim'
+
+  " text object {{{
+  NeoBundleLazy 'terryma/vim-expand-region'
+  NeoBundle 'osyo-manga/vim-textobj-blockwise'
+  NeoBundleLazy 'kana/vim-textobj-user'
+  NeoBundleLazy 'rhysd/vim-textobj-ruby'
+  NeoBundleLazy 'deris/vim-textobj-enclosedsyntax'
+  NeoBundleLazy 'kana/vim-textobj-syntax'
+  NeoBundleLazy 'sgur/vim-textobj-parameter'
+  NeoBundleLazy 'kana/vim-textobj-line'
+  NeoBundleLazy 'kana/vim-textobj-entire'
+  " }}}
+
+  " operator {{{
+  NeoBundleLazy 'kana/vim-operator-user'
+  NeoBundleLazy 'rhysd/vim-operator-surround'
+  NeoBundleLazy 'emonkak/vim-operator-comment'
+  NeoBundleLazy 'tyru/operator-camelize.vim'
+  NeoBundleLazy 'chikatoike/concealedyank.vim'
+  NeoBundleLazy 'kana/vim-operator-replace'
+  NeoBundleLazy 'pocke/vim-operator-gitrebase'
+  " }}}
+
+  " }}}
+
+  " 表示系プラグイン {{{
+  NeoBundle 'thinca/vim-splash'
+  NeoBundle 'Yggdroot/indentLine'
+  NeoBundleLazy 'vim-scripts/AnsiEsc.vim'
+  NeoBundle 'itchyny/lightline.vim'
+  NeoBundle 'osyo-manga/vim-spice'
+  NeoBundleLazy 'osyo-manga/vim-over'
+
+  " ruby のブロックとかがハイライト
+  NeoBundleLazy 'vimtaku/hl_matchit.vim'
+  NeoBundleLazy 'todesking/ruby_hl_lvar.vim'
+
+  " colorscheme {{{
+  NeoBundleLazy 'vim-scripts/rdark'
+  NeoBundleLazy 'itchyny/landscape.vim'
+  " }}}
+  " }}}
+
+  " 移動系プラグイン {{{
+  " ぬるぬるスクロール
+  NeoBundleLazy 'pocke/accelerated-smooth-scroll'
+  NeoBundleLazy 'Lokaltog/vim-easymotion'
+  NeoBundleLazy 'rhysd/clever-f.vim'
+  " }}}
+
+  " syntax and filetype plugins {{{
+  NeoBundleLazy 'jelera/vim-javascript-syntax'
+  NeoBundle 'kchmck/vim-coffee-script'
+  NeoBundle 'leafgarland/typescript-vim'
+  NeoBundleLazy 'clausreinke/typescript-tools'
+  NeoBundle 'groenewege/vim-less'
+  NeoBundle 'slim-template/vim-slim'
+  NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
+  \   'name': 'vimperator-syntax',
+  \   'type': 'hg',
+  \   'rtp':  'vimperator/contrib/vim/'
+  \ }
+  " }}}
+
+  " Application Plugins {{{
+
+  " Unite {{{
+  NeoBundleLazy 'Shougo/unite.vim'
+  NeoBundleLazy 'rhysd/unite-ruby-require.vim'
+  NeoBundleLazy 'Shougo/unite-outline'
+  " }}}
+
+  NeoBundle 'Shougo/vimfiler'
+  NeoBundleLazy 'Shougo/vimshell'
+  NeoBundleLazy 'itchyny/calendar.vim'
+  NeoBundleLazy 'sjl/gundo.vim'
+  NeoBundleLazy 'thinca/vim-ref'
+  NeoBundleLazy 'thinca/vim-scouter'
+
+  " Web service {{{
+  " はてなブログ
+  NeoBundleLazy 'moznion/hateblo.vim'
+  NeoBundleLazy 'mattn/gist-vim'
+  NeoBundleLazy 'basyura/TweetVim'
+  " }}}
+
+  " }}}
+
+  NeoBundle 'sudo.vim'
+  NeoBundle 'editorconfig/editorconfig-vim'
+
+  " 非同期処理
+  NeoBundle 'Shougo/vimproc'
+  NeoBundle 'tyru/open-browser.vim'
+
+  " コマンド実行
+  NeoBundleLazy 'thinca/vim-quickrun'
+  " markdown quickrun
+  NeoBundleLazy 'superbrothers/vim-quickrun-markdown-gfm'
+  " 構文チェック
+  NeoBundleLazy 'osyo-manga/vim-watchdogs'
 
 
-" 入力系プラグイン {{{
-function! s:meet_neocomplete_requirements()
-  return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
+  " Visual Mode でも * で検索
+  NeoBundleLazy 'thinca/vim-visualstar'
+
+  " git
+  NeoBundle 'tpope/vim-fugitive'
+  NeoBundleLazy 'gregsexton/gitv'
+
+  NeoBundle 'vim-jp/vimdoc-ja'
+  NeoBundleLazy 'LeafCage/vimhelpgenerator'
+
+
+  " keybind {{{
+  NeoBundle 'kana/vim-submode'
+  NeoBundle 'kana/vim-arpeggio'
+  " }}}
 endfunction
 
-" 補完
-" luaが使えるかどうかでどっち使うか決める
-if s:meet_neocomplete_requirements()
-  NeoBundle 'Shougo/neocomplete', {
-\     'depends': ['Shougo/context_filetype.vim']
-\   }
-  NeoBundleFetch 'Shougo/neocomplcache'
+if neobundle#has_fresh_cache()
+  NeoBundleLoadCache
 else
-  NeoBundleFetch 'Shougo/neocomplete'
-  NeoBundle 'Shougo/neocomplcache'
+  call s:load_bundles()
+  NeoBundleSaveCache
 endif
 
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'pocke/neosnippet-modeline'
-
-" true/false とかを簡単に切り替える
-NeoBundleLazy 'AndrewRadev/switch.vim'
-
-NeoBundleLazy 'kana/vim-smartinput'
-NeoBundleLazy 'kana/vim-smartchr'
-NeoBundleLazy 'mattn/emmet-vim'
-NeoBundleLazy 'LeafCage/yankround.vim'
-
-" text object {{{
-NeoBundleLazy 'terryma/vim-expand-region'
-NeoBundle 'osyo-manga/vim-textobj-blockwise'
-NeoBundleLazy 'kana/vim-textobj-user'
-NeoBundleLazy 'rhysd/vim-textobj-ruby'
-NeoBundleLazy 'deris/vim-textobj-enclosedsyntax'
-NeoBundleLazy 'kana/vim-textobj-syntax'
-NeoBundleLazy 'sgur/vim-textobj-parameter'
-NeoBundleLazy 'kana/vim-textobj-line'
-NeoBundleLazy 'kana/vim-textobj-entire'
-" }}}
-
-" operator {{{
-NeoBundleLazy 'kana/vim-operator-user'
-NeoBundleLazy 'rhysd/vim-operator-surround'
-NeoBundleLazy 'emonkak/vim-operator-comment'
-NeoBundleLazy 'tyru/operator-camelize.vim'
-NeoBundleLazy 'chikatoike/concealedyank.vim'
-NeoBundleLazy 'kana/vim-operator-replace'
-NeoBundleLazy 'pocke/vim-operator-gitrebase'
-" }}}
-
-" }}}
-
-" 表示系プラグイン {{{
-NeoBundle 'thinca/vim-splash'
-NeoBundle 'Yggdroot/indentLine'
-NeoBundleLazy 'vim-scripts/AnsiEsc.vim'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'osyo-manga/vim-spice'
-NeoBundleLazy 'osyo-manga/vim-over'
-
-" ruby のブロックとかがハイライト
-NeoBundleLazy 'vimtaku/hl_matchit.vim'
-NeoBundleLazy 'todesking/ruby_hl_lvar.vim'
-
-" colorscheme {{{
-NeoBundleLazy 'vim-scripts/rdark'
-NeoBundleLazy 'itchyny/landscape.vim'
-" }}}
-" }}}
-
-" 移動系プラグイン {{{
-" ぬるぬるスクロール
-NeoBundleLazy 'pocke/accelerated-smooth-scroll'
-NeoBundleLazy 'Lokaltog/vim-easymotion'
-NeoBundleLazy 'rhysd/clever-f.vim'
-" }}}
-
-" syntax and filetype plugins {{{
-NeoBundleLazy 'jelera/vim-javascript-syntax'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundleLazy 'clausreinke/typescript-tools'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
-\   'name': 'vimperator-syntax',
-\   'type': 'hg',
-\   'rtp':  'vimperator/contrib/vim/'
-\ }
-" }}}
-
-" Application Plugins {{{
-
-" Unite {{{
-NeoBundleLazy 'Shougo/unite.vim'
-NeoBundleLazy 'rhysd/unite-ruby-require.vim'
-NeoBundleLazy 'Shougo/unite-outline'
-" }}}
-
-NeoBundle 'Shougo/vimfiler'
-NeoBundleLazy 'Shougo/vimshell'
-NeoBundleLazy 'itchyny/calendar.vim'
-NeoBundleLazy 'sjl/gundo.vim'
-NeoBundleLazy 'thinca/vim-ref'
-NeoBundleLazy 'thinca/vim-scouter'
-
-" Web service {{{
-" はてなブログ
-NeoBundleLazy 'moznion/hateblo.vim'
-NeoBundleLazy 'mattn/gist-vim'
-NeoBundleLazy 'basyura/TweetVim'
-" }}}
-
-" }}}
-
-NeoBundle 'sudo.vim'
-NeoBundle 'editorconfig/editorconfig-vim'
-
-" 非同期処理
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'tyru/open-browser.vim'
-
-" コマンド実行
-NeoBundleLazy 'thinca/vim-quickrun'
-" markdown quickrun
-NeoBundleLazy 'superbrothers/vim-quickrun-markdown-gfm'
-" 構文チェック
-NeoBundleLazy 'osyo-manga/vim-watchdogs'
-
-
-" Visual Mode でも * で検索
-NeoBundleLazy 'thinca/vim-visualstar'
-
-" git
-NeoBundle 'tpope/vim-fugitive'
-NeoBundleLazy 'gregsexton/gitv'
-
-NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundleLazy 'LeafCage/vimhelpgenerator'
-
-
-" keybind {{{
-NeoBundle 'kana/vim-submode'
-NeoBundle 'kana/vim-arpeggio'
-call arpeggio#load()
-" }}}
-
+call neobundle#end()
 filetype plugin indent on     " Required!
 "}}}
 
 
 
 " plugins settings {{{
+call arpeggio#load()
 
 " 入力系プラグイン {{{
 if s:meet_neocomplete_requirements()
