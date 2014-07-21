@@ -664,6 +664,8 @@ endif
 
 " vim-spice {{{
 if neobundle#tap('vim-spice')
+  call neobundle#config({"type": "nosync"})
+
   AutoCmd ColorScheme * hi pluginVimSpice ctermbg=239
   let g:spice_highlight_group = 'pluginVimSpice'
   call neobundle#untap()
