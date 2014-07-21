@@ -112,7 +112,6 @@ NeoBundleLazy 'itchyny/landscape.vim'
 " 移動系プラグイン {{{
 " ぬるぬるスクロール
 NeoBundleLazy 'pocke/accelerated-smooth-scroll'
-NeoBundle 'rhysd/accelerated-jk'
 NeoBundleLazy 'Lokaltog/vim-easymotion'
 NeoBundleLazy 'rhysd/clever-f.vim'
 " }}}
@@ -764,14 +763,6 @@ if neobundle#tap('accelerated-smooth-scroll')
   call neobundle#untap()
 endif
 
-" }}}
-
-" accelerated-jk {{{
-if neobundle#tap('accelerated-jk')
-  nmap j <Plug>(accelerated_jk_j)
-  nmap k <Plug>(accelerated_jk_k)
-  call neobundle#untap()
-endif
 " }}}
 
 " vim-easymotion {{{
