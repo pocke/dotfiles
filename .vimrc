@@ -1477,6 +1477,15 @@ AutoCmd Syntax markdown syntax clear markdownItalic
 AutoCmd FileType js nested setlocal ft=javascript
 AutoCmd FileType md nested setlocal ft=markdown
 
+" Open & AutoReload .vimrc {{{
+" https://github.com/haya14busa/dotfiles
+command! EVimrc e $MYVIMRC
+command! ETabVimrc tabnew $MYVIMRC
+command! SoVimrc source $MYVIMRC
+AutoCmd BufWritePost *vimrc source $MYVIMRC
+AutoCmd BufWritePost *gvimrc if has('gui_running') source $MYGVIMRC
+"}}}
+
 " statuslineを表示
 set laststatus=2
 set noshowmode
