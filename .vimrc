@@ -1111,6 +1111,7 @@ if neobundle#tap('TweetVim')
 
   function! neobundle#tapped.hooks.on_source(bundle)
     AutoCmd FileType tweetvim nnoremap <silent><buffer> s :<C-u>TweetVimSay<CR>
+    AutoCmd FileType tweetvim nnoremap <silent><buffer> G G:<C-u>call tweetvim#action('cursor_up')<CR>
 
     let g:tweetvim_tweet_per_page = 100
     let g:tweetvim_config_dir     = expand('~/.vim/cache/tweetvim/')
