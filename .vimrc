@@ -1130,8 +1130,12 @@ if neobundle#tap('TweetVim')
   \ })
 
   function! neobundle#tapped.hooks.on_source(bundle)
-    AutoCmd FileType tweetvim nnoremap <silent><buffer> s :<C-u>TweetVimSay<CR>
-    AutoCmd FileType tweetvim nnoremap <silent><buffer> G G:<C-u>call tweetvim#action('cursor_up')<CR>
+    AutoCmd FileType tweetvim call s:tweetvim_buffer_configure()
+    function! s:tweetvim_buffer_configure()
+      nnoremap <silent><buffer> s :<C-u>TweetVimSay<CR>
+      nnoremap <silent><buffer> G G:<C-u>call tweetvim#action('cursor_up')<CR>
+      nmap <silent><buffer> x <Plug>(tweetvim_action_remove_status)
+    endfunction
 
     let g:tweetvim_tweet_per_page = 100
     let g:tweetvim_config_dir     = expand('~/.vim/cache/tweetvim/')
