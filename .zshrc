@@ -178,6 +178,11 @@ function take()
   fi
 }
 
+function h() # $1 => subject
+{
+  vim "+h $1"
+}
+
 # コマンドラインが空の場合、Enterで補完を更新する。
 function _rehash()
 {
