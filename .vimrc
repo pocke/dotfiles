@@ -150,6 +150,7 @@ function! s:load_bundles()
   " はてなブログ
   NeoBundleLazy 'moznion/hateblo.vim'
   NeoBundleLazy 'mattn/gist-vim'
+  NeoBundleLazy 'lambdalisue/vim-gista'
   NeoBundleLazy 'basyura/TweetVim'
   " }}}
 
@@ -1081,6 +1082,23 @@ if neobundle#tap('gist-vim')
   \   'depends': ['mattn/webapi-vim']
   \ })
 
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-gista {{{
+if neobundle#tap('vim-gista')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': ['Gista'],
+  \     'mappings': '<Plug>(gista-',
+  \     'unite_sources': 'gista'
+  \   },
+  \   'depends': ['unite.vim']
+  \ })
+
+  let g:gista#directory = $HOME . '/.vim/cache/gista/'
+  let g:gista#github_user = 'pocke'
   call neobundle#untap()
 endif
 " }}}
