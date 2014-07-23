@@ -1099,6 +1099,7 @@ if neobundle#tap('vim-gista')
 
   let g:gista#directory = $HOME . '/.vim/cache/gista/'
   let g:gista#github_user = 'pocke'
+  let g:gista#post_private = 1
   call neobundle#untap()
 endif
 " }}}
