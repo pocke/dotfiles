@@ -1127,7 +1127,8 @@ if neobundle#tap('TweetVim')
   \   },
   \   'depends': [
   \     'tyru/open-browser.vim',
-  \     'basyura/twibill.vim'
+  \     'basyura/twibill.vim',
+  \     'Shougo/unite.vim'
   \   ]
   \ })
 
