@@ -393,7 +393,8 @@ endif
 if neobundle#tap('yankround.vim')
   call neobundle#config({
   \   'autoload': {
-  \     'mappings': ['<Plug>(yankround-']
+  \     'mappings': ['<Plug>(yankround-'],
+  \     'functions': 'yankround#is_active'
   \   }
   \ })
 
@@ -410,8 +411,9 @@ if neobundle#tap('yankround.vim')
   xmap gp <Plug>(yankround-gp)
   nmap gP <Plug>(yankround-gP)
 
-  nmap <C-p> <Plug>(yankround-prev)
-  nmap <C-n> <Plug>(yankround-next)
+  " TODO: nmapなあたりがきもちわるい
+  nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : ";bp\<CR>"
+  nmap <expr><C-n> yankround#is_active() ? "\<Plug>(yankround-next)" : ";bn\<CR>"
 
   call neobundle#untap()
 endif
