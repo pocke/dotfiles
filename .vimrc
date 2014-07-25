@@ -1284,10 +1284,6 @@ endif
 
 " vim-vimlint {{{
 if neobundle#tap('vim-vimlint')
-  call neobundle#config({
-  \   'depends': ['tpope/vim-fugitive']
-  \ })
-
   let g:vimlint#config = { "EVL103": 1 }
 
   call neobundle#untap()
@@ -1336,7 +1332,8 @@ if neobundle#tap('gitv')
   call neobundle#config({
   \   'autoload': {
   \     'commands': ['Git', 'Gitv']
-  \   }
+  \   },
+  \   'depends': ['tpope/vim-fugitive']
   \ })
 
   nnoremap <Space>gv :<C-u>Gitv<CR>
