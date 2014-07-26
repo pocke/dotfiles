@@ -226,9 +226,6 @@ if s:meet_neocomplete_requirements()
     " 補完を表示する最小文字数
     let g:neocomplete#auto_completion_start_length = 2
 
-    " 遅延補完
-    let g:neocomplete#enable_cursor_hold_i = 1
-
 
     if !exists('g:neocomplete#delimiter_patterns')
       let g:neocomplete#delimiter_patterns= {}
