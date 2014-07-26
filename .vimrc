@@ -1177,7 +1177,7 @@ endif
 " open-browser.vim {{{
 if neobundle#tap('open-browser.vim')
   let g:openbrowser_browser_commands = [{
-  \   "name": "google-chrome-stable",
+  \   "name": "xdg-open",
   \   "args": ["{browser}", "{uri}"]
   \ }]
 
