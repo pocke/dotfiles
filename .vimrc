@@ -157,7 +157,7 @@ function! s:load_bundles()
   " }}}
 
   NeoBundle 'sudo.vim'
-  NeoBundle 'editorconfig/editorconfig-vim'
+  NeoBundleLazy 'editorconfig/editorconfig-vim'
 
   " 非同期処理
   NeoBundle 'Shougo/vimproc'
@@ -1157,6 +1157,20 @@ endif
 
 " }}}
 
+" editorconfig-vim {{{
+if neobundle#tap('editorconfig-vim')
+  function! s:load_editorconfig()
+    if findfile('.editorconfig', '.;') != ''
+      NeoBundleSource editorconfig-vim
+      EditorConfigReload
+    endif
+  endfunction
+
+  AutoCmd VimEnter * call s:load_editorconfig()
+
+  call neobundle#untap()
+endif
+" }}}
 
 " vimproc {{{
 if neobundle#tap('vimproc')
