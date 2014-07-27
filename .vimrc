@@ -179,6 +179,9 @@ function! s:load_bundles()
   NeoBundle 'tpope/vim-fugitive'
   NeoBundleLazy 'gregsexton/gitv'
 
+  " window管理
+  NeoBundle 'osyo-manga/vim-automatic'
+
   " vim {{{
   NeoBundle 'vim-jp/vimdoc-ja'
   NeoBundleLazy 'LeafCage/vimhelpgenerator'
@@ -1380,6 +1383,47 @@ if neobundle#tap('gitv')
 endif
 " }}}
 
+" vim-automatic {{{
+if neobundle#tap('vim-automatic')
+  call neobundle#config({
+  \   'depends': ['osyo-manga/vim-gift']
+  \ })
+
+  function! s:my_temp_win_init(config, context)
+    nnoremap <buffer> q :<C-u>q<CR>
+  endfunction
+
+  let g:automatic_default_set_config = {
+  \   'apply':  function('s:my_temp_win_init'),
+  \   'height': '60%',
+  \   'move':   'bottom'
+  \ }
+
+  let g:automatic_config = [
+  \   {
+  \     'match': {
+  \       'filetype': 'help',
+  \       'buftype':  'help'
+  \     },
+  \     'set': {
+  \       'width': 80,
+  \       'move': 'right',
+  \       'height': '100%'
+  \     }
+  \   },
+  \   {
+  \     'match': {
+  \       'bufname': '\V[quickrun output]'
+  \     },
+  \     'set': {
+  \       'height': 8,
+  \     }
+  \   }
+  \ ]
+
+  call neobundle#untap()
+endif
+" }}}
 
 " vim {{{
 " vimhelpgenerator {{{
@@ -1595,8 +1639,6 @@ set updatetime=200
 " コマンドラインウィンドウの末尾20行を除いて全て削除
 "AutoCmd CmdwinEnter * :<C-u>silent! 1,$-20 delete _ | call cursor("$", 1)
 
-" q だけで Window を閉じる
-AutoCmd FileType help,qf nnoremap <buffer> q <C-w>c
 
 " }}}
 
