@@ -119,6 +119,7 @@ function! s:load_bundles()
 
   " syntax and filetype plugins {{{
   NeoBundleLazy 'jelera/vim-javascript-syntax'
+  NeoBundleLazy 'marijnh/tern_for_vim'
   NeoBundle 'kchmck/vim-coffee-script'
   NeoBundle 'leafgarland/typescript-vim'
   NeoBundleLazy 'clausreinke/typescript-tools'
@@ -838,6 +839,25 @@ if neobundle#tap('vim-javascript-syntax')
   \   'autoload':{
   \     'filetypes':['javascript']
   \   }
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
+
+" tern_for_vim {{{
+if neobundle#tap('tern_for_vim')
+  call neobundle#config({
+  \   'build': {
+  \     'others': 'npm install'
+  \   },
+  \   'autoload': {
+  \     'functions': ['tern#Complete', 'tern#Enable'],
+  \     'filetypes': ['javascript']
+  \   },
+  \   'commands': [
+  \     'TernDef', 'TernDoc', 'TernType', 'TernRefs', 'TernRename'
+  \   ]
   \ })
 
   call neobundle#untap()
