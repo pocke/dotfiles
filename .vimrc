@@ -178,8 +178,12 @@ function! s:load_bundles()
   NeoBundle 'tpope/vim-fugitive'
   NeoBundleLazy 'gregsexton/gitv'
 
+  " vim {{{
   NeoBundle 'vim-jp/vimdoc-ja'
   NeoBundleLazy 'LeafCage/vimhelpgenerator'
+  NeoBundleLazy 'thinca/vim-prettyprint'
+  NeoBundleLazy 'tyru/capture.vim'
+  "}}}
 
 
   " keybind {{{
@@ -1356,6 +1360,8 @@ if neobundle#tap('gitv')
 endif
 " }}}
 
+
+" vim {{{
 " vimhelpgenerator {{{
 if neobundle#tap('vimhelpgenerator')
   call neobundle#config({
@@ -1372,6 +1378,32 @@ if neobundle#tap('vimhelpgenerator')
 
   call neobundle#untap()
 endif
+" }}}
+
+" vim-prettyprint {{{
+if neobundle#tap('vim-prettyprint')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': [{'name': 'PP', 'complete': 'expression'}],
+  \     'functions': 'PP'
+  \   }
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
+
+" capture.vim {{{
+if neobundle#tap('capture.vim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands':  [{'name': 'Capture', 'complete': 'command'}]
+  \   }
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
 " }}}
 
 
