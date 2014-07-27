@@ -150,7 +150,6 @@ function! s:load_bundles()
   " Web service {{{
   " はてなブログ
   NeoBundleLazy 'moznion/hateblo.vim'
-  NeoBundleLazy 'mattn/gist-vim'
   NeoBundleLazy 'lambdalisue/vim-gista'
   NeoBundleLazy 'basyura/TweetVim'
   " }}}
@@ -1096,19 +1095,6 @@ if neobundle#tap('hateblo.vim')
   \     'commands': ['HatebloCreate', 'HatebloCreateDraft', 'HatebloList']
   \   },
   \   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
-  \ })
-
-  call neobundle#untap()
-endif
-" }}}
-
-" gist-vim {{{
-if neobundle#tap('gist-vim')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': 'Gist'
-  \   },
-  \   'depends': ['mattn/webapi-vim']
   \ })
 
   call neobundle#untap()
