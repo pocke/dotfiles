@@ -231,6 +231,7 @@ if s:meet_neocomplete_requirements()
       let g:neocomplete#delimiter_patterns= {}
     endif
     let g:neocomplete#delimiter_patterns.ruby = ['::']
+
     call neobundle#untap()
   endif
   "}}}
@@ -408,9 +409,11 @@ if neobundle#tap('yankround.vim')
   xmap gp <Plug>(yankround-gp)
   nmap gP <Plug>(yankround-gP)
 
-  " TODO: nmapなあたりがきもちわるい
-  nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : ";bp\<CR>"
-  nmap <expr><C-n> yankround#is_active() ? "\<Plug>(yankround-next)" : ";bn\<CR>"
+  " 直接nmapするとキーマップが展開されてしまうため、一旦マップを置き換える
+  nnoremap <silent> <SID>(bp) :<C-u>bp<CR>
+  nnoremap <silent> <SID>(bn) :<C-u>bn<CR>
+  nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "\<SID>(bp)"
+  nmap <expr><C-n> yankround#is_active() ? "\<Plug>(yankround-next)" : "\<SID>(bn)"
 
   call neobundle#untap()
 endif
