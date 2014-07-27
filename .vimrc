@@ -1223,17 +1223,6 @@ if neobundle#tap('vim-quickrun')
   \ })
 
   function! neobundle#tapped.hooks.on_source(bundle)
-    let s:quickfix4watchdogs = quickrun#outputter#quickfix#new()
-    function! s:quickfix4watchdogs.finish(session)
-      call call(quickrun#outputter#quickfix#new().finish, [a:session], self)
-      HierUpdate
-      QuickfixStatusEnable
-      if &filetype ==# 'qf'
-        execute "normal! \<C-w>\<C-p>"
-      endif
-    endfunction
-    call quickrun#register_outputter("quickfix4watchdogs", s:quickfix4watchdogs)
-
     let g:quickrun_config = {
     \   '_': {
     \     'runner': 'vimproc',
@@ -1248,9 +1237,6 @@ if neobundle#tap('vim-quickrun')
     \     'command': 'rspec',
     \     'exec': 'bundle exec %c --color --tty %s'
     \   },
-    \   'watchdogs_checker/_': {
-    \     "outputter": "quickfix4watchdogs"
-    \   }
     \ }
 
     AutoCmd FileType quickrun AnsiEsc
@@ -1301,6 +1287,21 @@ if neobundle#tap('vim-watchdogs')
   augroup END
 
   function! neobundle#tapped.hooks.on_source(bundle)
+    let s:quickfix4watchdogs = quickrun#outputter#quickfix#new()
+    function! s:quickfix4watchdogs.finish(session)
+      call call(quickrun#outputter#quickfix#new().finish, [a:session], self)
+      HierUpdate
+      QuickfixStatusEnable
+      if &filetype ==# 'qf'
+        execute "normal! \<C-w>\<C-p>"
+      endif
+    endfunction
+    call quickrun#register_outputter("quickfix4watchdogs", s:quickfix4watchdogs)
+
+    let g:quickrun_config['watchdogs_checker/_'] = {
+    \   "outputter": "quickfix4watchdogs"
+    \ }
+
     let g:watchdogs_check_BufWritePost_enable = 1
     call watchdogs#setup(g:quickrun_config)
   endfunction
