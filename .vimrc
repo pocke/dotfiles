@@ -1235,7 +1235,8 @@ if neobundle#tap('vim-quickrun')
     \   },
     \   'ruby.rspec': {
     \     'command': 'rspec',
-    \     'exec': 'bundle exec %c --color --tty %s'
+    \     'exec': 'bundle exec %c --color --tty %s',
+    \     'outputter/buffer/name': '[quickrun output rspec]'
     \   },
     \ }
 
@@ -1404,6 +1405,14 @@ if neobundle#tap('vim-automatic')
   \     },
   \     'set': {
   \       'height': 8,
+  \     }
+  \   },
+  \   {
+  \     'match': {
+  \       'bufname': '^\[quickrun output rspec\]'
+  \     },
+  \     'set': {
+  \       'height': '40%'
   \     }
   \   }
   \ ]
