@@ -2,6 +2,15 @@ snippet     tap
 abbr        if neobundle#tap(...)
 options     head
   if neobundle#tap('${1:#:plugin_name}')
-    ${0}
+    call neobundle#config({
+    \   'autoload': {
+    \     ${2}
+    \   }
+    \ })
+
+    function neobundle#tapped.hooks.on_source(bundle)
+      ${3}
+    endfunction
+
     call neobundle#untap()
   endif
