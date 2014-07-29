@@ -152,6 +152,8 @@ function! s:load_bundles()
   NeoBundleLazy 'moznion/hateblo.vim'
   NeoBundleLazy 'lambdalisue/vim-gista'
   NeoBundleLazy 'basyura/TweetVim'
+  NeoBundleLazy 'eagletmt/onlinejudge-vim'
+  NeoBundleLazy 'mopp/AOJ.vim'
   " }}}
 
   " }}}
@@ -1163,6 +1165,37 @@ if neobundle#tap('TweetVim')
     let g:tweetvim_align_right = 1
     let g:tweetvim_async_post = 1
   endfunction
+
+  call neobundle#untap()
+endif
+" }}}
+
+" onlinejudge-vim {{{
+if neobundle#tap('onlinejudge-vim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': ['OnlineJudgeSubmit', 'OnlineJudgeUserStatus', 'OnlineJudgeTest']
+  \   }
+  \ })
+
+  function! neobundle#tapped.hooks.on_source(bundle)
+    execute 'source' expand('~/.vim/onlinejudge.vim')
+  endfunction
+
+  call neobundle#untap()
+endif
+" }}}
+
+" AOJ.vim {{{
+if neobundle#tap('AOJ.vim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': ['AOJSubmit', 'AOJSubmitByProblemID', 'AOJViewProblems', 'AOJViewStaticticsLogs']
+  \   }, 
+  \   'depends': ['unite.vim', 'webapi-vim']
+  \ })
+
+  let g:aoj#user_id = 'pck'
 
   call neobundle#untap()
 endif
