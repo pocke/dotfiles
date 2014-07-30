@@ -29,7 +29,7 @@ nnoremap : ;
 " ignore auto focus
 set focuscontent
 
-set hintchars=iasdfghjklbnertyu
+set hintchars=;fjasdghklqwertyuiopzxcvbnm
 
 
 
