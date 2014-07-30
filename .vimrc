@@ -5,6 +5,7 @@ scriptencoding utf-8
 set fileencodings=utf-8,cp932,sjis,euc-jp
 " これで保存しようとする
 set fileencoding=utf-8
+set termencoding=utf-8
 
 
 nnoremap ' <Nop>
