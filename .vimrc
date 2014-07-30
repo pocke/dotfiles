@@ -1658,6 +1658,20 @@ if has('persistent_undo')
   set undofile
 endif
 
+" statuslineを表示
+set laststatus=2
+set noshowmode
+
+" 沢山表示
+set display& display+=lastline
+
+" ビープ音を鳴らさない
+set visualbell t_vb=
+set noerrorbells
+
+set updatetime=200
+
+
 " 前回終了したカーソル行に移動
 AutoCmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
@@ -1692,21 +1706,7 @@ AutoCmd BufWritePost *vimrc nested source $MYVIMRC
 AutoCmd BufWritePost *gvimrc if has('gui_running') source $MYGVIMRC
 "}}}
 
-" statuslineを表示
-set laststatus=2
-set noshowmode
 
-" 沢山表示
-set display& display+=lastline
-
-" ビープ音を鳴らさない
-set visualbell t_vb=
-set noerrorbells
-
-set updatetime=200
-
-" コマンドラインウィンドウの末尾20行を除いて全て削除
-"AutoCmd CmdwinEnter * :<C-u>silent! 1,$-20 delete _ | call cursor("$", 1)
 
 
 " }}}
