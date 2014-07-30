@@ -118,13 +118,26 @@ function! s:load_bundles()
   " }}}
 
   " syntax and filetype plugins {{{
+  " JavaScript {{{
   NeoBundleLazy 'jelera/vim-javascript-syntax'
   NeoBundleLazy 'marijnh/tern_for_vim'
+  " AltJS {{{
   NeoBundle 'kchmck/vim-coffee-script'
   NeoBundle 'leafgarland/typescript-vim'
   NeoBundleLazy 'clausreinke/typescript-tools'
+  " }}}
+  " }}}
+
   NeoBundle 'groenewege/vim-less'
   NeoBundle 'slim-template/vim-slim'
+
+  " scala {{{
+  NeoBundleLazy 'derekwyatt/vim-scala'
+  NeoBundleLazy 'derekwyatt/vim-sbt'
+  " NeoBundleLazy 'mdreves/vim-scaladoc'
+  " NeoBundleLazy 'gre/play2vim'
+  " }}}
+
   NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
   \   'name': 'vimperator-syntax',
   \   'type': 'hg',
@@ -883,6 +896,30 @@ if neobundle#tap('typescript-tools')
 endif
 " }}}
 
+" vim-scala {{{
+if neobundle#tap('vim-scala')
+  call neobundle#config({
+  \   'autoload': {
+  \     'filetypes': ['scala']
+  \   }
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-sbt {{{
+if neobundle#tap('vim-sbt')
+  call neobundle#config({
+  \   'autoload': {
+  \     'filetypes': ['sbt']
+  \   }
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
+
 " }}}
 
 
@@ -1627,7 +1664,9 @@ AutoCmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 AutoCmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 AutoCmd BufNewFile,BufRead *.json                     set filetype=javascript
 AutoCmd BufNewFile,BufRead *.jbuilder                 set filetype=ruby
-AutoCmd BufWinEnter,BufNewFile *_spec.rb              set filetype=ruby.rspec
+AutoCmd BufNewFile,BufRead *_spec.rb                  set filetype=ruby.rspec
+AutoCmd BufNewFile,BufRead *.scala                    set filetype=scala
+AutoCmd BufNewFile,BufRead *.sbt                      set filetype=sbt
 
 AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 AutoCmd FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
