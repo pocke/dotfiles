@@ -1483,7 +1483,7 @@ if neobundle#tap('vim-automatic')
   \       'bufname': '^\[quickrun output rspec\]'
   \     },
   \     'set': {
-  \       'height': '40%'
+  \       'height': '20%'
   \     }
   \   }
   \ ]
