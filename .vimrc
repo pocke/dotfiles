@@ -257,6 +257,13 @@ if s:meet_neocomplete_requirements()
     endif
     let g:neocomplete#delimiter_patterns.ruby = ['::']
 
+    if !exists('g:neocomplete#same_filetypes')
+      let g:neocomplete#same_filetypes = {}
+    endif
+    let g:neocomplete#same_filetypes.ruby = 'eruby'
+
+    let g:neocomplete#data_directory = $HOME . '/.vim/cache/neocomplete'
+
     call neobundle#untap()
   endif
   "}}}
@@ -1231,7 +1238,7 @@ if neobundle#tap('AOJ.vim')
   call neobundle#config({
   \   'autoload': {
   \     'commands': ['AOJSubmit', 'AOJSubmitByProblemID', 'AOJViewProblems', 'AOJViewStaticticsLogs']
-  \   }, 
+  \   },
   \   'depends': ['unite.vim', 'webapi-vim']
   \ })
 
