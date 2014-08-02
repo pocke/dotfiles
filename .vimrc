@@ -196,6 +196,8 @@ function! s:load_bundles()
 
   " window管理
   NeoBundle 'osyo-manga/vim-automatic'
+  " Buffer移動
+  NeoBundleLazy 'kana/vim-altr'
 
   " vim {{{
   NeoBundle 'vim-jp/vimdoc-ja'
@@ -1487,6 +1489,29 @@ if neobundle#tap('vim-automatic')
   \     }
   \   }
   \ ]
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-altr {{{
+if neobundle#tap('vim-altr')
+  call neobundle#config({
+  \   'autoload': {
+  \     'mappings': '<Plug>(altr-'
+  \   }
+  \ })
+
+  nmap <PageUp>   <Plug>(altr-forward)
+  nmap <PageDown> <Plug>(altr-back)
+
+  function neobundle#tapped.hooks.on_source(bundle)
+    " For rails tdd
+    call altr#define('app/models/%.rb', 'spec/models/%_spec.rb')
+    call altr#define('app/controllers/%.rb', 'spec/controllers/%_spec.rb')
+    call altr#define('app/helpers/%.rb', 'spec/helpers/%_spec.rb')
+    call altr#define('app/views/%.rb', 'spec/views/%_spec.rb')
+  endfunction
 
   call neobundle#untap()
 endif
