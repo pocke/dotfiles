@@ -778,6 +778,12 @@ if neobundle#tap('ruby_hl_lvar.vim')
     endfunction
 
     silent! execute 'doautocmd FileType' &filetype
+
+    function! s:ruby_hl_lvar_disable()
+      let g:ruby_hl_lvar_auto_enable = 0
+      silent! execute 'doautocmd FileType' &filetype
+    endfunction
+    command! RubyHlLvarDisable call s:ruby_hl_lvar_disable()
   endfunction
 
   call neobundle#untap()
