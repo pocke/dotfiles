@@ -1212,6 +1212,21 @@ if neobundle#tap('TweetVim')
     let g:tweetvim_expand_t_co = 1
     let g:tweetvim_align_right = 1
     let g:tweetvim_async_post = 1
+
+    function! s:say_fav(...)
+      call vimproc#system_bg('aplay /opt/mikutter/core/skin/data/sounds/favo.wav')
+    endfunction
+    call tweetvim#hook#add('notify_fav', s:SID . 'say_fav')
+
+    function! s:say_rt(...)
+      call vimproc#system_bg('aplay /opt/mikutter/core/skin/data/sounds/retweeted.wav')
+    endfunction
+    call tweetvim#hook#add('notify_retweet', s:SID . 'say_rt')
+
+    function! s:say_mention(...)
+      call vimproc#system_bg('aplay /opt/mikutter/core/skin/data/sounds/message-received.wav')
+    endfunction
+    call tweetvim#hook#add('notify_mention', s:SID . 'say_mention')
   endfunction
 
   call neobundle#untap()
