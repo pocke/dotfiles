@@ -204,6 +204,7 @@ function! s:load_bundles()
   NeoBundleLazy 'LeafCage/vimhelpgenerator'
   NeoBundleLazy 'thinca/vim-prettyprint'
   NeoBundleLazy 'tyru/capture.vim'
+  NeoBundleFetch 'thinca/vim-themis'
   "}}}
 
 
