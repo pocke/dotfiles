@@ -1,0 +1,225 @@
+# from https://github.com/haya14busa/haya14busa-snippets
+snippet     if
+abbr        if (condition) {body}
+options     head
+	if (${1:#:condition}) {
+		${0:TARGET}
+	}
+
+snippet     if-inline
+abbr        if (condition) true else false
+	if (${1:#:condition}) ${2} else ${3}
+
+
+snippet     if-else
+abbr        if (condition) {body} else {}
+options     head
+	if (${1:#:condition}) {
+		${2:TARGET}
+	} else {
+		${0:TARGET}
+	}
+
+snippet     if-else-if
+abbr        if (condition) {body} else if {} else {}
+options     head
+	if (${1:#:condition}) {
+		${2:TARGET}
+	} else if (${3:#:condition}) {
+		${4:TARGET}
+	} else {
+		${0:TARGET}
+	}
+
+snippet     while
+abbr        while (condition) {body}
+options     head
+	while (${1:#:condition}) {
+		${0:TARGET}
+	}
+
+snippet     foreach
+abbr        .foreach(arg => body)
+options     word
+	foreach(${1:#:arg} => ${0:TARGET})
+
+snippet     for
+abbr        for (arg <- args) {}
+options     head
+	for(${1:#:arg} <- ${2:#:args}) {
+		${0:TARGET}
+	}
+
+snippet     for-to
+abbr        for (arg <- from to _to) {}
+options     head
+	for(${1:#:arg} <- ${2:#:from} to ${3:#:to}) {
+		${0:TARGET}
+	}
+
+snippet     def
+abbr        def function(args) = {}
+options     head
+	def ${1:#:name}(${2:#:args}) = ${3}{
+		${0:TARGET}
+	}
+
+snippet     def-inline
+abbr        def function(args) = body
+options     head
+	def ${1:#:name}(${2:#:args}) = ${0:TARGET}
+
+
+snippet     def-type
+abbr        def function(args): Type = {}
+options     head
+	def ${1:#:name}(${2:#:args}): ${3:#:Type} = {
+		${0:TARGET}
+	}
+
+snippet     def-inline-type
+abbr        def function(args): Type = body
+options     head
+	def ${1:#:name}(${2:#:args}): ${3:#:Type} = ${0:TARGET}
+
+
+snippet     private-def
+abbr        private def function(args) = {}
+options     head
+	private def ${1:#:name}(${2:#:args}) = {
+		${0:TARGET}
+	}
+
+snippet     private-def-type
+abbr        private def function(args): Type = {}
+options     head
+	private def ${1:#:name}(${2:#:args}): ${3:#:Type} = {
+		${0:TARGET}
+	}
+
+snippet     override-def
+abbr        override def function(args) = {}
+options     head
+	override def ${1:#:name}(${2:#:args}) = {
+		${0:TARGET}
+	}
+
+snippet     override-def-type
+abbr        override def function(args): Type = {}
+options     head
+	override def ${1:#:name}(${2:#:args}): ${3:#:Type} = {
+		${0:TARGET}
+	}
+
+
+
+# val & var ----------------------------
+snippet     val
+abbr        val variable = expression
+options     head
+	val ${1:#:name} = ${2:#:expression}
+
+snippet     val-type
+abbr        val variable: Type = expression
+options     head
+	val ${1:#:name}: ${2:#:Type} = ${3:#:expression}
+
+snippet     var
+abbr        var variable = expression
+options     head
+	var ${1:#:name} = ${2:#:expression}
+
+snippet     var-type
+abbr        var variable: Type = expression
+options     head
+	var ${1:#:name}: ${2:#:Type} = ${3:#:expression}
+
+
+snippet     class
+options     head
+	class ${1:#:X} {
+		${0:TARGET}
+	}
+
+snippet     trait
+options     head
+	trait ${1:#:X} {
+		${0:TARGET}
+	}
+
+snippet     implicit-def
+options     head
+	implicit def ${1:#:name}(${2:#:parameter}) = ${0:TARGET}
+
+
+snippet     fliteral
+abbr        function literal
+	(${1:#:parameters}) => ${0}
+
+# try-catch-finally
+snippet     try
+abbr        try {}
+options     head
+	try {
+		${1:TARGET}
+	}
+
+snippet     catch
+abbr        catch { case ... }
+	catch {
+		case ${1} => ${0}
+	}
+
+snippet     finally
+abbr        finally { case ... }
+	finally {
+		${1:TARGET}
+	}
+
+snippet     case
+abbr        case ${1} => ${0}
+	case ${1} => ${0}
+
+# try-catch
+snippet     try-catch
+abbr        try {} catch {}
+options     head
+	try {
+		${1:TARGET}
+	} catch {
+		case ${2} => ${0}
+	}
+
+# try-finally
+snippet     try-finally
+abbr        try {} finally {}
+options     head
+	try {
+		${1:TARGET}
+	} finally {
+		${0}
+	}
+
+# try-catch-finally
+snippet     try-catch-finally
+abbr        try {} catch {} finally {}
+options     head
+	try {
+		${1:TARGET}
+	} catch {
+		case ${2} => ${3}
+	} finally {
+		${0}
+	}
+
+# Predef -------------------------------
+snippet     assert
+abbr        assert(Boolean)
+	assert(${1:#:Boolean})
+
+snippet     require
+abbr        require(Boolean)
+	require(${1:#:Boolean})
+
+# scala's indent plugin doesn't work well. use hard-tab for this snippet.
+# vim: set noexpandtab :
