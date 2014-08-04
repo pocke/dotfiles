@@ -57,6 +57,8 @@ function! s:load_bundles()
     NeoBundle 'Shougo/neocomplcache'
   endif
 
+  NeoBundleLazy 'ujihisa/neco-look'
+
   NeoBundle 'Shougo/neosnippet'
   NeoBundle 'Shougo/neosnippet-snippets'
   NeoBundle 'pocke/neosnippet-modeline'
@@ -235,7 +237,7 @@ if s:meet_neocomplete_requirements()
   " neocomplete {{{
   if neobundle#tap('neocomplete')
     call neobundle#config({
-    \   'depends': ['Shougo/context_filetype.vim']
+    \   'depends': ['Shougo/context_filetype.vim', 'ujihisa/neco-look']
     \ })
 
     " 起動時に有効化
