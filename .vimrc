@@ -265,6 +265,11 @@ if s:meet_neocomplete_requirements()
     endif
     let g:neocomplete#same_filetypes.ruby = 'eruby'
 
+    if !exists('g:neocomplete#text_mode_filetypes')
+      let g:neocomplete#text_mode_filetypes = {}
+    endif
+    let g:neocomplete#text_mode_filetypes.tweetvim_say = 1
+
     let g:neocomplete#data_directory = $HOME . '/.vim/cache/neocomplete'
 
     call neobundle#untap()
@@ -1201,7 +1206,8 @@ if neobundle#tap('TweetVim')
   \   'depends': [
   \     'tyru/open-browser.vim',
   \     'basyura/twibill.vim',
-  \     'Shougo/unite.vim'
+  \     'Shougo/unite.vim',
+  \     'yomi322/neco-tweetvim',
   \   ]
   \ })
 
