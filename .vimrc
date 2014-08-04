@@ -170,6 +170,7 @@ function! s:load_bundles()
   NeoBundleLazy 'basyura/TweetVim'
   NeoBundleLazy 'eagletmt/onlinejudge-vim'
   NeoBundleLazy 'mopp/AOJ.vim'
+  NeoBundleLazy 'mattn/excitetranslate-vim'
   " }}}
 
   " }}}
@@ -1277,6 +1278,18 @@ if neobundle#tap('AOJ.vim')
   call neobundle#untap()
 endif
 " }}}
+
+" excitetranslate-vim {{
+if neobundle#tap('excitetranslate-vim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': ['ExciteTranslate']
+  \   }
+  \ })
+
+  call neobundle#untap()
+endif
+" }}
 
 " }}}
 
