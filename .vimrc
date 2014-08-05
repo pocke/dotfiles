@@ -1284,7 +1284,8 @@ if neobundle#tap('excitetranslate-vim')
   call neobundle#config({
   \   'autoload': {
   \     'commands': ['ExciteTranslate']
-  \   }
+  \   },
+  \   'depends': ['mattn/webapi-vim']
   \ })
 
   call neobundle#untap()
