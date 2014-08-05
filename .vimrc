@@ -1217,7 +1217,26 @@ if neobundle#tap('TweetVim')
     function! s:tweetvim_buffer_configure()
       nnoremap <silent><buffer> s :<C-u>TweetVimSay<CR>
       nnoremap <silent><buffer> G G:<C-u>call tweetvim#action('cursor_up')<CR>
+      nmap <buffer> o <Plug>(tweetvim_action_enter)
+      nmap <buffer> e <Plug>(tweetvim_action_reply)
+      nmap <buffer> i <Plug>(tweetvim_action_in_reply_to)
+      nmap <buffer> u <Plug>(tweetvim_action_user_timeline)
+      nmap <buffer> <Leader>f <Plug>(tweetvim_action_favorite)
+      nmap <buffer> <Leader>uf <Plug>(tweetvim_action_remove_favorite)
+      nmap <buffer> <Leader>r <Plug>(tweetvim_action_retweet)
+      nmap <buffer> <Leader><Leader> <Plug>(tweetvim_action_reload)
+      nmap <buffer> <Leader>n <Plug>(tweetvim_action_page_next)
+      nmap <buffer> <Leader>p <Plug>(tweetvim_action_page_previous)
+      nmap <buffer> k <Plug>(tweetvim_action_cursor_up)
+      nmap <buffer> j <Plug>(tweetvim_action_cursor_down)
       nmap <silent><buffer> x <Plug>(tweetvim_action_remove_status)
+    endfunction
+
+    AutoCmd FileType tweetvim_say call s:tweetvim_say_buffer_configure()
+    function! s:tweetvim_say_buffer_configure()
+      nmap <buffer> <CR>        <Plug>(tweetvim_say_post_buffer)
+      imap <buffer> <C-CR> <Esc><Plug>(tweetvim_say_post_buffer)
+      nnoremap <silent><buffer> q :bd!<CR>
     endfunction
 
     let g:tweetvim_tweet_per_page = 100
@@ -1227,7 +1246,9 @@ if neobundle#tap('TweetVim')
     let g:tweetvim_expand_t_co = 1
     let g:tweetvim_align_right = 1
     let g:tweetvim_async_post = 1
+    let g:tweetvim_no_default_key_mappings = 1
 
+    " ------------ hooks
     function! s:say_fav(...)
       call vimproc#system_bg('aplay /opt/mikutter/core/skin/data/sounds/favo.wav')
     endfunction
