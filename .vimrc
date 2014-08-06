@@ -1768,6 +1768,8 @@ set noerrorbells
 
 set updatetime=200
 
+set tabpagemax=100
+
 
 " 前回終了したカーソル行に移動
 AutoCmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
