@@ -728,8 +728,6 @@ if neobundle#tap('vim-over')
   \   }
   \ })
 
-  cnoreabbrev <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>' : 's'
-
   call neobundle#untap()
 endif
 "}}}
