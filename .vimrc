@@ -271,6 +271,13 @@ if s:meet_neocomplete_requirements()
     endif
     let g:neocomplete#text_mode_filetypes.tweetvim_say = 1
 
+    let s:neco_dicts_dir = $HOME . '/dicts'
+    if isdirectory(s:neco_dicts_dir)
+      let g:neocomplete#sources#dictionary#dictionaries = {
+      \   'ruby': s:neco_dicts_dir . '/ruby.dict'
+      \ }
+    endif
+
     let g:neocomplete#data_directory = $HOME . '/.vim/cache/neocomplete'
 
     call neobundle#untap()
