@@ -162,6 +162,7 @@ function! s:load_bundles()
   NeoBundleLazy 'sjl/gundo.vim'
   NeoBundleLazy 'thinca/vim-ref'
   NeoBundleLazy 'thinca/vim-scouter'
+  NeoBundleLazy 'rbtnn/mario.vim'
 
   " Web service {{{
   " はてなブログ
@@ -1147,6 +1148,19 @@ if neobundle#tap('vim-scouter')
   \   'autoload': {
   \     'commands': ['Scouter', 'Scouter!']
   \   }
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
+
+" mario.vim{{{
+if neobundle#tap('mario.vim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': ['Mario']
+  \   },
+  \   'depends': ['rbtnn/game_engine.vim']
   \ })
 
   call neobundle#untap()
