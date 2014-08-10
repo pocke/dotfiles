@@ -1236,7 +1236,7 @@ if neobundle#tap('TweetVim')
     function! s:tweetvim_buffer_configure()
       nnoremap <silent><buffer> s :<C-u>TweetVimSay<CR>
       nnoremap <silent><buffer> G G:<C-u>call tweetvim#action('cursor_up')<CR>
-      nmap <buffer> o <Plug>(tweetvim_action_enter)
+      nmap <buffer> o <Plug>(tweetvim_action_open_links)
       nmap <buffer> e <Plug>(tweetvim_action_reply)
       nmap <buffer> i <Plug>(tweetvim_action_in_reply_to)
       nmap <buffer> u <Plug>(tweetvim_action_user_timeline)
