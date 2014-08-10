@@ -163,6 +163,7 @@ function! s:load_bundles()
   NeoBundleLazy 'thinca/vim-ref'
   NeoBundleLazy 'thinca/vim-scouter'
   NeoBundleLazy 'rbtnn/mario.vim'
+  NeoBundleLazy 'rbtnn/puyo.vim'
 
   " Web service {{{
   " はてなブログ
@@ -1159,6 +1160,19 @@ if neobundle#tap('mario.vim')
   call neobundle#config({
   \   'autoload': {
   \     'commands': ['Mario']
+  \   },
+  \   'depends': ['rbtnn/game_engine.vim']
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
+
+" puyo.vim {{{
+if neobundle#tap('puyo.vim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': ['Puyo']
   \   },
   \   'depends': ['rbtnn/game_engine.vim']
   \ })
