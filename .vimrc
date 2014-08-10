@@ -50,18 +50,18 @@ function! s:load_bundles()
   " 補完
   " luaが使えるかどうかでどっち使うか決める
   if s:meet_neocomplete_requirements()
-    NeoBundle 'Shougo/neocomplete'
+    NeoBundle      'Shougo/neocomplete'
     NeoBundleFetch 'Shougo/neocomplcache'
   else
     NeoBundleFetch 'Shougo/neocomplete'
-    NeoBundle 'Shougo/neocomplcache'
+    NeoBundle      'Shougo/neocomplcache'
   endif
 
   NeoBundleLazy 'ujihisa/neco-look'
 
-  NeoBundle 'Shougo/neosnippet'
-  NeoBundle 'Shougo/neosnippet-snippets'
-  NeoBundle 'pocke/neosnippet-modeline'
+  NeoBundle     'Shougo/neosnippet'
+  NeoBundle     'Shougo/neosnippet-snippets'
+  NeoBundle     'pocke/neosnippet-modeline'
 
   " true/false とかを簡単に切り替える
   NeoBundleLazy 'AndrewRadev/switch.vim'
@@ -73,7 +73,7 @@ function! s:load_bundles()
 
   " text object {{{
   NeoBundleLazy 'terryma/vim-expand-region'
-  NeoBundle 'osyo-manga/vim-textobj-blockwise'
+  NeoBundle     'osyo-manga/vim-textobj-blockwise'
   NeoBundleLazy 'kana/vim-textobj-user'
   NeoBundleLazy 'rhysd/vim-textobj-ruby'
   NeoBundleLazy 'deris/vim-textobj-enclosedsyntax'
@@ -96,11 +96,11 @@ function! s:load_bundles()
   " }}}
 
   " 表示系プラグイン {{{
-  NeoBundle 'thinca/vim-splash'
-  NeoBundle 'Yggdroot/indentLine'
+  NeoBundle     'thinca/vim-splash'
+  NeoBundle     'Yggdroot/indentLine'
   NeoBundleLazy 'vim-scripts/AnsiEsc.vim'
-  NeoBundle 'itchyny/lightline.vim'
-  NeoBundle 'osyo-manga/vim-spice'
+  NeoBundle     'itchyny/lightline.vim'
+  NeoBundle     'osyo-manga/vim-spice'
   NeoBundleLazy 'osyo-manga/vim-over'
 
   " ruby のブロックとかがハイライト
@@ -125,14 +125,14 @@ function! s:load_bundles()
   NeoBundleLazy 'jelera/vim-javascript-syntax'
   NeoBundleLazy 'marijnh/tern_for_vim'
   " AltJS {{{
-  NeoBundle 'kchmck/vim-coffee-script'
-  NeoBundle 'leafgarland/typescript-vim'
+  NeoBundle     'kchmck/vim-coffee-script'
+  NeoBundle     'leafgarland/typescript-vim'
   NeoBundleLazy 'clausreinke/typescript-tools'
   " }}}
   " }}}
 
-  NeoBundle 'groenewege/vim-less'
-  NeoBundle 'slim-template/vim-slim'
+  NeoBundle     'groenewege/vim-less'
+  NeoBundle     'slim-template/vim-slim'
 
   " scala {{{
   NeoBundleLazy 'derekwyatt/vim-scala'
@@ -176,12 +176,12 @@ function! s:load_bundles()
 
   " }}}
 
-  NeoBundle 'sudo.vim'
+  NeoBundle     'sudo.vim'
   NeoBundleLazy 'editorconfig/editorconfig-vim'
 
   " 非同期処理
-  NeoBundle 'Shougo/vimproc'
-  NeoBundle 'tyru/open-browser.vim'
+  NeoBundle     'Shougo/vimproc'
+  NeoBundle     'tyru/open-browser.vim'
 
   " コマンド実行
   NeoBundleLazy 'thinca/vim-quickrun'
@@ -195,16 +195,16 @@ function! s:load_bundles()
   NeoBundleLazy 'thinca/vim-visualstar'
 
   " git
-  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle     'tpope/vim-fugitive'
   NeoBundleLazy 'gregsexton/gitv'
 
   " window管理
-  NeoBundle 'osyo-manga/vim-automatic'
+  NeoBundle     'osyo-manga/vim-automatic'
   " Buffer移動
   NeoBundleLazy 'kana/vim-altr'
 
   " vim {{{
-  NeoBundle 'vim-jp/vimdoc-ja'
+  NeoBundle     'vim-jp/vimdoc-ja'
   NeoBundleLazy 'LeafCage/vimhelpgenerator'
   NeoBundleLazy 'thinca/vim-prettyprint'
   NeoBundleLazy 'tyru/capture.vim'
@@ -213,8 +213,8 @@ function! s:load_bundles()
 
 
   " keybind {{{
-  NeoBundle 'kana/vim-submode'
-  NeoBundle 'kana/vim-arpeggio'
+  NeoBundle     'kana/vim-submode'
+  NeoBundle     'kana/vim-arpeggio'
   " }}}
 endfunction
 
