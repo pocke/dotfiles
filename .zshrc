@@ -242,5 +242,9 @@ function sub()
 # -e でescape sequenceつきで遅れるが、AnsiEscがゴミなため実用には向かない
 function tvim()
 {
+  if [ -z $TMUX ]; then
+    echo 'Tmux is not running'
+    return 1
+  fi
   tmux capture-pane -S -10000 -p | vim -c 'call cursor("$", 0)' -c 'set buftype=nofile' -
 }

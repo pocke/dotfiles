@@ -2018,6 +2018,11 @@ inoremap <silent><C-s> <C-r>=<SID>show_cursor()<CR>
 
 
 function! s:operator_yank_tmux(motion_wise)
+  if $TMUX == ''
+    echoerr 'tmux is not running'
+    return
+  endif
+
   let start_col  = col("'[") - 1
   let end_col    = col("']") - 1
   let start_line = line("'[")
