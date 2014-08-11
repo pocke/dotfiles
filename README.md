@@ -34,3 +34,22 @@ $ gem install refe2
 $ bitclust setup --versions=2.1.0
 $ vim +NeoBundleInstall
 ```
+
+
+
+
+TODO
+==========
+
+
+Vim
+-----------
+
+- GVim対応
+- Lazy時のComplete
+- ruby_hl_lvarがめっちゃ重いので、なんとかする
+
+
+Other
+-------------
+
