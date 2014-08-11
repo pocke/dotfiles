@@ -100,7 +100,7 @@ function! s:load_bundles()
   NeoBundle     'Yggdroot/indentLine'
   NeoBundleLazy 'vim-scripts/AnsiEsc.vim'
   NeoBundle     'itchyny/lightline.vim'
-  NeoBundle     'osyo-manga/vim-spice'
+  NeoBundle     'osyo-manga/vim-brightest'
   NeoBundleLazy 'osyo-manga/vim-over'
 
   " ruby のブロックとかがハイライト
@@ -722,12 +722,14 @@ if neobundle#tap('lightline.vim')
 endif
 " }}}
 
-" vim-spice {{{
-if neobundle#tap('vim-spice')
-  call neobundle#config({"type": "nosync"})
+" vim-brightest {{{
+if neobundle#tap('vim-brightest')
+  AutoCmd ColorScheme * hi pluginVimBrightest ctermbg=239
 
-  AutoCmd ColorScheme * hi pluginVimSpice ctermbg=239
-  let g:spice_highlight_group = 'pluginVimSpice'
+  let g:brightest#highlight = {
+  \   'group': 'pluginVimBrightest'
+  \ }
+
   call neobundle#untap()
 endif
 " }}}
