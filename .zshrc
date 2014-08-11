@@ -222,3 +222,19 @@ function /()
     grep $@
   fi
 }
+
+# s/$1/$2/g
+function sub()
+{
+  is_git_dir
+  local g=$?
+  if [ $g != 0 ]; then
+    echo 'Current directory is not git directory.'
+    return 1
+  fi
+
+  local from=$1
+  local to=$2
+
+  git grep -l $from | xargs sed -i -e "s/${from}/${to}/g"
+}
