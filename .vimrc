@@ -2017,4 +2017,43 @@ inoremap <silent><C-s> <C-r>=<SID>show_cursor()<CR>
 
 
 
+function! s:operator_yank_tmux(motion_wise)
+  let start_col  = col("'[") - 1
+  let end_col    = col("']") - 1
+  let start_line = line("'[")
+  let end_line   = line("']")
+
+  let texts = []
+
+  if a:motion_wise ==# 'char'
+    if start_line == end_line
+      let text = getline(start_line)[start_col : end_col]
+      call add(texts, text)
+    else
+      let text = getline(start_line)[start_col : -1]
+      call add(texts, text)
+
+      let lines = getline(start_line + 1, end_line - 1)
+      let texts += lines
+
+      let text = getline(end_line)[0 : end_col]
+      call add(texts, text)
+    endif
+  elseif a:motion_wise ==# 'line'
+    let texts = getline(start_line, end_line)
+  else    " 'block'
+    let texts = map(getline(start_line, end_line), 'v:val[start_col : end_col]')
+  endif
+
+  let res = join(texts, "\n")
+  " XXX: vimのsystem()ではシェルを介さずに外部コマンドを呼べない
+  ruby <<EOS
+    system('tmux', 'set-buffer', VIM::evaluate('res'))
+EOS
+endfunction
+NeoBundleSource vim-operator-user
+call operator#user#define('yank-tmux', s:SID . 'operator_yank_tmux')
+map t <Plug>(operator-yank-tmux)
+
+
 " vim:set foldmethod=marker:

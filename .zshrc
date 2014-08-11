@@ -238,3 +238,9 @@ function sub()
 
   git grep -l $from | xargs sed -i -e "s/${from}/${to}/g"
 }
+
+# -e でescape sequenceつきで遅れるが、AnsiEscがゴミなため実用には向かない
+function tvim()
+{
+  tmux capture-pane -S -10000 -p | vim -c 'call cursor("$", 0)' -c 'set buftype=nofile' -
+}
