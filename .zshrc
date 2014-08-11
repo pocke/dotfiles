@@ -206,3 +206,19 @@ function swap_last_arg()
 }
 zle -N swap_last_arg
 bindkey "\C-s" swap_last_arg
+
+
+# TODO: わざわざgit log を叩くのは気持ち悪い
+function is_git_dir()
+{
+  git log > /dev/null 2>&1
+}
+
+function /()
+{
+  if  is_git_dir; then
+    git grep $@
+  else
+    grep $@
+  fi
+}
