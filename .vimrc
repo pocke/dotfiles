@@ -2045,15 +2045,25 @@ function! s:operator_yank_tmux(motion_wise)
     let texts = map(getline(start_line, end_line), 'v:val[start_col : end_col]')
   endif
 
+  " @vimlint(EVL102, 1, l:res)
   let res = join(texts, "\n")
   " XXX: vimのsystem()ではシェルを介さずに外部コマンドを呼べない
   ruby <<EOS
     system('tmux', 'set-buffer', VIM::evaluate('res'))
 EOS
+  if exists('s:stdin_loaded') && bufnr('$') == 1
+    q!
+  endif
 endfunction
+" @vimlint(EVL102, 0, l:res)
 NeoBundleSource vim-operator-user
 call operator#user#define('yank-tmux', s:SID . 'operator_yank_tmux')
 map t <Plug>(operator-yank-tmux)
+
+augroup operator-yank-tmux
+  autocmd!
+  autocmd StdinReadPost * let s:stdin_loaded = 1
+augroup END
 
 
 " vim:set foldmethod=marker:
