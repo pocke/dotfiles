@@ -2059,18 +2059,15 @@ function! s:operator_yank_tmux(motion_wise)
     return
   endif
 
-  " @vimlint(EVL102, 1, l:text)
   let text = s:text_for_operator(a:motion_wise)
 
-  " XXX: vimのsystem()ではシェルを介さずに外部コマンドを呼べない
-  ruby <<EOS
-    system('tmux', 'set-buffer', VIM::evaluate('text'))
-EOS
+  call vimproc#system(['tmux', 'set-buffer', text])
+
   if exists('s:stdin_loaded') && bufnr('$') == 1
     q!
   endif
 endfunction
-" @vimlint(EVL102, 0, l:text)
+
 NeoBundleSource vim-operator-user
 call operator#user#define('yank-tmux', s:SID . 'operator_yank_tmux')
 map t <Plug>(operator-yank-tmux)
