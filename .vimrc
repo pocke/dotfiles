@@ -2017,12 +2017,7 @@ inoremap <silent><C-s> <C-r>=<SID>show_cursor()<CR>
 
 
 
-function! s:operator_yank_tmux(motion_wise)
-  if $TMUX == ''
-    echoerr 'tmux is not running'
-    return
-  endif
-
+function! s:text_for_operator(motion_wise)
   let start_col  = col("'[") - 1
   let end_col    = col("']") - 1
   let start_line = line("'[")
@@ -2032,8 +2027,7 @@ function! s:operator_yank_tmux(motion_wise)
 
   if a:motion_wise ==# 'char'
     if start_line == end_line
-      let text = getline(start_line)[start_col : end_col]
-      call add(texts, text)
+      let texts = [getline(start_line)[start_col : end_col]]
     else
       let text = getline(start_line)[start_col : -1]
       call add(texts, text)
@@ -2046,21 +2040,34 @@ function! s:operator_yank_tmux(motion_wise)
     endif
   elseif a:motion_wise ==# 'line'
     let texts = getline(start_line, end_line)
-  else    " 'block'
+  elseif a:motion_wise ==# 'block'
     let texts = map(getline(start_line, end_line), 'v:val[start_col : end_col]')
+  else
+    echoerr 'invalid args'
   endif
 
-  " @vimlint(EVL102, 1, l:res)
-  let res = join(texts, "\n")
+  return join(texts, "\n")
+endfunction
+
+
+function! s:operator_yank_tmux(motion_wise)
+  if $TMUX == ''
+    echoerr 'tmux is not running'
+    return
+  endif
+
+  " @vimlint(EVL102, 1, l:text)
+  let text = s:text_for_operator(a:motion_wise)
+
   " XXX: vimのsystem()ではシェルを介さずに外部コマンドを呼べない
   ruby <<EOS
-    system('tmux', 'set-buffer', VIM::evaluate('res'))
+    system('tmux', 'set-buffer', VIM::evaluate('text'))
 EOS
   if exists('s:stdin_loaded') && bufnr('$') == 1
     q!
   endif
 endfunction
-" @vimlint(EVL102, 0, l:res)
+" @vimlint(EVL102, 0, l:text)
 NeoBundleSource vim-operator-user
 call operator#user#define('yank-tmux', s:SID . 'operator_yank_tmux')
 map t <Plug>(operator-yank-tmux)
