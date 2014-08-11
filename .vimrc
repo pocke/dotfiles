@@ -704,15 +704,18 @@ if neobundle#tap('lightline.vim')
   \   'active': {
   \     'left': [
   \       ['mode'],
-  \       ['readonly', 'fugitive', 'filename', 'modified']
+  \       ['readonly', 'fugitive', 'filename', 'modified'],
+  \       ['tweetvim_say_count']
   \     ]
   \   },
   \   'component': {
-  \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+  \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
+  \     'tweetvim_say_count': '%{exists("b:tweetvim_say_count") ? b:tweetvim_say_count : ""}',
   \   },
   \   'component_visible_condition': {
-  \     'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-  \   }
+  \     'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())',
+  \     'tweetvim_say_count': '(&filetype ==# "tweetvim_say")',
+  \   },
   \ }
 
   call neobundle#untap()
