@@ -716,16 +716,18 @@ if neobundle#tap('lightline.vim')
   \     'left': [
   \       ['mode'],
   \       ['readonly', 'fugitive', 'filename', 'modified'],
-  \       ['tweetvim_say_count']
+  \       ['tweetvim_say_count', 'tweetvim_say_user']
   \     ]
   \   },
   \   'component': {
   \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
   \     'tweetvim_say_count': '%{exists("b:tweetvim_say_count") ? b:tweetvim_say_count : ""}',
+  \     'tweetvim_say_user':  '%{&filetype ==# "tweetvim_say" ? tweetvim#account#current().screen_name : ""}',
   \   },
   \   'component_visible_condition': {
   \     'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())',
   \     'tweetvim_say_count': '(&filetype ==# "tweetvim_say")',
+  \     'tweetvim_say_user':  '(&filetype ==# "tweetvim_say")',
   \   },
   \ }
 
@@ -1291,7 +1293,6 @@ if neobundle#tap('TweetVim')
     let g:tweetvim_tweet_per_page = 100
     let g:tweetvim_config_dir     = expand('~/.vim/cache/tweetvim/')
     let g:tweetvim_display_source = 1
-    let g:tweetvim_say_insert_account = 1
     let g:tweetvim_expand_t_co = 1
     let g:tweetvim_align_right = 1
     let g:tweetvim_async_post = 1
