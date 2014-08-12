@@ -91,6 +91,7 @@ function! s:load_bundles()
   NeoBundleLazy 'chikatoike/concealedyank.vim'
   NeoBundleLazy 'kana/vim-operator-replace'
   NeoBundleLazy 'pocke/vim-operator-gitrebase'
+  NeoBundleLazy 'deris/vim-operator-insert'
   " }}}
 
   " }}}
@@ -630,7 +631,7 @@ if neobundle#tap('concealedyank.vim')
 endif
 " }}}
 
-" operator-replace.vim {{{
+" vim-operator-replace {{{
 if neobundle#tap('vim-operator-replace')
   map _ <Plug>(operator-replace)
 
@@ -640,7 +641,7 @@ if neobundle#tap('vim-operator-replace')
 endif
 " }}}
 
-" operator-gitrebase {{{
+" vim-operator-gitrebase {{{
 if neobundle#tap('vim-operator-gitrebase')
   call neobundle#config({
   \   'depends': 'kana/vim-operator-user',
@@ -660,6 +661,15 @@ if neobundle#tap('vim-operator-gitrebase')
 endif
 " }}}
 
+" vim-operator-insert
+if neobundle#tap('vim-operator-insert')
+  nmap <Leader>i <Plug>(operator-insert-i)
+  nmap <Leader>a <Plug>(operator-insert-a)
+
+  call s:operator_config('<Plug>(operator-insert-')
+
+  call neobundle#untap()
+endif
 " }}}
 
 " }}}
