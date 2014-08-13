@@ -14,6 +14,30 @@ options     head
     ${0}
   end
 
+snippet     begin
+abbr        begin ... end
+options     head
+	begin
+		${1:#:code}
+	rescue
+		${2:#:code}
+	end
+
+snippet     begin-full
+abbr        begin ... end
+options     head
+	begin
+		${1:#:code}
+	rescue
+		${2:#:code}
+	else
+		${3:#:code}
+	ensure
+		${4:#:code}
+	end
+
+
+# ------------------------  override default snippets
 snippet     def
 abbr        def ... end
   def ${1:initialize}
