@@ -257,6 +257,9 @@ if s:meet_neocomplete_requirements()
     let g:neocomplete#sources#syntax#min_keyword_length = 3
     " 補完を表示する最小文字数
     let g:neocomplete#auto_completion_start_length = 2
+    " preview window を閉じない
+    let g:neocomplete#enable_auto_close_preview = 0
+    AutoCmd InsertLeave * pclose!
 
 
     if !exists('g:neocomplete#delimiter_patterns')
@@ -926,6 +929,8 @@ if neobundle#tap('tern_for_vim')
   \     'TernDef', 'TernDoc', 'TernType', 'TernRefs', 'TernRename'
   \   ]
   \ })
+
+  let g:tern_map_keys = 0
 
   call neobundle#untap()
 endif
@@ -1819,6 +1824,10 @@ set noerrorbells
 set updatetime=200
 
 set tabpagemax=100
+
+
+" 補完のpreviewウィンドウを表示しない。
+"set completeopt& completeopt-=preview
 
 
 " 前回終了したカーソル行に移動
