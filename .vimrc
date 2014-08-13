@@ -1821,7 +1821,7 @@ set display& display+=lastline
 set visualbell t_vb=
 set noerrorbells
 
-set updatetime=200
+set updatetime=1000
 
 set tabpagemax=100
 
