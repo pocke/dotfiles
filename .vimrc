@@ -1835,7 +1835,7 @@ AutoCmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 
 " filetype
 AutoCmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-AutoCmd BufNewFile,BufRead *.json                     set filetype=javascript
+" AutoCmd BufNewFile,BufRead *.json                     set filetype=javascript
 AutoCmd BufNewFile,BufRead *.jbuilder                 set filetype=ruby
 AutoCmd BufNewFile,BufRead Guardfile                  set filetype=ruby
 AutoCmd BufNewFile,BufRead *_spec.rb                  set filetype=ruby.rspec
