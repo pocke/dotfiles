@@ -30,6 +30,7 @@ alias -g N='> /dev/null 2>&1'
 alias -g ALL='**/*~.git/*~*/.git/*(.)'
 alias -g J="| ruby -rjson -e 'jj JSON.parse(STDIN.read)'"
 alias -g P='| peco'
+alias -g V='| vim -c "set buftype=nofile" - '
 
 ### suffix alias
 function extract() {
