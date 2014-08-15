@@ -30,6 +30,7 @@
   plr    = pull --rebase
   ps     = push
   gr     = grep -I
+  ag     = !git ls-files | xargs ag
 [push]
   default = simple
 [core]
