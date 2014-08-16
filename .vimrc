@@ -804,7 +804,7 @@ if neobundle#tap('ruby_hl_lvar.vim')
           if g:ruby_hl_lvar_auto_enable
             call ruby_hl_lvar#refresh(1)
             "autocmd TextChanged <buffer> call ruby_hl_lvar#refresh(0)
-            "autocmd InsertEnter <buffer> call ruby_hl_lvar#disable(0)
+            autocmd InsertEnter <buffer> call ruby_hl_lvar#disable(0)
             autocmd InsertLeave <buffer> call ruby_hl_lvar#refresh(0)
           else
             call ruby_hl_lvar#disable(1)
