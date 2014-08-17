@@ -12,7 +12,7 @@ endif
 let g:colors_name = expand('<sfile>:t:r')
 
 
-hi Normal       ctermfg=White         ctermbg=Black
+hi Normal       ctermfg=White         "ctermbg=Black
 
 hi ErrorMsg     ctermfg=White         ctermbg=DarkRed     cterm=bold
 hi WarningMsg   ctermfg=232           ctermbg=Yellow      cterm=bold
