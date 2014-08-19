@@ -61,7 +61,7 @@ function! s:load_bundles()
 
   NeoBundle     'Shougo/neosnippet'
   NeoBundle     'Shougo/neosnippet-snippets'
-  NeoBundle     'pocke/neosnippet-modeline'
+  NeoBundle     'pocke/neosnippet-incomment'
 
   " true/false とかを簡単に切り替える
   NeoBundleLazy 'AndrewRadev/switch.vim'
