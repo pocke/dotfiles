@@ -1608,6 +1608,8 @@ if neobundle#tap('vim-altr')
     call altr#define('app/controllers/%.rb', 'spec/controllers/%_spec.rb')
     call altr#define('app/helpers/%.rb', 'spec/helpers/%_spec.rb')
     call altr#define('app/views/%.rb', 'spec/views/%_spec.rb')
+
+    call altr#define('lib/%.rb', 'spec/lib/%_spec.rb')
   endfunction
 
   call neobundle#untap()
