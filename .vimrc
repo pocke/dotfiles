@@ -76,7 +76,6 @@ function! s:load_bundles()
   NeoBundle     'osyo-manga/vim-textobj-blockwise'
   NeoBundleLazy 'kana/vim-textobj-user'
   NeoBundleLazy 'rhysd/vim-textobj-ruby'
-  NeoBundleLazy 'deris/vim-textobj-enclosedsyntax'
   NeoBundleLazy 'kana/vim-textobj-syntax'
   NeoBundleLazy 'sgur/vim-textobj-parameter'
   NeoBundleLazy 'kana/vim-textobj-line'
@@ -159,7 +158,6 @@ function! s:load_bundles()
 
   NeoBundleLazy 'Shougo/vimfiler'
   NeoBundleLazy 'Shougo/vimshell'
-  NeoBundleLazy 'itchyny/calendar.vim'
   NeoBundleLazy 'sjl/gundo.vim'
   NeoBundleLazy 'thinca/vim-ref'
   NeoBundleLazy 'thinca/vim-scouter'
@@ -524,19 +522,6 @@ endfunction
 
 " vim-textobj-ruby {{{
 if neobundle#tap('vim-textobj-ruby')
-  call neobundle#config({
-  \   'autoload': {
-  \     'filetypes': 'ruby'
-  \   }
-  \ })
-  call s:depend_textobj_user()
-
-  call neobundle#untap()
-endif
-" }}}
-
-" vim-textobj-enclosedsyntax {{{
-if neobundle#tap('vim-textobj-enclosedsyntax')
   call neobundle#config({
   \   'autoload': {
   \     'filetypes': 'ruby'
@@ -1105,23 +1090,6 @@ if neobundle#tap('vimshell')
   nnoremap <silent> <Space>sc :<C-u>VimShellCreate<CR>
   nnoremap <silent> <Space>sp :<C-u>VimShellPop<CR>
   nnoremap <silent> <Space>st :<C-u>VimShellTab<CR>
-
-  call neobundle#untap()
-endif
-" }}}
-
-" calendar.vim {{{
-if neobundle#tap('calendar.vim')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': ['Calendar']
-  \   }
-  \ })
-
-  function! neobundle#tapped.hooks.on_source(bundle)
-    let g:calendar_google_calendar = 1
-    let g:calendar_google_task = 1
-  endfunction
 
   call neobundle#untap()
 endif
