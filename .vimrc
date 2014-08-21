@@ -316,7 +316,6 @@ if neobundle#tap('neosnippet')
   "http://kazuph.hateblo.jp/entry/2013/01/19/193745
 
   " <TAB>: completion.
-  " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
   inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
   " Plugin key-mappings.
@@ -324,7 +323,6 @@ if neobundle#tap('neosnippet')
   smap <C-k> <Plug>(neosnippet_expand_or_jump)
 
   " SuperTab like snippets behavior.
-  "imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
   imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
   smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
