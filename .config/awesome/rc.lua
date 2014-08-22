@@ -53,7 +53,7 @@ function wallpaper_toggle()
   end
 
   for s = 1, screen.count() do
-    gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+    gears.wallpaper.maximized(beautiful.wallpaper, 1, true)
   end
 end
 
