@@ -118,6 +118,7 @@ SAVEHIST=1000000
 setopt hist_ignore_dups       # 連続した同じコマンドを記録しない
 setopt hist_ignore_space      # スペースからはじまるものをヒストリに登録しない
 setopt extended_history       # タイムスタンプを記録
+setopt share_history
 # 5文字以上のもののみhistoryに登録
 zshaddhistory()
 {
