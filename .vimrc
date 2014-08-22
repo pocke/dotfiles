@@ -1494,7 +1494,7 @@ endif
 
 " vim-vimlint {{{
 if neobundle#tap('vim-vimlint')
-  let g:vimlint#config = { "EVL103": 1 }
+  let g:vimlint#config = {'quiet': 1, 'EVL103': 1}
 
   call neobundle#untap()
 endif
