@@ -40,7 +40,22 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init(awful.util.getdir("config") .. "/themes/default/theme.lua")
+local theme = awful.util.getdir("config") .. "/themes/default/theme.lua"
+beautiful.init(theme)
+
+function wallpaper_toggle()
+  local arch =  "/home/pocke/.config/awesome/themes/default/New-Arch-Bling.png"
+  local gf = "/home/pocke/.config/awesome/themes/default/girlfriend.jpg"
+  if beautiful.wallpaper == arch then
+    beautiful.wallpaper = gf
+  else
+    beautiful.wallpaper = arch
+  end
+
+  for s = 1, screen.count() do
+    gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+  end
+end
 
 -- This is used later as the default terminal and editor to run.
 terminal = "sakura"
@@ -279,7 +294,8 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86AudioRaiseVolume", function() awful.util.spawn("/home/pocke/bin/sound/sound_up.sh") end),
     awful.key({ }, "XF86AudioLowerVolume", function() awful.util.spawn("/home/pocke/bin/sound/sound_down.sh") end),
     awful.key({ }, "XF86AudioMute", function() awful.util.spawn("/home/pocke/bin/sound/sound_mute.sh") end),
-    awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/pictures/screenShot/ 2>/dev/null'") end)
+    awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/pictures/screenShot/ 2>/dev/null'") end),
+    awful.key({ modkey, }, "b", wallpaper_toggle )
 )
 
 clientkeys = awful.util.table.join(
