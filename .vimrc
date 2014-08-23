@@ -1849,6 +1849,8 @@ AutoCmd BufWritePost *gvimrc if has('gui_running') source $MYGVIMRC
 "}}}
 
 
+AutoCmd VimResized * wincmd =
+
 
 
 " }}}
