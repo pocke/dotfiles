@@ -73,7 +73,6 @@ function! s:load_bundles()
 
   " text object {{{
   NeoBundleLazy 'terryma/vim-expand-region'
-  NeoBundle     'osyo-manga/vim-textobj-blockwise'
   NeoBundleLazy 'kana/vim-textobj-user'
   NeoBundleLazy 'rhysd/vim-textobj-ruby'
   NeoBundleLazy 'kana/vim-textobj-syntax'
@@ -108,8 +107,6 @@ function! s:load_bundles()
   NeoBundleLazy 'todesking/ruby_hl_lvar.vim'
 
   " colorscheme {{{
-  NeoBundleLazy 'vim-scripts/rdark'
-  NeoBundleLazy 'itchyny/landscape.vim'
   " }}}
   " }}}
 
