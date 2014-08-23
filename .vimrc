@@ -122,14 +122,14 @@ function! s:load_bundles()
   NeoBundleLazy 'jelera/vim-javascript-syntax'
   NeoBundleLazy 'marijnh/tern_for_vim'
   " AltJS {{{
-  NeoBundle     'kchmck/vim-coffee-script'
-  NeoBundle     'leafgarland/typescript-vim'
+  NeoBundleLazy 'kchmck/vim-coffee-script'
+  NeoBundleLazy 'leafgarland/typescript-vim'
   NeoBundleLazy 'clausreinke/typescript-tools'
   " }}}
   " }}}
 
-  NeoBundle     'groenewege/vim-less'
-  NeoBundle     'slim-template/vim-slim'
+  NeoBundleLazy 'groenewege/vim-less'
+  NeoBundleLazy 'slim-template/vim-slim'
 
   " scala {{{
   NeoBundleLazy 'derekwyatt/vim-scala'
@@ -918,8 +918,28 @@ if neobundle#tap('tern_for_vim')
 endif
 " }}}
 
-" vimperator-syntax {{{
-" TODO
+" vim-coffee-script {{{
+if neobundle#tap('vim-coffee-script')
+  call neobundle#config({
+  \   'autoload': {
+  \     "filetypes": ['coffee']
+  \   }
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
+
+" typescript-vim {{{
+if neobundle#tap('typescript-vim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'filetypes': ['typescript']
+  \   }
+  \ })
+
+  call neobundle#untap()
+endif
 " }}}
 
 " typescript-tools {{{
@@ -929,6 +949,30 @@ if neobundle#tap('typescript-tools')
   \     'filetypes': ['typescript']
   \   }
   \ })
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-less {{{
+if neobundle#tap('vim-less')
+  call neobundle#config({
+  \   'autoload': {
+  \     'filetypes': 'less'
+  \   }
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-slim {{{
+if neobundle#tap('vim-slim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'filetypes': 'slim'
+  \   }
+  \ })
+
   call neobundle#untap()
 endif
 " }}}
@@ -1815,12 +1859,9 @@ AutoCmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 
 " filetype
 AutoCmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-" AutoCmd BufNewFile,BufRead *.json                     set filetype=javascript
 AutoCmd BufNewFile,BufRead *.jbuilder                 set filetype=ruby
 AutoCmd BufNewFile,BufRead Guardfile                  set filetype=ruby
 AutoCmd BufNewFile,BufRead *_spec.rb                  set filetype=ruby.rspec
-AutoCmd BufNewFile,BufRead *.scala                    set filetype=scala
-AutoCmd BufNewFile,BufRead *.sbt                      set filetype=sbt
 
 AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 AutoCmd FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
