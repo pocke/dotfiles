@@ -206,6 +206,7 @@ function! s:load_bundles()
   NeoBundleLazy 'LeafCage/vimhelpgenerator'
   NeoBundleLazy 'thinca/vim-prettyprint'
   NeoBundleLazy 'tyru/capture.vim'
+  NeoBundleLazy 'rbtnn/patches.vim'
   NeoBundleFetch 'thinca/vim-themis'
   "}}}
 
@@ -1714,6 +1715,18 @@ if neobundle#tap('capture.vim')
   call neobundle#config({
   \   'autoload': {
   \     'commands':  [{'name': 'Capture', 'complete': 'command'}]
+  \   }
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
+
+" patches.vim {{{
+if neobundle#tap('patches.vim')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': ['Patches']
   \   }
   \ })
 
