@@ -179,7 +179,7 @@ function! s:load_bundles()
 
   " 非同期処理
   NeoBundle     'Shougo/vimproc'
-  NeoBundle     'tyru/open-browser.vim'
+  NeoBundleLazy 'tyru/open-browser.vim'
 
   " コマンド実行
   NeoBundleLazy 'thinca/vim-quickrun'
@@ -2028,6 +2028,7 @@ function! s:for_vim_operator()
 
   " http://deris.hatenablog.jp/entry/2013/07/05/023835 {{{
   function! s:open_neo_bundle_path(motion_wise)
+    NeoBundleSource open-browser.vim
     if line("'[") != line("']")
       return
     endif
