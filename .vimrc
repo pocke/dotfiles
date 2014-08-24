@@ -79,6 +79,7 @@ function! s:load_bundles()
   NeoBundleLazy 'sgur/vim-textobj-parameter'
   NeoBundleLazy 'kana/vim-textobj-line'
   NeoBundleLazy 'kana/vim-textobj-entire'
+  NeoBundleLazy 'rhysd/vim-textobj-word-column'
   " }}}
 
   " operator {{{
@@ -555,6 +556,14 @@ endif
 " vim-textobj-entire {{{
 if neobundle#tap('vim-textobj-entire')
   call s:textobj_config(['ae', 'ie'])
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-textobj-word-column {{{
+if neobundle#tap('vim-textobj-word-column')
+  call s:textobj_config(['iv', 'av', 'iV', 'aV'])
 
   call neobundle#untap()
 endif
