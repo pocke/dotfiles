@@ -46,6 +46,7 @@ Vim
 -----------
 
 - GVim対応
+  - colorscheme
 - Lazy時のComplete
 - ruby_hl_lvarがめっちゃ重いので、なんとかする
 
