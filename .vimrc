@@ -1611,6 +1611,7 @@ if neobundle#tap('vim-automatic')
 
   function! s:my_temp_win_init(config, context)
     nnoremap <buffer> q :<C-u>q<CR>
+    nnoremap <buffer> Q :<C-u>q<CR>
   endfunction
 
   let g:automatic_default_set_config = {
