@@ -735,7 +735,8 @@ if neobundle#tap('vim-brightest')
   AutoCmd ColorScheme * hi pluginVimBrightest ctermbg=239
 
   let g:brightest#highlight = {
-  \   'group': 'pluginVimBrightest'
+  \   'group': 'pluginVimBrightest',
+  \   'priority': 100
   \ }
 
   call neobundle#untap()
