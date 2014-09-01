@@ -735,7 +735,6 @@ if neobundle#tap('vim-brightest')
 
   let g:brightest#highlight = {
   \   'group': 'pluginVimBrightest',
-  \   'priority': 100
   \ }
 
   call neobundle#untap()
