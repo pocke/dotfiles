@@ -1987,6 +1987,8 @@ inoremap <CR> <C-g>u<CR>
 inoremap <C-o> <Esc>O
 
 nnoremap Q <Nop>
+
+nnoremap Y y$
 " }}}
 
 
