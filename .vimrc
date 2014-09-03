@@ -2095,5 +2095,13 @@ augroup operator-yank-tmux
   autocmd StdinReadPost * let s:stdin_loaded = 1
 augroup END
 
+" http://hail2u.net/blog/software/vim-auto-close-quickfix-window.html
+function! s:auto_close_quickfix()
+  if winnr('$') == 1 && getbufvar(winbufnr(0), '&buftype') == 'quickfix'
+    quit
+  endif
+endfunction
+AutoCmd WinEnter * call s:auto_close_quickfix()
+
 
 " vim:set foldmethod=marker:
