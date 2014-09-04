@@ -80,6 +80,7 @@ function! s:load_bundles()
   NeoBundleLazy 'kana/vim-textobj-line'
   NeoBundleLazy 'kana/vim-textobj-entire'
   NeoBundleLazy 'rhysd/vim-textobj-word-column'
+  NeoBundleLazy 'thinca/vim-textobj-between'
   " }}}
 
   " operator {{{
@@ -563,6 +564,14 @@ endif
 " vim-textobj-word-column {{{
 if neobundle#tap('vim-textobj-word-column')
   call s:textobj_config(['iv', 'av', 'iV', 'aV'])
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-textobj-between {{{
+if neobundle#tap('vim-textobj-between')
+  call s:textobj_config(['if', 'af'])
 
   call neobundle#untap()
 endif
