@@ -606,6 +606,8 @@ endif
 if neobundle#tap('vim-operator-comment')
   Arpeggio map <silent>co <Plug>(operator-comment)
   Arpeggio map <silent>cu <Plug>(operator-uncomment)
+  Arpeggio map <silent>CO <Plug>(operator-comment)<Plug>(operator-comment)
+  Arpeggio map <silent>CU <Plug>(operator-uncomment)<Plug>(operator-uncomment)
 
   call s:operator_config(['<Plug>(operator-comment)', '<Plug>(operator-uncomment)'])
 
