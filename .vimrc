@@ -140,6 +140,8 @@ function! s:load_bundles()
   " NeoBundleLazy 'gre/play2vim'
   " }}}
 
+  NeoBundleLazy 'vim-jp/vim-go-extra'
+
   NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
   \   'name': 'vimperator-syntax',
   \   'type': 'hg',
@@ -995,6 +997,19 @@ if neobundle#tap('vim-sbt')
   call neobundle#config({
   \   'autoload': {
   \     'filetypes': ['sbt']
+  \   }
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
+
+
+" vim-go-extra {{{
+if neobundle#tap('vim-go-extra')
+  call neobundle#config({
+  \   'autoload': {
+  \     'filetypes': 'go'
   \   }
   \ })
 
