@@ -28,7 +28,7 @@ hi Question     ctermfg=LightGreen                        cterm=bold
 hi NonText      ctermfg=LightBlue
 hi IncSearch    ctermfg=Black         ctermbg=Green       cterm=NONE
 hi Search       ctermfg=Black         ctermbg=LightGreen
-hi SpecialKey   ctermfg=Red                               cterm=bold
+hi SpecialKey   ctermfg=DarkGray                          cterm=bold
 hi Title        ctermfg=200                               cterm=bold
 hi Folded       ctermfg=Blue          ctermbg=238
 "hi FoldColumn   ctermfg=LightGrey     ctermbg=DarkBlue
