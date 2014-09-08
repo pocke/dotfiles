@@ -257,7 +257,7 @@ if s:meet_neocomplete_requirements()
     let g:neocomplete#auto_completion_start_length = 2
     " preview window を閉じない
     let g:neocomplete#enable_auto_close_preview = 0
-    AutoCmd InsertLeave * pclose!
+    AutoCmd InsertLeave * silent! pclose!
 
 
     if !exists('g:neocomplete#delimiter_patterns')
