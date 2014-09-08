@@ -1862,6 +1862,7 @@ AutoCmd BufNewFile,BufRead Guardfile                  set filetype=ruby
 AutoCmd BufNewFile,BufRead *_spec.rb                  set filetype=ruby.rspec
 
 AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
+AutoCmd BufWritePre *.go Fmt
 AutoCmd FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
 AutoCmd FileType qf   nnoremap <buffer> <CR> <CR> | setlocal cursorline
 AutoCmd CmdwinEnter * nnoremap <buffer> <CR> <CR> | setlocal cursorline
@@ -1889,7 +1890,6 @@ AutoCmd VimResized * wincmd =
 
 
 
-" }}}
 
 " keybind {{{
 nnoremap ; :
@@ -2074,6 +2074,7 @@ function! s:auto_close_quickfix()
   endif
 endfunction
 AutoCmd WinEnter * call s:auto_close_quickfix()
+" }}}
 
 
 " vim:set foldmethod=marker:
