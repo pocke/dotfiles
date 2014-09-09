@@ -212,7 +212,7 @@ bindkey "\C-s" swap_last_arg
 # TODO: わざわざgit log を叩くのは気持ち悪い
 function is_git_dir()
 {
-  git log > /dev/null 2>&1
+  git rev-parse --show-toplevel > /dev/null 2>&1
 }
 
 function /()
