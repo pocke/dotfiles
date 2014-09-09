@@ -18,6 +18,7 @@ nnoremap s :tabopen<Space>google<Space>
 nnoremap <silent> <Esc> :<C-u>nohlsearch<CR>
 nnoremap ; :
 nnoremap : ;
+nnoremap <S-C-w> <Nop>
 
 
 
