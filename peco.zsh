@@ -41,3 +41,15 @@ function peco-pushd-dirs()
 }
 zle -N peco-pushd-dirs
 bindkey '^A' peco-pushd-dirs
+
+function peco-ghq-move()
+{
+  local selected_dir="$(ghq list --full-path | peco --query "$LBUFFER")"
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-ghq-move
+bindkey '^G' peco-ghq-move
