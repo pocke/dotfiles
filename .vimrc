@@ -1893,9 +1893,9 @@ AutoCmd VimResized * wincmd =
 
 " keybind {{{
 nnoremap ; :
-nnoremap : ;
+nnoremap : q:i
 vnoremap ; :
-vnoremap : ;
+vnoremap : q:i
 " コマンドラインでのC-n|p と Up, Downの入れ替え
 cnoremap <C-n>  <Down>
 cnoremap <C-p>  <Up>
