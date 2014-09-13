@@ -63,8 +63,6 @@ function! s:load_bundles()
   NeoBundle     'Shougo/neosnippet-snippets'
   NeoBundle     'pocke/neosnippet-incomment'
 
-  " true/false とかを簡単に切り替える
-  NeoBundleLazy 'AndrewRadev/switch.vim'
 
   NeoBundleLazy 'kana/vim-smartinput'
   NeoBundleLazy 'kana/vim-smartchr'
@@ -75,7 +73,6 @@ function! s:load_bundles()
   NeoBundleLazy 'terryma/vim-expand-region'
   NeoBundleLazy 'kana/vim-textobj-user'
   NeoBundleLazy 'rhysd/vim-textobj-ruby'
-  NeoBundleLazy 'kana/vim-textobj-syntax'
   NeoBundleLazy 'sgur/vim-textobj-parameter'
   NeoBundleLazy 'kana/vim-textobj-line'
   NeoBundleLazy 'kana/vim-textobj-entire'
@@ -153,7 +150,6 @@ function! s:load_bundles()
 
   " Unite {{{
   NeoBundleLazy 'Shougo/unite.vim'
-  NeoBundleLazy 'rhysd/unite-ruby-require.vim'
   NeoBundleLazy 'Shougo/unite-outline'
   " }}}
 
@@ -161,6 +157,7 @@ function! s:load_bundles()
   NeoBundleLazy 'Shougo/vimshell'
   NeoBundleLazy 'sjl/gundo.vim'
   NeoBundleLazy 'thinca/vim-ref'
+
   NeoBundleLazy 'thinca/vim-scouter'
   NeoBundleLazy 'rbtnn/mario.vim'
   NeoBundleLazy 'rbtnn/puyo.vim'
@@ -341,27 +338,6 @@ if neobundle#tap('neosnippet')
 endif
 "}}}
 
-" switch.vim {{{
-if neobundle#tap('switch.vim')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': 'Switch'
-  \   }
-  \ })
-
-  function! neobundle#tapped.hooks.on_source(bundle)
-    AutoCmd FileType gitrebase let b:switch_custom_definitions =
-    \ [
-    \   ['pick', 'squash', 'edit', 'reword', 'fixup', 'exec']
-    \ ]
-  endfunction
-
-  nnoremap - :<C-u>Switch<CR>
-
-  call neobundle#untap()
-endif
-" }}}
-
 " vim-smartinput {{{
 if neobundle#tap('vim-smartinput')
   call neobundle#config({
@@ -526,14 +502,6 @@ if neobundle#tap('vim-textobj-ruby')
   \   }
   \ })
   call s:depend_textobj_user()
-
-  call neobundle#untap()
-endif
-" }}}
-
-" vim-textobj-syntax {{{
-if neobundle#tap('vim-textobj-syntax')
-  call s:textobj_config(['ay', 'iy'])
 
   call neobundle#untap()
 endif
@@ -1050,20 +1018,6 @@ if neobundle#tap('unite.vim')
   nnoremap <silent> [unite]u :<C-u>Unite file_mru buffer<CR>
   " 行
   nnoremap <silent> [unite]l :<C-u>Unite line<CR>
-
-  call neobundle#untap()
-endif
-" }}}
-
-" unite-ruby-require.vim {{{
-if neobundle#tap('unite-ruby-require.vim')
-  call neobundle#config({
-  \   'autoload' : {
-  \     'unite_sources' : ['ruby/require']
-  \   }
-  \ })
-
-  nnoremap <silent> [unite]r :<C-u>Unite ruby/require<CR>
 
   call neobundle#untap()
 endif
