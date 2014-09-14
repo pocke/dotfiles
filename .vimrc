@@ -1816,7 +1816,19 @@ AutoCmd BufNewFile,BufRead Guardfile                  set filetype=ruby
 AutoCmd BufNewFile,BufRead *_spec.rb                  set filetype=ruby.rspec
 
 AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
-AutoCmd BufWritePre *.go Fmt
+AutoCmd BufWritePre *.go call s:my_go_fmt()
+" TODO: undo が辛い感じになる
+function! s:my_go_fmt()
+  let view = winsaveview()
+  let b = getbufline('%', 0, '$')
+  Fmt
+  undo
+  let a = getbufline('%', 0, '$')
+  if a != b
+    redo
+  endif
+  call winrestview(view)
+endfunction
 AutoCmd FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
 AutoCmd FileType qf   nnoremap <buffer> <CR> <CR> | setlocal cursorline
 AutoCmd CmdwinEnter * nnoremap <buffer> <CR> <CR> | setlocal cursorline
