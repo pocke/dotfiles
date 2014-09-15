@@ -1820,8 +1820,8 @@ AutoCmd BufWritePre *.go call s:my_go_fmt()
 " TODO: undo が辛い感じになる
 function! s:my_go_fmt()
   let view = winsaveview()
-  let b = getbufline('%', 0, '$')
   Fmt
+  let b = getbufline('%', 0, '$')
   undo
   let a = getbufline('%', 0, '$')
   if a != b
