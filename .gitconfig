@@ -52,5 +52,5 @@
   generic = G move-last-line
 
 [ghq]
-  root = ~/.ghq
+  root = ~/ghq
   root = ~/go/src
