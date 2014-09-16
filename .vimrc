@@ -95,7 +95,6 @@ function! s:load_bundles()
 
   " 表示系プラグイン {{{
   NeoBundle     'thinca/vim-splash'
-  NeoBundle     'Yggdroot/indentLine'
   NeoBundleLazy 'vim-scripts/AnsiEsc.vim'
   NeoBundle     'itchyny/lightline.vim'
   NeoBundle     'osyo-manga/vim-brightest'
@@ -654,17 +653,6 @@ endif
 " vim-splash {{{
 if neobundle#tap('vim-splash')
   let g:splash#path = $HOME . '/dotfiles/octocat.txt'
-
-  call neobundle#untap()
-endif
-" }}}
-
-" indentline {{{
-if neobundle#tap('indentLine')
-  let g:indentLine_color_term = 239
-  " let g:indentLine_color_gui = '#708090'
-  let g:indentLine_char = '¦' "use ¦, ┆ or │
-  let g:indentLine_fileTypeExclude = ['gitcommit', 'diff']
 
   call neobundle#untap()
 endif
