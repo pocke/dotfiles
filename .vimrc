@@ -38,7 +38,6 @@ endif
 
 let g:neobundle#install_max_processes = 6
 
-"call neobundle#rc(expand('~/.vim/bundle/'))
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 
