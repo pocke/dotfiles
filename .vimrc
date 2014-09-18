@@ -1472,12 +1472,6 @@ if neobundle#tap('vim-fugitive')
     doautoall fugitive BufNewFile
   endfunction
 
-  nnoremap <silent> <Space>gs :<C-u>Gstatus <CR>
-  nnoremap <silent> <Space>gc :<C-u>Gcommit <CR>
-  nnoremap <silent> <Space>gb :<C-u>Gblame  <CR>
-  nnoremap <silent> <Space>gd :<C-u>Gdiff   <CR>
-  nnoremap <silent> <Space>ga :<C-u>Gwrite  <CR>
-
   call neobundle#untap()
 endif
 " }}}
