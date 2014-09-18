@@ -450,38 +450,33 @@ endif
 if neobundle#tap('vim-expand-region')
   call neobundle#config({
   \   'autoload': {
-  \     'mappings': [
-  \       '<Plug>(expand_region_expand)',
-  \       '<Plug>(expand_region_shrink)'
-  \     ]
+  \     'mappings': ['<Plug>(expand_region_']
   \   }
   \ })
 
   map <CR> <Plug>(expand_region_expand)
   map <BS> <Plug>(expand_region_shrink)
 
-  let g:expand_region_text_objects = {
-  \   "i'": 0,
-  \   'i"': 0,
-  \   'i)': 0,
-  \   'i}': 0,
-  \   'i]': 0,
-  \   'il': 1,
-  \   'ae': 1,
-  \ }
-  let g:expand_region_text_objects_ruby = copy(g:expand_region_text_objects)
-  let g:expand_region_text_objects_ruby.ir = 1
-  let g:expand_region_text_objects_ruby.ar = 1
-  let g:expand_region_text_objects_html = copy(g:expand_region_text_objects)
-  let g:expand_region_text_objects_html.it = 1
+  function! neobundle#tapped.hooks.on_source(bundle)
+    let g:expand_region_text_objects = {
+    \   "i'": 0,
+    \   'i"': 0,
+    \   'i)': 0,
+    \   'i}': 0,
+    \   'i]': 0,
+    \   'il': 1,
+    \   'ae': 1,
+    \ }
+    let g:expand_region_text_objects_ruby = copy(g:expand_region_text_objects)
+    let g:expand_region_text_objects_ruby.ir = 1
+    let g:expand_region_text_objects_ruby.ar = 1
+    let g:expand_region_text_objects_html = copy(g:expand_region_text_objects)
+    let g:expand_region_text_objects_html.it = 1
+  endfunction
 
   call neobundle#untap()
 endif
 " }}}
-
-function! s:depend_textobj_user()
-  call neobundle#config({'depends': 'kana/vim-textobj-user'})
-endfunction
 
 function! s:textobj_config(mappings)
   call neobundle#config({
@@ -494,12 +489,7 @@ endfunction
 
 " vim-textobj-ruby {{{
 if neobundle#tap('vim-textobj-ruby')
-  call neobundle#config({
-  \   'autoload': {
-  \     'filetypes': 'ruby'
-  \   }
-  \ })
-  call s:depend_textobj_user()
+  call s:textobj_config(['ar', 'ir'])
 
   call neobundle#untap()
 endif
@@ -776,18 +766,11 @@ endif
 if neobundle#tap('accelerated-smooth-scroll')
   call neobundle#config({
   \   'autoload': {
-  \     'mappings': [
-  \       '<Plug>(ac-smooth-scroll-c-d)',
-  \       '<Plug>(ac-smooth-scroll-c-u)',
-  \       '<Plug>(ac-smooth-scroll-c-f)',
-  \       '<Plug>(ac-smooth-scroll-c-b)'
-  \     ]
+  \     'mappings': ['<Plug>(ac-smooth-scroll-c-']
   \   }
   \ })
 
-  function! neobundle#tapped.hooks.on_source(bundle)
-    let g:ac_smooth_scroll_no_default_key_mappings = 1
-  endfunction
+  let g:ac_smooth_scroll_no_default_key_mappings = 1
 
   nmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d)
   nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
@@ -803,10 +786,7 @@ endif
 if neobundle#tap('vim-easymotion')
   call neobundle#config({
   \   'autoload': {
-  \     'mappings': [
-  \       '<Plug>(easymotion-s2)',
-  \       '<Plug>(easymotion-sn)'
-  \     ]
+  \     'mappings': ['<Plug>(easymotion-']
   \   }
   \ })
 
@@ -823,7 +803,7 @@ endif
 if neobundle#tap('clever-f.vim')
   call neobundle#config({
   \   'autoload': {
-  \     'mappings': 'f'
+  \     'mappings': ['f', 'F']
   \   }
   \ })
 
@@ -907,6 +887,7 @@ if neobundle#tap('typescript-tools')
   \     'filetypes': ['typescript']
   \   }
   \ })
+
   call neobundle#untap()
 endif
 " }}}
@@ -1467,9 +1448,6 @@ if neobundle#tap('vim-vimlint')
   call neobundle#untap()
 endif
 " }}}
-
-
-
 
 
 " vim-visualstar {{{
