@@ -27,11 +27,6 @@ delfunction s:get_SID
 
 
 " neobundle {{{
-function! s:meet_neocomplete_requirements()
-  return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
-endfunction
-
-
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -47,14 +42,7 @@ function! s:load_bundles()
   " 入力系プラグイン {{{
 
   " 補完
-  " luaが使えるかどうかでどっち使うか決める
-  if s:meet_neocomplete_requirements()
-    NeoBundle      'Shougo/neocomplete'
-    NeoBundleFetch 'Shougo/neocomplcache'
-  else
-    NeoBundleFetch 'Shougo/neocomplete'
-    NeoBundle      'Shougo/neocomplcache'
-  endif
+  NeoBundle      'Shougo/neocomplete'
 
   NeoBundleLazy 'ujihisa/neco-look'
 
@@ -230,81 +218,58 @@ filetype plugin indent on     " Required!
 call arpeggio#load()
 
 " 入力系プラグイン {{{
-if s:meet_neocomplete_requirements()
-  " neocomplete {{{
-  if neobundle#tap('neocomplete')
-    call neobundle#config({
-    \   'depends': ['Shougo/context_filetype.vim', 'ujihisa/neco-look']
-    \ })
+" neocomplete {{{
+if neobundle#tap('neocomplete')
+  call neobundle#config({
+  \   'depends': ['Shougo/context_filetype.vim', 'ujihisa/neco-look']
+  \ })
 
-    " 起動時に有効化
-    let g:neocomplete#enable_at_startup = 1
-    " 大文字が入力されるまで大文字小文字の区別を無視する
-    let g:neocomplete#enable_smart_case = 1
-    " _(アンダースコア)区切りの補完を有効化
-    let g:neocomplete#enable_underbar_completion = 1
-    let g:neocomplete#enable_camel_case_completion  =  1
-    " ポップアップメニューで表示される候補の数
-    let g:neocomplete#max_list = 20
-    " シンタックスをキャッシュするときの最小文字長
-    let g:neocomplete#sources#syntax#min_keyword_length = 3
-    " 補完を表示する最小文字数
-    let g:neocomplete#auto_completion_start_length = 2
-    " preview window を閉じない
-    let g:neocomplete#enable_auto_close_preview = 0
-    AutoCmd InsertLeave * silent! pclose!
+  " 起動時に有効化
+  let g:neocomplete#enable_at_startup = 1
+  " 大文字が入力されるまで大文字小文字の区別を無視する
+  let g:neocomplete#enable_smart_case = 1
+  " _(アンダースコア)区切りの補完を有効化
+  let g:neocomplete#enable_underbar_completion = 1
+  let g:neocomplete#enable_camel_case_completion  =  1
+  " ポップアップメニューで表示される候補の数
+  let g:neocomplete#max_list = 20
+  " シンタックスをキャッシュするときの最小文字長
+  let g:neocomplete#sources#syntax#min_keyword_length = 3
+  " 補完を表示する最小文字数
+  let g:neocomplete#auto_completion_start_length = 2
+  " preview window を閉じない
+  let g:neocomplete#enable_auto_close_preview = 0
+  AutoCmd InsertLeave * silent! pclose!
 
 
-    if !exists('g:neocomplete#delimiter_patterns')
-      let g:neocomplete#delimiter_patterns= {}
-    endif
-    let g:neocomplete#delimiter_patterns.ruby = ['::']
-
-    if !exists('g:neocomplete#same_filetypes')
-      let g:neocomplete#same_filetypes = {}
-    endif
-    let g:neocomplete#same_filetypes.ruby = 'eruby'
-
-    if !exists('g:neocomplete#text_mode_filetypes')
-      let g:neocomplete#text_mode_filetypes = {}
-    endif
-    let g:neocomplete#text_mode_filetypes.tweetvim_say = 1
-
-    let s:neco_dicts_dir = $HOME . '/dicts'
-    if isdirectory(s:neco_dicts_dir)
-      let g:neocomplete#sources#dictionary#dictionaries = {
-      \   'ruby': s:neco_dicts_dir . '/ruby.dict',
-      \   'javascript': s:neco_dicts_dir . '/jquery.dict',
-      \ }
-    endif
-
-    let g:neocomplete#data_directory = $HOME . '/.vim/cache/neocomplete'
-
-    call neobundle#untap()
+  if !exists('g:neocomplete#delimiter_patterns')
+    let g:neocomplete#delimiter_patterns= {}
   endif
-  "}}}
-else
-  " neocomplcache {{{
-  if neobundle#tap('neocomplcache')
-    " 起動時に有効化
-    let g:neocomplcache_enable_at_startup = 1
-    " 大文字が入力されるまで大文字小文字の区別を無視する
-    let g:neocomplcache_enable_smart_case = 1
-    " _(アンダースコア)区切りの補完を有効化
-    let g:neocomplcache_enable_underbar_completion = 1
-    let g:neocomplcache_enable_camel_case_completion  =  1
-    " ポップアップメニューで表示される候補の数
-    let g:neocomplcache_max_list = 20
-    " シンタックスをキャッシュするときの最小文字長
-    let g:neocomplcache_min_syntax_length = 3
+  let g:neocomplete#delimiter_patterns.ruby = ['::']
 
-
-    let g:neocomplcache_delimiter_patterns = {}
-    let g:neocomplcache_delimiter_patterns.ruby = ['::']
-    call neobundle#untap()
+  if !exists('g:neocomplete#same_filetypes')
+    let g:neocomplete#same_filetypes = {}
   endif
-  " }}}
+  let g:neocomplete#same_filetypes.ruby = 'eruby'
+
+  if !exists('g:neocomplete#text_mode_filetypes')
+    let g:neocomplete#text_mode_filetypes = {}
+  endif
+  let g:neocomplete#text_mode_filetypes.tweetvim_say = 1
+
+  let s:neco_dicts_dir = $HOME . '/dicts'
+  if isdirectory(s:neco_dicts_dir)
+    let g:neocomplete#sources#dictionary#dictionaries = {
+    \   'ruby': s:neco_dicts_dir . '/ruby.dict',
+    \   'javascript': s:neco_dicts_dir . '/jquery.dict',
+    \ }
+  endif
+
+  let g:neocomplete#data_directory = $HOME . '/.vim/cache/neocomplete'
+
+  call neobundle#untap()
 endif
+"}}}
 
 " neosnippet {{{
 if neobundle#tap('neosnippet')
