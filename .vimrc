@@ -1178,7 +1178,8 @@ if neobundle#tap('TweetVim')
   \     'basyura/twibill.vim',
   \     'Shougo/unite.vim',
   \     'yomi322/neco-tweetvim',
-  \   ]
+  \   ],
+  \   'rev': 'dev',
   \ })
 
   function! neobundle#tapped.hooks.on_source(bundle)
