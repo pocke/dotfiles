@@ -30,7 +30,7 @@ $ cd ~
 $ mkdir -p .vim/bundle/
 $ git clone https://github.com/Shougo/neobundle.vim.git .vim/bundle/neobundle.vim
 $ sudo pacman -S words nodejs
-$ gem install refe2
+$ gem install refe2 rcodetools fastri
 $ bitclust setup --versions=2.1.0
 $ vim +NeoBundleInstall
 ```
