@@ -8,6 +8,7 @@ setopt mark_dirs            # ファイル名の展開でディレクトリに�
 setopt print_eight_bit      # 日本語ファイル名等8ビットを通す
 setopt extended_glob        # 強いglob
 setopt no_beep
+setopt INTERACTIVE_COMMENTS
 
 ### export variables
 export EDITOR=vim
