@@ -124,7 +124,6 @@ function! s:load_bundles()
   " }}}
 
   NeoBundleLazy 'vim-jp/vim-go-extra'
-  NeoBundleLazy 'osyo-manga/vim-monster'
 
   NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
   \   'name': 'vimperator-syntax',
@@ -257,11 +256,6 @@ if neobundle#tap('neocomplete')
     let g:neocomplete#text_mode_filetypes = {}
   endif
   let g:neocomplete#text_mode_filetypes.tweetvim_say = 1
-
-  if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-  endif
-  let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\|\h\w*::'
 
   let s:neco_dicts_dir = $HOME . '/dicts'
   if isdirectory(s:neco_dicts_dir)
@@ -919,20 +913,6 @@ if neobundle#tap('vim-go-extra')
   \     'filetypes': 'go'
   \   }
   \ })
-
-  call neobundle#untap()
-endif
-" }}}
-
-" vim-monster {{{
-if neobundle#tap('vim-monster')
-  call neobundle#config({
-  \   'autoload': {
-  \     'filetypes': 'ruby'
-  \   }
-  \ })
-
-  let g:monster#completion#rcodetools#backend = "async_rct_complete"
 
   call neobundle#untap()
 endif
