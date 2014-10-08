@@ -1648,6 +1648,7 @@ set autoindent
 " 折りたたみ-展開
 set foldmethod=syntax
 set foldlevel=99
+set conceallevel=0
 
 " Shift-oで待たされるのを改善
 set ttimeoutlen=10
