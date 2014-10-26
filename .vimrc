@@ -631,18 +631,13 @@ if neobundle#tap('lightline.vim')
   \     'left': [
   \       ['mode'],
   \       ['readonly', 'fugitive', 'filename', 'modified'],
-  \       ['tweetvim_say_count', 'tweetvim_say_user']
   \     ]
   \   },
   \   'component': {
   \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
-  \     'tweetvim_say_count': '%{exists("b:tweetvim_say_count") ? b:tweetvim_say_count : ""}',
-  \     'tweetvim_say_user':  '%{&filetype ==# "tweetvim_say" ? tweetvim#account#current().screen_name : ""}',
   \   },
   \   'component_visible_condition': {
   \     'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())',
-  \     'tweetvim_say_count': '(&filetype ==# "tweetvim_say")',
-  \     'tweetvim_say_user':  '(&filetype ==# "tweetvim_say")',
   \   },
   \ }
 
@@ -1245,6 +1240,14 @@ if neobundle#tap('TweetVim')
       call vimproc#system_bg('aplay /opt/mikutter/core/skin/data/sounds/message-received.wav')
     endfunction
     call tweetvim#hook#add('notify_mention', s:SID . 'say_mention')
+
+    " for lightline
+    call add(g:lightline.active.left, ['tweetvim_say_count', 'tweetvim_say_user'])
+    let g:lightline.component.tweetvim_say_count = '%{exists("b:tweetvim_say_count") ? b:tweetvim_say_count : ""}'
+    let g:lightline.component.tweetvim_say_user  = '%{&filetype ==# "tweetvim_say" ? tweetvim#account#current().screen_name : ""}'
+    let g:lightline.component_visible_condition.tweetvim_say_count = '(&filetype ==# "tweetvim_say")'
+    let g:lightline.component_visible_condition.tweetvim_say_user  = '(&filetype ==# "tweetvim_say")'
+    call lightline#init()
   endfunction
 
   call neobundle#untap()
