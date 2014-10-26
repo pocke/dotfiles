@@ -1731,6 +1731,9 @@ set updatetime=1000
 
 set tabpagemax=100
 
+" h clipboard-excludeを参照。excludeは一番最後じゃないとだめ
+set clipboard& clipboard^=unnamedplus
+
 
 " 補完のpreviewウィンドウを表示しない。
 "set completeopt& completeopt-=preview
