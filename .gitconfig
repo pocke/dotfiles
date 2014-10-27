@@ -20,7 +20,6 @@
   fixa   = commit --amend -v -a
   ca     = commit -v -a
   aa     = add .
-  k      = !gitk
   reh    = reset --hard
   ri     = rebase -i
   df     = diff
@@ -30,7 +29,6 @@
   plr    = pull --rebase
   ps     = push
   gr     = grep -I
-  ag     = !git ls-files | xargs ag
 [push]
   default = simple
 [core]
