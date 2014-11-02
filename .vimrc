@@ -909,6 +909,12 @@ if neobundle#tap('vim-go-extra')
   \   }
   \ })
 
+  function! neobundle#tapped.hooks.on_source(bundle)
+    if executable("goimports")
+      let g:gofmt_command = "goimports"
+    endif
+  endfunction
+
   call neobundle#untap()
 endif
 " }}}
