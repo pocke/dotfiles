@@ -28,18 +28,20 @@ options     head
     ${0:TARGET}
   }
 
-snippet case
+snippet     case
+options     head
   case ${1:#:condition}:
-      ${2:TARGET}
-  ${0}
+    ${2:TARGET}
 
 snippet     const
+abbr        const ()
 options     head
   const (
     ${0:TARGET}
   )
 
 snippet     var
+abbr        var () 
 options     head
   var (
     ${0:TARGET}
