@@ -46,3 +46,10 @@ options     head
   var (
     ${0:TARGET}
   )
+
+snippet     go
+abbr        go func(){...}()
+options     head
+  go func() {
+    ${0:TARGET}
+  }()
