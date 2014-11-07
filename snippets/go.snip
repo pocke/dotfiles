@@ -53,3 +53,10 @@ options     head
   go func() {
     ${0:TARGET}
   }()
+
+snippet     range
+abbr        for range
+options     head
+  for ${1:v} := range ${2:iterator} {
+    ${0:TARGET}
+  }
