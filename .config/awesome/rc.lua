@@ -463,8 +463,3 @@ client.connect_signal("unfocus", function(c)
   c.opacity = 0.8
   end)
 -- }}}
-
--- {{{ applet
---os.execute("gnome-power-manager &")
---os.execute("blueman-applet &")
-os.execute("xfce4-power-manager &")
