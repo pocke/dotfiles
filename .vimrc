@@ -1758,7 +1758,7 @@ AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldma
 AutoCmd BufWritePre *.go call s:my_go_fmt()
 " TODO: undo が辛い感じになる
 function! s:my_go_fmt()
-  let view = winsaveview()
+  windo let w:gofmt_view = winsaveview()
   Fmt
   let b = getbufline('%', 0, '$')
   undo
@@ -1766,7 +1766,7 @@ function! s:my_go_fmt()
   if a != b
     redo
   endif
-  call winrestview(view)
+  windo call winrestview(w:gofmt_view)
 endfunction
 AutoCmd FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
 AutoCmd FileType qf   nnoremap <buffer> <CR> <CR> | setlocal cursorline
