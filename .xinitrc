@@ -22,7 +22,6 @@ xset r rate 250 30
 xset m 10 2
 
 xmodmap .Xmodmap
-xbindkeys
 xcompmgr &
 
 exec awesome
