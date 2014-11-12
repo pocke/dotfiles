@@ -63,7 +63,6 @@ function! s:load_bundles()
   NeoBundleLazy 'sgur/vim-textobj-parameter'
   NeoBundleLazy 'kana/vim-textobj-line'
   NeoBundleLazy 'kana/vim-textobj-entire'
-  NeoBundleLazy 'rhysd/vim-textobj-word-column'
   NeoBundleLazy 'thinca/vim-textobj-between'
   " }}}
 
@@ -75,7 +74,6 @@ function! s:load_bundles()
   NeoBundleLazy 'chikatoike/concealedyank.vim'
   NeoBundleLazy 'kana/vim-operator-replace'
   NeoBundleLazy 'pocke/vim-operator-gitrebase'
-  NeoBundleLazy 'deris/vim-operator-insert'
   " }}}
 
   " }}}
@@ -484,14 +482,6 @@ if neobundle#tap('vim-textobj-entire')
 endif
 " }}}
 
-" vim-textobj-word-column {{{
-if neobundle#tap('vim-textobj-word-column')
-  call s:textobj_config(['iv', 'av', 'iV', 'aV'])
-
-  call neobundle#untap()
-endif
-" }}}
-
 " vim-textobj-between {{{
 if neobundle#tap('vim-textobj-between')
   call s:textobj_config(['if', 'af'])
@@ -583,17 +573,6 @@ if neobundle#tap('vim-operator-gitrebase')
     map <buffer> r <Plug>(operator-gitrebase-reword)
     map <buffer> f <Plug>(operator-gitrebase-fixup)
   endfunction
-
-  call neobundle#untap()
-endif
-" }}}
-
-" vim-operator-insert
-if neobundle#tap('vim-operator-insert')
-  nmap <Leader>i <Plug>(operator-insert-i)
-  nmap <Leader>a <Plug>(operator-insert-a)
-
-  call s:operator_config('<Plug>(operator-insert-')
 
   call neobundle#untap()
 endif
@@ -1741,9 +1720,6 @@ set tabpagemax=100
 set clipboard& clipboard^=unnamedplus
 
 
-" 補完のpreviewウィンドウを表示しない。
-"set completeopt& completeopt-=preview
-
 
 " 前回終了したカーソル行に移動
 AutoCmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
@@ -1798,9 +1774,7 @@ AutoCmd VimResized * wincmd =
 
 " keybind {{{
 nnoremap ; :
-nnoremap : q:i
 vnoremap ; :
-vnoremap : q:i
 " コマンドラインでのC-n|p と Up, Downの入れ替え
 cnoremap <C-n>  <Down>
 cnoremap <C-p>  <Up>
@@ -1913,64 +1887,6 @@ endfunction
 nnoremap <silent><C-s> :<C-u>call <SID>show_cursor()<CR>
 inoremap <silent><C-s> <C-r>=<SID>show_cursor()<CR>
 
-
-
-function! s:text_for_operator(motion_wise)
-  let start_col  = col("'[") - 1
-  let end_col    = col("']") - 1
-  let start_line = line("'[")
-  let end_line   = line("']")
-
-  let texts = []
-
-  if a:motion_wise ==# 'char'
-    if start_line == end_line
-      let texts = [getline(start_line)[start_col : end_col]]
-    else
-      let text = getline(start_line)[start_col : -1]
-      call add(texts, text)
-
-      let lines = getline(start_line + 1, end_line - 1)
-      let texts += lines
-
-      let text = getline(end_line)[0 : end_col]
-      call add(texts, text)
-    endif
-  elseif a:motion_wise ==# 'line'
-    let texts = getline(start_line, end_line)
-  elseif a:motion_wise ==# 'block'
-    let texts = map(getline(start_line, end_line), 'v:val[start_col : end_col]')
-  else
-    echoerr 'invalid args'
-  endif
-
-  return join(texts, "\n")
-endfunction
-
-
-function! s:operator_yank_tmux(motion_wise)
-  if $TMUX == ''
-    echoerr 'tmux is not running'
-    return
-  endif
-
-  let text = s:text_for_operator(a:motion_wise)
-
-  call vimproc#system(['tmux', 'set-buffer', text])
-
-  if exists('s:stdin_loaded') && bufnr('$') == 1
-    q!
-  endif
-endfunction
-
-NeoBundleSource vim-operator-user
-call operator#user#define('yank-tmux', s:SID . 'operator_yank_tmux')
-map t <Plug>(operator-yank-tmux)
-
-augroup operator-yank-tmux
-  autocmd!
-  autocmd StdinReadPost * let s:stdin_loaded = 1
-augroup END
 
 " http://hail2u.net/blog/software/vim-auto-close-quickfix-window.html
 function! s:auto_close_quickfix()
