@@ -83,7 +83,7 @@ function! s:load_bundles()
   NeoBundleLazy 'vim-scripts/AnsiEsc.vim'
   NeoBundle     'itchyny/lightline.vim'
   NeoBundle     'osyo-manga/vim-brightest'
-  NeoBundleLazy 'osyo-manga/vim-over'
+  NeoBundleLazy 'haya14busa/incsearch.vim'
 
   " ruby のブロックとかがハイライト
   NeoBundleLazy 'vimtaku/hl_matchit.vim'
@@ -636,17 +636,32 @@ if neobundle#tap('vim-brightest')
 endif
 " }}}
 
-" vim-over {{{
-if neobundle#tap('vim-over')
+" incsearch.vim {{{
+if neobundle#tap('incsearch.vim')
   call neobundle#config({
   \   'autoload': {
-  \     'commands': 'OverCommandLine'
+  \     'mappings': ['<Plug>(incsearch-']
   \   }
   \ })
 
+  map / <Plug>(incsearch-forward)
+  map ? <Plug>(incsearch-backward)
+  map g/ <Plug>(incsearch-stay)
+
+  function neobundle#tapped.hooks.on_source(bundle)
+    let g:incsearch#magic = '\v'
+    let g:incsearch#auto_nohlsearch = 1
+
+    map n  <Plug>(incsearch-nohl-n)
+    map N  <Plug>(incsearch-nohl-N)
+    " XXX: visualstar と競合する
+    nmap *  <Plug>(incsearch-nohl-*)
+    nmap #  <Plug>(incsearch-nohl-#)
+  endfunction
+
   call neobundle#untap()
 endif
-"}}}
+" }}}
 
 " hl_matchit {{{
 if neobundle#tap('hl_matchit.vim')
