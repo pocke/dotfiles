@@ -586,6 +586,8 @@ endif
 " vim-splash {{{
 if neobundle#tap('vim-splash')
   let g:splash#path = $HOME . '/dotfiles/octocat.txt'
+  " Don't work starting 'vim -t {tag}'
+  autocmd BufReadPre * autocmd! plugin-splash VimEnter
 
   call neobundle#untap()
 endif
