@@ -4,3 +4,5 @@
 --regex-Go=/var[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/d,var/
 --regex-Go=/type[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/d,type/
 --exclude=*.min.js
+--exclude=.git
+--exclude=public/assets
