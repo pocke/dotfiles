@@ -653,6 +653,8 @@ if neobundle#tap('incsearch.vim')
   function neobundle#tapped.hooks.on_source(bundle)
     let g:incsearch#magic = '\v'
     let g:incsearch#auto_nohlsearch = 1
+    " XXX: help対策がうまく動いてない
+    let g:incsearch#vim_cmdline_keymap = 0
 
     map n  <Plug>(incsearch-nohl-n)
     map N  <Plug>(incsearch-nohl-N)
