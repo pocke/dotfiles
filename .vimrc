@@ -650,17 +650,17 @@ if neobundle#tap('incsearch.vim')
   map ? <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
 
-  function neobundle#tapped.hooks.on_source(bundle)
+  function neobundle#tapped.hooks.on_post_source(bundle)
     let g:incsearch#magic = '\v'
     let g:incsearch#auto_nohlsearch = 1
-    " XXX: help対策がうまく動いてない
-    let g:incsearch#vim_cmdline_keymap = 0
 
     map n  <Plug>(incsearch-nohl-n)
     map N  <Plug>(incsearch-nohl-N)
     " XXX: visualstar と競合する
     nmap *  <Plug>(incsearch-nohl-*)
     nmap #  <Plug>(incsearch-nohl-#)
+
+    IncSearchNoreMap <CR> <CR>
   endfunction
 
   call neobundle#untap()
