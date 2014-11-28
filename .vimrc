@@ -172,7 +172,7 @@ function! s:load_bundles()
 
 
   " Visual Mode でも * で検索
-  NeoBundleLazy 'thinca/vim-visualstar'
+  NeoBundleLazy 'haya14busa/vim-asterisk'
 
   " git
   NeoBundle     'tpope/vim-fugitive'
@@ -656,9 +656,6 @@ if neobundle#tap('incsearch.vim')
 
     map n  <Plug>(incsearch-nohl-n)
     map N  <Plug>(incsearch-nohl-N)
-    " XXX: visualstar と競合する
-    nmap *  <Plug>(incsearch-nohl-*)
-    nmap #  <Plug>(incsearch-nohl-#)
 
     IncSearchNoreMap <CR> <CR>
   endfunction
@@ -1423,15 +1420,20 @@ endif
 " }}}
 
 
-" vim-visualstar {{{
-if neobundle#tap('vim-visualstar')
+" vim-asterisk {{{
+if neobundle#tap('vim-asterisk')
   call neobundle#config({
   \   'autoload': {
   \     'mappings': [
-  \       ['xv', '*'], ['xv', '#'], ['xv', 'g'], ['xv', 'g*']
+  \       '<Plug>(incsearch-nohl)<Plug>(asterisk-*)',
+  \       '<Plug>(incsearch-nohl)<Plug>(asterisk-#)',
   \     ]
-  \   }
+  \   },
+  \   'depends': ['haya14busa/incsearch.vim']
   \ })
+
+  map * <Plug>(incsearch-nohl)<Plug>(asterisk-*)
+  map # <Plug>(incsearch-nohl)<Plug>(asterisk-#)
 
   call neobundle#untap()
 endif
