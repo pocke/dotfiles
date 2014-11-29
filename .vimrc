@@ -695,9 +695,9 @@ if neobundle#tap('ruby_hl_lvar.vim')
   \   }
   \ })
 
-  let g:ruby_hl_lvar_hl_group = 'PreProc'
-
   function! neobundle#tapped.hooks.on_post_source(bundle)
+    let g:ruby_hl_lvar_hl_group = 'PreProc'
+
     silent! execute 'doautocmd FileType' &filetype
 
     function! s:ruby_hl_lvar_disable()
@@ -748,7 +748,6 @@ if neobundle#tap('vim-easymotion')
   let g:EasyMotion_smartcase   = 1
 
   nmap e <Plug>(easymotion-s2)
-  nmap <Space>/ <Plug>(easymotion-sn)
 
   call neobundle#untap()
 endif
@@ -1145,6 +1144,7 @@ if neobundle#tap('vim-gista')
   let g:gista#update_on_write = 1
   let g:gista#github_user = 'pocke'
   let g:gista#post_private = 1
+
   call neobundle#untap()
 endif
 " }}}
