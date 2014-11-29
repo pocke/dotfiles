@@ -42,7 +42,7 @@ function! s:load_bundles()
   " 入力系プラグイン {{{
 
   " 補完
-  NeoBundle      'Shougo/neocomplete'
+  NeoBundle     'Shougo/neocomplete'
 
   NeoBundleLazy 'ujihisa/neco-look'
 
