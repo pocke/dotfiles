@@ -1740,6 +1740,8 @@ set tabpagemax=100
 " h clipboard-excludeを参照。excludeは一番最後じゃないとだめ
 set clipboard& clipboard^=unnamedplus
 
+" Vim script で \ を入力した時にインデントしない
+let g:vim_indent_cont = 0
 
 
 " 前回終了したカーソル行に移動
