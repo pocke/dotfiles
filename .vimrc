@@ -1778,6 +1778,17 @@ AutoCmd Syntax markdown syntax clear markdownItalic
 AutoCmd FileType js nested setlocal ft=javascript
 AutoCmd FileType md nested setlocal ft=markdown
 
+" help key mappings
+AutoCmd FileType help call s:set_help_keymap()
+function! s:set_help_keymap()
+  if &buftype != 'help'
+    return
+  endif
+
+  nnoremap <buffer> <CR> <C-]>
+  nnoremap <buffer> <BS> <C-t>
+endfunction
+
 " Open & AutoReload .vimrc {{{
 " https://github.com/haya14busa/dotfiles
 command! EVimrc e $MYVIMRC
