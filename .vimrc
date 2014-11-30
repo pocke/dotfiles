@@ -1370,6 +1370,9 @@ endif
 " vim-watchdogs {{{
 if neobundle#tap('vim-watchdogs')
   call neobundle#config({
+  \   'autoload': {
+  \     'commands': ['WatchdogsRun']
+  \ },
   \   'depends': [
   \     'thinca/vim-quickrun',
   \     'Shougo/vimproc',
@@ -1387,6 +1390,8 @@ if neobundle#tap('vim-watchdogs')
     autocmd BufWritePre * autocmd! source-watchdogs
   augroup END
 
+  AutoCmd FileType go command! -buffer Lint  WatchdogsRun watchdogs_checker/golint
+
   function! neobundle#tapped.hooks.on_source(bundle)
     let s:quickfix4watchdogs = quickrun#outputter#quickfix#new()
     function! s:quickfix4watchdogs.finish(session)
@@ -1401,6 +1406,12 @@ if neobundle#tap('vim-watchdogs')
 
     let g:quickrun_config['watchdogs_checker/_'] = {
     \   "outputter": "quickfix4watchdogs"
+    \ }
+
+    let g:quickrun_config['watchdogs_checker/golint'] = {
+    \   'command':     'golint',
+    \   'exec':        '%c %o %s:p',
+    \   "errorformat" : '%f:%l:%c: %m,%-G%.%#',
     \ }
 
     let g:watchdogs_check_BufWritePost_enable = 1
