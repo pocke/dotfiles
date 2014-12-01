@@ -1390,7 +1390,7 @@ if neobundle#tap('vim-watchdogs')
     autocmd BufWritePre * autocmd! source-watchdogs
   augroup END
 
-  AutoCmd FileType go command! -buffer Lint  WatchdogsRun watchdogs_checker/golint
+  AutoCmd FileType go command! -buffer Lint WatchdogsRun watchdogs_checker/golint
 
   function! neobundle#tapped.hooks.on_source(bundle)
     let s:quickfix4watchdogs = quickrun#outputter#quickfix#new()
