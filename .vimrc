@@ -1772,7 +1772,7 @@ AutoCmd BufNewFile,BufRead Guardfile                  set filetype=ruby
 AutoCmd BufNewFile,BufRead *_spec.rb                  set filetype=ruby.rspec
 
 AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
-AutoCmd BufWritePre *.go call s:my_go_fmt()
+AutoCmd BufWritePre *.go silent! call s:my_go_fmt()
 " TODO: undo が辛い感じになる
 function! s:my_go_fmt()
   windo let w:gofmt_view = winsaveview()
