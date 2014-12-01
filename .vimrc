@@ -654,8 +654,8 @@ if neobundle#tap('incsearch.vim')
     let g:incsearch#magic = '\v'
     let g:incsearch#auto_nohlsearch = 1
 
-    map n  <Plug>(incsearch-nohl-n)
-    map N  <Plug>(incsearch-nohl-N)
+    map n  <Plug>(incsearch-nohl-n)zz
+    map N  <Plug>(incsearch-nohl-N)zz
 
     IncSearchNoreMap <CR> <CR>
   endfunction
@@ -1875,10 +1875,6 @@ nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 " TABにて対応ペアにジャンプ
 nmap <Tab> %
 nmap <Tab> %
-
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
 
 nnoremap <Space>w :<C-u>w<CR>
 nnoremap <Space>q :<C-u>q<CR>
