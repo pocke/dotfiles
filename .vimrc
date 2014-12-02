@@ -1400,6 +1400,7 @@ if neobundle#tap('vim-watchdogs')
       HierUpdate
       QuickfixStatusEnable
       if &filetype ==# 'qf'
+        nnoremap <buffer>q :q<CR>
         execute "normal! \<C-w>\<C-p>"
       endif
     endfunction
