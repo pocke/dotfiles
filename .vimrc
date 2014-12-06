@@ -184,7 +184,7 @@ function! s:load_bundles()
   NeoBundleLazy 'kana/vim-altr'
 
   " vim {{{
-  NeoBundle     'vim-jp/vimdoc-ja'
+  NeoBundleLazy 'vim-jp/vimdoc-ja'
   NeoBundleLazy 'LeafCage/vimhelpgenerator'
   NeoBundleLazy 'thinca/vim-prettyprint'
   NeoBundleLazy 'tyru/capture.vim'
