@@ -177,6 +177,7 @@ function! s:load_bundles()
 
   " git
   NeoBundleLazy 'tpope/vim-fugitive'
+  NeoBundle     'rhysd/committia.vim'
 
   " window管理
   NeoBundle     'osyo-manga/vim-automatic'
