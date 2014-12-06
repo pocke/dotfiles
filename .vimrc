@@ -177,7 +177,6 @@ function! s:load_bundles()
 
   " git
   NeoBundleLazy 'tpope/vim-fugitive'
-  NeoBundleLazy 'gregsexton/gitv'
 
   " window管理
   NeoBundle     'osyo-manga/vim-automatic'
@@ -1474,6 +1473,12 @@ endif
 
 " vim-fugitive {{{
 if neobundle#tap('vim-fugitive')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': ['Gblame']
+  \   }
+  \ })
+
   function! neobundle#tapped.hooks.on_post_source(bundle)
     doautoall fugitive BufNewFile
   endfunction
@@ -1482,21 +1487,6 @@ if neobundle#tap('vim-fugitive')
 endif
 " }}}
 
-
-" gitv {{{
-if neobundle#tap('gitv')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': ['Git', 'Gitv']
-  \   },
-  \   'depends': ['tpope/vim-fugitive']
-  \ })
-
-  nnoremap <Space>gv :<C-u>Gitv<CR>
-
-  call neobundle#untap()
-endif
-" }}}
 
 " vim-automatic {{{
 if neobundle#tap('vim-automatic')
