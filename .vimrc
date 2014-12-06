@@ -175,7 +175,7 @@ function! s:load_bundles()
   NeoBundleLazy 'haya14busa/vim-asterisk'
 
   " git
-  NeoBundle     'tpope/vim-fugitive'
+  NeoBundleLazy 'tpope/vim-fugitive'
   NeoBundleLazy 'gregsexton/gitv'
 
   " window管理
@@ -611,15 +611,11 @@ if neobundle#tap('lightline.vim')
   \   'active': {
   \     'left': [
   \       ['mode'],
-  \       ['readonly', 'fugitive', 'filename', 'modified'],
+  \       ['readonly', 'filename', 'modified'],
   \     ]
   \   },
-  \   'component': {
-  \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
-  \   },
-  \   'component_visible_condition': {
-  \     'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())',
-  \   },
+  \   'component': {},
+  \   'component_visible_condition': {},
   \ }
 
   call neobundle#untap()
