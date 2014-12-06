@@ -122,6 +122,7 @@ function! s:load_bundles()
   " }}}
 
   NeoBundleLazy 'vim-jp/vim-go-extra'
+  NeoBundleLazy 'rhysd/vim-go-impl'
 
   NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
   \   'name': 'vimperator-syntax',
@@ -904,6 +905,21 @@ if neobundle#tap('vim-go-extra')
       let g:gofmt_command = "goimports"
     endif
   endfunction
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-go-impl {{{
+if neobundle#tap('vim-go-impl')
+  call neobundle#config({
+  \   'autoload': {
+  \     'commands': [{'name': 'GoImpl', 'complete': 'customlist,goimpl#complete'}],
+  \     'functions': 'goimpl#complete',
+  \   } ,
+  \ })
+
+  AutoCmd FileType go command! -nargs=+ -complete=customlist,goimpl#complete -buffer Impl GoImpl <f-args>
 
   call neobundle#untap()
 endif
