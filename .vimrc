@@ -315,7 +315,7 @@ if neobundle#tap('vim-smartinput')
     \ })
     call smartinput#map_to_trigger('i', '#', '#', '#')
     call smartinput#define_rule({
-    \   'at':       '\%#',
+    \   'at':       '\v(''[^"]*)@<!\V\%#',
     \   'char':     '#',
     \   'input':    '#{}<Left>',
     \   'filetype': ['ruby', 'ruby.rspec'],
