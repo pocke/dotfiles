@@ -1849,12 +1849,10 @@ nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 nnoremap <F4> :<C-u>silent! !tig<CR><C-l>
 
 " TABにて対応ペアにジャンプ
-nmap <Tab> %
-nmap <Tab> %
+nnoremap <Tab> %
 
 nnoremap <Space>w :<C-u>w<CR>
 nnoremap <Space>q :<C-u>q<CR>
-nnoremap <Space>Q :<C-u>q!<CR>
 
 nnoremap <Space>h ^
 nnoremap <Space>l $
