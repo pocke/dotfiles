@@ -12,7 +12,6 @@ setopt INTERACTIVE_COMMENTS
 
 ### export variables
 export EDITOR=vim
-export GREP_OPTIONS='--binary-files=without-match --color=auto'
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/bin

@@ -9,7 +9,7 @@ alias free='free -h'
 alias cp='cp -v'
 alias mv='mv -v'
 alias vi='vim'
-alias grep='LANG=C grep -n '
+alias grep='grep --binary-files=without-match --color=auto'
 alias jman='LANG=ja_JP.UTF-8 man'
 alias be='bundle exec'
 alias b='bundle'
@@ -21,7 +21,7 @@ function ghq-update(){ghq list | sed -E 's/^[^\/]+\/(.+)/\1/' | xargs -n 1 -P 10
 function -(){cd -} # alias では実現できない?
 
 ### global alias
-alias -g G='| "grep"'
+alias -g G='| grep'
 alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
