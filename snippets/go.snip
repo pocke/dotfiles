@@ -39,3 +39,13 @@ options     head
   func (${1:#:receiver} ${2:int}) ${3:fname}(${4}) ${5:int }{
     ${0:TARGET:return }
   }
+
+snippet     test
+options     head
+  package ${0:#:NAME}
+
+  import (
+    "testing"
+  )
+
+  ${0:TARGET}
