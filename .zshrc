@@ -127,6 +127,14 @@ zshaddhistory()
   [[ ${#line} -ge 5 ]]
 }
 
+command_not_found_handler()
+{
+  tail -1 $HISTFILE |
+    grep -F "$*" > /dev/null 2>&1 &&
+    sed -i '$d' $HISTFILE
+  return 127
+}
+
 ### keybind
 # C-s でのサスペンドを無効
 stty stop '' -ixoff
