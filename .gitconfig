@@ -36,6 +36,8 @@
   preloadindex = true
   pager = /usr/share/git/diff-highlight/diff-highlight | less -x2
 #  excludesfile = .gitignore_global
+[help]
+  autocorrect = -1
 
 [url "git@github.com:"]
   pushinsteadof = "git://github.com/"
