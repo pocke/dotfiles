@@ -1546,6 +1546,9 @@ if neobundle#tap('vim-altr')
     call altr#define('app/%/%.rb', 'spec/%/%_spec.rb')
 
     call altr#define('lib/%.rb', 'spec/lib/%_spec.rb')
+
+    " For golang test
+    call altr#define('%.go', '%_test.go')
   endfunction
 
   call neobundle#untap()
