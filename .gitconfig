@@ -34,7 +34,7 @@
 [core]
   editor = vim +1 -c 'set fenc=utf-8'
   preloadindex = true
-  pager = less -x2
+  pager = /usr/share/git/diff-highlight/diff-highlight | less -x2
 #  excludesfile = .gitignore_global
 
 [url "git@github.com:"]
