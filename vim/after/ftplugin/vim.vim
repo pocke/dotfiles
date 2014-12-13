@@ -23,21 +23,6 @@ call operator#user#define('vim-execute', s:SID . 'operator_vim_execute')
 map <buffer> E <Plug>(operator-vim-execute)
 
 
-function! s:operator_help(motion_wise)
-  if line("'[") != line("']")
-    return
-  endif
-  let start = col("'[") - 1
-  let end   = col("']")
-  let sel = strpart(getline('.'), start, end - start)
-  execute "help " . sel
-endfunction
-
-call operator#user#define('help', s:SID . 'operator_help')
-
-map <buffer> <F1> <Plug>(operator-help)
-
-
 " http://deris.hatenablog.jp/entry/2013/07/05/023835 {{{
 function! s:open_neo_bundle_path(motion_wise)
   NeoBundleSource open-browser.vim

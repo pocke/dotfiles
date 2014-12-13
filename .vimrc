@@ -1666,6 +1666,9 @@ set ruler
 " 新しい行のインデントを現在行と同じに
 set autoindent
 
+" K で:help
+set keywordprg=""
+
 " 折りたたみ-展開
 set foldmethod=syntax
 set foldlevel=99
