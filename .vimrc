@@ -45,6 +45,7 @@ function! s:load_bundles()
   NeoBundle     'Shougo/neocomplete'
 
   NeoBundleLazy 'ujihisa/neco-look'
+  NeoBundleLazy 'osyo-manga/vim-marching'
 
   NeoBundle     'Shougo/neosnippet'
   NeoBundle     'Shougo/neosnippet-snippets'
@@ -254,6 +255,12 @@ if neobundle#tap('neocomplete')
   endif
   let g:neocomplete#text_mode_filetypes.tweetvim_say = 1
 
+  if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+  endif
+
+  let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+
   let s:neco_dicts_dir = $HOME . '/dicts'
   if isdirectory(s:neco_dicts_dir)
     let g:neocomplete#sources#dictionary#dictionaries = {
@@ -267,6 +274,21 @@ if neobundle#tap('neocomplete')
   call neobundle#untap()
 endif
 "}}}
+
+" vim-marching {{{
+if neobundle#tap('vim-marching')
+  call neobundle#config({
+  \   'autoload': {
+  \     'filetypes': ['c', 'cpp']
+  \   },
+  \   'depends': ['Shougo/vimproc.vim', 'osyo-manga/vim-reunions']
+  \ })
+
+  let g:marching_enable_neocomplete = 1
+
+  call neobundle#untap()
+endif
+" }}}
 
 " neosnippet {{{
 if neobundle#tap('neosnippet')
