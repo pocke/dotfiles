@@ -1430,9 +1430,23 @@ if neobundle#tap('vim-watchdogs')
     \   "errorformat" : '%f:%l: %m,%-G%.%#',
     \ }
 
+    let g:quickrun_config['c/watchdogs_checker'] = {
+    \   "type": "watchdogs_checker/gcc",
+    \   "cmdopt": '%{PathToGccOpt()}',
+    \ }
+
     let g:watchdogs_check_BufWritePost_enable = 1
     call watchdogs#setup(g:quickrun_config)
+
+    function! PathToGccOpt()
+      let p = &path
+      let sp = split(p, ',')
+      let sp = map(sp, '"-I" . v:val')
+      let result = join(sp, ' ')
+      return result
+    endfunction
   endfunction
+
 
   call neobundle#untap()
 endif
