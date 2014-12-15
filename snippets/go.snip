@@ -49,3 +49,10 @@ options     head
   )
 
   ${0:TARGET}
+
+snippet     lambda
+abbr        func () { ... }
+options     word
+  func (${1}) ${2:#:int }{
+    ${0:TARGET:return }
+  }
