@@ -34,6 +34,8 @@ alias -g J="| ruby -rjson -e 'jj JSON.parse(STDIN.read)'"
 alias -g P='| peco'
 alias -g V='| vim -c "set buftype=nofile" - '
 alias -g X='| xargs'
+alias -g F='"$(echo *(.) | tr " " "\n" | peco)"'
+alias -g D='"$(echo *(/) | tr " " "\n" | peco)"'
 
 ### suffix alias
 function extract() {
