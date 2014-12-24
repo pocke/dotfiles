@@ -1936,21 +1936,6 @@ nnoremap Y y$
 " }}}
 
 
-function! s:show_cursor()
-  set cursorline!
-  set cursorcolumn!
-
-  redraw
-  sleep 50 m
-
-  set cursorline!
-  set cursorcolumn!
-  return ''
-endfunction
-nnoremap <silent><C-s> :<C-u>call <SID>show_cursor()<CR>
-inoremap <silent><C-s> <C-r>=<SID>show_cursor()<CR>
-
-
 " http://hail2u.net/blog/software/vim-auto-close-quickfix-window.html
 function! s:auto_close_quickfix()
   if winnr('$') == 1 && getbufvar(winbufnr(0), '&buftype') == 'quickfix'
