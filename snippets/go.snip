@@ -50,6 +50,13 @@ options     head
 
   ${0:TARGET}
 
+snippet     testf
+abbr        func(t *testing.T)...
+options     head
+  func Test${1:#:NAME} (t *testing.T) {
+    ${0:TARGET}
+  }
+
 snippet     lambda
 abbr        func () { ... }
 options     word
