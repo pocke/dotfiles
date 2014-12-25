@@ -56,3 +56,9 @@ options     word
   func (${1}) ${2:#:int }{
     ${0:TARGET:return }
   }
+
+snippet     if
+options     head
+  if ${1:err != nil} {
+      ${0:return err}
+  }
