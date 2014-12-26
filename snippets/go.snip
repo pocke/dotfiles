@@ -69,3 +69,22 @@ options     head
   if ${1:err != nil} {
       ${0:return err}
   }
+
+snippet     range2
+abbr        for _ range
+options     head
+  for _, ${1:v} := range ${2:#:iterator} {
+    ${0:TARGET}
+  }
+
+snippet     append
+options     word
+  ${1:slice} = append($1, ${2:TARGET})
+
+snippet     len
+options     word
+  len(${0})
+
+snippet     cap
+options     word
+  cap(${0})
