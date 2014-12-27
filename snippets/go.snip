@@ -77,6 +77,13 @@ options     head
     ${0:TARGET}
   }
 
+snippet     for2
+abbr        for ;;
+options     head
+  for ${1} = 0; $1 < ${2}; $1++ {
+    ${0:TARGET}
+  }
+
 snippet     append
 options     word
   ${1:slice} = append($1, ${2:TARGET})
