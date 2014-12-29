@@ -40,16 +40,6 @@ options     head
     ${0:TARGET:return }
   }
 
-snippet     test
-options     head
-  package ${0:#:NAME}
-
-  import (
-    "testing"
-  )
-
-  ${0:TARGET}
-
 snippet     testf
 abbr        func(t *testing.T)...
 options     head
@@ -99,3 +89,7 @@ options     word
 snippet     new
 options     word
   new(${0})
+
+snippet     tag
+options     word
+  \`${1:json}:"${2}"\`
