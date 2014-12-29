@@ -1213,35 +1213,6 @@ if neobundle#tap('TweetVim')
     let g:tweetvim_async_post = 1
     let g:tweetvim_no_default_key_mappings = 1
 
-    " ------------ hooks
-    let g:tweetvim_notify_enable = 0
-    function! s:say_fav(...)
-      if ! g:tweetvim_notify_enable
-        return
-      endif
-
-      call vimproc#system_bg('aplay /opt/mikutter/core/skin/data/sounds/favo.wav')
-    endfunction
-    call tweetvim#hook#add('notify_fav', s:SID . 'say_fav')
-
-    function! s:say_rt(...)
-      if ! g:tweetvim_notify_enable
-        return
-      endif
-
-      call vimproc#system_bg('aplay /opt/mikutter/core/skin/data/sounds/retweeted.wav')
-    endfunction
-    call tweetvim#hook#add('notify_retweet', s:SID . 'say_rt')
-
-    function! s:say_mention(...)
-      if ! g:tweetvim_notify_enable
-        return
-      endif
-
-      call vimproc#system_bg('aplay /opt/mikutter/core/skin/data/sounds/message-received.wav')
-    endfunction
-    call tweetvim#hook#add('notify_mention', s:SID . 'say_mention')
-
     " for lightline
     call add(g:lightline.active.left, ['tweetvim_say_count', 'tweetvim_say_user'])
     let g:lightline.component.tweetvim_say_count = '%{exists("b:tweetvim_say_count") ? b:tweetvim_say_count : ""}'
