@@ -238,6 +238,8 @@ if neobundle#tap('neocomplete')
   let g:neocomplete#enable_auto_close_preview = 0
   AutoCmd InsertLeave * silent! pclose!
 
+  let g:neocomplete#max_keyword_width = 10000
+
 
   if !exists('g:neocomplete#delimiter_patterns')
     let g:neocomplete#delimiter_patterns= {}
@@ -267,7 +269,6 @@ if neobundle#tap('neocomplete')
     \   'javascript': s:neco_dicts_dir . '/jquery.dict',
     \ }
   endif
-
   let g:neocomplete#data_directory = $HOME . '/.vim/cache/neocomplete'
 
   call neobundle#untap()
