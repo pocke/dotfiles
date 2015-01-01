@@ -987,8 +987,6 @@ if neobundle#tap('unite.vim')
 
   nnoremap [unite] <Nop>
   nmap <Space>u [unite]
-  " yank履歴
-  nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
   " バッファ一覧
   nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
   " ファイル一覧
