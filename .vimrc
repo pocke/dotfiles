@@ -112,6 +112,7 @@ function! s:load_bundles()
   " }}}
   " }}}
 
+  NeoBundleLazy 'hail2u/vim-css3-syntax'
   NeoBundleLazy 'groenewege/vim-less'
   NeoBundleLazy 'slim-template/vim-slim'
 
@@ -859,6 +860,23 @@ if neobundle#tap('typescript-tools')
   \     'filetypes': ['typescript']
   \   }
   \ })
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-css3-syntax {{{
+if neobundle#tap('vim-css3-syntax')
+  call neobundle#config({
+  \   'autoload': {
+  \     'filetypes': 'css'
+  \   }
+  \ })
+
+  augroup VimCSS3Syntax
+    autocmd!
+    autocmd FileType css setlocal iskeyword+=-
+  augroup END
 
   call neobundle#untap()
 endif
