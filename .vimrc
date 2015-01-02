@@ -1882,8 +1882,6 @@ endfunction
 " タグジャンプを新しいタブで開く
 nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 
-nnoremap <F4> :<C-u>silent! !tig<CR><C-l>
-
 " TABにて対応ペアにジャンプ
 nnoremap <Tab> %
 
