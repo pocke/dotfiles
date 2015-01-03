@@ -64,7 +64,7 @@ options     head
 snippet     for2
 abbr        for ;;
 options     head
-  for ${1} = 0; $1 < ${2}; $1++ {
+  for ${1:i} := 0; $1 < ${2}; $1++ {
     ${0:TARGET}
   }
 
