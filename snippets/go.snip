@@ -54,12 +54,6 @@ options     word
     ${0:TARGET:return }
   }
 
-snippet     if
-options     head
-  if ${1:err != nil} {
-      ${0:return err}
-  }
-
 snippet     range2
 abbr        for _ range
 options     head
@@ -77,6 +71,25 @@ options     head
 snippet     tag
 options     word
   \`${1:json}:"${2}"\`
+
+snippet     lock
+options     head
+  ${1:mu}.Lock()
+  defer $1.Unlock()
+
+snippet     rlock
+options     head
+  ${1:mu}.RLock()
+  defer $1.RUnlock()
+
+
+# ------------------------  override default snippets
+
+snippet     if
+options     head
+  if ${1:err != nil} {
+      ${0:return err}
+  }
 
 
 # ------------------ Build-in functions
