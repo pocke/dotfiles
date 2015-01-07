@@ -43,3 +43,9 @@ abbr        def ... end
   def ${1:initialize}
     ${2:TARGET}
   end
+
+snippet     railsclass
+options     head
+  class `substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')` < ApplicationController
+    ${1}
+  end
