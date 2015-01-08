@@ -76,11 +76,13 @@ snippet     lock
 options     head
   ${1:mu}.Lock()
   defer $1.Unlock()
+  ${0}
 
 snippet     rlock
 options     head
   ${1:mu}.RLock()
   defer $1.RUnlock()
+  ${0}
 
 
 # ------------------------  override default snippets
