@@ -1890,6 +1890,9 @@ nnoremap <Space>q :<C-u>q<CR>
 
 nnoremap <Space>h ^
 nnoremap <Space>l $
+onoremap <Space>h ^
+onoremap <Space>l $
+
 
 nnoremap <Left>  <C-w>h
 nnoremap <Down>  <C-w>j
