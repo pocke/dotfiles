@@ -91,6 +91,8 @@ function! s:load_bundles()
   NeoBundleLazy 'pocke/ruby_hl_lvar.vim'
 
   " colorscheme {{{
+  NeoBundle 'chriskempson/vim-tomorrow-theme'
+  NeoBundle 'w0ng/vim-hybrid'
   " }}}
   " }}}
 

@@ -295,7 +295,8 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86AudioLowerVolume", function() awful.util.spawn("/home/pocke/bin/sound/sound_down.sh") end),
     awful.key({ }, "XF86AudioMute", function() awful.util.spawn("/home/pocke/bin/sound/sound_mute.sh") end),
     awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/pictures/screenShot/ 2>/dev/null'") end),
-    awful.key({ modkey, }, "b", wallpaper_toggle )
+    awful.key({ modkey, }, "b", wallpaper_toggle ),
+    awful.key({ modkey,           }, "v", function () awful.util.spawn('gvim') end)
 )
 
 clientkeys = awful.util.table.join(
