@@ -1231,6 +1231,7 @@ if neobundle#tap('TweetVim')
     let g:tweetvim_align_right = 1
     let g:tweetvim_async_post = 1
     let g:tweetvim_no_default_key_mappings = 1
+    let g:tweetvim_display_icon = 1
 
     " for lightline
     call add(g:lightline.active.left, ['tweetvim_say_count', 'tweetvim_say_user'])
