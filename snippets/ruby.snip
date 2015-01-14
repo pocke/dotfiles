@@ -23,6 +23,13 @@ options     head
 		${2:#:code}
 	end
 
+snippet     unless
+abbr        unless ... end
+options     head
+  unless ${1:#:condition}
+    ${2:TARGET}
+  end
+
 snippet     begin-full
 abbr        begin ... end
 options     head
