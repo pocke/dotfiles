@@ -5,6 +5,7 @@ set visualbell t_vb=
 colorscheme hybrid
 
 set cursorline
+set cursorcolumn
 
 set guifontwide=Ricty-Regular\ 11
 set guifont=Ricty\ 11
