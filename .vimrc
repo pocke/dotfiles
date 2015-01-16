@@ -1055,7 +1055,7 @@ if neobundle#tap('vimfiler')
 
   let g:vimfiler_as_default_explorer = 1
   let g:vimfiler_force_overwrite_statusline = 0
-  let g:vimfiler_ignore_pattern = '.git'
+  let g:vimfiler_ignore_pattern = '^.git'
 
   nnoremap <Space>ff :<C-u>VimFiler<CR>
   nnoremap <Space>ft :<C-u>VimFilerTab<CR>
