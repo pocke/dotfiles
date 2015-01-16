@@ -116,6 +116,7 @@ function! s:load_bundles()
 
   NeoBundleLazy 'hail2u/vim-css3-syntax'
   NeoBundleLazy 'groenewege/vim-less'
+  NeoBundleLazy 'wavded/vim-stylus'
   NeoBundleLazy 'slim-template/vim-slim'
 
   " scala {{{
@@ -889,6 +890,18 @@ if neobundle#tap('vim-less')
   call neobundle#config({
   \   'autoload': {
   \     'filetypes': 'less'
+  \   }
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-stylus {{{
+if neobundle#tap('vim-stylus')
+  call neobundle#config({
+  \   'autoload': {
+  \     'filetypes': 'stylus'
   \   }
   \ })
 
