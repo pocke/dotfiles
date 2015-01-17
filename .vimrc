@@ -1406,7 +1406,7 @@ if neobundle#tap('vim-watchdogs')
       QuickfixStatusEnable
       if &filetype ==# 'qf'
         nnoremap <buffer>q :q<CR>
-        execute "normal! \<C-w>\<C-p>"
+        wincmd p
       endif
     endfunction
     call quickrun#register_outputter("quickfix4watchdogs", s:quickfix4watchdogs)
