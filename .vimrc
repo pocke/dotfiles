@@ -1814,6 +1814,7 @@ AutoCmd FileType gitcommit if getline(1) == '' | startinsert | endif
 " TODO: kramdownを書いていると、markdownItalic ではないところで_を使えるが、
 "       そのような場合にだけ markdownItalic を無効にしたい。
 AutoCmd Syntax markdown syntax clear markdownItalic
+AutoCmd Syntax markdown syntax sync fromstart
 
 " 長いFiletypeを省略する
 AutoCmd FileType js nested setlocal ft=javascript
