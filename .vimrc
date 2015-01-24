@@ -1836,8 +1836,7 @@ endfunction
 command! EVimrc e $MYVIMRC
 command! ETabVimrc tabnew $MYVIMRC
 command! SoVimrc source $MYVIMRC
-AutoCmd BufWritePost *vimrc nested source $MYVIMRC
-AutoCmd BufWritePost *gvimrc if has('gui_running') source $MYGVIMRC
+AutoCmd BufWritePost *vimrc nested source $MYVIMRC | if has('gui_running') | source $MYGVIMRC | endif
 "}}}
 
 
