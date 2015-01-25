@@ -603,6 +603,7 @@ if neobundle#tap('vim-operator-gitrebase')
 endif
 " }}}
 
+
 " }}}
 
 
@@ -1952,5 +1953,19 @@ endfunction
 AutoCmd WinEnter * call s:auto_close_quickfix()
 " }}}
 
+function! s:operator_google(mosion_wize)
+  NeoBundleSource open-browser.vim
+  if line("'[") != line("']")
+    return
+  endif
+  let start = col("'[") - 1
+  let end   = col("']")
+  let sel = strpart(getline('.'), start, end - start)
+  call openbrowser#search(sel)
+endfunction
+
+NeoBundleSource vim-operator-user
+call operator#user#define('google-search', s:SID . 'operator_google')
+map go <Plug>(operator-google-search)
 
 " vim:set foldmethod=marker:
