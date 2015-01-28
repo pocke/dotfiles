@@ -1791,6 +1791,9 @@ AutoCmd BufNewFile,BufRead Guardfile                  set filetype=ruby
 AutoCmd BufNewFile,BufRead *_spec.rb                  set filetype=ruby.rspec
 
 AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
+
+" haya14busa.com/install-stylus-nib-and-vim-auto-compile/
+AutoCmd BufWritePost *.styl silent !stylus <afile> -u nib > /dev/null
 AutoCmd BufWritePre *.go silent! call s:my_go_fmt()
 " TODO: undo が辛い感じになる
 function! s:my_go_fmt()
