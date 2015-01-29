@@ -1839,8 +1839,8 @@ endfunction
 " https://github.com/haya14busa/dotfiles
 command! EVimrc e $MYVIMRC
 command! ETabVimrc tabnew $MYVIMRC
-command! SoVimrc source $MYVIMRC
-AutoCmd BufWritePost *vimrc nested source $MYVIMRC | if has('gui_running') | source $MYGVIMRC | endif
+command! SoVimrc source $MYVIMRC | if has('gui_running') | source $MYGVIMRC | endif
+AutoCmd BufWritePost *vimrc nested SoVimrc
 "}}}
 
 
