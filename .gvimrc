@@ -27,3 +27,6 @@ set guioptions+=c
 set guioptions+=M
 set guioptions-=a
 set guioptions-=g
+
+AutoCmd WinLeave * setlocal nocursorline | setlocal nocursorcolumn
+AutoCmd WinEnter * setlocal cursorline | setlocal cursorcolumn
