@@ -44,7 +44,6 @@ function! s:load_bundles()
   " 補完
   NeoBundle     'Shougo/neocomplete'
 
-  NeoBundleLazy 'ujihisa/neco-look'
   NeoBundleLazy 'osyo-manga/vim-marching'
 
   NeoBundle     'Shougo/neosnippet'
@@ -222,7 +221,7 @@ call arpeggio#load()
 " neocomplete {{{
 if neobundle#tap('neocomplete')
   call neobundle#config({
-  \   'depends': ['Shougo/context_filetype.vim', 'ujihisa/neco-look']
+  \   'depends': ['Shougo/context_filetype.vim', 'ujihisa/neco-look'], 
   \ })
 
   " 起動時に有効化
@@ -1117,7 +1116,10 @@ if neobundle#tap('vim-ref')
   \   'autoload': {
   \     'commands': ['Ref'],
   \     'mappings': ['<Plug>(ref-keyword)']
-  \   }
+  \   },
+  \   'build': {
+  \     'unix': 'gem install refe2 rcodetools fastri && bitclust setup --versions=2.2.0',
+  \   },
   \ })
 
   silent! nmap <silent> <unique> K <Plug>(ref-keyword)
@@ -1127,9 +1129,6 @@ if neobundle#tap('vim-ref')
 
   AutoCmd FileType ref nnoremap <buffer> q <C-w>c
 
-  " refe のインストール方法
-  " gem install refe2
-  " bitclust setup --versions=2.1.0
   call neobundle#untap()
 endif
 " }}}
