@@ -47,6 +47,12 @@ options     head
     ${0:TARGET}
   }
 
+snippet     handerf
+options     head
+  func ${1:#:NAME}(w http.ResponseWriter, r *http.Request) {
+    ${0:TARGET}
+  }
+
 snippet     lambda
 abbr        func () { ... }
 options     word
