@@ -263,7 +263,7 @@ if neobundle#tap('neocomplete')
     let g:neocomplete#sources#omni#input_patterns = {}
   endif
 
-  let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\.'
+  let g:neocomplete#sources#omni#input_patterns.go = '\.\w*'
 
   if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
