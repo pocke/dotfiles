@@ -259,6 +259,12 @@ if neobundle#tap('neocomplete')
   endif
   let g:neocomplete#text_mode_filetypes.tweetvim_say = 1
 
+  if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+  endif
+
+  let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\.'
+
   if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
   endif
