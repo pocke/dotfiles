@@ -181,7 +181,7 @@ function! s:load_bundles()
   NeoBundle     'rhysd/committia.vim'
 
   " window管理
-  NeoBundle     'osyo-manga/vim-automatic'
+  NeoBundle     'pocke/vim-automatic'
   " Buffer移動
   NeoBundleLazy 'kana/vim-altr'
 
