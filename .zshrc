@@ -41,8 +41,6 @@ zstyle ':completion:*' verbose yes
 zstyle ':completion:*' format '%B%d%b'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*' group-name ''
-# 矢印とかで移動
-#zstyle ':completion:*:default' menu select=1
 
 # syntax highlighting
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ]; then
@@ -125,7 +123,6 @@ setopt share_history
 zshaddhistory()
 {
   local line=${1%%$'\n'}
-  #local cmd=${line%% *}
   [[ ${#line} -ge 5 ]]
 }
 
