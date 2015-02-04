@@ -684,6 +684,7 @@ if neobundle#tap('incsearch.vim')
     map N  <Plug>(incsearch-nohl-N)zz
 
     IncSearchNoreMap <CR> <CR>
+    IncSearchNoreMap <C-h> <BS>
   endfunction
 
   call neobundle#untap()
