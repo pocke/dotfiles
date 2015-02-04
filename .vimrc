@@ -1848,6 +1848,8 @@ cnoremap <C-p>  <Up>
 cnoremap <Down> <C-n>
 cnoremap <Up>   <C-p>
 
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 
 " :h hogehoge@ とかなってhelpが見つからないのを解消
 cnoremap <CR> <C-\>e <SID>cmdline_cr()<CR><CR>
