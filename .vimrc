@@ -64,6 +64,7 @@ function! s:load_bundles()
   NeoBundleLazy 'kana/vim-textobj-line'
   NeoBundleLazy 'kana/vim-textobj-entire'
   NeoBundleLazy 'thinca/vim-textobj-between'
+  NeoBundleLazy 'todesking/vim-textobj-methodcall'
   " }}}
 
   " operator {{{
@@ -514,6 +515,14 @@ endif
 " vim-textobj-between {{{
 if neobundle#tap('vim-textobj-between')
   call s:textobj_config(['if', 'af'])
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-textobj-methodcall {{{
+if neobundle#tap('vim-textobj-methodcall')
+  call s:textobj_config(['ic', 'ac'])
 
   call neobundle#untap()
 endif
