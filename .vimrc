@@ -1689,7 +1689,7 @@ set autoindent
 set keywordprg=""
 
 " 折りたたみ-展開
-set foldmethod=syntax
+set foldmethod=manual
 set foldlevel=99
 set conceallevel=0
 
