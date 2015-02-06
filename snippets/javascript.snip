@@ -28,3 +28,11 @@ options     word
   function (${1}) {
     ${2}
   }
+
+
+# --------------------- for vue.js
+
+snippet     vset
+abbr        this.$set(...)
+options     head
+  ${1:this}.$set('${2:NAME}', ${3:TARGET})
