@@ -127,6 +127,7 @@ function! s:load_bundles()
   " }}}
 
   NeoBundleLazy 'vim-jp/vim-go-extra'
+  NeoBundleLazy 'yosssi/vim-ace'
 
   NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
   \   'name': 'vimperator-syntax',
@@ -974,6 +975,18 @@ if neobundle#tap('vim-go-extra')
       let g:gofmt_command = "goimports"
     endif
   endfunction
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-ace {{{
+if neobundle#tap('vim-ace')
+  call neobundle#config({
+  \   'autoload': {
+  \     'filetypes': 'ace'
+  \   }
+  \ })
 
   call neobundle#untap()
 endif
