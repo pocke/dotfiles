@@ -390,10 +390,48 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Gvim" },
       properties = { size_hints_honor = false } },
+    { rule = {class = "Mate-system-monitor"},
+      properties = {tag = tags[1][2]}},
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
 }
+
+if screen.count() == 1 then
+  table.insert(awful.rules.rules, {
+    rule = { class = "Firefox"},
+    properties = { tag = tags[1][1]},
+  })
+  table.insert(awful.rules.rules, {
+    rule = {class = "Thunderbird"},
+    properties = {tag = tags[1][14]}
+  })
+  table.insert(awful.rules.rules, {
+    rule = {class = "Mikutter.rb"},
+    properties = {tag = tags[1][1]}
+  })
+  table.insert(awful.rules.rules, {
+    rule = {class = "Google-chrome-stable"},
+    properties = {tag = tags[1][1]}
+  })
+elseif screen.count() == 2 then
+  table.insert(awful.rules.rules, {
+    rule = { class = "Firefox"},
+    properties = { tag = tags[2][5]},
+  })
+  table.insert(awful.rules.rules, {
+    rule = {class = "Thunderbird"},
+    properties = {tag = tags[2][1]}
+  })
+  table.insert(awful.rules.rules, {
+    rule = {class = "Mikutter.rb"},
+    properties = {tag = tags[2][4]}
+  })
+  table.insert(awful.rules.rules, {
+    rule = {class = "Google-chrome-stable"},
+    properties = {tag = tags[2][4]}
+  })
+end
 -- }}}
 
 -- {{{ Signals
