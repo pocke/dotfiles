@@ -30,3 +30,15 @@ set guioptions-=g
 
 AutoCmd WinLeave * setlocal nocursorline | setlocal nocursorcolumn
 AutoCmd WinEnter * setlocal cursorline | setlocal cursorcolumn
+
+
+function! ColorschemeFix()
+  if g:colors_name == "hybrid"
+    "hybrid orange
+    hi Special guifg=#de935f
+    hi Error guifg=NONE guibg=NONE gui=undercurl,bold guisp=#ff0000
+  endif
+endfunction
+call ColorschemeFix()
+
+AutoCmd ColorScheme * call ColorschemeFix()

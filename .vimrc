@@ -1421,7 +1421,10 @@ if neobundle#tap('vim-watchdogs')
   AutoCmd FileType go command! -buffer Build WatchdogsRun watchdogs_checker/go_build
   AutoCmd FileType go command! -buffer Test WatchdogsRun watchdogs_checker/go_test
 
+  let g:hier_highlight_group_qf = 'Error'
+
   function! neobundle#tapped.hooks.on_source(bundle)
+
     let s:quickfix4watchdogs = quickrun#outputter#quickfix#new()
     function! s:quickfix4watchdogs.finish(session)
       call call(quickrun#outputter#quickfix#new().finish, [a:session], self)
