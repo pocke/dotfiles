@@ -1937,10 +1937,8 @@ nnoremap <Tab> %
 nnoremap <Space>w :<C-u>w<CR>
 nnoremap <Space>q :<C-u>q<CR>
 
-nnoremap <Space>h ^
-nnoremap <Space>l $
-onoremap <Space>h ^
-onoremap <Space>l $
+noremap <Space>h ^
+noremap <Space>l $
 
 
 nnoremap <Left>  <C-w>h
