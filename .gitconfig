@@ -56,3 +56,6 @@
 [ghq]
   root = ~/ghq
   root = ~/go/src
+
+[merge]
+  ff = false
