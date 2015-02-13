@@ -283,6 +283,8 @@ if neobundle#tap('neocomplete')
   endif
   let g:neocomplete#data_directory = $HOME . '/.vim/cache/neocomplete'
 
+  call neocomplete#custom#source('look', 'min_pattern_length', 1)
+
   call neobundle#untap()
 endif
 "}}}
