@@ -131,6 +131,7 @@ function! s:load_bundles()
 
   NeoBundleLazy 'vim-jp/vim-go-extra'
   NeoBundleLazy 'yosssi/vim-ace'
+  NeoBundleLazy 'cespare/vim-toml'
 
   NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
   \   'name': 'vimperator-syntax',
@@ -1014,6 +1015,18 @@ if neobundle#tap('vim-ace')
   call neobundle#untap()
 endif
 " }}}
+
+"vim-toml {{{
+if neobundle#tap('vim-toml')
+  call neobundle#config({
+  \   'autoload': {
+  \     'filetypes': 'toml'
+  \   }
+  \ })
+
+  call neobundle#untap()
+endif
+"}}}
 
 " }}}
 
