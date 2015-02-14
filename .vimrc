@@ -839,16 +839,20 @@ endif
 
 " syntax plugins {{{
 
-" vim-javascript-syntax {{{
-if neobundle#tap('vim-javascript-syntax')
-  call neobundle#config({
-  \   'autoload':{
-  \     'filetypes':['javascript']
-  \   }
-  \ })
+function! s:tap_filetype(name, ft)
+  if neobundle#tap(a:name)
+    call neobundle#config({
+    \   'autoload': {
+    \     'filetypes': a:ft
+    \   }
+    \ })
 
-  call neobundle#untap()
-endif
+    call neobundle#untap()
+  endif
+endfunction
+
+" vim-javascript-syntax {{{
+call s:tap_filetype('vim-javascript-syntax', 'javascript')
 " }}}
 
 " tern_for_vim {{{
@@ -873,39 +877,15 @@ endif
 " }}}
 
 " vim-coffee-script {{{
-if neobundle#tap('vim-coffee-script')
-  call neobundle#config({
-  \   'autoload': {
-  \     "filetypes": ['coffee']
-  \   }
-  \ })
-
-  call neobundle#untap()
-endif
+call s:tap_filetype('vim-coffee-script', 'coffee')
 " }}}
 
 " typescript-vim {{{
-if neobundle#tap('typescript-vim')
-  call neobundle#config({
-  \   'autoload': {
-  \     'filetypes': ['typescript']
-  \   }
-  \ })
-
-  call neobundle#untap()
-endif
+call s:tap_filetype('typescript-vim', 'typescript')
 " }}}
 
 " typescript-tools {{{
-if neobundle#tap('typescript-tools')
-  call neobundle#config({
-  \   'autoload': {
-  \     'filetypes': ['typescript']
-  \   }
-  \ })
-
-  call neobundle#untap()
-endif
+call s:tap_filetype('typescript-tools', 'typescript')
 " }}}
 
 " vim-css3-syntax {{{
@@ -926,63 +906,23 @@ endif
 " }}}
 
 " vim-less {{{
-if neobundle#tap('vim-less')
-  call neobundle#config({
-  \   'autoload': {
-  \     'filetypes': 'less'
-  \   }
-  \ })
-
-  call neobundle#untap()
-endif
+call s:tap_filetype('vim-less', 'less')
 " }}}
 
 " vim-stylus {{{
-if neobundle#tap('vim-stylus')
-  call neobundle#config({
-  \   'autoload': {
-  \     'filetypes': 'stylus'
-  \   }
-  \ })
-
-  call neobundle#untap()
-endif
+call s:tap_filetype('vim-stylus', 'stylus')
 " }}}
 
 " vim-slim {{{
-if neobundle#tap('vim-slim')
-  call neobundle#config({
-  \   'autoload': {
-  \     'filetypes': 'slim'
-  \   }
-  \ })
-
-  call neobundle#untap()
-endif
+call s:tap_filetype('vim-slim', 'slim')
 " }}}
 
 " vim-scala {{{
-if neobundle#tap('vim-scala')
-  call neobundle#config({
-  \   'autoload': {
-  \     'filetypes': ['scala']
-  \   }
-  \ })
-
-  call neobundle#untap()
-endif
+call s:tap_filetype('vim-scala', 'scala')
 " }}}
 
 " vim-sbt {{{
-if neobundle#tap('vim-sbt')
-  call neobundle#config({
-  \   'autoload': {
-  \     'filetypes': ['sbt']
-  \   }
-  \ })
-
-  call neobundle#untap()
-endif
+call s:tap_filetype('vim-sbt', 'sbt')
 " }}}
 
 
@@ -1005,27 +945,11 @@ endif
 " }}}
 
 " vim-ace {{{
-if neobundle#tap('vim-ace')
-  call neobundle#config({
-  \   'autoload': {
-  \     'filetypes': 'ace'
-  \   }
-  \ })
-
-  call neobundle#untap()
-endif
+call s:tap_filetype('vim-ace', 'ace')
 " }}}
 
 "vim-toml {{{
-if neobundle#tap('vim-toml')
-  call neobundle#config({
-  \   'autoload': {
-  \     'filetypes': 'toml'
-  \   }
-  \ })
-
-  call neobundle#untap()
-endif
+call s:tap_filetype('vim-toml', 'toml')
 "}}}
 
 " }}}
