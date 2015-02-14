@@ -43,6 +43,7 @@ function! s:load_bundles()
 
   " 補完
   NeoBundle     'Shougo/neocomplete'
+  NeoBundleLazy 'pocke/neco-look'
 
   NeoBundleLazy 'osyo-manga/vim-marching'
 
@@ -288,6 +289,16 @@ if neobundle#tap('neocomplete')
   call neobundle#untap()
 endif
 "}}}
+
+" neco-look {{{
+if neobundle#tap('neco-look')
+  call neobundle#config({
+  \   'rev': 'ignore_case'
+  \ })
+
+  call neobundle#untap()
+endif
+" }}}
 
 " vim-marching {{{
 if neobundle#tap('vim-marching')
