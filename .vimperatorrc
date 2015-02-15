@@ -19,7 +19,7 @@ nnoremap <silent> <Esc> :<C-u>nohlsearch<CR>
 nnoremap ; :
 nnoremap : ;
 nnoremap <S-C-w> <Nop>
-
+nnoremap y :js util.copyToClipboard(buffer.URL, true)<CR>
 
 
 
