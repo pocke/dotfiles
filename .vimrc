@@ -501,69 +501,45 @@ if neobundle#tap('vim-expand-region')
 endif
 " }}}
 
-function! s:textobj_config(mappings)
-  call neobundle#config({
-  \   'depends': 'kana/vim-textobj-user',
-  \   'autoload': {
-  \     'mappings': map(a:mappings, '["xo", v:val]')
-  \   }
-  \ })
+function! s:textobj_tap(name, mappings)
+  if neobundle#tap(a:name)
+    call neobundle#config({
+    \   'depends': 'kana/vim-textobj-user',
+    \   'autoload': {
+    \     'mappings': map(a:mappings, '["xo", v:val]')
+    \   }
+    \ })
+
+    call neobundle#untap()
+  endif
 endfunction
 
 " vim-textobj-ruby {{{
-if neobundle#tap('vim-textobj-ruby')
-  call s:textobj_config(['ar', 'ir'])
-
-  call neobundle#untap()
-endif
+call s:textobj_tap("vim-textobj-ruby", ['ar', 'ir'])
 " }}}
 
 " vim-textobj-parameter {{{
-if neobundle#tap('vim-textobj-parameter')
-  call s:textobj_config(['a,', 'i,'])
-
-  call neobundle#untap()
-endif
+call s:textobj_tap('vim-textobj-parameter', ['a,', 'i,'])
 " }}}
 
 "vim-textobj-line {{{
-if neobundle#tap('vim-textobj-line')
-  call s:textobj_config(['al', 'il'])
-
-  call neobundle#untap()
-endif
+call s:textobj_tap('vim-textobj-line', ['al', 'il'])
 "}}}
 
 " vim-textobj-entire {{{
-if neobundle#tap('vim-textobj-entire')
-  call s:textobj_config(['ae', 'ie'])
-
-  call neobundle#untap()
-endif
+call s:textobj_tap('vim-textobj-entire', ['ae', 'ie'])
 " }}}
 
 " vim-textobj-between {{{
-if neobundle#tap('vim-textobj-between')
-  call s:textobj_config(['if', 'af'])
-
-  call neobundle#untap()
-endif
+call s:textobj_tap('vim-textobj-between', ['if', 'af'])
 " }}}
 
 " vim-textobj-methodcall {{{
-if neobundle#tap('vim-textobj-methodcall')
-  call s:textobj_config(['ic', 'ac'])
-
-  call neobundle#untap()
-endif
+call s:textobj_tap('vim-textobj-methodcall', ['ic', 'ac'])
 " }}}
 
 " vim-textobj-xmlattr {{{
-if neobundle#tap('vim-textobj-xmlattr')
-  call s:textobj_config(['ix', 'ax'])
-
-  call neobundle#untap()
-endif
+call s:textobj_tap('vim-textobj-xmlattr', ['ix', 'ax'])
 " }}}
 
 " }}}
