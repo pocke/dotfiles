@@ -4,7 +4,6 @@
 #     path = this/file/path/.gitconfig
 #   [user]
 #     name = hoge
-#     email = your@mail.address
 #   [core]
 #     excludesfile = /your/file/path/.gitignore_global
 
@@ -37,6 +36,8 @@
   preloadindex = true
   pager = /usr/share/git/diff-highlight/diff-highlight | less -x2
 #  excludesfile = .gitignore_global
+[user]
+  email = p.ck.t22@gmail.com
 [help]
   autocorrect = -1
 
