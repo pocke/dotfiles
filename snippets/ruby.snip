@@ -30,6 +30,11 @@ options     head
     ${2:TARGET}
   end
 
+snippet     exception
+abbr        class Error < StandardError; end
+options     head
+  class ${1:NAME} < ${1:StandardError}; end
+
 snippet     begin-full
 abbr        begin ... end
 options     head
@@ -43,16 +48,16 @@ options     head
 		${4:#:code}
 	end
 
+snippet     railsclass
+options     head
+  class `substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')` < ApplicationController
+    ${1}
+  end
+
 
 # ------------------------  override default snippets
 snippet     def
 abbr        def ... end
   def ${1:initialize}
     ${2:TARGET}
-  end
-
-snippet     railsclass
-options     head
-  class `substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')` < ApplicationController
-    ${1}
   end
