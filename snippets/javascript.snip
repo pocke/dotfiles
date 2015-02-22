@@ -29,6 +29,13 @@ options     word
     ${2}
   }
 
+snippet     unless
+abbr        if(! ... ) {}
+options     head
+  if (!${1:cond}) {
+    ${0:TARGET}
+  }
+
 
 # --------------------- for vue.js
 
