@@ -255,3 +255,8 @@ function tvim()
   fi
   tmux capture-pane -S -10000 -p | vim -c 'call cursor("$", 0)' -c 'set buftype=nofile' -
 }
+
+function R()
+{
+  echo "$@" | bundle exec rails c
+}
