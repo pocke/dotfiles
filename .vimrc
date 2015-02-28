@@ -1344,8 +1344,6 @@ if neobundle#tap('vim-watchdogs')
   \     'Shougo/vimproc',
   \     'osyo-manga/shabadou.vim',
   \     'cohama/vim-hier',
-  \     'syngan/vim-vimlint',
-  \     'ynkdir/vim-vimlparser',
   \     'dannyob/quickfixstatus'
   \   ]
   \ })
@@ -1419,15 +1417,6 @@ if neobundle#tap('vim-watchdogs')
   call neobundle#untap()
 endif
 " }}}
-
-" vim-vimlint {{{
-if neobundle#tap('vim-vimlint')
-  let g:vimlint#config = {'quiet': 1, 'EVL103': 1}
-
-  call neobundle#untap()
-endif
-" }}}
-
 
 " vim-asterisk {{{
 if neobundle#tap('vim-asterisk')
