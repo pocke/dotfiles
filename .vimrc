@@ -1742,6 +1742,7 @@ AutoCmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 AutoCmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 AutoCmd BufNewFile,BufRead *.jbuilder                 set filetype=ruby
 AutoCmd BufNewFile,BufRead Guardfile                  set filetype=ruby
+AutoCmd BufNewFile,BufRead .pryrc                     set filetype=ruby
 AutoCmd BufNewFile,BufRead *_spec.rb                  set filetype=ruby.rspec
 
 AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
