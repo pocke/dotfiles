@@ -495,6 +495,7 @@ if neobundle#tap('vim-expand-region')
     let g:expand_region_text_objects_ruby.ar = 1
     let g:expand_region_text_objects_html = copy(g:expand_region_text_objects)
     let g:expand_region_text_objects_html.it = 1
+    let g:expand_region_text_objects_html.ax = 1
   endfunction
 
   call neobundle#untap()
