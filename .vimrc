@@ -31,7 +31,7 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-let g:neobundle#install_max_processes = 6
+let g:neobundle#install_max_processes = 20
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 
