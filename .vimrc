@@ -1907,6 +1907,8 @@ inoremap <C-o> <Esc>O
 nnoremap Q <Nop>
 
 nnoremap Y y$
+
+nnoremap <C-s> :<C-u> set spell!<CR>
 " }}}
 
 
