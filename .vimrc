@@ -169,7 +169,7 @@ function! s:load_bundles()
   NeoBundleLazy 'editorconfig/editorconfig-vim'
 
   " 非同期処理
-  NeoBundle     'Shougo/vimproc'
+  NeoBundle     'Shougo/vimproc.vim'
   NeoBundleLazy 'tyru/open-browser.vim'
 
   " コマンド実行
@@ -1257,8 +1257,8 @@ if neobundle#tap('editorconfig-vim')
 endif
 " }}}
 
-" vimproc {{{
-if neobundle#tap('vimproc')
+" vimproc.vim {{{
+if neobundle#tap('vimproc.vim')
   call neobundle#config({
   \ 'build' : {
   \     'windows' : 'make -f make_mingw32.mak',
@@ -1347,7 +1347,7 @@ if neobundle#tap('vim-watchdogs')
   \ },
   \   'depends': [
   \     'thinca/vim-quickrun',
-  \     'Shougo/vimproc',
+  \     'Shougo/vimproc.vim',
   \     'osyo-manga/shabadou.vim',
   \     'cohama/vim-hier',
   \     'dannyob/quickfixstatus'
