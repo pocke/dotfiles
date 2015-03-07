@@ -1928,7 +1928,7 @@ if has("vim_starting") && !has('gui_running') && has('vertsplit')
 
   " new vim can't handle CPR with direct mapping
   " map <expr> ^[[3;3R g:EnableVsplitMode()
-  set t_F9=^[[3;3R
+  set t_F9=[3;3R
   map <expr> <t_F9> g:EnableVsplitMode()
   let &t_RV .= "\e[?6;69h\e[1;3s\e[3;9H\e[6n\e[0;0s\e[?6;69l"
 endif
