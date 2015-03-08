@@ -1519,6 +1519,7 @@ if neobundle#tap('vim-altr')
     " For rails tdd
     call altr#define('app/%/%.rb', 'spec/%/%_spec.rb')
 
+    call altr#define('config/locales/en.%yml', 'config/locales/ja.%yml')
     call altr#define('lib/%.rb', 'spec/lib/%_spec.rb')
 
     " For golang test
