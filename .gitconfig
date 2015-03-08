@@ -2,13 +2,16 @@
 # file: ~/.gitconfig
 #   [include]
 #     path = this/file/path/.gitconfig
-#   [user]
-#     name = hoge
 #   [core]
 #     excludesfile = /your/file/path/.gitignore_global
 
+[user]
+  name  = Masataka Kuwabara
+  email = p.ck.t22@gmail.com
+
 [color]
   ui = auto
+
 [alias]
   st     = status --short --branch
   ol     = log --oneline --graph
@@ -29,15 +32,15 @@
   ps     = push
   psu    = !git push -u origin "$(git rev-parse --abbrev-ref HEAD)"
   gr     = grep -I
+
 [push]
   default = simple
+
 [core]
   editor = vim +1 -c 'set fenc=utf-8'
   preloadindex = true
   pager = /usr/share/git/diff-highlight/diff-highlight | less -x2
-#  excludesfile = .gitignore_global
-[user]
-  email = p.ck.t22@gmail.com
+
 [help]
   autocorrect = -1
 
@@ -47,6 +50,7 @@
 
 [rebase]
   autosquash = true
+
 [github]
   user = pocke
 
