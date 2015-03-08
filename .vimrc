@@ -1883,8 +1883,8 @@ nnoremap Q <Nop>
 
 nnoremap Y y$
 
-nnoremap <C-s> :<C-u> set spell!<CR>
-nnoremap <Tab> :<C-u>set cursorcolumn!<CR>
+nnoremap <silent><C-s> :<C-u>set spell!<CR>
+nnoremap <silent><Tab> :<C-u>set cursorcolumn!<CR>
 " }}}
 
 
