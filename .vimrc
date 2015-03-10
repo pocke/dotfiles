@@ -323,7 +323,7 @@ if neobundle#tap('neosnippet')
   inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
   " Plugin key-mappings.
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  imap <C-k> <Esc>:let g:neosnippet_expanding_or_jumpping = 1<CR>a<Plug>(neosnippet_expand_or_jump)
   smap <C-k> <Plug>(neosnippet_expand_or_jump)
 
   " SuperTab like snippets behavior.
@@ -732,6 +732,33 @@ if neobundle#tap('ruby_hl_lvar.vim')
       silent! execute 'doautocmd FileType' &filetype
     endfunction
     command! RubyHlLvarDisable call s:ruby_hl_lvar_disable()
+
+    let g:neosnippet_expanding_or_jumpping = 0
+    function! s:ruby_hl_lvar_on_textchanged() abort
+      if g:neosnippet_expanding_or_jumpping
+        let g:neosnippet_expanding_or_jumpping = 0
+      else
+        call ruby_hl_lvar#refresh(0)
+      endif
+    endfunction
+
+    " override
+    function! Ruby_hl_lvar_filetype()
+      let groupname = 'vim_hl_lvar_'.bufnr('%')
+      execute 'augroup '.groupname
+        autocmd!
+        if &filetype =~# '\<ruby\>'
+          if g:ruby_hl_lvar_auto_enable
+            call ruby_hl_lvar#refresh(1)
+            autocmd TextChanged <buffer> call s:ruby_hl_lvar_on_textchanged()
+            autocmd InsertEnter <buffer> call ruby_hl_lvar#disable(0)
+            autocmd InsertLeave <buffer> call ruby_hl_lvar#refresh(0)
+          else
+            call ruby_hl_lvar#disable(1)
+          endif
+        endif
+      augroup END
+    endfunction
   endfunction
 
   call neobundle#untap()
