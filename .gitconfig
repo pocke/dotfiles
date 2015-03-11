@@ -32,6 +32,7 @@
   ps     = push
   psu    = !git push -u origin "$(git rev-parse --abbrev-ref HEAD)"
   gr     = grep -I
+  newdir = !git-new-workdir .
 
 [push]
   default = simple
