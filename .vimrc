@@ -1754,6 +1754,7 @@ AutoCmd FileType gitcommit if getline(1) == '' | startinsert | endif
 AutoCmd Syntax markdown syntax clear markdownItalic
 AutoCmd Syntax markdown syntax sync fromstart
 AutoCmd FileType markdown,text,gitcommit setl spell
+AutoCmd BufNewFile,BufRead config/locales/*.yml setl spell
 
 " 長いFiletypeを省略する
 AutoCmd FileType js nested setlocal ft=javascript
