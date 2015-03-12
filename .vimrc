@@ -131,6 +131,7 @@ function! s:load_bundles()
   NeoBundleLazy 'yosssi/vim-ace'
   NeoBundleLazy 'cespare/vim-toml'
   NeoBundleLazy 'stephpy/vim-yaml'
+  NeoBundleLazy 'vim-ruby/vim-ruby'
 
   NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
   \   'name': 'vimperator-syntax',
@@ -844,9 +845,6 @@ function! s:tap_filetype(name, ft)
   endif
 endfunction
 
-" vim-javascript-syntax {{{
-call s:tap_filetype('vim-javascript-syntax', 'javascript')
-" }}}
 
 " tern_for_vim {{{
 if neobundle#tap('tern_for_vim')
@@ -869,17 +867,10 @@ if neobundle#tap('tern_for_vim')
 endif
 " }}}
 
-" vim-coffee-script {{{
+call s:tap_filetype('vim-javascript-syntax', 'javascript')
 call s:tap_filetype('vim-coffee-script', 'coffee')
-" }}}
-
-" typescript-vim {{{
 call s:tap_filetype('typescript-vim', 'typescript')
-" }}}
-
-" typescript-tools {{{
 call s:tap_filetype('typescript-tools', 'typescript')
-" }}}
 
 " vim-css3-syntax {{{
 if neobundle#tap('vim-css3-syntax')
@@ -898,25 +889,11 @@ if neobundle#tap('vim-css3-syntax')
 endif
 " }}}
 
-" vim-less {{{
 call s:tap_filetype('vim-less', 'less')
-" }}}
-
-" vim-stylus {{{
 call s:tap_filetype('vim-stylus', 'stylus')
-" }}}
-
-" vim-slim {{{
 call s:tap_filetype('vim-slim', 'slim')
-" }}}
-
-" vim-scala {{{
 call s:tap_filetype('vim-scala', 'scala')
-" }}}
-
-" vim-sbt {{{
 call s:tap_filetype('vim-sbt', 'sbt')
-" }}}
 
 
 " vim-go-extra {{{
@@ -937,17 +914,10 @@ if neobundle#tap('vim-go-extra')
 endif
 " }}}
 
-" vim-ace {{{
 call s:tap_filetype('vim-ace', 'ace')
-" }}}
-
-"vim-toml {{{
 call s:tap_filetype('vim-toml', 'toml')
-"}}}
-
-" vim-yaml {{{
 call s:tap_filetype('vim-yaml', 'yaml')
-" }}}
+call s:tap_filetype('vim-ruby', 'ruby')
 
 " }}}
 
