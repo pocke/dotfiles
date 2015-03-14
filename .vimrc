@@ -43,7 +43,6 @@ function! s:load_bundles()
 
   " 補完
   NeoBundle     'Shougo/neocomplete'
-  NeoBundleLazy 'pocke/neco-look'
 
   NeoBundleLazy 'osyo-manga/vim-marching'
 
@@ -226,7 +225,7 @@ call arpeggio#load()
 " neocomplete {{{
 if neobundle#tap('neocomplete')
   call neobundle#config({
-  \   'depends': ['Shougo/context_filetype.vim', 'ujihisa/neco-look'],
+  \   'depends': ['Shougo/context_filetype.vim', 'pocke/neco-look'],
   \ })
 
   " 起動時に有効化
@@ -290,16 +289,6 @@ if neobundle#tap('neocomplete')
   call neobundle#untap()
 endif
 "}}}
-
-" neco-look {{{
-if neobundle#tap('neco-look')
-  call neobundle#config({
-  \   'rev': 'ignore_case'
-  \ })
-
-  call neobundle#untap()
-endif
-" }}}
 
 " vim-marching {{{
 if neobundle#tap('vim-marching')
