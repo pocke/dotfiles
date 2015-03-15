@@ -62,6 +62,7 @@ options     word
 
 snippet     range2
 abbr        for _ range
+alias       for-range2
 options     head
   for _, ${1:v} := range ${2:#:iterator} {
     ${0:TARGET}
@@ -98,6 +99,15 @@ options     head
   if ${1:err != nil} {
       ${0:return err}
   }
+
+snippet     range
+abbr        for range
+alias       for-range
+options     head
+  for ${1:v} := range ${2:#:iterator} {
+    ${0:TARGET}
+  }
+
 
 
 # ------------------ Build-in functions
