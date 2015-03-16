@@ -33,15 +33,6 @@ zle -N peco-kill-process
 bindkey '^k' peco-kill-process
 
 
-function peco-pushd-dirs()
-{
-  local dir="$(dirs -p | peco)"
-  eval cd "${dir}"
-  zle reset-prompt
-}
-zle -N peco-pushd-dirs
-bindkey '^A' peco-pushd-dirs
-
 function peco-ghq-move()
 {
   local selected_dir="$(ghq list --full-path | peco --query "$LBUFFER")"
