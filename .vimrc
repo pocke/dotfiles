@@ -130,7 +130,8 @@ function! s:load_bundles()
   NeoBundleLazy 'yosssi/vim-ace'
   NeoBundleLazy 'cespare/vim-toml'
   NeoBundleLazy 'stephpy/vim-yaml'
-  NeoBundleLazy 'vim-ruby/vim-ruby'
+  " If lazy, compound filetype is wrong...
+  NeoBundle 'vim-ruby/vim-ruby'
 
   NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
   \   'name': 'vimperator-syntax',
@@ -906,7 +907,6 @@ endif
 call s:tap_filetype('vim-ace', 'ace')
 call s:tap_filetype('vim-toml', 'toml')
 call s:tap_filetype('vim-yaml', 'yaml')
-call s:tap_filetype('vim-ruby', 'ruby')
 
 " }}}
 
