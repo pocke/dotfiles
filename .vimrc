@@ -1869,7 +1869,7 @@ inoremap <C-o> <Esc>O
 inoremap <C-s> <C-x><C-s>
 
 nnoremap Q <Nop>
-AutoCmd FileType javascript nnoremap A: A;
+AutoCmd FileType javascript nnoremap <buffer> A: A;
 
 nnoremap Y y$
 
