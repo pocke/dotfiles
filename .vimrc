@@ -1852,16 +1852,6 @@ nnoremap <C-Down>  <C-w>-
 nnoremap <C-Up>    <C-w>+
 nnoremap <C-Right> <C-w>>
 
-vnoremap <Left>  <Nop>
-vnoremap <Down>  <Nop>
-vnoremap <Up>    <Nop>
-vnoremap <Right> <Nop>
-
-inoremap <Left>  <Nop>
-inoremap <Down>  <Nop>
-inoremap <Up>    <Nop>
-inoremap <Right> <Nop>
-
 " set undo point
 inoremap <CR> <C-g>u<CR>
 
