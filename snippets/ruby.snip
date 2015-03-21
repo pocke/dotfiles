@@ -2,11 +2,6 @@ snippet     binding-pry
 abbr        binding.pry
   binding.pry
 
-snippet     alias_method_orig
-abbr        alias_method_orig
-options     head
-  alias_method :orig_${1:#:new_name}, :${2:TARGET}
-
 snippet     class-method
 abbr        class << self ...
 options     head
@@ -27,19 +22,6 @@ snippet     exception
 abbr        class Error < StandardError; end
 options     head
   class ${1:NAME} < ${1:StandardError}; end
-
-snippet     begin-full
-abbr        begin ... end
-options     head
-	begin
-		${1:#:code}
-	rescue
-		${2:#:code}
-	else
-		${3:#:code}
-	ensure
-		${4:#:code}
-	end
 
 snippet     railsclass
 options     head
