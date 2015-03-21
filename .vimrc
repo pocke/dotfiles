@@ -126,7 +126,7 @@ function! s:load_bundles()
   " NeoBundleLazy 'gre/play2vim'
   " }}}
 
-  NeoBundleLazy 'vim-jp/vim-go-extra'
+  NeoBundleLazy 'fatih/vim-go'
   NeoBundleLazy 'yosssi/vim-ace'
   NeoBundleLazy 'cespare/vim-toml'
   NeoBundleLazy 'stephpy/vim-yaml'
@@ -886,8 +886,8 @@ call s:tap_filetype('vim-scala', 'scala')
 call s:tap_filetype('vim-sbt', 'sbt')
 
 
-" vim-go-extra {{{
-if neobundle#tap('vim-go-extra')
+" vim-go {{{
+if neobundle#tap('vim-go')
   call neobundle#config({
   \   'autoload': {
   \     'filetypes': 'go'
@@ -896,7 +896,7 @@ if neobundle#tap('vim-go-extra')
 
   function! neobundle#tapped.hooks.on_source(bundle)
     if executable("goimports")
-      let g:gofmt_command = "goimports"
+      let g:go_fmt_command = "goimports"
     endif
   endfunction
 
