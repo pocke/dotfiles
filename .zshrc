@@ -157,6 +157,7 @@ zle -A .backward-delete-char vi-backward-delete-char  # インサートモード
 # vicmd mode
 bindkey -a ';' execute-named-cmd
 bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
 
 
 ### color
