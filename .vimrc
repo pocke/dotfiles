@@ -148,7 +148,6 @@ function! s:load_bundles()
   " }}}
 
   NeoBundleLazy 'Shougo/vimfiler'
-  NeoBundleLazy 'Shougo/vimshell'
   NeoBundleLazy 'sjl/gundo.vim'
   NeoBundleLazy 'thinca/vim-ref'
 
@@ -193,7 +192,6 @@ function! s:load_bundles()
 
   " vim {{{
   NeoBundleLazy 'vim-jp/vimdoc-ja'
-  NeoBundleLazy 'LeafCage/vimhelpgenerator'
   NeoBundleLazy 'thinca/vim-prettyprint'
   NeoBundleLazy 'tyru/capture.vim'
   NeoBundleFetch 'thinca/vim-themis'
@@ -996,31 +994,6 @@ if neobundle#tap('vimfiler')
 endif
 " }}}
 
-" vimshell {{{
-if neobundle#tap('vimshell')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': ['VimShell', 'VimShellTab', 'VimShellCreate', 'VimShellPop']
-  \   },
-  \   'depends': ['Shougo/unite.vim', 'Shougo/neocomplete']
-  \ })
-
-  function! neobundle#tapped.hooks.on_source(bundle)
-    AutoCmd FileType vimshell call vimshell#hook#set('chpwd', ['MyChpwd'])
-
-    function! MyChpwd(args, context)
-      call vimshell#execute('ls')
-    endfunction
-
-    let g:vimshell_prompt = '% '
-    let g:vimshell_secondary_prompt = '> '
-    let g:vimshell_user_prompt = 'getcwd()'
-  endfunction
-
-  call neobundle#untap()
-endif
-" }}}
-
 " gundo.vim {{{
 if neobundle#tap('gundo.vim')
   call neobundle#config({
@@ -1520,23 +1493,6 @@ endif
 " }}}
 
 " vim {{{
-" vimhelpgenerator {{{
-if neobundle#tap('vimhelpgenerator')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': 'VimHelpGenerator'
-  \   }
-  \ })
-
-  function! neobundle#tapped.hooks.on_post_source(bundle)
-    let g:vimhelpgenerator_author  = 'Author  : pocke <p.ck.t22@gmail.com>'
-    let g:vimhelpgenerator_license = 'vimhelpgenerator/MIT'
-    let g:vimhelpgenerator_uri     = 'https://github.com/pocke/'
-  endfunction
-
-  call neobundle#untap()
-endif
-" }}}
 
 " vim-prettyprint {{{
 if neobundle#tap('vim-prettyprint')
