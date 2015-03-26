@@ -61,10 +61,7 @@ function! s:load_bundles()
   NeoBundleLazy 'kana/vim-textobj-user'
   NeoBundleLazy 'rhysd/vim-textobj-ruby'
   NeoBundleLazy 'sgur/vim-textobj-parameter'
-  NeoBundleLazy 'kana/vim-textobj-line'
   NeoBundleLazy 'kana/vim-textobj-entire'
-  NeoBundleLazy 'thinca/vim-textobj-between'
-  NeoBundleLazy 'todesking/vim-textobj-methodcall'
   NeoBundleLazy 'whatyouhide/vim-textobj-xmlattr'
 
   " }}}
@@ -122,8 +119,6 @@ function! s:load_bundles()
   " scala {{{
   NeoBundleLazy 'derekwyatt/vim-scala'
   NeoBundleLazy 'derekwyatt/vim-sbt'
-  " NeoBundleLazy 'mdreves/vim-scaladoc'
-  " NeoBundleLazy 'gre/play2vim'
   " }}}
 
   NeoBundleLazy 'fatih/vim-go'
@@ -511,20 +506,8 @@ call s:textobj_tap("vim-textobj-ruby", ['ar', 'ir'])
 call s:textobj_tap('vim-textobj-parameter', ['a,', 'i,'])
 " }}}
 
-"vim-textobj-line {{{
-call s:textobj_tap('vim-textobj-line', ['al', 'il'])
-"}}}
-
 " vim-textobj-entire {{{
 call s:textobj_tap('vim-textobj-entire', ['ae', 'ie'])
-" }}}
-
-" vim-textobj-between {{{
-call s:textobj_tap('vim-textobj-between', ['if', 'af'])
-" }}}
-
-" vim-textobj-methodcall {{{
-call s:textobj_tap('vim-textobj-methodcall', ['ic', 'ac'])
 " }}}
 
 " vim-textobj-xmlattr {{{
