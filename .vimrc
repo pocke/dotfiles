@@ -362,12 +362,8 @@ if neobundle#tap('vim-smartinput')
 
 
     call smartinput#map_to_trigger('i', '<Plug>(smartinput_CR)', '<Enter>', '<Enter>')
-    call smartinput#map_to_trigger('i', '<Plug>(smartinput_BS)', '<BS>', '<BS>')
-    call smartinput#map_to_trigger('i', '<Plug>(smartinput_C-h)', '<BS>', '<C-h>')
     function! s:smartinput_setup()
       imap <silent> <CR> <C-g>u<Plug>(smartinput_CR)
-      imap <silent><expr> <BS> neocomplete#smart_close_popup() . "\<Plug>(smartinput_BS)"
-      imap <silent><expr> <C-h> neocomplete#smart_close_popup() . "\<Plug>(smartinput_C-h)"
     endfunction
     augroup vimrc_smartinput_setup
       autocmd!
