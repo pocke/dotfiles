@@ -149,10 +149,8 @@ function! s:load_bundles()
   NeoBundleLazy 'thinca/vim-scouter'
 
   " Web service {{{
-  " はてなブログ
   NeoBundleLazy 'moznion/hateblo.vim'
   NeoBundleLazy 'lambdalisue/vim-gista'
-  NeoBundleLazy 'basyura/TweetVim'
   NeoBundleLazy 'mattn/excitetranslate-vim'
   " }}}
 
@@ -1057,84 +1055,6 @@ if neobundle#tap('vim-gista')
   let g:gista#update_on_write = 1
   let g:gista#github_user = 'pocke'
   let g:gista#post_private = 1
-
-  call neobundle#untap()
-endif
-" }}}
-
-"TweetVim {{{
-if neobundle#tap('TweetVim')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': [
-  \       'TweetVimVersioni',
-  \       'TweetVimAddAccount',
-  \       'TweetVimSwitchAccount',
-  \       'TweetVimHomeTimeline',
-  \       'TweetVimMentions',
-  \       'TweetVimUserTimeline',
-  \       'TweetVimListStatuses',
-  \       'TweetVimSearch',
-  \       'TweetVimSay',
-  \       'TweetVimUserStream',
-  \       'TweetVimCommandSay',
-  \       'TweetVimCurrentLineSay',
-  \       'TweetVimClearIcon'
-  \     ]
-  \   },
-  \   'depends': [
-  \     'tyru/open-browser.vim',
-  \     'basyura/twibill.vim',
-  \     'Shougo/unite.vim',
-  \     'yomi322/neco-tweetvim',
-  \   ],
-  \   'rev': 'dev',
-  \ })
-
-  function! neobundle#tapped.hooks.on_source(bundle)
-    AutoCmd FileType tweetvim call s:tweetvim_buffer_configure()
-    function! s:tweetvim_buffer_configure()
-      nnoremap <silent><buffer> s :<C-u>TweetVimSay<CR>
-      nnoremap <silent><buffer> G G:<C-u>call tweetvim#action('cursor_up')<CR>
-      nmap <buffer> o <Plug>(tweetvim_action_open_links)
-      nmap <buffer> e <Plug>(tweetvim_action_reply)
-      nmap <buffer> i <Plug>(tweetvim_action_in_reply_to)
-      nmap <buffer> u <Plug>(tweetvim_action_user_timeline)
-      nmap <buffer> <Leader>f <Plug>(tweetvim_action_favorite)
-      nmap <buffer> <Leader>uf <Plug>(tweetvim_action_remove_favorite)
-      nmap <buffer> <Leader>r <Plug>(tweetvim_action_retweet)
-      nmap <buffer> <Leader><Leader> <Plug>(tweetvim_action_reload)
-      nmap <buffer> <Leader>n <Plug>(tweetvim_action_page_next)
-      nmap <buffer> <Leader>p <Plug>(tweetvim_action_page_previous)
-      nmap <buffer> k <Plug>(tweetvim_action_cursor_up)
-      nmap <buffer> j <Plug>(tweetvim_action_cursor_down)
-      nmap <silent><buffer> x <Plug>(tweetvim_action_remove_status)
-    endfunction
-
-    AutoCmd FileType tweetvim_say call s:tweetvim_say_buffer_configure()
-    function! s:tweetvim_say_buffer_configure()
-      nmap <buffer> <CR>        <Plug>(tweetvim_say_post_buffer)
-      imap <buffer> <C-CR> <Esc><Plug>(tweetvim_say_post_buffer)
-      nnoremap <silent><buffer> q :bd!<CR>
-    endfunction
-
-    let g:tweetvim_tweet_per_page = 100
-    let g:tweetvim_config_dir     = expand('~/.vim/cache/tweetvim/')
-    let g:tweetvim_display_source = 1
-    let g:tweetvim_expand_t_co = 1
-    let g:tweetvim_align_right = 1
-    let g:tweetvim_async_post = 1
-    let g:tweetvim_no_default_key_mappings = 1
-    let g:tweetvim_display_icon = 1
-
-    " for lightline
-    call add(g:lightline.active.left, ['tweetvim_say_count', 'tweetvim_say_user'])
-    let g:lightline.component.tweetvim_say_count = '%{exists("b:tweetvim_say_count") ? b:tweetvim_say_count : ""}'
-    let g:lightline.component.tweetvim_say_user  = '%{&filetype ==# "tweetvim_say" ? tweetvim#account#current().screen_name : ""}'
-    let g:lightline.component_visible_condition.tweetvim_say_count = '(&filetype ==# "tweetvim_say")'
-    let g:lightline.component_visible_condition.tweetvim_say_user  = '(&filetype ==# "tweetvim_say")'
-    call lightline#init()
-  endfunction
 
   call neobundle#untap()
 endif
