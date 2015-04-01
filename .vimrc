@@ -1575,22 +1575,6 @@ AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldma
 
 " haya14busa.com/install-stylus-nib-and-vim-auto-compile/
 AutoCmd BufWritePost *.styl silent !stylus <afile> -u nib > /dev/null
-AutoCmd BufWritePre *.go silent! call s:my_go_fmt()
-" TODO: undo が辛い感じになる
-function! s:my_go_fmt()
-  let w = winnr()
-  windo let w:gofmt_view = winsaveview()
-  execute w . 'wincmd w'
-  Fmt
-  let b = getbufline('%', 0, '$')
-  undo
-  let a = getbufline('%', 0, '$')
-  if a != b
-    redo
-  endif
-  windo call winrestview(w:gofmt_view)
-  execute w . 'wincmd w'
-endfunction
 AutoCmd FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
 AutoCmd FileType qf   nnoremap <buffer> <CR> <CR> | setlocal cursorline
 AutoCmd CmdwinEnter * nnoremap <buffer> <CR> <CR> | setlocal cursorline
