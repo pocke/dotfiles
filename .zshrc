@@ -248,7 +248,7 @@ function sub()
   git grep -l $from | xargs sed -i -e "s/${from}/${to}/g"
 }
 
-# -e でescape sequenceつきで遅れるが、AnsiEscがゴミなため実用には向かない
+# -e でescape sequenceつきで送れるが、AnsiEscがゴミなため実用には向かない
 function tvim()
 {
   if [ -z $TMUX ]; then
