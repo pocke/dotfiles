@@ -17,7 +17,7 @@ alias g='git'
 alias tmux='TERM=screen-256color tmux -2'
 alias t='tmux'
 alias sozshrc='source ~/.zshrc'
-function ghq-update(){ghq list | sed -E 's/^[^\/]+\/(.+)/\1/' | xargs -n 1 -P 10 ghq get -u}
+function ghq-update(){ghq list | grep '^github.com' | sed -E 's/^[^\/]+\/(.+)/\1/' | xargs -n 1 -P 10 ghq get -u}
 function -(){cd -} # alias では実現できない?
 
 ### global alias
