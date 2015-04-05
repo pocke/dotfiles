@@ -679,7 +679,7 @@ if neobundle#tap('incsearch.vim')
     map n  <Plug>(incsearch-nohl-n)zz
     map N  <Plug>(incsearch-nohl-N)zz
 
-    IncSearchNoreMap <CR> <CR>
+    IncSearchNoreMap <CR> <CR>zz
     IncSearchNoreMap <C-h> <BS>
   endfunction
 
@@ -1272,8 +1272,7 @@ if neobundle#tap('vim-asterisk')
   call neobundle#config({
   \   'autoload': {
   \     'mappings': [
-  \       '<Plug>(incsearch-nohl)<Plug>(asterisk-*)',
-  \       '<Plug>(incsearch-nohl)<Plug>(asterisk-#)',
+  \       '<Plug>(incsearch-nohl)<Plug>(asterisk-',
   \     ]
   \   },
   \   'depends': ['haya14busa/incsearch.vim']
@@ -1281,6 +1280,8 @@ if neobundle#tap('vim-asterisk')
 
   map * <Plug>(incsearch-nohl)<Plug>(asterisk-*)
   map # <Plug>(incsearch-nohl)<Plug>(asterisk-#)
+  map z* <Plug>(incsearch-nohl)<Plug>(asterisk-z*)
+  map z# <Plug>(incsearch-nohl)<Plug>(asterisk-z#)
 
   call neobundle#untap()
 endif
