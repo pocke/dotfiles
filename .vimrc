@@ -1636,6 +1636,8 @@ cnoremap <Up>   <C-p>
 
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
 
 " :h hogehoge@ とかなってhelpが見つからないのを解消
 cnoremap <CR> <C-\>e <SID>cmdline_cr()<CR><CR>
