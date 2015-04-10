@@ -62,6 +62,7 @@
 [ghq]
   root = ~/ghq
   root = ~/go/src
+  root = ~/.vim/bundle/
 
 [merge]
   ff = false
