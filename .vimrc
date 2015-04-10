@@ -1250,10 +1250,6 @@ if neobundle#tap('vim-watchdogs')
     \   'type': 'watchdogs_checker/ruby',
     \ }
 
-    let g:quickrun_config["watchdogs_checker/jshint"] = {
-    \   'errorformat': '%f: line %l\,\ col %c\, %m',
-    \ }
-
     let g:watchdogs_check_BufWritePost_enable = 1
     call watchdogs#setup(g:quickrun_config)
 
