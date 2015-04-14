@@ -1003,9 +1003,6 @@ if neobundle#tap('vim-ref')
   \     'commands': ['Ref'],
   \     'mappings': ['<Plug>(ref-keyword)']
   \   },
-  \   'build': {
-  \     'unix': 'gem install refe2 rcodetools fastri && bitclust setup --versions=2.2.0',
-  \   },
   \ })
 
   silent! nmap <silent> <unique> K <Plug>(ref-keyword)
