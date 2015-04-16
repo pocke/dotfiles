@@ -151,7 +151,6 @@ function! s:load_bundles()
   " Web service {{{
   NeoBundleLazy 'moznion/hateblo.vim'
   NeoBundleLazy 'lambdalisue/vim-gista'
-  NeoBundleLazy 'mattn/excitetranslate-vim'
   " }}}
 
   " }}}
@@ -1063,20 +1062,6 @@ if neobundle#tap('vim-gista')
   call neobundle#untap()
 endif
 " }}}
-
-" excitetranslate-vim {{
-if neobundle#tap('excitetranslate-vim')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': ['ExciteTranslate']
-  \   },
-  \   'depends': ['mattn/webapi-vim']
-  \ })
-
-  call neobundle#untap()
-endif
-" }}
-
 " }}}
 
 " editorconfig-vim {{{
