@@ -249,11 +249,6 @@ if neobundle#tap('neocomplete')
   endif
   let g:neocomplete#same_filetypes.ruby = 'eruby'
 
-  if !exists('g:neocomplete#text_mode_filetypes')
-    let g:neocomplete#text_mode_filetypes = {}
-  endif
-  let g:neocomplete#text_mode_filetypes.tweetvim_say = 1
-
   if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
   endif
