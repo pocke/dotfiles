@@ -7,6 +7,7 @@ end
 
 FileUtils.mkdir_p(File.expand_path('~/.bundle'))
 FileUtils.mkdir_p(File.expand_path('~/.vim/bundle'))
+FileUtils.mkdir_p(File.expand_path('~/.zsh'))
 FileUtils.mkdir_p(File.expand_path('~/.config/awesome/'))
 FileUtils.mkdir_p(File.expand_path('~/.config/fontconfig/'))
 FileUtils.mkdir_p(File.expand_path('~/.config/peco/'))
@@ -46,6 +47,10 @@ end
 
 unless Dir.exist?(File.expand_path('~/.vim/bundle/neobundle.vim'))
   exec('git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim')
+end
+
+unless Dir.exist?(File.expand_path('~/.zsh/zsh-syntax-highlighting'))
+  exec('git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting')
 end
 
 exec('vim +NeoBunldeInstall +q')
