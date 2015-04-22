@@ -27,7 +27,7 @@ FileUtils.mkdir_p(File.expand_path('~/.config/peco/'))
 end
 
 is_arch = File.exists?('/etc/pacman.conf')
-exec('sudo pacman -S words nodejs go') if is_arch
+exec('sudo pacman -S words nodejs go tmux') if is_arch
 
 unless File.exists?(File.expand_path("~/.gitconfig"))
   exec(<<-EOS
