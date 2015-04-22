@@ -36,3 +36,18 @@ abbr        def ... end
   def ${1:initialize}
     ${2:TARGET}
   end
+
+snippet     yard-param
+abbr        @param [Type] ...
+options     head
+  # @param [${1:String}] ${2:NAME} ${3:#:DESC}
+
+snippet     yard-return
+abbr        @return [Type] ...
+options     head
+  # @return [${1:String}] ${3:#:DESC}
+
+snippet     yard-raise
+abbr        @raise [Type] ...
+options     head
+  # @raise [${1:StandardError}] ${3:#:DESC}
