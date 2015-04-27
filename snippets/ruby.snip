@@ -29,14 +29,6 @@ options     head
     ${1}
   end
 
-
-# ------------------------  override default snippets
-snippet     def
-abbr        def ... end
-  def ${1:initialize}
-    ${2:TARGET}
-  end
-
 snippet     yard-param
 abbr        @param [Type] ...
 options     head
@@ -51,3 +43,11 @@ snippet     yard-raise
 abbr        @raise [Type] ...
 options     head
   # @raise [${1:StandardError}] ${3:#:DESC}
+
+
+# ------------------------  override default snippets
+snippet     def
+abbr        def ... end
+  def ${1:initialize}
+    ${2:TARGET}
+  end
