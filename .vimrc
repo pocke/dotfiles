@@ -646,7 +646,7 @@ endif
 if neobundle#tap('vim-brightest')
   AutoCmd ColorScheme * hi pluginVimBrightest ctermbg=239 guibg=#444444
 
-  let g:brightest#enable_highlight_all_window = 1
+  let g:brightest#enable_highlight_all_window = 0
   let g:brightest#highlight = {
   \   'group': 'pluginVimBrightest',
   \ }
