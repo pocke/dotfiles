@@ -67,15 +67,7 @@ setopt cdable_vars        # 名前付きディレクトリの~を省略
 function chpwd() { ls }   # ディレクトリを移動したらls
 function name_dir() # dir, name
 {
-  local dir=$1
-  local name=$2
-
-  if [ -d $dir ]; then
-    hash -d $name=$dir
-    return 0
-  else
-    return 1
-  fi
+  alias "$2"="cd $1"
 }
 name_dir ~/dotfiles/ d
 name_dir ~/project/ p
