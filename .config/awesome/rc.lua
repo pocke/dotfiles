@@ -397,6 +397,7 @@ awful.rules.rules = {
     --   properties = { tag = tags[1][2] } },
 }
 
+-- How to get class: $ xprop | grep "^WM_CLASS" | sed -E 's/^.+"(.+)"$/\1/'
 if screen.count() == 1 then
   table.insert(awful.rules.rules, {
     rule = { class = "Firefox"},
@@ -414,6 +415,14 @@ if screen.count() == 1 then
     rule = {class = "Google-chrome-stable"},
     properties = {tag = tags[1][1]}
   })
+  table.insert(awful.rules.rules, {
+    rule = { class = "Vivaldi-preview"},
+    properties = { tag = tags[1][1]},
+  })
+  table.insert(awful.rules.rules, {
+    rule = { class = "Vlc"},
+    properties = { tag = tags[1][13]},
+  })
 elseif screen.count() == 2 then
   table.insert(awful.rules.rules, {
     rule = { class = "Firefox"},
@@ -430,6 +439,14 @@ elseif screen.count() == 2 then
   table.insert(awful.rules.rules, {
     rule = {class = "Google-chrome-stable"},
     properties = {tag = tags[2][4]}
+  })
+  table.insert(awful.rules.rules, {
+    rule = { class = "Vivaldi-preview"},
+    properties = { tag = tags[2][3]},
+  })
+  table.insert(awful.rules.rules, {
+    rule = { class = "Vlc"},
+    properties = { tag = tags[2][2]},
   })
 end
 -- }}}
