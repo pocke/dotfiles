@@ -358,6 +358,7 @@ if neobundle#tap('vim-smartinput')
     \   'char':     ':',
     \   'input':    ': <Esc>bbi"<Esc>wwi"<Right><Right>',
     \   'filetype': ['json'],
+    \   'syntax':   ['jsonFold']
     \ })
 
     call smartinput#map_to_trigger('i', '<Plug>(smartinput_CR)', '<Enter>', '<Enter>')
