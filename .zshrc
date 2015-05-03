@@ -63,7 +63,6 @@ source "${basedir}/alias.zsh"
 setopt auto_cd            # ディレクトリ名だけでcd
 setopt auto_pushd         # 勝手にpush
 setopt pushd_ignore_dups  # 重複したディレクトリをpushしない
-setopt cdable_vars        # 名前付きディレクトリの~を省略
 function chpwd() { ls }   # ディレクトリを移動したらls
 function name_dir() # dir, name
 {
