@@ -121,6 +121,7 @@ function! s:load_bundles()
   NeoBundleLazy 'derekwyatt/vim-sbt'
   " }}}
 
+  NeoBundleLazy 'vim-scripts/javacomplete'
   NeoBundleLazy 'fatih/vim-go'
   NeoBundleLazy 'yosssi/vim-ace'
   NeoBundleLazy 'cespare/vim-toml'
@@ -857,6 +858,23 @@ call s:tap_filetype('vim-slim', 'slim')
 call s:tap_filetype('vim-scala', 'scala')
 call s:tap_filetype('vim-sbt', 'sbt')
 
+if neobundle#tap('javacomplete')
+  call neobundle#config({
+  \   'build': {
+  \     'others': 'javac autoload/Reflection.java',
+  \   },
+  \   'autoload': {
+  \     'filetypes': 'java'
+  \   }
+  \ })
+
+  function! neobundle#tapped.hooks.on_source(bundle)
+    AutoCmd FileType java setl omnifunc=javacomplete#Complete
+  endfunction
+
+  call neobundle#untap()
+endif
+
 
 " vim-go {{{
 if neobundle#tap('vim-go')
@@ -1546,6 +1564,8 @@ set spelllang+=cjk
 
 " Vim script で \ を入力した時にインデントしない
 let g:vim_indent_cont = 0
+
+silent !unset '$_JAVA_OPTIONS'
 
 
 " 前回終了したカーソル行に移動
