@@ -1563,7 +1563,12 @@ set spelllang+=cjk
 " Vim script で \ を入力した時にインデントしない
 let g:vim_indent_cont = 0
 
-silent !unset '$_JAVA_OPTIONS'
+augroup remove_java_option_env_var
+  autocmd!
+  autocmd FileType java silent !unset '$_JAVA_OPTIONS'
+  autocmd FileType java autocmd! remove_java_option_env_var
+augroup END
+
 let g:java_highlight_all=1
 let g:java_highlight_debug=1
 let g:java_allow_cpp_keywords=1
