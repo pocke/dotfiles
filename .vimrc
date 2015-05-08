@@ -361,15 +361,6 @@ if neobundle#tap('vim-smartinput')
     \ })
 
     call smartinput#map_to_trigger('i', '<Plug>(smartinput_CR)', '<Enter>', '<Enter>')
-    function! s:smartinput_setup()
-      imap <silent> <CR> <C-g>u<Plug>(smartinput_CR)
-    endfunction
-    augroup vimrc_smartinput_setup
-      autocmd!
-      autocmd InsertEnter * call s:smartinput_setup()
-      autocmd InsertEnter * delfunction s:smartinput_setup
-      autocmd InsertEnter * autocmd! vimrc_smartinput_setup
-    augroup END
   endfunction
 
   call neobundle#untap()
@@ -1713,8 +1704,6 @@ nnoremap <C-Down>  <C-w>-
 nnoremap <C-Up>    <C-w>+
 nnoremap <C-Right> <C-w>>
 
-" set undo point
-inoremap <CR> <C-g>u<CR>
 
 inoremap <C-s> <C-x><C-s>
 
