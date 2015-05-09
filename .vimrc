@@ -1664,22 +1664,6 @@ nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>:<C-u>call <SID>hier_clear()<CR
 " タブ移動
 nnoremap <silent> <C-l> :<C-u>tabnext<CR>
 nnoremap <silent> <C-h> :<C-u>tabprevious<CR>
-nnoremap <silent> <Space>tt :<C-u>tabnew<CR>
-nnoremap <silent> <Space>tc :<C-u>tabclose<CR>
-nnoremap <silent> <Space>tm :<C-u>call <SID>move_to_new_tab()<CR>
-" http://www.sopht.jp/blog/index.php?/archives/445-vim.html
-function! s:move_to_new_tab()
-    tab split
-    tabprevious
-
-    if winnr('$') > 1
-        close
-    elseif bufnr('$') > 1
-        buffer #
-    endif
-
-    tabnext
-endfunction
 
 " タグジャンプを新しいタブで開く
 nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
