@@ -128,6 +128,7 @@ function! s:load_bundles()
   NeoBundleLazy 'stephpy/vim-yaml'
   " If lazy, compound filetype is wrong...
   NeoBundle 'vim-ruby/vim-ruby'
+  NeoBundle 'gre/play2vim'
 
   NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
   \   'name': 'vimperator-syntax',
