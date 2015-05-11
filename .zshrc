@@ -252,3 +252,19 @@ function auto_display()
     xrandr --output eDP1 --auto --left-of HDMI1
   fi
 }
+
+function go-new()
+{
+  local dir="$HOME/go/src/github.com/pocke/$1"
+  mkdir $dir
+  cd $dir
+  git init && git ci --allow-empty -m 'first commit'
+}
+
+function ghq-new()
+{
+  local dir="$HOME/ghq/github.com/pocke/$1"
+  mkdir $dir
+  cd $dir
+  git init && git ci --allow-empty -m 'first commit'
+}
