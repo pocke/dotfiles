@@ -238,3 +238,17 @@ function sub()
 
   git grep -l $from | xargs sed -i -e "s/${from}/${to}/g"
 }
+
+function auto_display()
+{
+  xrandr --output DP2-2 --off
+  xrandr --output HDMI1 --off
+  if xrandr | grep 'DP2-2 connected' > /dev/null ; then
+    xrandr --output DP2-2 --auto --left-of eDP1 --rotate right
+  fi
+
+  if xrandr | grep 'HDMI1 connected' > /dev/null ; then
+    xrandr --output HDMI1 --auto
+    xrandr --output eDP1 --auto --left-of HDMI1
+  fi
+}
