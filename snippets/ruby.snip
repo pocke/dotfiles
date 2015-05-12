@@ -9,6 +9,13 @@ options     head
     ${0}
   end
 
+snippet     refine
+abbr        refine Klass do ... end
+options     head
+  refine ${1:#:CLASS} do
+    ${0}
+  end
+
 snippet     begin
 abbr        begin ... end
 options     head
