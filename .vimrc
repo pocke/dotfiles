@@ -73,7 +73,6 @@ function! s:load_bundles()
   NeoBundleLazy 'tyru/operator-camelize.vim'
   NeoBundleLazy 'chikatoike/concealedyank.vim'
   NeoBundleLazy 'kana/vim-operator-replace'
-  NeoBundleLazy 'pocke/vim-operator-gitrebase'
   " }}}
 
   " }}}
@@ -568,27 +567,6 @@ if neobundle#tap('vim-operator-replace')
   call neobundle#untap()
 endif
 " }}}
-
-" vim-operator-gitrebase {{{
-if neobundle#tap('vim-operator-gitrebase')
-  call neobundle#config({
-  \   'depends': 'kana/vim-operator-user',
-  \   'autoload': {
-  \     'filetypes': 'gitrebase'
-  \   }
-  \ })
-
-  function! neobundle#tapped.hooks.on_source(bundle)
-    map <buffer> s <Plug>(operator-gitrebase-squash)
-    map <buffer> e <Plug>(operator-gitrebase-edit)
-    map <buffer> r <Plug>(operator-gitrebase-reword)
-    map <buffer> f <Plug>(operator-gitrebase-fixup)
-  endfunction
-
-  call neobundle#untap()
-endif
-" }}}
-
 
 " }}}
 
