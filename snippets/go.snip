@@ -98,6 +98,15 @@ options     head
   defer $1.RUnlock()
   ${0}
 
+snippet     constructor
+options     head
+  func New${1:#:NAME}(${2:#:Args}) *$1 {
+    ${3:v} := &$1{
+      ${0:#:attributes}
+    }
+    return $3
+  }
+
 
 # ------------------------  override default snippets
 
