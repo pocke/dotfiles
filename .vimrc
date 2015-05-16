@@ -946,9 +946,6 @@ if neobundle#tap('vimfiler')
 
   nnoremap <Space>ff :<C-u>VimFiler<CR>
   nnoremap <Space>ft :<C-u>VimFilerTab<CR>
-  nnoremap <Space>tf :<C-u>VimFilerTab<CR>
-  nnoremap <Space>fi :<C-u>VimFiler -split -simple -winwidth=35 -no-quit<CR>
-  nnoremap <Space>fv :<C-u>vsp<CR>:<C-u>VimFiler<CR>
 
   call neobundle#untap()
 endif
