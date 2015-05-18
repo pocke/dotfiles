@@ -878,9 +878,9 @@ if neobundle#tap('unite.vim')
   call neobundle#config({
   \   'autoload' : {
   \     'commands' : [ "Unite", "UniteWithBufferDir" ]
-  \   }
+  \   },
+  \   'depends': ['Shougo/neomru.vim'],
   \ })
-
   function! neobundle#tapped.hooks.on_source(bundle)
     let g:unite_enable_start_insert=1
     let g:unite_source_history_yank_enable=1
@@ -889,14 +889,7 @@ if neobundle#tap('unite.vim')
 
   nnoremap [unite] <Nop>
   nmap <Space>u [unite]
-  " バッファ一覧
-  nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-  " ファイル一覧
-  nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-  " 色々?
-  nnoremap <silent> [unite]u :<C-u>Unite file_mru buffer<CR>
-  " 行
-  nnoremap <silent> [unite]l :<C-u>Unite line<CR>
+  nnoremap <silent> [unite]u :<C-u>Unite file file_mru buffer<CR>
 
   call neobundle#untap()
 endif
