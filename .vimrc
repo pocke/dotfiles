@@ -879,7 +879,7 @@ if neobundle#tap('unite.vim')
   \   'autoload' : {
   \     'commands' : [ "Unite", "UniteWithBufferDir" ]
   \   },
-  \   'depends': ['Shougo/neomru.vim'],
+  \   'depends': ['Shougo/neomru.vim', 'LeafCage/yankround.vim'],
   \ })
   function! neobundle#tapped.hooks.on_source(bundle)
     let g:unite_enable_start_insert=1
@@ -890,6 +890,7 @@ if neobundle#tap('unite.vim')
   nnoremap [unite] <Nop>
   nmap <Space>u [unite]
   nnoremap <silent> [unite]u :<C-u>Unite file file_mru buffer<CR>
+  nnoremap <silent> [unite]y :<C-u>Unite yankround<CR>
 
   call neobundle#untap()
 endif
