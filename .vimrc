@@ -887,10 +887,10 @@ if neobundle#tap('unite.vim')
     let g:unite_source_file_mru_limit=200
   endfunction
 
-  nnoremap [unite] <Nop>
-  nmap <Space>u [unite]
-  nnoremap <silent> [unite]u :<C-u>Unite file file_mru buffer<CR>
-  nnoremap <silent> [unite]y :<C-u>Unite yankround<CR>
+  nnoremap <SID>(unite) <Nop>
+  nmap <Space>u <SID>(unite)
+  nnoremap <silent> <SID>(unite)u :<C-u>Unite file file_mru buffer<CR>
+  nnoremap <silent> <SID>(unite)y :<C-u>Unite yankround<CR>
 
   call neobundle#untap()
 endif
