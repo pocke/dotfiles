@@ -141,6 +141,7 @@ function! s:load_bundles()
   " Unite {{{
   NeoBundleLazy 'Shougo/unite.vim'
   NeoBundleLazy 'Shougo/unite-outline'
+  NeoBundleLazy 'lambdalisue/unite-grep-vcs'
   " }}}
 
   NeoBundleLazy 'Shougo/vimfiler'
@@ -890,8 +891,15 @@ if neobundle#tap('unite.vim')
 
   nnoremap <SID>(unite) <Nop>
   nmap <Space>u <SID>(unite)
-  nnoremap <silent> <SID>(unite)u :<C-u>Unite file file_mru buffer<CR>
+  nnoremap <silent> <SID>(unite)u :<C-u>Unite file file_mru buffer -buffer-name='file-buffer'<CR>
   nnoremap <silent> <SID>(unite)y :<C-u>Unite yankround<CR>
+
+  AutoCmd FileType unite call s:unite_fix_key()
+  function! s:unite_fix_key() abort
+    if bufname('%') =~# "file-buffer"
+      inoremap <buffer> / */
+    endif
+  endfunction
 
   call neobundle#untap()
 endif
@@ -906,6 +914,20 @@ if neobundle#tap('unite-outline')
   \ })
 
   nnoremap <silent> <SID>(unite)o :<C-u>Unite outline<CR>
+
+  call neobundle#untap()
+endif
+" }}}
+
+" unite-grep-vcs {{{
+if neobundle#tap('unite-grep-vcs')
+  call neobundle#config({
+  \   'autoload': {
+  \     'unite_sources': ['grep/git', 'grep/hg'],
+  \   },
+  \ })
+
+  nnoremap <silent> <SID>(unite)g :<C-u>Unite grep/git:.<CR>
 
   call neobundle#untap()
 endif
