@@ -409,7 +409,8 @@ if neobundle#tap('yankround.vim')
   call neobundle#config({
   \   'autoload': {
   \     'mappings': ['<Plug>(yankround-'],
-  \     'functions': 'yankround#is_active'
+  \     'functions': 'yankround#is_active', 
+  \     'unite_sources': ['yankround'],
   \   }
   \ })
 
@@ -879,7 +880,7 @@ if neobundle#tap('unite.vim')
   \   'autoload' : {
   \     'commands' : [ "Unite", "UniteWithBufferDir" ]
   \   },
-  \   'depends': ['Shougo/neomru.vim', 'LeafCage/yankround.vim'],
+  \   'depends': ['Shougo/neomru.vim'],
   \ })
   function! neobundle#tapped.hooks.on_source(bundle)
     let g:unite_enable_start_insert=1
@@ -904,7 +905,7 @@ if neobundle#tap('unite-outline')
   \   }
   \ })
 
-  nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
+  nnoremap <silent> <SID>(unite)o :<C-u>Unite outline<CR>
 
   call neobundle#untap()
 endif
