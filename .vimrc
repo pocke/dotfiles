@@ -1691,6 +1691,8 @@ nnoremap Y y$
 
 nnoremap <silent><C-s> :<C-u>set spell!<CR>
 nnoremap <silent><Tab> :<C-u>set cursorcolumn!<CR>
+
+snoremap <C-w> a<C-h>
 " }}}
 
 
