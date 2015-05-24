@@ -187,7 +187,6 @@ function! s:load_bundles()
   " vim {{{
   NeoBundleLazy 'vim-jp/vimdoc-ja'
   NeoBundleLazy 'thinca/vim-prettyprint'
-  NeoBundleLazy 'tyru/capture.vim'
   NeoBundleFetch 'thinca/vim-themis'
   "}}}
 
@@ -1392,19 +1391,6 @@ if neobundle#tap('vim-prettyprint')
   call neobundle#untap()
 endif
 " }}}
-
-" capture.vim {{{
-if neobundle#tap('capture.vim')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands':  [{'name': 'Capture', 'complete': 'command'}]
-  \   }
-  \ })
-
-  call neobundle#untap()
-endif
-" }}}
-
 " }}}
 
 
