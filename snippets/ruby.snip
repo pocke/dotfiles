@@ -51,6 +51,12 @@ abbr        @raise [Type] ...
 options     head
   # @raise [${1:StandardError}] ${3:#:DESC}
 
+snippet     define_method
+abbr        define_method() do...end
+  define_method(${1:name}) do
+    ${0}
+  end
+
 
 # ------------------------  override default snippets
 snippet     def
