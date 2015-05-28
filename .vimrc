@@ -1174,7 +1174,6 @@ if neobundle#tap('vim-watchdogs')
 
   AutoCmd FileType go command! -buffer Lint WatchdogsRun watchdogs_checker/golint
   AutoCmd FileType go command! -buffer Build WatchdogsRun watchdogs_checker/go_build
-  AutoCmd FileType go command! -buffer Test WatchdogsRun watchdogs_checker/go_test
 
   let g:hier_highlight_group_qf = 'Error'
 
@@ -1210,12 +1209,6 @@ if neobundle#tap('vim-watchdogs')
     let g:quickrun_config['watchdogs_checker/go_build'] = {
     \   'command':     'go',
     \   'exec':        '%c build %o',
-    \   "errorformat" : '%f:%l: %m,%-G%.%#',
-    \ }
-
-    let g:quickrun_config['watchdogs_checker/go_test'] = {
-    \   'command':     'go',
-    \   'exec':        '%c test %o',
     \   "errorformat" : '%f:%l: %m,%-G%.%#',
     \ }
 
