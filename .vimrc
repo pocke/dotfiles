@@ -1187,12 +1187,6 @@ if neobundle#tap('vim-watchdogs')
         nnoremap <buffer>q :q<CR>
         wincmd p
       endif
-      if &ft == 'go'
-        if GoComma()
-          w
-          WatchdogsRun
-        endif
-      endif
     endfunction
     call quickrun#register_outputter("quickfix4watchdogs", s:quickfix4watchdogs)
 
@@ -1219,6 +1213,10 @@ if neobundle#tap('vim-watchdogs')
 
     let g:quickrun_config['ruby.rspec/watchdogs_checker'] = {
     \   'type': 'watchdogs_checker/ruby',
+    \ }
+
+    let g:quickrun_config['go/watchdogs_checker'] = {
+    \   'type': 'watchdogs_checker/go_build'
     \ }
 
     let g:watchdogs_check_BufWritePost_enable = 1
@@ -1728,24 +1726,5 @@ if has("vim_starting") && !has('gui_running') && has('vertsplit')
   map <expr> <t_F9> g:EnableVsplitMode()
   let &t_RV .= "\e[?6;69h\e[1;3s\e[3;9H\e[6n\e[0;0s\e[?6;69l"
 endif
-
-" commna いれる、comma 入れたら ture 返す
-function! GoComma() abort
-  let res = 0
-  let errors = getqflist()
-  for e in errors
-    if !e.text == "missing '','' before newline in composite literal"
-      continue
-    endif
-
-    let res = 1
-    let c = e.col
-    let l = e.lnum
-    let line = getline(l)
-    let newLine = line[0 : c-1] . "," . line[c-1 : -1]
-    call setline(l, newLine)
-  endfor
-  return res
-endfunction
 
 " vim:set foldmethod=marker:
