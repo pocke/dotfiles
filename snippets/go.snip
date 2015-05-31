@@ -51,7 +51,11 @@ snippet     benchf
 abbr        func(b *testing.B)...
 options     head
   func Benchmark${1:#:NAME}(b *testing.B) {
-    ${0:TARGET}
+    ${2:#:TARGET}
+
+    for i := 0; i < b.N; i++ {
+      ${0:#:TARGET}
+    }
   }
 
 snippet     handerf
