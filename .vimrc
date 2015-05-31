@@ -1174,6 +1174,7 @@ if neobundle#tap('vim-watchdogs')
 
   AutoCmd FileType go command! -buffer Lint WatchdogsRun watchdogs_checker/golint
   AutoCmd FileType go command! -buffer Build WatchdogsRun watchdogs_checker/go_build
+  AutoCmd FileType go command! -buffer Test WatchdogsRun watchdogs_checker/go_test
 
   let g:hier_highlight_group_qf = 'Error'
 
@@ -1206,18 +1207,20 @@ if neobundle#tap('vim-watchdogs')
     \   "errorformat" : '%f:%l: %m,%-G%.%#',
     \ }
 
+    let g:quickrun_config['watchdogs_checker/go_test'] = {
+    \   'command':     'go',
+    \   'exec':        '%c test %o',
+    \   "errorformat" : '%f:%l: %m,%-G%.%#',
+    \ }
+
     let g:quickrun_config['c/watchdogs_checker'] = {
     \   "type": "watchdogs_checker/gcc",
     \   "cmdopt": '%{PathToGccOpt()}',
     \ }
 
-    let g:quickrun_config['ruby.rspec/watchdogs_checker'] = {
-    \   'type': 'watchdogs_checker/ruby',
-    \ }
-
-    let g:quickrun_config['go/watchdogs_checker'] = {
-    \   'type': 'watchdogs_checker/go_build'
-    \ }
+    let g:quickrun_config['ruby.rspec/watchdogs_checker'] = {'type': 'watchdogs_checker/ruby'}
+    let g:quickrun_config['go/watchdogs_checker']         = {'type': 'watchdogs_checker/go_build'}
+    let g:quickrun_config['go.gotest/watchdogs_checker']  = {'type': 'watchdogs_checker/go_test'}
 
     let g:watchdogs_check_BufWritePost_enable = 1
     call watchdogs#setup(g:quickrun_config)
@@ -1546,6 +1549,7 @@ AutoCmd BufNewFile,BufRead *.jbuilder                 set filetype=ruby
 AutoCmd BufNewFile,BufRead Guardfile                  set filetype=ruby
 AutoCmd BufNewFile,BufRead .pryrc                     set filetype=ruby
 AutoCmd BufNewFile,BufRead *_spec.rb                  set filetype=ruby.rspec
+AutoCmd BufNewFile,BufRead *_test.go                  set filetype=go.gotest
 
 AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 

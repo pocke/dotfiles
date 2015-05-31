@@ -1,0 +1,17 @@
+snippet     testf
+abbr        func(t *testing.T)...
+options     head
+  func Test${1:#:NAME}(t *testing.T) {
+    ${0:TARGET}
+  }
+
+snippet     benchf
+abbr        func(b *testing.B)...
+options     head
+  func Benchmark${1:#:NAME}(b *testing.B) {
+    ${2:#:TARGET}
+
+    for i := 0; i < b.N; i++ {
+      ${0:#:TARGET}
+    }
+  }
