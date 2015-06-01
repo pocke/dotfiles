@@ -71,7 +71,6 @@ function! s:load_bundles()
   NeoBundleLazy 'rhysd/vim-operator-surround'
   NeoBundleLazy 'emonkak/vim-operator-comment'
   NeoBundleLazy 'tyru/operator-camelize.vim'
-  NeoBundleLazy 'chikatoike/concealedyank.vim'
   NeoBundleLazy 'kana/vim-operator-replace'
   " }}}
 
@@ -544,16 +543,6 @@ if neobundle#tap('operator-camelize.vim')
   Arpeggio map <silent>ca <Plug>(operator-camelize-toggle)
 
   call s:operator_config('<Plug>(operator-camelize-toggle)')
-
-  call neobundle#untap()
-endif
-" }}}
-
-" operator concealedyank.vim {{{
-if neobundle#tap('concealedyank.vim')
-  vmap Y <Plug>(operator-concealedyank)
-
-  call s:operator_config('<Plug>(operator-concealedyank)')
 
   call neobundle#untap()
 endif
