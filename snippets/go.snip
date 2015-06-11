@@ -142,8 +142,21 @@ options     word
 
 snippet     make
 abbr        func(Type, size IntegerType) Type
+alias       make-slice
 options     word
   make(${1:[]int}, ${0})
+
+snippet     make-map
+abbr        func(Type, size IntegerType) Type
+alias       make-slice
+options     word
+  make(map[${1:string}]${2:string}, ${0})
+
+snippet     make-chan
+abbr        func(Type, size IntegerType) Type
+alias       make-slice
+options     word
+  make(chan ${1:string}, ${0})
 
 snippet     append
 abbr        func(slice []Type, elems ...Type) []Type
