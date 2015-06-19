@@ -16,7 +16,6 @@ alias b='bundle'
 alias tmux='TERM=screen-256color tmux -2'
 alias t='tmux'
 alias sozshrc='source ~/.zshrc'
-function ghq-update(){ghq list | grep '^github.com' | sed -E 's/^[^\/]+\/(.+)/\1/' | xargs -n 1 -P 10 ghq get -u}
 function -(){cd -} # alias では実現できない?
 
 ### global alias
@@ -33,7 +32,6 @@ alias -g J="| ruby -rjson -e 'jj JSON.parse(STDIN.read)'"
 alias -g P='| peco'
 alias -g V='| vim -c "set buftype=nofile" - '
 alias -g X='| xargs'
-alias -g F='"$(echo **/*(.) | tr " " "\n" | peco)"'
 
 ### suffix alias
 function extract() {
