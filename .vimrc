@@ -846,6 +846,13 @@ if neobundle#tap('vim-go')
     if executable("goimports")
       let g:go_fmt_command = "goimports"
     endif
+
+    function! s:go_cmd_alias() abort
+      command! -nargs=1 -buffer -complete=customlist,go#package#Complete Import GoImport <args>
+      command! -nargs=? -buffer                                          Rename GoRename <args>
+    endfunction
+
+    AutoCmd FileType go call s:go_cmd_alias()
   endfunction
 
   call neobundle#untap()
