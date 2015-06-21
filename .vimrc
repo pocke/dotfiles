@@ -214,7 +214,7 @@ call arpeggio#load()
 " neocomplete {{{
 if neobundle#tap('neocomplete')
   call neobundle#config({
-  \   'depends': ['Shougo/context_filetype.vim', 'pocke/neco-look'],
+  \   'depends': ['Shougo/context_filetype.vim', 'ujihisa/neco-look'],
   \ })
 
   " 起動時に有効化
