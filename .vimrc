@@ -186,7 +186,6 @@ function! s:load_bundles()
   " vim {{{
   NeoBundleLazy 'vim-jp/vimdoc-ja'
   NeoBundleLazy 'thinca/vim-prettyprint'
-  NeoBundleFetch 'thinca/vim-themis'
   "}}}
 
 
