@@ -48,6 +48,7 @@ function! s:load_bundles()
 
   NeoBundle     'Shougo/neosnippet'
   NeoBundle     'Shougo/neosnippet-snippets'
+  NeoBundleFetch 'tekkoc/PHPSnippetsCreator'
   NeoBundle     'pocke/neosnippet-incomment'
 
 
@@ -313,6 +314,7 @@ if neobundle#tap('neosnippet')
   let g:neosnippet#snippets_directory='~/dotfiles/snippets'
 
   AutoCmd InsertLeave * syntax clear neosnippetConcealExpandSnippets
+  AutoCmd FileType php NeoSnippetSource ~/.vim/bundle/PHPSnippetsCreator/dist/php_functions.snip
 
   call neobundle#untap()
 endif
