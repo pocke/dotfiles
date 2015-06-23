@@ -95,7 +95,7 @@ function! s:load_bundles()
   " 移動系プラグイン {{{
   " ぬるぬるスクロール
   NeoBundleLazy 'yonchu/accelerated-smooth-scroll'
-  NeoBundleLazy 'Lokaltog/vim-easymotion'
+  NeoBundleLazy 'easymotion/vim-easymotion'
   NeoBundleLazy 'rhysd/clever-f.vim'
   " }}}
 
