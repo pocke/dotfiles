@@ -485,21 +485,10 @@ function! s:textobj_tap(name, mappings)
   endif
 endfunction
 
-" vim-textobj-ruby {{{
 call s:textobj_tap("vim-textobj-ruby", ['ar', 'ir'])
-" }}}
-
-" vim-textobj-parameter {{{
 call s:textobj_tap('vim-textobj-parameter', ['a,', 'i,'])
-" }}}
-
-" vim-textobj-entire {{{
 call s:textobj_tap('vim-textobj-entire', ['ae', 'ie'])
-" }}}
-
-" vim-textobj-xmlattr {{{
 call s:textobj_tap('vim-textobj-xmlattr', ['ix', 'ax'])
-" }}}
 
 " }}}
 
