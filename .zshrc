@@ -253,18 +253,27 @@ function auto_display()
   fi
 }
 
-function go-new()
+# $1 is a directory path.
+function __new_base()
 {
-  local dir="$HOME/go/src/github.com/pocke/$1"
+  local dir="$1"
+  if [ -e $dir ]; then
+    echo "\e[31m$dir already exists.\e[m"
+    return
+  fi
   mkdir $dir
   cd $dir
   git init && git ci --allow-empty -m 'first commit'
 }
 
+# $1 is a project name.
+function go-new()
+{
+  __new_base "$HOME/go/src/github.com/pocke/$1"
+}
+
+# $1 is a project name.
 function ghq-new()
 {
-  local dir="$HOME/ghq/github.com/pocke/$1"
-  mkdir $dir
-  cd $dir
-  git init && git ci --allow-empty -m 'first commit'
+  __new_base "$HOME/ghq/github.com/pocke/$1"
 }
