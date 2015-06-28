@@ -876,7 +876,8 @@ if neobundle#tap('unite.vim')
 
   nnoremap <SID>(unite) <Nop>
   nmap <Space>u <SID>(unite)
-  nnoremap <silent> <SID>(unite)u :<C-u>Unite file file_mru buffer -buffer-name='file-buffer' -tab<CR>
+  nnoremap <silent> <SID>(unite)t :<C-u>Unite file file_mru buffer -buffer-name='file-buffer' -tab<CR>
+  nnoremap <silent> <SID>(unite)u :<C-u>Unite file file_mru buffer -buffer-name='file-buffer'<CR>
   nnoremap <silent> <SID>(unite)y :<C-u>Unite yankround<CR>
 
   AutoCmd FileType unite call s:unite_fix_key()
