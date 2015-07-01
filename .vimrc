@@ -878,12 +878,15 @@ if neobundle#tap('unite.vim')
   nmap <Space>u <SID>(unite)
   nnoremap <silent> <SID>(unite)t :<C-u>Unite file file_mru buffer -buffer-name='file-buffer' -tab<CR>
   nnoremap <silent> <SID>(unite)u :<C-u>Unite file file_mru buffer -buffer-name='file-buffer'<CR>
+  nnoremap <silent> <SID>(unite)v :<C-u>vs<CR>:Unite file file_mru buffer -buffer-name='file-buffer'<CR>
+  nnoremap <silent> <SID>(unite)s :<C-u>sp<CR>:Unite file file_mru buffer -buffer-name='file-buffer'<CR>
   nnoremap <silent> <SID>(unite)y :<C-u>Unite yankround<CR>
 
   AutoCmd FileType unite call s:unite_fix_key()
   function! s:unite_fix_key() abort
     if bufname('%') =~# "file-buffer"
       inoremap <buffer> / */
+      inoremap <buffer> * **/
     endif
   endfunction
 
