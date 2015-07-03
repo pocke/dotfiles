@@ -129,6 +129,9 @@ function! s:load_bundles()
   NeoBundle 'vim-ruby/vim-ruby'
   NeoBundle 'gre/play2vim'
 
+  NeoBundleLazy 'OmniSharp/omnisharp-vim'
+  NeoBundleLazy 'OrangeT/vim-csharp'
+
   NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
   \   'name': 'vimperator-syntax',
   \   'type': 'hg',
@@ -852,6 +855,20 @@ endif
 call s:tap_filetype('vim-ace', 'ace')
 call s:tap_filetype('vim-toml', 'toml')
 call s:tap_filetype('vim-yaml', 'yaml')
+
+if neobundle#tap('omnisharp-vim')
+  call neobundle#config({
+  \   'autoload': {'filetypes': ['cs', 'csi', 'csx']},
+  \   'build': {
+  \     'windows': 'msbuild server/OmniSharp.sln',
+  \     'mac':     'xbuild server/OmniSharp.sln',
+  \     'unix':    'xbuild server/OmniSharp.sln',
+  \   },
+  \ })
+
+  call neobundle#untap()
+endif
+call s:tap_filetype('vim-csharp', ['cs', 'csi', 'csx'])
 
 " }}}
 
