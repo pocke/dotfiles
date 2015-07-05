@@ -784,7 +784,7 @@ endif
 call s:tap_filetype('vim-javascript-syntax', 'javascript')
 call s:tap_filetype('vim-coffee-script', 'coffee')
 call s:tap_filetype('typescript-vim', 'typescript')
-call s:tap_filetype('typescript-tools', 'typescript')
+call s:tap_filetype('typescript-tools.vim', 'typescript')
 
 " vim-css3-syntax {{{
 if neobundle#tap('vim-css3-syntax')
