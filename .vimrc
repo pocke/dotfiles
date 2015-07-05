@@ -106,7 +106,7 @@ function! s:load_bundles()
   " AltJS {{{
   NeoBundleLazy 'kchmck/vim-coffee-script'
   NeoBundleLazy 'leafgarland/typescript-vim'
-  NeoBundleLazy 'clausreinke/typescript-tools'
+  NeoBundleLazy 'clausreinke/typescript-tools.vim'
   " }}}
   " }}}
 
