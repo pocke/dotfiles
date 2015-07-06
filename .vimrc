@@ -106,7 +106,7 @@ function! s:load_bundles()
   " AltJS {{{
   NeoBundleLazy 'kchmck/vim-coffee-script'
   NeoBundleLazy 'leafgarland/typescript-vim'
-  NeoBundleLazy 'clausreinke/typescript-tools.vim'
+  NeoBundleLazy 'Quramy/tsuquyomi'
   " }}}
   " }}}
 
@@ -255,7 +255,6 @@ if neobundle#tap('neocomplete')
   endif
 
   let g:neocomplete#sources#omni#input_patterns.go = '.*'
-
   if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
   endif
@@ -784,7 +783,7 @@ endif
 call s:tap_filetype('vim-javascript-syntax', 'javascript')
 call s:tap_filetype('vim-coffee-script', 'coffee')
 call s:tap_filetype('typescript-vim', 'typescript')
-call s:tap_filetype('typescript-tools.vim', 'typescript')
+call s:tap_filetype('tsuquyomi', 'typescript')
 
 " vim-css3-syntax {{{
 if neobundle#tap('vim-css3-syntax')
@@ -1224,6 +1223,7 @@ if neobundle#tap('vim-watchdogs')
     \   "type": "watchdogs_checker/gcc",
     \   "cmdopt": '%{PathToGccOpt()}',
     \ }
+    let g:quickrun_config['typescript/watchdogs_checker'] = {'type': ''}
 
     let g:quickrun_config['ruby.rspec/watchdogs_checker'] = {'type': 'watchdogs_checker/ruby'}
     let g:quickrun_config['go/watchdogs_checker']         = {'type': 'watchdogs_checker/go_build'}
