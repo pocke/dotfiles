@@ -20,6 +20,7 @@ nnoremap ; :
 nnoremap : ;
 nnoremap <S-C-w> <Nop>
 nnoremap y :js util.copyToClipboard(buffer.URL, true)<CR>
+nnoremap Y :js util.copyToClipboard(("[" + buffer.title + "]" + "(" + buffer.URL + ")"), true)<CR>
 
 
 
