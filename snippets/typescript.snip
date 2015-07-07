@@ -65,6 +65,8 @@ abbr        /// <reference path="..." />
 options     head
   /// <reference path="${0:#:TARGET}" />
 
-snippet     func-arrow
+snippet     function-arrow
+alias       arrow-function
 abbr        () => {}
+options     word
   (${1:#:Args}) => { ${0:#:TARGET} }
