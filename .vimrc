@@ -1667,6 +1667,7 @@ nnoremap <C-Right> <C-w>>
 
 
 inoremap <C-s> <C-x><C-s>
+inoremap <C-o> <C-x><C-o>
 
 nnoremap Q <Nop>
 AutoCmd FileType javascript nnoremap <buffer> A: A;
