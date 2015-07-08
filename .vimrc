@@ -56,6 +56,7 @@ function! s:load_bundles()
   NeoBundleLazy 'kana/vim-smartchr'
   NeoBundleLazy 'mattn/emmet-vim'
   NeoBundleLazy 'LeafCage/yankround.vim'
+  NeoBundleLazy 'osyo-manga/vim-trip'
 
   " text object {{{
   NeoBundleLazy 'terryma/vim-expand-region'
@@ -434,6 +435,21 @@ if neobundle#tap('yankround.vim')
   nnoremap <silent> <SID>(bn) :<C-u>bn<CR>
   nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "\<SID>(bp)"
   nmap <expr><C-n> yankround#is_active() ? "\<Plug>(yankround-next)" : "\<SID>(bn)"
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-trip {{{
+if neobundle#tap('vim-trip')
+  call neobundle#config({
+  \   'autoload': {
+  \     'mappings': ['<Plug>(trip-']
+  \   }
+  \ })
+
+  nmap <C-a> <Plug>(trip-increment)
+  nmap <C-x> <Plug>(trip-decrement)
 
   call neobundle#untap()
 endif
