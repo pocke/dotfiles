@@ -253,7 +253,7 @@ function auto_display()
   fi
 
   if xrandr | grep 'DP2-3 connected' > /dev/null ; then
-    xrandr --output DP2-3 --auto --left-of DP2-2 --rotate right
+    xrandr --output DP2-3 --auto --left-of DP2-2 --rotate right --gamma 0.5:0.5:0.5
   fi
 
   if xrandr | grep 'HDMI1 connected' > /dev/null ; then
