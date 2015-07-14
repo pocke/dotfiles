@@ -392,6 +392,8 @@ awful.rules.rules = {
       properties = { size_hints_honor = false } },
     { rule = {class = "Mate-system-monitor"},
       properties = {tag = tags[1][2]}},
+    { rule = {class = "Vlc"}, 
+      properties = {tag = tags[1][13]}},
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
@@ -400,53 +402,50 @@ awful.rules.rules = {
 -- How to get class: $ xprop | grep "^WM_CLASS" | sed -E 's/^.+"(.+)"$/\1/'
 if screen.count() == 1 then
   table.insert(awful.rules.rules, {
-    rule = { class = "Firefox"},
-    properties = { tag = tags[1][1]},
-  })
-  table.insert(awful.rules.rules, {
     rule = {class = "Thunderbird"},
     properties = {tag = tags[1][14]}
   })
-  table.insert(awful.rules.rules, {
-    rule = {class = "Mikutter.rb"},
-    properties = {tag = tags[1][1]}
-  })
-  table.insert(awful.rules.rules, {
-    rule = {class = "Google-chrome-stable"},
-    properties = {tag = tags[1][1]}
-  })
-  table.insert(awful.rules.rules, {
-    rule = { class = "Vivaldi-preview"},
-    properties = { tag = tags[1][1]},
-  })
-  table.insert(awful.rules.rules, {
-    rule = { class = "Vlc"},
-    properties = { tag = tags[1][13]},
-  })
 elseif screen.count() == 2 then
-  table.insert(awful.rules.rules, {
-    rule = { class = "Firefox"},
-    properties = { tag = tags[2][5]},
-  })
   table.insert(awful.rules.rules, {
     rule = {class = "Thunderbird"},
     properties = {tag = tags[2][1]}
   })
   table.insert(awful.rules.rules, {
     rule = {class = "Mikutter.rb"},
-    properties = {tag = tags[2][4]}
-  })
-  table.insert(awful.rules.rules, {
-    rule = {class = "Google-chrome-stable"},
-    properties = {tag = tags[2][4]}
+    properties = {tag = tags[2][2]}
   })
   table.insert(awful.rules.rules, {
     rule = { class = "Vivaldi-preview"},
     properties = { tag = tags[2][3]},
   })
   table.insert(awful.rules.rules, {
-    rule = { class = "Vlc"},
-    properties = { tag = tags[2][2]},
+    rule = {class = "Google-chrome-stable"},
+    properties = {tag = tags[2][4]}
+  })
+  table.insert(awful.rules.rules, {
+    rule = { class = "Firefox"},
+    properties = { tag = tags[2][5]},
+  })
+elseif  screen.count() == 3 then
+  table.insert(awful.rules.rules, {
+    rule = {class = "Thunderbird"},
+    properties = {tag = tags[3][1]}
+  })
+  table.insert(awful.rules.rules, {
+    rule = {class = "Mikutter.rb"},
+    properties = {tag = tags[2][2]}
+  })
+  table.insert(awful.rules.rules, {
+    rule = { class = "Vivaldi-preview"},
+    properties = { tag = tags[3][3]},
+  })
+  table.insert(awful.rules.rules, {
+    rule = {class = "Google-chrome-stable"},
+    properties = {tag = tags[3][4]}
+  })
+  table.insert(awful.rules.rules, {
+    rule = { class = "Firefox"},
+    properties = { tag = tags[3][5]},
   })
 end
 -- }}}
