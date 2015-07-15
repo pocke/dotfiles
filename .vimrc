@@ -1628,6 +1628,9 @@ cnoremap <C-p>  <Up>
 cnoremap <Down> <C-n>
 cnoremap <Up>   <C-p>
 
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-f> <Right>
