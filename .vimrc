@@ -53,7 +53,6 @@ function! s:load_bundles()
 
 
   NeoBundleLazy 'kana/vim-smartinput'
-  NeoBundleLazy 'kana/vim-smartchr'
   NeoBundleLazy 'mattn/emmet-vim'
   NeoBundleLazy 'LeafCage/yankround.vim'
   NeoBundleLazy 'osyo-manga/vim-trip'
@@ -363,22 +362,6 @@ if neobundle#tap('vim-smartinput')
     \ })
 
     call smartinput#map_to_trigger('i', '<Plug>(smartinput_CR)', '<Enter>', '<Enter>')
-  endfunction
-
-  call neobundle#untap()
-endif
-" }}}
-
-" vim-smartchr {{{
-if neobundle#tap('vim-smartchr')
-  call neobundle#config({
-  \   'autoload': {
-  \     'insert': '1'
-  \   }
-  \ })
-
-  function! neobundle#tapped.hooks.on_source(bundle)
-    inoremap <expr> , smartchr#loop(', ', ',')
   endfunction
 
   call neobundle#untap()
