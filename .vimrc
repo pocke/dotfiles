@@ -84,7 +84,7 @@ function! s:load_bundles()
   NeoBundle     'osyo-manga/vim-brightest'
   NeoBundleLazy 'haya14busa/incsearch.vim'
 
-  NeoBundleLazy 'pocke/ruby_hl_lvar.vim'
+  NeoBundleLazy 'todesking/ruby_hl_lvar.vim'
 
   " colorscheme {{{
   NeoBundle 'w0ng/vim-hybrid'
