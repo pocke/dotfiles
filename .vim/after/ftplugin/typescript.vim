@@ -1,0 +1,1 @@
+AutoCmd FileType typescript autocmd! tsuquyomi_defaults BufWritePost
