@@ -1221,8 +1221,8 @@ if neobundle#tap('vim-watchdogs')
     \   "type": "watchdogs_checker/gcc",
     \   "cmdopt": '%{PathToGccOpt()}',
     \ }
-    let g:quickrun_config['typescript/watchdogs_checker'] = {'type': 'watchdogs_checker/tslint'}
 
+    let g:quickrun_config['typescript/watchdogs_checker'] = {'type': 'watchdogs_checker/tslint'}
     let g:quickrun_config['ruby.rspec/watchdogs_checker'] = {'type': 'watchdogs_checker/ruby'}
     let g:quickrun_config['go/watchdogs_checker']         = {'type': 'watchdogs_checker/go_build'}
     let g:quickrun_config['go.gotest/watchdogs_checker']  = {'type': 'watchdogs_checker/go_test'}
