@@ -15,24 +15,6 @@ zle -N peco-select-history
 bindkey '^r' peco-select-history
 
 
-function peco-kill-process()
-{
-  local ps_cmd='ps aux'
-  local get_pid_cmd='sed -E s/^\S+\s+([0-9]+).+$/\1/'
-  local ps_line="$(${=ps_cmd} | peco)"
-
-  if [ -z $ps_line ]; then
-    return 1
-  fi
-
-  local pid="$(echo "${ps_line}" | ${=get_pid_cmd})"
-  kill -9 $pid
-  zle clear-screen
-}
-zle -N peco-kill-process
-bindkey '^k' peco-kill-process
-
-
 function peco-ghq-move()
 {
   local selected_dir="$(ghq list --full-path | peco --query "$LBUFFER")"
