@@ -639,6 +639,7 @@ if neobundle#tap('ruby_hl_lvar.vim')
   \   }
   \ })
 
+  let g:ruby_hl_lvar_show_warnings = 1
   function! neobundle#tapped.hooks.on_post_source(bundle)
     let g:ruby_hl_lvar_hl_group = 'PreProc'
 
