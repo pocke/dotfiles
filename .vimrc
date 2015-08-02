@@ -142,7 +142,6 @@ function! s:load_bundles()
   " Unite {{{
   NeoBundleLazy 'Shougo/unite.vim'
   NeoBundleLazy 'Shougo/unite-outline'
-  NeoBundleLazy 'lambdalisue/unite-grep-vcs'
   " }}}
 
   NeoBundleLazy 'Shougo/vimfiler'
@@ -904,22 +903,6 @@ if neobundle#tap('unite-outline')
   call neobundle#untap()
 endif
 " }}}
-
-" unite-grep-vcs {{{
-if neobundle#tap('unite-grep-vcs')
-  call neobundle#config({
-  \   'autoload': {
-  \     'unite_sources': ['grep/git', 'grep/hg'],
-  \   },
-  \ })
-
-  nnoremap <silent> <SID>(unite)g :<C-u>Unite grep/git:. -tab<CR>
-
-  call neobundle#untap()
-endif
-" }}}
-
-
 " }}}
 
 
