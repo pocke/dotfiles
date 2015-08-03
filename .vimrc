@@ -125,8 +125,9 @@ function! s:load_bundles()
   NeoBundleLazy 'cespare/vim-toml'
   NeoBundleLazy 'stephpy/vim-yaml'
   " If lazy, compound filetype is wrong...
-  NeoBundle 'vim-ruby/vim-ruby'
-  NeoBundle 'gre/play2vim'
+  NeoBundle     'vim-ruby/vim-ruby'
+  NeoBundle     'gre/play2vim'
+  NeoBundleLazy 'PProvost/vim-ps1'
 
   NeoBundleLazy 'OmniSharp/omnisharp-vim'
   NeoBundleLazy 'OrangeT/vim-csharp'
@@ -835,6 +836,7 @@ endif
 call s:tap_filetype('vim-ace', 'ace')
 call s:tap_filetype('vim-toml', 'toml')
 call s:tap_filetype('vim-yaml', 'yaml')
+call s:tap_filetype('vim-ps1', 'ps1')
 
 if neobundle#tap('omnisharp-vim')
   call neobundle#config({
