@@ -101,6 +101,7 @@ function! s:load_bundles()
   " syntax and filetype plugins {{{
   " JavaScript {{{
   NeoBundleLazy 'jelera/vim-javascript-syntax'
+  NeoBundle     'jason0x43/vim-js-indent'
   NeoBundleLazy 'marijnh/tern_for_vim'
   " AltJS {{{
   NeoBundleLazy 'kchmck/vim-coffee-script'
