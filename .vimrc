@@ -87,7 +87,7 @@ function! s:load_bundles()
   NeoBundleLazy 'todesking/ruby_hl_lvar.vim'
 
   " colorscheme {{{
-  NeoBundle 'w0ng/vim-hybrid'
+  NeoBundle     'w0ng/vim-hybrid'
   " }}}
   " }}}
 
@@ -132,7 +132,7 @@ function! s:load_bundles()
   NeoBundleLazy 'OmniSharp/omnisharp-vim'
   NeoBundleLazy 'OrangeT/vim-csharp'
 
-  NeoBundle 'https://vimperator-labs.googlecode.com/hg/', {
+  NeoBundle     'https://vimperator-labs.googlecode.com/hg/', {
   \   'name': 'vimperator-syntax',
   \   'type': 'hg',
   \   'rtp':  'vimperator/contrib/vim/'
