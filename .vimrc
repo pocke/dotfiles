@@ -249,11 +249,6 @@ if neobundle#tap('neocomplete')
   endif
   let g:neocomplete#same_filetypes.ruby = 'eruby'
 
-  if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-  endif
-
-  let g:neocomplete#sources#omni#input_patterns.go = '.*'
 
   if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
@@ -261,6 +256,7 @@ if neobundle#tap('neocomplete')
 
   let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
   let g:neocomplete#force_omni_input_patterns.typescript = '[^. \t]\.\%(\h\w*\)\?' " Same as JavaScript
+  let g:neocomplete#force_omni_input_patterns.go = '[^. \t]\.\%(\h\w*\)\?'         " Same as JavaScript
 
   let s:neco_dicts_dir = $HOME . '/dicts'
   if isdirectory(s:neco_dicts_dir)
