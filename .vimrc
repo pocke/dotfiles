@@ -143,7 +143,6 @@ function! s:load_bundles()
 
   " Unite {{{
   NeoBundleLazy 'Shougo/unite.vim'
-  NeoBundleLazy 'Shougo/unite-outline'
   " }}}
 
   NeoBundleLazy 'Shougo/vimfiler'
@@ -856,7 +855,6 @@ call s:tap_filetype('vim-csharp', ['cs', 'csi', 'csx'])
 " Application Plugins {{{
 
 " Unite{{{
-
 " unite.vim {{{
 if neobundle#tap('unite.vim')
   call neobundle#config({
@@ -886,20 +884,6 @@ if neobundle#tap('unite.vim')
       inoremap <buffer> * **/
     endif
   endfunction
-
-  call neobundle#untap()
-endif
-" }}}
-
-" unite-outline {{{
-if neobundle#tap('unite-outline')
-  call neobundle#config({
-  \   'autoload': {
-  \     'unite_sources': ['outline']
-  \   }
-  \ })
-
-  nnoremap <silent> <SID>(unite)o :<C-u>Unite outline<CR>
 
   call neobundle#untap()
 endif
