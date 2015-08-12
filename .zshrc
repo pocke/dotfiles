@@ -70,7 +70,6 @@ function name_dir() # dir, name
   alias "$2"="cd $1"
 }
 name_dir ~/dotfiles/ d
-name_dir ~/project/ p
 name_dir ~/.vim/bundle/ v
 
 ### prompt
