@@ -1,6 +1,17 @@
-snippet     namespace
-abbr        namespace NAME {...}
+snippet     describe
 options     head
-  namespace ${1:#:NAME} {
-    ${0:#:TARGET}
-  }
+  describe('${1:NAME}', () => {
+    ${2:#:TARGET}
+  });
+
+snippet     context
+options     head
+  context('${1:NAME}', () => {
+    ${2:#:TARGET}
+  });
+
+snippet     it
+options     head
+  it('${1:NAME}', () => {
+    ${2:#:TARGET}
+  });
