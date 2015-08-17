@@ -26,9 +26,3 @@ function peco-ghq-move()
 }
 zle -N peco-ghq-move
 bindkey '^G' peco-ghq-move
-
-# https://github.com/sona-tar/ghs
-function ghi () {
-  [ "$#" -eq 0 ] && echo "Usage : gpi QUERY" && return 1
-  ghs "$@" | peco | awk '{print $1}' | ghq import
-}
