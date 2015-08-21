@@ -453,7 +453,6 @@ if neobundle#tap('vim-expand-region')
     \   'i)': 0,
     \   'i}': 0,
     \   'i]': 0,
-    \   'il': 1,
     \   'ae': 1,
     \ }
     let g:expand_region_text_objects_ruby = copy(g:expand_region_text_objects)
