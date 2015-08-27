@@ -786,10 +786,7 @@ if neobundle#tap('vim-css3-syntax')
   \   }
   \ })
 
-  augroup VimCSS3Syntax
-    autocmd!
-    autocmd FileType css setlocal iskeyword+=-
-  augroup END
+  AutoCmd FileType css setlocal iskeyword+=-
 
   call neobundle#untap()
 endif
