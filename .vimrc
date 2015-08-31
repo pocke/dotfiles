@@ -1113,6 +1113,8 @@ if neobundle#tap('vim-watchdogs')
   AutoCmd FileType go command! -buffer Build WatchdogsRun watchdogs_checker/go_build
   AutoCmd FileType go command! -buffer Test WatchdogsRun watchdogs_checker/go_test
 
+  AutoCmd FileType ruby command! -buffer Rubocop WatchdogsRun watchdogs_checker/rubocop
+
   let g:hier_highlight_group_qf = 'Error'
 
   function! neobundle#tapped.hooks.on_source(bundle)
