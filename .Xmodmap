@@ -16,7 +16,3 @@ remove Shift = Shift_R
 keysym Shift_R = Zenkaku_Hankaku
 
 keysym Insert = End
-
-keycode 102 = Mode_switch
-!keycode 101 = Mode_switch
-keycode 100 = Mode_switch
