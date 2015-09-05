@@ -1508,6 +1508,8 @@ AutoCmd FileType ruby setl tags+=~/.gem/ruby/2.2.0/gems/tags
 AutoCmd FileType js nested setlocal ft=javascript
 AutoCmd FileType md nested setlocal ft=markdown
 
+AutoCmd FileType ruby setl iskeyword+=?
+
 " help key mappings
 AutoCmd FileType help call s:set_help_keymap()
 function! s:set_help_keymap()
@@ -1575,7 +1577,7 @@ nnoremap <silent> <C-l> :<C-u>tabnext<CR>
 nnoremap <silent> <C-h> :<C-u>tabprevious<CR>
 
 " タグジャンプを新しいタブで開く
-nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
+nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>zz
 nnoremap <F4> :<C-u>%s/<C-r>//
 
 nnoremap <Space>w :<C-u>w<CR>
