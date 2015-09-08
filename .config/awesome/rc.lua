@@ -265,6 +265,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
     awful.key({ modkey,           }, "q", function () awful.util.spawn("xtrlock -b") end),
+    awful.key({ modkey,           }, "p", function () awful.util.spawn("maim -s") end),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
@@ -288,7 +289,7 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end),
+    -- awful.key({ modkey }, "p", function() menubar.show() end),
     -- pocke
     awful.key({modkey,	}, "a",		function () awful.util.spawn("/home/pocke/bin/.TouchPadToggle") end),
     awful.key({ }, "XF86AudioRaiseVolume", function() awful.util.spawn("/home/pocke/bin/sound/sound_up.sh") end),
