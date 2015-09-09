@@ -199,18 +199,6 @@ zle -N _rehash
 bindkey "\C-m" _rehash
 
 
-# swap last arg <-> last - 1 arg
-function swap_last_arg()
-{
-  local last_arg="${${(z)BUFFER}[-1]}"
-  local last_1_arg="${${(z)BUFFER}[-2]}"
-  local other="${${(z)BUFFER}[0, -3]}"
-  BUFFER="${other} ${last_arg} ${last_1_arg}"
-}
-zle -N swap_last_arg
-bindkey "\C-s" swap_last_arg
-
-
 function is_git_dir()
 {
   git rev-parse --show-toplevel > /dev/null 2>&1
