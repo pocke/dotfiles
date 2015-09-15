@@ -1098,7 +1098,7 @@ if neobundle#tap('vim-watchdogs')
   \     'thinca/vim-quickrun',
   \     'Shougo/vimproc.vim',
   \     'osyo-manga/shabadou.vim',
-  \     'cohama/vim-hier',
+  \     'pocke/vim-hier',
   \     'dannyob/quickfixstatus'
   \   ]
   \ })
