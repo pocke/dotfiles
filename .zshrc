@@ -14,7 +14,7 @@ setopt INTERACTIVE_COMMENTS
 export EDITOR=vim
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/bin
+export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
 which rbenv > /dev/null 2>&1 && eval "$(rbenv init -)"
 # https://wiki.archlinux.org/index.php/Java_Runtime_Environment_Fonts_%28%E6%97%A5%E6%9C%AC%E8%AA%9E%29
