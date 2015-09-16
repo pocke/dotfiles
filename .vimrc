@@ -1142,13 +1142,13 @@ if neobundle#tap('vim-watchdogs')
 
     let g:quickrun_config['watchdogs_checker/go_build'] = {
     \   'command':     'go',
-    \   'exec':        '%c build %o',
+    \   'exec':        '%c build %o ./%s:.:h',
     \   "errorformat" : '%f:%l: %m,%-G%.%#',
     \ }
 
     let g:quickrun_config['watchdogs_checker/go_test'] = {
     \   'command':     'go',
-    \   'exec':        '%c test %o',
+    \   'exec':        '%c test %o ./%s:.:h',
     \   "errorformat" : '%f:%l: %m,%-G%.%#',
     \ }
 
