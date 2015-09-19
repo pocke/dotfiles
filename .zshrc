@@ -227,24 +227,9 @@ function sub()
 function auto_display()
 {
   xrandr --output DP2-2 --off
-  xrandr --output DP2-3 --off
-  xrandr --output HDMI1 --off
   xrandr --output eDP1 --on --auto
   if xrandr | grep 'DP2-2 connected' > /dev/null ; then
-    if xrandr | grep '3840x2160' > /dev/null ; then
-      xrandr --output DP2-2 --left-of eDP1 --mode 3840x2160 --rate 29.98
-    else
-      xrandr --output DP2-2 --auto --left-of eDP1 --rotate right
-    fi
-  fi
-
-  if xrandr | grep 'DP2-3 connected' > /dev/null ; then
-    xrandr --output DP2-3 --auto --left-of DP2-2 --rotate right --gamma 0.45:0.45:0.45
-  fi
-
-  if xrandr | grep 'HDMI1 connected' > /dev/null ; then
-    xrandr --output HDMI1 --auto
-    xrandr --output eDP1 --auto --left-of HDMI1
+    xrandr --output DP2-2 --auto --left-of eDP1 --rotate right
   fi
 }
 
