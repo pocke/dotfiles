@@ -1607,8 +1607,8 @@ AutoCmd FileType javascript nnoremap <buffer> A: A;
 nnoremap Y y$
 
 nnoremap <silent><C-s> :<C-u>set spell!<CR>
-nnoremap <silent><Tab> :<C-u>set cursorcolumn!<CR>
-vnoremap <silent><Tab> :<C-u>set cursorcolumn!<CR>
+nnoremap <silent><Tab> :<C-u>set cursorcolumn!<CR>:<C-u>set cursorline!<CR>
+vnoremap <silent><Tab> :<C-u>set cursorcolumn!<CR>:<C-u>set cursorline!<CR>
 
 snoremap <C-w> a<C-h>
 " }}}
