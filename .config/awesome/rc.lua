@@ -291,14 +291,9 @@ globalkeys = awful.util.table.join(
     -- Menubar
     -- awful.key({ modkey }, "p", function() menubar.show() end),
     -- pocke
-    awful.key({modkey,	}, "a",		function () awful.util.spawn("/home/pocke/bin/.TouchPadToggle") end),
-    awful.key({ }, "XF86AudioRaiseVolume", function() awful.util.spawn("/home/pocke/bin/sound/sound_up.sh") end),
-    awful.key({ }, "XF86AudioLowerVolume", function() awful.util.spawn("/home/pocke/bin/sound/sound_down.sh") end),
-    awful.key({ }, "XF86AudioMute", function() awful.util.spawn("/home/pocke/bin/sound/sound_mute.sh") end),
-    awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/pictures/screenShot/ 2>/dev/null'") end),
-    awful.key({ modkey, "Shift"}, "a", function () awful.util.spawn("zsh -c 'source ~/.zshrc; auto_display'")end ),
+    awful.key({ modkey, }, "a", function () awful.util.spawn("/home/pocke/bin/.TouchPadToggle") end),
     awful.key({ modkey, }, "b", wallpaper_toggle ),
-    awful.key({ modkey,           }, "v", function () awful.util.spawn('gvim') end)
+    awful.key({ modkey, }, "v", function () awful.util.spawn('gvim') end)
 )
 
 clientkeys = awful.util.table.join(

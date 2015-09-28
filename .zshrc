@@ -224,15 +224,6 @@ function sub()
   git grep -l $from | xargs sed -i -e "s/${from}/${to}/g"
 }
 
-function auto_display()
-{
-  xrandr --output DP2-2 --off
-  xrandr --output eDP1 --on --auto
-  if xrandr | grep 'DP2-2 connected' > /dev/null ; then
-    xrandr --output DP2-2 --auto --left-of eDP1 --rotate right
-  fi
-}
-
 # $1 is a directory path.
 function __new_base()
 {
