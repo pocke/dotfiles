@@ -3,5 +3,8 @@
     "Selected": ["default", "on_green",   "bold"],
     "Query":    ["blue",    "on_default", "bold"],
     "Matched":  ["cyan",    "on_default", "bold"]
+  },
+  "Keymap": {
+    "C-f": "peco.ToggleSingleKeyJump"
   }
 }
