@@ -5,6 +5,8 @@
     "Matched":  ["cyan",    "on_default", "bold"]
   },
   "Keymap": {
-    "C-f": "peco.ToggleSingleKeyJump"
+    "C-f": "peco.ToggleSingleKeyJump",
+    "C-u": "peco.ScrollPageUp",
+    "C-d": "peco.ScrollPageDown"
   }
 }
