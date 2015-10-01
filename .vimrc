@@ -47,7 +47,7 @@ function! s:load_bundles()
   NeoBundleLazy 'osyo-manga/vim-marching'
 
   NeoBundle     'Shougo/neosnippet'
-  NeoBundle     'Shougo/neosnippet-snippets'
+  NeoBundle     'pocke/neosnippet-snippets'
   NeoBundleFetch 'tekkoc/PHPSnippetsCreator'
   NeoBundle     'pocke/neosnippet-incomment'
 
