@@ -47,7 +47,7 @@ function! s:load_bundles()
   NeoBundleLazy 'osyo-manga/vim-marching'
 
   NeoBundle     'Shougo/neosnippet'
-  NeoBundle     'pocke/neosnippet-snippets'
+  NeoBundle     'Shougo/neosnippet-snippets'
   NeoBundleFetch 'tekkoc/PHPSnippetsCreator'
   NeoBundle     'pocke/neosnippet-incomment'
 
@@ -1525,6 +1525,8 @@ endfunction
 " https://github.com/haya14busa/dotfiles
 command! SoVimrc source $MYVIMRC | if has('gui_running') | source $MYGVIMRC | endif
 AutoCmd BufWritePost *vimrc nested SoVimrc
+
+AutoCmd BufNewFile,BufRead * let b:neosnippet_disable_snippet_triggers = ['fname', 'path']
 "}}}
 
 
