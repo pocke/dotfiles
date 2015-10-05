@@ -1615,6 +1615,7 @@ vnoremap <silent><Tab> :<C-u>set cursorcolumn!<CR>:<C-u>set cursorline!<CR>
 snoremap <C-w> a<C-h>
 
 iabbrev stirng string
+iabbrev レポジトリ リポジトリ
 " }}}
 
 
