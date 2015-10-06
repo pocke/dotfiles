@@ -81,7 +81,6 @@ function! s:load_bundles()
   NeoBundle     'thinca/vim-splash'
   NeoBundleLazy 'vim-scripts/AnsiEsc.vim'
   NeoBundle     'itchyny/lightline.vim'
-  NeoBundle     'osyo-manga/vim-brightest'
   NeoBundleLazy 'haya14busa/incsearch.vim'
 
   NeoBundleLazy 'todesking/ruby_hl_lvar.vim'
@@ -581,19 +580,6 @@ if neobundle#tap('lightline.vim')
   \   },
   \   'component': {},
   \   'component_visible_condition': {},
-  \ }
-
-  call neobundle#untap()
-endif
-" }}}
-
-" vim-brightest {{{
-if neobundle#tap('vim-brightest')
-  AutoCmd ColorScheme * hi pluginVimBrightest ctermbg=239 guibg=#444444
-
-  let g:brightest#enable_highlight_all_window = 0
-  let g:brightest#highlight = {
-  \   'group': 'pluginVimBrightest',
   \ }
 
   call neobundle#untap()
