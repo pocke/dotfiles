@@ -1029,26 +1029,24 @@ if neobundle#tap('vim-quickrun')
   \   }
   \ })
 
-  function! neobundle#tapped.hooks.on_source(bundle)
-    let g:quickrun_config = {
-    \   '_': {
-    \     'runner': 'vimproc',
-    \     'runner/vimproc/updatetime': 60,
-    \     'tempfile': '%{expand("%:p:h") . "/" . system("echo -n $(uuidgen)")}'
-    \   },
-    \   'markdown': {
-    \     'type':      'markdown/gfm',
-    \     'outputter': 'browser'
-    \   },
-    \   'ruby.rspec': {
-    \     'command': 'rspec',
-    \     'exec': 'bundle exec %c --color --tty %s',
-    \     'outputter/buffer/name': '[quickrun output rspec]'
-    \   },
-    \ }
+  let g:quickrun_config = {
+  \   '_': {
+  \     'runner': 'vimproc',
+  \     'runner/vimproc/updatetime': 60,
+  \     'tempfile': '%{expand("%:p:h") . "/" . system("echo -n $(uuidgen)")}'
+  \   },
+  \   'markdown': {
+  \     'type':      'markdown/gfm',
+  \     'outputter': 'browser'
+  \   },
+  \   'ruby.rspec': {
+  \     'command': 'rspec',
+  \     'exec': 'bundle exec %c --color --tty %s',
+  \     'outputter/buffer/name': '[quickrun output rspec]'
+  \   },
+  \ }
 
-    AutoCmd FileType quickrun AnsiEsc
-  endfunction
+  AutoCmd FileType quickrun AnsiEsc
 
   nnoremap <silent><Leader>r :QuickRun<CR>
 
