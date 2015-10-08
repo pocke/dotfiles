@@ -291,7 +291,6 @@ globalkeys = awful.util.table.join(
     -- Menubar
     -- awful.key({ modkey }, "p", function() menubar.show() end),
     -- pocke
-    awful.key({ modkey, }, "a", function () awful.util.spawn("/home/pocke/bin/.TouchPadToggle") end),
     awful.key({ modkey, }, "b", wallpaper_toggle ),
     awful.key({ modkey, }, "v", function () awful.util.spawn('gvim') end)
 )
