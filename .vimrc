@@ -1226,7 +1226,6 @@ if neobundle#tap('vim-automatic')
 
   function! s:my_temp_win_init(config, context)
     nnoremap <buffer> q :<C-u>q<CR>
-    nnoremap <buffer> Q :<C-u>q<CR>
   endfunction
 
   let g:automatic_default_set_config = {
@@ -1587,7 +1586,7 @@ nnoremap <C-Right> <C-w>>
 inoremap <C-s> <C-x><C-s>
 inoremap <C-o> <C-x><C-o>
 
-nnoremap Q <Nop>
+nnoremap Q @q
 AutoCmd FileType javascript nnoremap <buffer> A: A;
 
 nnoremap Y y$
