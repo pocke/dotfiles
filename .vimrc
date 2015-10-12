@@ -1144,7 +1144,6 @@ if neobundle#tap('vim-watchdogs')
     let g:quickrun_config['typescript/watchdogs_checker'] = {'type': 'watchdogs_checker/tslint'}
     let g:quickrun_config['ruby.rspec/watchdogs_checker'] = {'type': 'watchdogs_checker/ruby'}
     let g:quickrun_config['go/watchdogs_checker']         = {'type': 'watchdogs_checker/go_build'}
-    let g:quickrun_config['go.gotest/watchdogs_checker']  = {'type': 'watchdogs_checker/go_test'}
 
     let g:watchdogs_check_BufWritePost_enable = 1
     call watchdogs#setup(g:quickrun_config)
