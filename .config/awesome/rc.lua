@@ -38,6 +38,9 @@ do
 end
 -- }}}
 
+naughty.config.defaults.icon_size = 64
+naughty.config.defaults.font      = "Ricty 16"
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 local theme = awful.util.getdir("config") .. "/themes/default/theme.lua"
