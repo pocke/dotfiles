@@ -874,7 +874,6 @@ if neobundle#tap('vimfiler')
   \       'Source'
   \     ],
   \     'mappings' : '<Plug>(vimfiler_',
-  \     'explorer': 1
   \   },
   \   'depends': 'Shougo/unite.vim'
   \ })
