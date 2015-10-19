@@ -1610,17 +1610,6 @@ endfunction
 AutoCmd WinEnter * call s:auto_close_quickfix()
 " }}}
 
-function! s:operator_google_filetype(mosion_wize)
-  NeoBundleSource open-browser.vim
-  if line("'[") != line("']")
-    return
-  endif
-  let start = col("'[") - 1
-  let end   = col("']")
-  let sel = strpart(getline('.'), start, end - start)
-  call openbrowser#search(sel . ' ' . &ft)
-endfunction
-
 function! s:operator_google(mosion_wize)
   NeoBundleSource open-browser.vim
   if line("'[") != line("']")
@@ -1635,7 +1624,5 @@ endfunction
 NeoBundleSource vim-operator-user
 call operator#user#define('google-search', s:SID . 'operator_google')
 map go <Plug>(operator-google-search)
-call operator#user#define('google-search-filetype', s:SID . 'operator_google_filetype')
-map gf <Plug>(operator-google-search-filetype)
 
 " vim:set foldmethod=marker:
