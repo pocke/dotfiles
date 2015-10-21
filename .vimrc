@@ -1500,15 +1500,7 @@ function! s:set_help_keymap()
   nnoremap <buffer> <BS> <C-t>
 endfunction
 
-" AutoReload .vimrc {{{
-" https://github.com/haya14busa/dotfiles
-command! SoVimrc source $MYVIMRC | if has('gui_running') | source $MYGVIMRC | endif
-AutoCmd BufWritePost *vimrc nested SoVimrc
-
 AutoCmd BufNewFile,BufRead * let b:neosnippet_disable_snippet_triggers = ['fname', 'path']
-"}}}
-
-
 AutoCmd VimResized * wincmd =
 
 
