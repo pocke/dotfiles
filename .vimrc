@@ -763,6 +763,7 @@ call s:tap_filetype('vim-javascript-syntax', 'javascript')
 call s:tap_filetype('vim-coffee-script', 'coffee')
 call s:tap_filetype('typescript-vim', 'typescript')
 call s:tap_filetype('tsuquyomi', 'typescript')
+let g:tsuquyomi_disable_quickfix = 1
 
 " vim-css3-syntax {{{
 if neobundle#tap('vim-css3-syntax')
