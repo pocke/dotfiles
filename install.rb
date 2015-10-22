@@ -27,7 +27,7 @@ FileUtils.mkdir_p(File.expand_path('~/.config/peco/'))
 end
 
 is_arch = File.exists?('/etc/pacman.conf')
-exec('sudo pacman -S words nodejs npm go tmux') if is_arch
+exec('sudo pacman -S words nodejs npm go tmux tig') if is_arch
 
 unless File.exists?(File.expand_path("~/.gitconfig"))
   exec(<<-EOS
@@ -42,7 +42,7 @@ EOF
 end
 
 unless File.exists?(File.expand_path("~/.zshrc"))
-  exec('echo "source dotfiles/.zshrc" >> .zshrc')
+  exec('echo "source dotfiles/.zshrc" >> ~/.zshrc')
 end
 
 unless Dir.exist?(File.expand_path('~/.vim/bundle/neobundle.vim'))
