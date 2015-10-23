@@ -16,7 +16,7 @@ FileUtils.mkdir_p(File.expand_path('~/.config/peco/'))
 %w[
   .gemrc .rspec .tigrc .vimperatorrc .xinitrc .yaourtrc
   .tmux.conf .vimrc .Xmodmap .ctags .gvimrc
-  .config/awesome/rc.lua .config/fontconfig/fonts.conf .config/peco/config.json
+  .config/awesome/rc.lua .config/awesome/themes .config/fontconfig/fonts.conf .config/peco/config.json
   .bundle/config
   .vim/after
   .vim/colors
