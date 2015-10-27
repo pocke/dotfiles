@@ -646,7 +646,6 @@ if neobundle#tap('ruby_hl_lvar.vim')
             call ruby_hl_lvar#refresh(1)
             autocmd TextChanged  <buffer> call s:ruby_hl_lvar_on_textchanged()
             autocmd InsertLeave  <buffer> call ruby_hl_lvar#refresh(0)
-            autocmd TextChangedI <buffer> call ruby_hl_lvar#refresh(0)
           else
             call ruby_hl_lvar#disable(1)
           endif
