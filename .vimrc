@@ -143,7 +143,6 @@ function! s:load_bundles()
   NeoBundleLazy 'Shougo/unite.vim'
   " }}}
 
-  NeoBundleLazy 'Shougo/vimfiler'
   NeoBundleLazy 'sjl/gundo.vim'
   NeoBundleLazy 'thinca/vim-ref'
 
@@ -858,36 +857,6 @@ endif
 " }}}
 " }}}
 
-
-" vimfiler {{{
-if neobundle#tap('vimfiler')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': [
-  \       'VimFiler',
-  \       'VimFilerTab',
-  \       'VimFilerBufferDir',
-  \       'VimFilerExplorer',
-  \       'Edit',
-  \       'Write',
-  \       'Read',
-  \       'Source'
-  \     ],
-  \     'mappings' : '<Plug>(vimfiler_',
-  \   },
-  \   'depends': 'Shougo/unite.vim'
-  \ })
-
-  let g:vimfiler_as_default_explorer = 1
-  let g:vimfiler_force_overwrite_statusline = 0
-  let g:vimfiler_ignore_pattern = '^.git'
-
-  nnoremap <Space>ff :<C-u>VimFiler<CR>
-  nnoremap <Space>ft :<C-u>VimFilerTab<CR>
-
-  call neobundle#untap()
-endif
-" }}}
 
 " gundo.vim {{{
 if neobundle#tap('gundo.vim')
