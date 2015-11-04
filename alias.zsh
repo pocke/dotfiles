@@ -20,7 +20,6 @@ function -(){cd -} # alias では実現できない?
 
 ### global alias
 alias -g G='| grep'
-alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
 if which xsel > /dev/null 2>&1; then
@@ -29,7 +28,6 @@ fi
 alias -g N='> /dev/null 2>&1'
 alias -g ALL='**/*~.git/*~*/.git/*(.)'
 alias -g J="| ruby -rjson -e 'jj JSON.parse(STDIN.read)'"
-alias -g P='| peco'
 alias -g V='| vim -c "set buftype=nofile" - '
 alias -g X='| xargs'
 
