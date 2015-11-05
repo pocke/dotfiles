@@ -864,9 +864,6 @@ if neobundle#tap('gundo.vim')
   \   'autoload': {
   \     'commands': [
   \       'GundoToggle',
-  \       'GundoShow',
-  \       'GundoHide',
-  \       'GundoRenderGraph'
   \     ]
   \   }
   \ })
