@@ -402,10 +402,6 @@ if neobundle#tap('yankround.vim')
   xmap p <Plug>(yankround-p)
   nmap P <Plug>(yankround-P)
 
-  nmap gp <Plug>(yankround-gp)
-  xmap gp <Plug>(yankround-gp)
-  nmap gP <Plug>(yankround-gP)
-
   " 直接nmapするとキーマップが展開されてしまうため、一旦マップを置き換える
   nnoremap <silent> <SID>(bp) :<C-u>bp<CR>
   nnoremap <silent> <SID>(bn) :<C-u>bn<CR>
