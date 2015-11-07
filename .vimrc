@@ -92,7 +92,7 @@ function! s:load_bundles()
 
   " 移動系プラグイン {{{
   " ぬるぬるスクロール
-  NeoBundleLazy 'yonchu/accelerated-smooth-scroll'
+  NeoBundle     'yonchu/accelerated-smooth-scroll'
   NeoBundleLazy 'easymotion/vim-easymotion'
   NeoBundleLazy 'rhysd/clever-f.vim'
   " }}}
@@ -660,23 +660,6 @@ endif
 " 移動系プラグイン {{{
 
 " accelerated-smooth-scroll {{{
-if neobundle#tap('accelerated-smooth-scroll')
-  call neobundle#config({
-  \   'autoload': {
-  \     'mappings': ['<Plug>(ac-smooth-scroll-c-']
-  \   }
-  \ })
-
-  let g:ac_smooth_scroll_no_default_key_mappings = 1
-
-  nmap <silent> <C-d> <Plug>(ac-smooth-scroll-c-d)
-  nmap <silent> <C-u> <Plug>(ac-smooth-scroll-c-u)
-  nmap <silent> <C-f> <Plug>(ac-smooth-scroll-c-f)
-  nmap <silent> <C-b> <Plug>(ac-smooth-scroll-c-b)
-
-  call neobundle#untap()
-endif
-
 " }}}
 
 " vim-easymotion {{{
