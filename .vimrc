@@ -149,7 +149,6 @@ function! s:load_bundles()
   NeoBundleLazy 'thinca/vim-scouter'
 
   " Web service {{{
-  NeoBundleLazy 'moznion/hateblo.vim'
   NeoBundleLazy 'lambdalisue/vim-gista'
   " }}}
 
@@ -887,19 +886,6 @@ endif
 
 
 " Web Service {{{
-" hateblo.vim {{{
-if neobundle#tap('hateblo.vim')
-  call neobundle#config({
-  \   'autoload': {
-  \     'commands': ['HatebloCreate', 'HatebloCreateDraft', 'HatebloList']
-  \   },
-  \   'depends': ['mattn/webapi-vim', 'Shougo/unite.vim']
-  \ })
-
-  call neobundle#untap()
-endif
-" }}}
-
 " vim-gista {{{
 if neobundle#tap('vim-gista')
   call neobundle#config({
