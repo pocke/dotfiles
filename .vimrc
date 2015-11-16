@@ -116,6 +116,7 @@ function! s:load_bundles()
   NeoBundleLazy 'whatyouhide/vim-textobj-xmlattr',
   \   TextobjConfig(['ax', 'ix'])
 
+  delfunction TextobjConfig
   " }}}
 
   " operator {{{
@@ -137,6 +138,8 @@ function! s:load_bundles()
   \   OperatorConfig('<Plug>(operator-camelize-toggle)')
   NeoBundleLazy 'kana/vim-operator-replace',
   \   OperatorConfig('<Plug>(operator-replace)')
+
+  delfunction OperatorConfig
   " }}}
 
   " }}}
