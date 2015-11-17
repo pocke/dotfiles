@@ -589,6 +589,7 @@ if neobundle#tap('vim-expand-region')
     let g:expand_region_text_objects = {
     \   "i'": 0,
     \   'i"': 0,
+    \   "i`": 0,
     \   'i)': 0,
     \   'i}': 0,
     \   'i]': 0,
