@@ -53,7 +53,7 @@ unless Dir.exist?(File.expand_path('~/.zsh/zsh-syntax-highlighting'))
   exec('git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting')
 end
 
-exec('vim +NeoBunldeInstall +q')
+exec('vim +NeoBundleInstall +q')
 exec('sudo npm install -g jshint bower chai jsonlint mocha mocha-phantomjs nib sinon stylus typescript typescript-tools yuidocjs tslint')
 exec('gem install bundler')
 exec('bundle install')
