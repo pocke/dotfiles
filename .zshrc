@@ -248,3 +248,11 @@ function ghq-new()
 {
   __new_base "$HOME/ghq/github.com/pocke/$1"
 }
+
+# $1 is command name
+function subsh()
+{
+  function precmd() {
+    print -z 'git '
+  }
+}
