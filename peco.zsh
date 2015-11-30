@@ -26,3 +26,23 @@ function peco-ghq-move()
 }
 zle -N peco-ghq-move
 bindkey '^G' peco-ghq-move
+
+# http://hotolab.net/blog/peco_select_path/
+function peco-find-file()
+{
+  local filepath="$(find . | grep -v '/\.git/' | peco)"
+  [ -z "$filepath" ] && return
+  if [ -n "$LBUFFER" ]; then
+    BUFFER="$LBUFFER$filepath"
+  else
+    if [ -d "$filepath" ]; then
+      BUFFER="cd $filepath"
+    elif [ -f "$filepath" ]; then
+      BUFFER="$EDITOR $filepath"
+    fi
+  fi
+  CURSOR=$#BUFFER
+}
+
+zle -N peco-find-file
+bindkey '^f' peco-find-file
