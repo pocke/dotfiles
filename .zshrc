@@ -252,7 +252,5 @@ function ghq-new()
 # $1 is command name
 function subsh()
 {
-  function precmd() {
-    print -z 'git '
-  }
+  eval "precmd() { print -z '$1 ' }"
 }
