@@ -682,7 +682,6 @@ endif
 " incsearch.vim {{{
 if neobundle#tap('incsearch.vim')
   map / <Plug>(incsearch-forward)
-  map ? <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
 
   function neobundle#tapped.hooks.on_post_source(bundle)
@@ -804,6 +803,7 @@ if neobundle#tap('vim-go')
     function! s:go_cmd_alias() abort
       command! -nargs=1 -buffer -complete=customlist,go#package#Complete Import GoImport <args>
       command! -nargs=? -buffer                                          Rename GoRename <args>
+      nmap <buffer>? <Plug>(go-info)
     endfunction
 
     AutoCmd FileType go call s:go_cmd_alias()
