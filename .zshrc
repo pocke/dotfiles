@@ -252,7 +252,7 @@ function ghq-new()
 # $1 is command name
 function subsh()
 {
-  eval "__precmd_for_subsh_$1() { print -z '$1 ' }"
+  eval "__precmd_for_subsh() { print -z '$* ' }"
   autoload -Uz add-zsh-hook
-  add-zsh-hook precmd "__precmd_for_subsh_$1"
+  add-zsh-hook precmd "__precmd_for_subsh"
 }
