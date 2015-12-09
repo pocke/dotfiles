@@ -54,7 +54,7 @@ unless Dir.exist?(File.expand_path('~/.zsh/zsh-syntax-highlighting'))
 end
 
 exec('vim +NeoBundleInstall +q')
-exec('sudo npm install -g jshint bower chai jsonlint mocha mocha-phantomjs nib sinon stylus typescript typescript-tools yuidocjs tslint')
+exec('sudo npm install -g jshint bower jsonlint stylus typescript typescript-tools tslint')
 exec('gem install bundler')
 exec('bundle install')
 exec('go get github.com/motemen/ghq github.com/jteeuwen/go-bindata/... github.com/pocke/www github.com/golang/lint/golint github.com/peco/peco/...')
