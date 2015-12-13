@@ -164,9 +164,7 @@ function! s:load_bundles()
   \   }
   \ }
 
-  " colorscheme {{{
   NeoBundle     'w0ng/vim-hybrid'
-  " }}}
   " }}}
 
   " 移動系プラグイン {{{
@@ -1082,17 +1080,13 @@ if neobundle#tap('vim-automatic')
   \     }
   \   },
   \   {
-  \     'match': {
-  \       'bufname': '\V[quickrun output]'
-  \     },
+  \     'match': { 'bufname': '\V[quickrun output]' },
   \     'set': {
   \       'height': 8,
   \     }
   \   },
   \   {
-  \     'match': {
-  \       'bufname': '^\[quickrun output rspec\]'
-  \     },
+  \     'match': { 'bufname': '^\[quickrun output rspec\]' },
   \     'set': {
   \       'height': '20%'
   \     }
