@@ -93,6 +93,10 @@ options     head
     return $3
   }
 
+snippet     map
+abbr        map[TYPE]TYPE
+options     word
+  map[${1:string}]${2:string}
 
 # ------------------------  override default snippets
 
