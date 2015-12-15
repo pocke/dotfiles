@@ -98,6 +98,12 @@ abbr        map[TYPE]TYPE
 options     word
   map[${1:string}]${2:string}
 
+snippet     if-deepequal
+options     head
+  if !reflect.DeepEqual(${1}, ${2}) {
+      t.Error${3:f}(${0})
+  }
+
 # ------------------------  override default snippets
 
 snippet     if
