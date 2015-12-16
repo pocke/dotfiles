@@ -833,9 +833,17 @@ if neobundle#tap('unite.vim')
   nnoremap <silent> <SID>(unite)y :<C-u>Unite yankround<CR>
 
   AutoCmd FileType unite call s:unite_fix_key()
+  function! s:unite_slash() abort
+    if getpos('.')[2] == 1
+      return '/'
+    else
+      return '*/'
+    endif
+  endfunction
+
   function! s:unite_fix_key() abort
     if bufname('%') =~# "file-buffer"
-      inoremap <buffer> / */
+      inoremap <buffer><expr> / <SID>unite_slash()
       inoremap <buffer> * **/
     endif
   endfunction
