@@ -1434,4 +1434,45 @@ NeoBundleSource vim-operator-user
 call operator#user#define('google-search', s:SID . 'operator_google')
 map go <Plug>(operator-google-search)
 
+function! GoIfSnip() abort
+  let re_func = '\vfunc'
+  let re_type = '%(%(\.\.\.)?\*?%(\w+)|%(\w+\.\w+))'
+  let re_rcvr = '%(\s*\(\w+\s+' . re_type . '\))?'
+  let re_name = '%(\s*\w+)?'
+  let re_arg  = '\(%(\w+%(\s+' . re_type . ')?\s*,?\s*)*\)'
+  let re_ret  = '%(\s*\(?(\s*\*?[a-zA-Z0-9_. ,]+)\)?\s*)?'
+  let re = re_func . re_rcvr . re_name . re_arg . re_ret . '\{'
+
+  let lnum = line('.')
+  let ret = ""
+  while lnum > 0
+    let lnum -= 1
+
+    let ma = matchlist(getline(lnum), re)
+    if len(ma) == 0
+      continue
+    endif
+    let ret = ma[1]
+    break
+  endwhile
+
+  if ret =~ '\v^\s*$'
+    return '${0:return}'
+  endif
+
+  let rets = []
+  for t in split(ret, ',')
+    if t =~# '\v^\s*error\s*$'
+      let v = 'err'
+    elseif t =~# '\v^\s*string\s*$'
+      let v = '""'
+    else
+      let v = 'nil'
+    endif
+    call add(rets, v)
+  endfor
+
+  return '${0:return ' . join(rets, ", ") . '}'
+endfunction
+
 " vim:set foldmethod=marker:

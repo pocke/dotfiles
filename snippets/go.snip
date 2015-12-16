@@ -109,7 +109,7 @@ options     head
 snippet     if
 options     head
   if ${1:err != nil} {
-      ${0:return err}
+      `GoIfSnip()`
   }
 
 snippet     range
