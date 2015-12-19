@@ -1436,11 +1436,15 @@ map go <Plug>(operator-google-search)
 
 function! GoIfSnip() abort
   let re_func = '\vfunc'
-  let re_type = '%(%(\.\.\.)?\*?%(\w+)|%(\w+\.\w+))'
+  let re_type = '%(%([.A-Za-z0-9*]|\[|\]|%(%(struct)|%(interface)\{\}))+)'
   let re_rcvr = '%(\s*\(\w+\s+' . re_type . '\))?'
   let re_name = '%(\s*\w+)?'
-  let re_arg  = '\(%(\w+%(\s+' . re_type . ')?\s*,?\s*)*\)'
+  let re_arg  = '\(%(\w+%(\s+%(\.\.\.)?' . re_type . ')?\s*,?\s*)*\)'
+
+  let re_ret_v = '%(\w+)'
   let re_ret  = '%(\s*\(?(\s*\*?[a-zA-Z0-9_. ,]+)\)?\s*)?'
+  let re_ret_body = '%(' . re_ret_v . '|%(' . re_ret_v  . '\s*' . re_type . ')|' . re_type . '\s*,?\s*)*'
+  let re_ret  = '%(\s*\(?\s*(' . re_ret_body . ')\)?\s*)?'
   let re = re_func . re_rcvr . re_name . re_arg . re_ret . '\{'
 
   let lnum = line('.')
