@@ -1470,6 +1470,8 @@ function! GoIfSnip() abort
       let v = 'err'
     elseif t =~# '\v^\s*string\s*$'
       let v = '""'
+    elseif t =~# '\v^\s*int\d*\s*$'
+      let v = '""'
     else
       let v = 'nil'
     endif
