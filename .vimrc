@@ -1471,7 +1471,7 @@ function! GoIfSnip() abort
     elseif t =~# '\v^\s*string\s*$'
       let v = '""'
     elseif t =~# '\v^\s*int\d*\s*$'
-      let v = '""'
+      let v = '0'
     else
       let v = 'nil'
     endif
