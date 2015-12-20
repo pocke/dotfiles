@@ -57,6 +57,7 @@ function! s:load_bundles()
   NeoBundle     'Shougo/neosnippet-snippets'
   NeoBundleFetch 'tekkoc/PHPSnippetsCreator'
   NeoBundle     'pocke/neosnippet-incomment'
+  NeoBundle     'pocke/serverspec.vim'
 
 
   NeoBundleLazy 'kana/vim-smartinput', {
