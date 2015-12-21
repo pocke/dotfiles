@@ -1473,6 +1473,8 @@ function! GoIfSnip() abort
       let v = '""'
     elseif t =~# '\v^\s*int\d*\s*$'
       let v = '0'
+    elseif t =~# '\v^\s*bool\s*$'
+      let v = 'false'
     else
       let v = 'nil'
     endif
