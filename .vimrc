@@ -998,6 +998,12 @@ if neobundle#tap('vim-watchdogs')
     \   "errorformat" : '%f:%l: %m,%-G%.%#',
     \ }
 
+    let g:quickrun_config['watchdogs_checker/go_metalinter'] = {
+    \   'command': 'gometalinter',
+    \   'exec': '%c --fast --disable=golint %o',
+    \   'errorformat': '%f:%l:%c:%*[^:]:%m,%f:%l::%*[^:]:%m'
+    \ }
+
     let g:quickrun_config['c/watchdogs_checker'] = {
     \   "type": "watchdogs_checker/gcc",
     \   "cmdopt": '%{PathToGccOpt()}',
@@ -1005,7 +1011,7 @@ if neobundle#tap('vim-watchdogs')
 
     let g:quickrun_config['typescript/watchdogs_checker'] = {'type': 'watchdogs_checker/tslint'}
     let g:quickrun_config['ruby.rspec/watchdogs_checker'] = {'type': 'watchdogs_checker/ruby'}
-    let g:quickrun_config['go/watchdogs_checker']         = {'type': 'watchdogs_checker/go_build'}
+    let g:quickrun_config['go/watchdogs_checker']         = {'type': 'watchdogs_checker/go_metalinter'}
 
     let g:watchdogs_check_BufWritePost_enable = 1
     call watchdogs#setup(g:quickrun_config)
