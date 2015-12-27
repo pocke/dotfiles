@@ -1000,7 +1000,7 @@ if neobundle#tap('vim-watchdogs')
 
     let g:quickrun_config['watchdogs_checker/go_metalinter'] = {
     \   'command': 'gometalinter',
-    \   'exec': '%c --fast --disable=golint %o',
+    \   'exec': '%c --fast --disable=golint %o ./%s:.:h',
     \   'errorformat': '%f:%l:%c:%*[^:]:%m,%f:%l::%*[^:]:%m'
     \ }
 
