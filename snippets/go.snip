@@ -140,3 +140,14 @@ options     head
       ${0:#:TARGET}
     }
   }
+
+snippet     profile
+options     head
+  cpuprofile := "mycpu.prof"
+  f, err := os.Create(cpuprofile)
+  if err != nil {
+    panic(err)
+  }
+  pprof.StartCPUProfile(f)
+  defer pprof.StopCPUProfile()
+  ${0}
