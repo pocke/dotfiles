@@ -969,10 +969,6 @@ if neobundle#tap('vim-watchdogs')
       call call(quickrun#outputter#quickfix#new().finish, [a:session], self)
       HierUpdate
       QuickfixStatusEnable
-      if &filetype ==# 'qf'
-        nnoremap <buffer>q :q<CR>
-        wincmd p
-      endif
     endfunction
     call quickrun#register_outputter("quickfix4watchdogs", s:quickfix4watchdogs)
 
@@ -1297,8 +1293,11 @@ AutoCmd BufWritePost *.styl silent !stylus <afile> -u nib > /dev/null
 AutoCmd FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
 AutoCmd FileType qf   nnoremap <buffer> <CR> <CR> | setlocal cursorline
 AutoCmd CmdwinEnter * nnoremap <buffer> <CR> <CR> | setlocal cursorline
-AutoCmd CmdwinEnter * nnoremap <buffer><silent> q :q<CR>
+
+AutoCmd CmdwinEnter *  nnoremap <buffer><silent> q :q<CR>
 AutoCmd FileType godoc nnoremap <buffer><silent> q :q<CR>
+AutoCmd FileType qf    nnoremap <buffer><silent> q :q<CR>
+
 AutoCmd FileType gitcommit if getline(1) == '' | startinsert | endif
 " TODO: kramdownを書いていると、markdownItalic ではないところで_を使えるが、
 "       そのような場合にだけ markdownItalic を無効にしたい。
