@@ -964,7 +964,11 @@ if neobundle#tap('vim-watchdogs')
   let g:hier_highlight_group_qf = 'Error'
 
   function! neobundle#tapped.hooks.on_source(bundle)
-    let s:quickfix4watchdogs = quickrun#outputter#quickfix#new()
+    try
+      let s:quickfix4watchdogs = quickrun#outputter#loclist#new()
+    catch /s:save_cpo/
+      let s:quickfix4watchdogs = quickrun#outputter#loclist#new()
+    endtry
     function! s:quickfix4watchdogs.finish(session)
       call call(quickrun#outputter#quickfix#new().finish, [a:session], self)
       HierUpdate
