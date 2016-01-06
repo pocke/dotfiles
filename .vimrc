@@ -247,6 +247,8 @@ function! s:load_bundles()
   NeoBundle     'gre/play2vim'
   NeoBundleLazy 'PProvost/vim-ps1',
   \   FiletypeConfig("ps1")
+  NeoBundleLazy 'keith/tmux.vim',
+  \   FiletypeConfig("tmux")
 
   NeoBundleLazy 'OrangeT/vim-csharp',
   \   FiletypeConfig(['cs', 'csi', 'csx'])
