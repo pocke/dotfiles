@@ -16,6 +16,7 @@ alias b='bundle'
 alias tmux='TERM=screen-256color tmux -2'
 alias t='tmux'
 alias sozshrc='source ~/.zshrc'
+alias ghq-open='gh-open $(ghq list -p | peco)'
 function -(){cd -} # alias では実現できない?
 
 ### global alias
