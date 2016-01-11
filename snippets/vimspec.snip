@@ -1,0 +1,29 @@
+snippet     describe
+options     head
+  Describe ${1:#:TEXT}
+    ${0:TARGET}
+  End
+
+snippet     context
+options     head
+  Context ${1:#:TEXT}
+    ${0:TARGET}
+  End
+
+snippet     it
+options     head
+  It ${1:#:TEXT}
+    ${0:TARGET}
+  End
+
+snippet     before
+options     head
+  Before
+    ${0:TARGET}
+  End
+
+snippet     after
+options     head
+  After
+    ${0:TARGET}
+  End
