@@ -388,6 +388,11 @@ function! s:load_bundles()
   \     'functions': 'PP'
   \   }
   \ }
+  NeoBundle     'vim-jp/vital.vim'
+  NeoBundle     'haya14busa/vital-vimlcompiler'
+  NeoBundle     'haya14busa/vital-power-assert'
+  NeoBundleLazy 'thinca/vim-themis',
+  \   FiletypeConfig('vimspec')
   "}}}
 
 
