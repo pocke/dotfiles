@@ -400,6 +400,8 @@ function! s:load_bundles()
   NeoBundle     'kana/vim-submode'
   NeoBundle     'kana/vim-arpeggio'
   " }}}
+
+  NeoBundle 'pocke/vueim'
 endfunction
 
 if neobundle#load_cache()
