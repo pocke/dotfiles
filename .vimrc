@@ -1181,8 +1181,7 @@ if $TERM == 'xterm' || $TERM == 'screen-256color'
 endif
 " カラースキーム
 colorscheme p
-" 行番号を表示
-" set number
+set foldcolumn=1
 " 何行目の何列目にカーソルがいるか表示
 set ruler
 " 新しい行のインデントを現在行と同じに

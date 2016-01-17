@@ -1,4 +1,4 @@
-" Copyright 2014, pocket
+" Copyright 2014-2016, Masataka Kuwabara
 " Licensed MIT
 " http://opensource.org/licenses/mit-license.php
 
@@ -31,7 +31,7 @@ hi Search       ctermfg=Black         ctermbg=LightGreen
 hi SpecialKey   ctermfg=DarkGray                          cterm=bold
 hi Title        ctermfg=200                               cterm=bold
 hi Folded       ctermfg=Blue          ctermbg=238
-"hi FoldColumn   ctermfg=LightGrey     ctermbg=DarkBlue
+hi clear FoldColumn
 
 hi CursorLine                         ctermbg=238         cterm=NONE
 
