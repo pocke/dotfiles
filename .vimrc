@@ -1298,6 +1298,15 @@ AutoCmd BufNewFile,BufRead *.jbuilder                 set filetype=ruby
 AutoCmd BufNewFile,BufRead Guardfile                  set filetype=ruby
 AutoCmd BufNewFile,BufRead .pryrc                     set filetype=ruby
 AutoCmd BufNewFile,BufRead *_spec.rb                  set filetype=ruby.rspec
+AutoCmd BufNewFile,BufRead *.vue                      call s:editing_vue()
+function! s:editing_vue() abort
+  set ft=html
+  nnoremap <SID>(vue) <Nop>
+  nmap <Space>v <SID>(vue)
+  nnoremap <buffer><SID>(vue)s :<C-u>call vueim#split_all('split')<CR>
+  nnoremap <buffer><SID>(vue)v :<C-u>call vueim#split_all('vsplit')<CR>
+endfunction
+
 
 AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
