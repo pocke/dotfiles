@@ -1309,8 +1309,6 @@ endfunction
 
 AutoCmd BufNewFile,BufRead *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
-" haya14busa.com/install-stylus-nib-and-vim-auto-compile/
-AutoCmd BufWritePost *.styl silent !stylus <afile> -u nib > /dev/null
 AutoCmd FileType eruby exec 'set filetype=' . 'eruby.' . b:eruby_subtype
 AutoCmd FileType qf   nnoremap <buffer> <CR> <CR> | setlocal cursorline
 AutoCmd CmdwinEnter * nnoremap <buffer> <CR> <CR> | setlocal cursorline
