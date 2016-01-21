@@ -1192,6 +1192,7 @@ set keywordprg=""
 
 " 折りたたみ-展開
 set foldmethod=manual
+set nofoldenable
 set foldlevel=99
 set conceallevel=0
 
