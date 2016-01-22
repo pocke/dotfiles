@@ -1,0 +1,9 @@
+snippet     create_table
+options     head
+  create_table ${1:name} do |t|
+    ${2:#:TARGET}
+  end
+
+snippet     rename_column
+options     head
+  rename_column :${1:table_name}, :${2:before}, :${3:after}

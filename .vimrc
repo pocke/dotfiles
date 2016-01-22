@@ -509,6 +509,7 @@ if neobundle#tap('neosnippet')
 
   AutoCmd InsertLeave * syntax clear neosnippetConcealExpandSnippets
   AutoCmd FileType php NeoSnippetSource ~/.vim/bundle/PHPSnippetsCreator/dist/php_functions.snip
+  AutoCmd BufNewFile,BufRead *db/migrate* NeoSnippetSource ~/dotfiles/snippets/rails_migration.snip
 
   call neobundle#untap()
 endif
