@@ -291,17 +291,6 @@ function! s:load_bundles()
   \   }
   \ }
 
-  " Web service {{{
-  NeoBundleLazy 'lambdalisue/vim-gista', {
-  \   'autoload': {
-  \     'commands': ['Gista'],
-  \     'mappings': '<Plug>(gista-',
-  \     'unite_sources': 'gista'
-  \   },
-  \   'depends': ['unite.vim']
-  \ }
-  " }}}
-
   " }}}
 
   NeoBundle     'sudo.vim'
@@ -888,18 +877,6 @@ endif
 " }}}
 
 
-" Web Service {{{
-" vim-gista {{{
-if neobundle#tap('vim-gista')
-  let g:gista#directory = $HOME . '/.vim/cache/gista/'
-  let g:gista#update_on_write = 1
-  let g:gista#github_user = 'pocke'
-  let g:gista#post_private = 1
-
-  call neobundle#untap()
-endif
-" }}}
-" }}}
 
 " editorconfig-vim {{{
 if neobundle#tap('editorconfig-vim')
