@@ -1,9 +1,49 @@
+# http://api.rubyonrails.org/classes/ActiveRecord/Migration.html
+
 snippet     create_table
 options     head
   create_table ${1:name} do |t|
     ${2:#:TARGET}
+
+    t.timestamps
   end
+
+snippet     drop_table
+options     head
+  drop_table :${1:table_name}
+
+snippet     change_table
+options     head
+  change_table :${1:table_name}, ${2:#:options}
+
+snippet     rename_table
+options     head
+  rename_table :${1:old_name} :${2:new_name}
+
+snippet     add_column
+options     head
+  add_column :${1:table_name}, :${2:column_name}, :${3:type}, ${4:#:options}
 
 snippet     rename_column
 options     head
-  rename_column :${1:table_name}, :${2:before}, :${3:after}
+  rename_column :${1:table_name}, :${2:column_name}, :${3:new_column_name}
+
+snippet     change_column
+options     head
+  change_column :${1:table_name}, :${2:column_name}, :${3:type}, ${4:#:options}
+
+snippet     remove_column
+options     head
+  remove_column :${1:table_name}, :${2:column_name}, :${3:type}, ${4:#:options}
+
+snippet     add_index
+options     head
+  add_index :${1:table_name}, ${2:column_names}, ${3:#:options}
+
+snippet     remove_index
+options     head
+  remove_index :${1:table_name}, column: :${2:column_name}
+
+snippet     remove_index
+options     head
+  remove_index :${1:table_name}, name: :${2:index_name}
