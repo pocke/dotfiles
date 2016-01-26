@@ -40,10 +40,10 @@ snippet     add_index
 options     head
   add_index :${1:table_name}, ${2:column_names}, ${3:#:options}
 
-snippet     remove_index
+snippet     remove_index-column
 options     head
   remove_index :${1:table_name}, column: :${2:column_name}
 
-snippet     remove_index
+snippet     remove_index-name
 options     head
   remove_index :${1:table_name}, name: :${2:index_name}
