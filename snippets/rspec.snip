@@ -32,6 +32,10 @@ snippet     expect
 abbr        expect().to be
 	expect(${1:subject}).to be_${2} ${0:TARGET}
 
+snippet     is_asserted_by
+options     head
+  is_asserted_by{${0}}
+
 snippet     allow-receive
 abbr        allow().to receive()
   allow(${1:subject}).to receive(:${2:FUNC_NAME}).and_return(${0:TARGET})
