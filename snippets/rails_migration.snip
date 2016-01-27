@@ -1,11 +1,12 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Migration.html
+# http://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/SchemaStatements.html
 
 snippet     create_table
 options     head
   create_table ${1:name} do |t|
     ${2:#:TARGET}
 
-    t.timestamps
+    t.timestamps, null: false
   end
 
 snippet     drop_table
@@ -47,3 +48,27 @@ options     head
 snippet     remove_index-name
 options     head
   remove_index :${1:table_name}, name: :${2:index_name}
+
+snippet     add_reference
+options     head
+  add_reference :${1:table_name}, :${2:ref_name}, null: ${3:false}, index: ${4:true}, foreign_key: ${5:true}
+
+snippet     add_timestamps
+options     head
+  add_timestamps :${1:table_name}, null: ${2:false}
+
+snippet     change_column_default
+options     head
+  change_column_default :${1:table_name}, ${2:column_name}, ${3:#:default}
+
+snippet     change_column_null
+options     head
+  change_column_null :${1:table_name}, ${2:column_name}, ${3:#:null}${4:#:, default}
+
+snippet     remove_reference
+options     head
+  remove_reference :${1:table_name}, :${2:ref_name}, null: ${3:false}, index: ${4:true}, foreign_key: ${5:true}
+
+snippet     remove_timestamps
+options     head
+  remove_timestamps :${1:table_name}
