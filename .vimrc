@@ -1393,7 +1393,6 @@ nnoremap <C-Right> <C-w>>
 
 
 inoremap <C-s> <C-x><C-s>
-inoremap <C-o> <C-x><C-o>
 
 nnoremap Q @q
 
