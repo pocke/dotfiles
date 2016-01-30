@@ -3,10 +3,10 @@
 
 snippet     create_table
 options     head
-  create_table ${1:name} do |t|
+  create_table :${1:name} do |t|
     ${2:#:TARGET}
 
-    t.timestamps, null: false
+    t.timestamps null: false
   end
 
 snippet     drop_table
