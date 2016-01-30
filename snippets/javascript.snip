@@ -18,16 +18,3 @@ options     word
   fail(function (${1:xhr, status, error}) {
     ${2}
   })
-
-snippet     f
-options     word
-  function (${1}) {
-    ${2}
-  }
-
-snippet     unless
-abbr        if(! ... ) {}
-options     head
-  if (!${1:cond}) {
-    ${0:TARGET}
-  }
