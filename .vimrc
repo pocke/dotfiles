@@ -47,10 +47,8 @@ function! s:load_bundles()
   \ }
 
   NeoBundleLazy 'osyo-manga/vim-marching', {
-  \   'autoload': {
-  \     'filetypes': ['c', 'cpp']
-  \   },
-  \   'depends': ['Shougo/vimproc.vim', 'osyo-manga/vim-reunions']
+  \   'on_ft': ['c', 'cpp'],
+  \   'depends': ['Shougo/vimproc.vim', 'osyo-manga/vim-reunions'],
   \ }
 
   NeoBundle     'Shougo/neosnippet'
@@ -61,51 +59,35 @@ function! s:load_bundles()
 
 
   NeoBundleLazy 'kana/vim-smartinput', {
-  \   'autoload': {
-  \     'insert': '1'
-  \   }
+  \   'on_i': 1,
   \ }
   NeoBundleLazy 'mattn/emmet-vim', {
-  \   'autoload': {
-  \     'filetypes': [
-  \       'html',
-  \       'xhtml',
-  \       'css',
-  \       'sass',
-  \       'styl',
-  \       'xml',
-  \       'xls',
-  \       'markdown'
-  \     ]
-  \   }
+  \   'on_ft': [
+  \     'html',
+  \     'xhtml',
+  \     'css',
+  \     'sass',
+  \     'styl',
+  \     'xml',
+  \     'xls',
+  \     'markdown',
+  \   ]
   \ }
-  NeoBundleLazy 'LeafCage/yankround.vim', {
-  \   'autoload': {
-  \     'mappings': ['<Plug>(yankround-'],
-  \     'functions': 'yankround#is_active',
-  \     'unite_sources': ['yankround'],
-  \   }
-  \ }
+  NeoBundle 'LeafCage/yankround.vim'
   NeoBundleLazy 'osyo-manga/vim-trip', {
-  \   'autoload': {
-  \     'mappings': ['<Plug>(trip-']
-  \   }
+  \   'on_map': ['<Plug>(trip-'],
   \ }
 
   " text object {{{
   function! TextobjConfig(mappings) abort
     return {
     \   'depends': 'kana/vim-textobj-user',
-    \   'autoload': {
-    \     'mappings': map(a:mappings, '["xo", v:val]'),
-    \   },
+    \   'on_map': map(a:mappings, '["xo", v:val]'),
     \ }
   endfunction
 
   NeoBundleLazy 'terryma/vim-expand-region', {
-  \   'autoload': {
-  \     'mappings': ['<Plug>(expand_region_']
-  \   }
+  \   'on_map': ['<Plug>(expand_region_'],
   \ }
   NeoBundleLazy 'kana/vim-textobj-user'
   NeoBundleLazy 'rhysd/vim-textobj-ruby',
@@ -124,9 +106,7 @@ function! s:load_bundles()
   function! OperatorConfig(mappings)
     return {
     \   'depends': 'kana/vim-operator-user',
-    \   'autoload': {
-    \     'mappings': a:mappings,
-    \   },
+    \   'on_map': a:mappings,
     \ }
   endfunction
 
@@ -148,21 +128,15 @@ function! s:load_bundles()
   " 表示系プラグイン {{{
   NeoBundle     'thinca/vim-splash'
   NeoBundleLazy 'vim-scripts/AnsiEsc.vim', {
-  \   'autoload' : {
-  \     'commands' : ['AnsiEsc']
-  \   }
+  \   'on_cmd': ['AnsiEsc'],
   \ }
   NeoBundle     'itchyny/lightline.vim'
   NeoBundleLazy 'haya14busa/incsearch.vim', {
-  \   'autoload': {
-  \     'mappings': ['<Plug>(incsearch-']
-  \   }
+  \   'on_map': ['<Plug>(incsearch-'],
   \ }
 
   NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
-  \   'autoload': {
-  \     'filetypes': ['ruby']
-  \   }
+  \   'on_ft': ['ruby'],
   \ }
 
   NeoBundle     'w0ng/vim-hybrid'
@@ -172,23 +146,17 @@ function! s:load_bundles()
   " ぬるぬるスクロール
   NeoBundle     'yonchu/accelerated-smooth-scroll'
   NeoBundleLazy 'easymotion/vim-easymotion', {
-  \   'autoload': {
-  \     'mappings': ['<Plug>(easymotion-']
-  \   }
+  \   'on_map': ['<Plug>(easymotion-']
   \ }
   NeoBundleLazy 'rhysd/clever-f.vim', {
-  \   'autoload': {
-  \     'mappings': ['f', 'F']
-  \   }
+  \   'on_map': ['f', 'F']
   \ }
   " }}}
 
   " syntax and filetype plugins {{{
   function! FiletypeConfig(ft)
     return {
-    \   'autoload': {
-    \     'filetypes': a:ft,
-    \   },
+    \   'on_ft': a:ft,
     \ }
   endfunction
 
@@ -200,11 +168,9 @@ function! s:load_bundles()
   \   'build': {
   \     'others': 'npm install'
   \   },
-  \   'autoload': {
-  \     'functions': ['tern#Complete', 'tern#Enable'],
-  \     'filetypes': ['javascript']
-  \   },
-  \   'commands': [
+  \   'on_func': ['tern#Complete', 'tern#Enable'],
+  \   'on_ft': ['javascript'],
+  \   'on_cmd': [
   \     'TernDef', 'TernDoc', 'TernType', 'TernRefs', 'TernRename'
   \   ]
   \ }
@@ -264,31 +230,21 @@ function! s:load_bundles()
 
   " Unite {{{
   NeoBundleLazy 'Shougo/unite.vim', {
-  \   'autoload' : {
-  \     'commands' : [ "Unite", "UniteWithBufferDir" ]
-  \   },
+  \   'on_cmd': [ "Unite", "UniteWithBufferDir" ],
   \   'depends': ['Shougo/neomru.vim'],
   \ }
   " }}}
 
   NeoBundleLazy 'sjl/gundo.vim', {
-  \   'autoload': {
-  \     'commands': [
-  \       'GundoToggle',
-  \     ]
-  \   }
+  \   'on_cmd': ['GundoToggle'],
   \ }
   NeoBundleLazy 'thinca/vim-ref', {
-  \   'autoload': {
-  \     'commands': ['Ref'],
-  \     'mappings': ['<Plug>(ref-keyword)']
-  \   },
+  \   'on_cmd': ['Ref'],
+  \   'on_map': ['<Plug>(ref-keyword)']
   \ }
 
   NeoBundleLazy 'thinca/vim-scouter', {
-  \   'autoload': {
-  \     'commands': ['Scouter', 'Scouter!']
-  \   }
+  \   'on_cmd': ['Scouter', 'Scouter!'],
   \ }
 
   " }}}
@@ -309,16 +265,12 @@ function! s:load_bundles()
 
   " コマンド実行
   NeoBundleLazy 'thinca/vim-quickrun', {
-  \   'autoload': {
-  \     'mappings': [['nxo', '<Plug>(quickrun)']],
-  \     'commands': 'QuickRun'
-  \   }
+  \   'on_map': [['nxo', '<Plug>(quickrun)']],
+  \   'on_cmd': 'QuickRun',
   \ }
   " markdown quickrun
   NeoBundleLazy 'superbrothers/vim-quickrun-markdown-gfm', {
-  \   'autoload': {
-  \     'filetypes': 'markdown'
-  \   },
+  \   'on_ft': 'markdown',
   \   'depends': [
   \     'mattn/webapi-vim',
   \     'thinca/vim-quickrun',
@@ -327,9 +279,7 @@ function! s:load_bundles()
   \ }
   " 構文チェック
   NeoBundleLazy 'osyo-manga/vim-watchdogs', {
-  \   'autoload': {
-  \     'commands': ['WatchdogsRun']
-  \ },
+  \   'on_cmd': ['WatchdogsRun'],
   \   'depends': [
   \     'thinca/vim-quickrun',
   \     'Shougo/vimproc.vim',
@@ -342,19 +292,13 @@ function! s:load_bundles()
 
   " Visual Mode でも * で検索
   NeoBundleLazy 'haya14busa/vim-asterisk', {
-  \   'autoload': {
-  \     'mappings': [
-  \       '<Plug>(incsearch-nohl)<Plug>(asterisk-',
-  \     ]
-  \   },
+  \   'on_map': ['<Plug>(incsearch-nohl)<Plug>(asterisk-'],
   \   'depends': ['haya14busa/incsearch.vim']
   \ }
 
   " git
   NeoBundleLazy 'tpope/vim-fugitive', {
-  \   'autoload': {
-  \     'commands': ['Gblame']
-  \   }
+  \   'on_cmd': ['Gblame'],
   \ }
   NeoBundle     'rhysd/committia.vim'
 
@@ -364,18 +308,14 @@ function! s:load_bundles()
   \ }
   " Buffer移動
   NeoBundleLazy 'kana/vim-altr', {
-  \   'autoload': {
-  \     'mappings': '<Plug>(altr-'
-  \   }
+  \   'on_map': '<Plug>(altr-',
   \ }
 
   " vim {{{
   NeoBundleLazy 'vim-jp/vimdoc-ja'
   NeoBundleLazy 'thinca/vim-prettyprint', {
-  \   'autoload': {
-  \     'commands': [{'name': 'PP', 'complete': 'expression'}],
-  \     'functions': 'PP'
-  \   }
+  \   'on_cmd': [{'name': 'PP', 'complete': 'expression'}],
+  \   'on_func': 'PP',
   \ }
   NeoBundle     'vim-jp/vital.vim'
   NeoBundle     'haya14busa/vital-vimlcompiler'
@@ -548,10 +488,8 @@ endif
 
 " yankround.vim {{{
 if neobundle#tap('yankround.vim')
-  function! neobundle#tapped.hooks.on_source(bundle)
-    let g:yankround_dir         = '~/.vim/cache/yankround'
-    let g:yankround_max_history = 64
-  endfunction
+  let g:yankround_dir         = '~/.vim/cache/yankround'
+  let g:yankround_max_history = 64
 
   nmap p <Plug>(yankround-p)
   xmap p <Plug>(yankround-p)
