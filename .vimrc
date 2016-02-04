@@ -439,6 +439,7 @@ if neobundle#tap('neosnippet')
   AutoCmd InsertLeave * syntax clear neosnippetConcealExpandSnippets
   AutoCmd FileType php NeoSnippetSource ~/.vim/bundle/PHPSnippetsCreator/dist/php_functions.snip
   AutoCmd BufNewFile,BufRead *db/migrate* NeoSnippetSource ~/dotfiles/snippets/rails_migration.snip
+  AutoCmd BufNewFile,BufRead * let b:neosnippet_disable_snippet_triggers = ['fname', 'path']
 
   call neobundle#untap()
 endif
@@ -1259,7 +1260,6 @@ function! s:set_help_keymap()
   nnoremap <buffer> <BS> <C-t>
 endfunction
 
-AutoCmd BufNewFile,BufRead * let b:neosnippet_disable_snippet_triggers = ['fname', 'path']
 AutoCmd VimResized * wincmd =
 
 
