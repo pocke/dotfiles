@@ -30,9 +30,15 @@ abbr        class Error < StandardError; end
 options     head
   class ${1:NAME} < ${1:StandardError}; end
 
-snippet     railsclass
+snippet     railscontroller
 options     head
   class `substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')` < ${1:ApplicationController}
+    ${2}
+  end
+
+snippet     railsmodel
+options     head
+  class `substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')` < ${1:ActiveRecord::Base}
     ${2}
   end
 
