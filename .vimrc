@@ -98,6 +98,8 @@ function! s:load_bundles()
   \   TextobjConfig(['ae', 'ie'])
   NeoBundleLazy 'whatyouhide/vim-textobj-xmlattr',
   \   TextobjConfig(['ax', 'ix'])
+  NeoBundleLazy 'pocke/vim-textobj-markdown',
+  \   TextobjConfig(['ac', 'ic'])
 
   delfunction TextobjConfig
   " }}}
