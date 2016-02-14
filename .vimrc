@@ -237,9 +237,6 @@ function! s:load_bundles()
   \ }
   " }}}
 
-  NeoBundleLazy 'sjl/gundo.vim', {
-  \   'on_cmd': ['GundoToggle'],
-  \ }
   NeoBundleLazy 'thinca/vim-ref', {
   \   'on_cmd': ['Ref'],
   \   'on_map': ['<Plug>(ref-keyword)']
@@ -794,13 +791,6 @@ endif
 " }}}
 " }}}
 
-
-" gundo.vim {{{
-if neobundle#tap('gundo.vim')
-  nnoremap <silent> <F2> :<C-u>GundoToggle<CR>
-  call neobundle#untap()
-endif
-" }}}
 
 " vim-ref {{{
 if neobundle#tap('vim-ref')
