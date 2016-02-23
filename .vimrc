@@ -253,6 +253,7 @@ function! s:load_bundles()
 
   NeoBundle     'sudo.vim'
   NeoBundleLazy 'editorconfig/editorconfig-vim'
+  NeoBundle     'pocke/rspec-l.vim'
 
   " 非同期処理
   NeoBundle     'Shougo/vimproc.vim', {
