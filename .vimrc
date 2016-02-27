@@ -896,7 +896,6 @@ if neobundle#tap('vim-watchdogs')
     autocmd BufWritePre * autocmd! source-watchdogs
   augroup END
 
-  AutoCmd FileType go command! -buffer Lint WatchdogsRun watchdogs_checker/golint
   AutoCmd FileType go command! -buffer Build WatchdogsRun watchdogs_checker/go_build
   AutoCmd FileType go command! -buffer Test WatchdogsRun watchdogs_checker/go_test
 
@@ -921,11 +920,6 @@ if neobundle#tap('vim-watchdogs')
     \   "outputter": "quickfix4watchdogs"
     \ }
 
-    let g:quickrun_config['watchdogs_checker/golint'] = {
-    \   'command':     'golint',
-    \   'exec':        '%c %o %s:p',
-    \   "errorformat" : '%f:%l:%c: %m,%-G%.%#',
-    \ }
 
     let g:quickrun_config['watchdogs_checker/go_build'] = {
     \   'command':     'go',
