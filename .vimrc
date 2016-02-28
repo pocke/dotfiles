@@ -74,6 +74,7 @@ function! s:load_bundles()
   \   ]
   \ }
   NeoBundle 'LeafCage/yankround.vim'
+  NeoBundle 'sgur/yankround-complete.vim'
   NeoBundleLazy 'osyo-manga/vim-trip', {
   \   'on_map': ['<Plug>(trip-'],
   \ }
@@ -507,6 +508,13 @@ if neobundle#tap('yankround.vim')
   nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "\<SID>(bp)"
   nmap <expr><C-n> yankround#is_active() ? "\<Plug>(yankround-next)" : "\<SID>(bn)"
 
+  call neobundle#untap()
+endif
+" }}}
+
+" yankround-complete.vim {{{
+if neobundle#tap('yankround-complete.vim')
+  imap <C-x><C-x> <Plug>(yankround-complete)
   call neobundle#untap()
 endif
 " }}}
