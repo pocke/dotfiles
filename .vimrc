@@ -880,11 +880,6 @@ if neobundle#tap('vim-quickrun')
   \     'type':      'markdown/gfm',
   \     'outputter': 'browser'
   \   },
-  \   'ruby.rspec': {
-  \     'command': 'rspec',
-  \     'exec': 'bundle exec %c --color --tty %s',
-  \     'outputter/buffer/name': '[quickrun output rspec]'
-  \   },
   \ }
 
   AutoCmd FileType quickrun AnsiEsc
