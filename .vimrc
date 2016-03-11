@@ -477,14 +477,6 @@ if neobundle#tap('vim-smartinput')
     \   'filetype': ['ruby', 'ruby.rspec'],
     \ })
 
-    call smartinput#map_to_trigger('i', ':', ':', ':')
-    call smartinput#define_rule({
-    \   'at':       '\w\%#',
-    \   'char':     ':',
-    \   'input':    ': <Esc>bbi"<Esc>wwi"<Right><Right>',
-    \   'filetype': ['json'],
-    \   'syntax':   ['jsonFold']
-    \ })
 
     call smartinput#map_to_trigger('i', '<Plug>(smartinput_CR)', '<Enter>', '<Enter>')
   endfunction
