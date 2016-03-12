@@ -126,6 +126,8 @@ function! s:load_bundles()
   \   OperatorConfig('<Plug>(operator-markdown-')
   NeoBundleLazy 'pocke/vim-operator-trailing-space',
   \   OperatorConfig('<Plug>(operator-trailing-space')
+  NeoBundleLazy 'pocke/vim-operator-ruby-rescue',
+  \   OperatorConfig('<Plug>(operator-ruby-rescue)')
 
 
   delfunction OperatorConfig
@@ -601,6 +603,14 @@ endif
 " vim-operator-trailing-space {{{
 if neobundle#tap('vim-operator-trailing-space')
   map <Space><Space> <Plug>(operator-trailing-space)
+
+  call neobundle#untap()
+endif
+" }}}
+
+" vim-operator-ruby-rescue {{{
+if neobundle#tap('vim-operator-trailing-space')
+  map <Space>r <Plug>(operator-ruby-rescue)
 
   call neobundle#untap()
 endif
