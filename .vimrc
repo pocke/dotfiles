@@ -46,11 +46,6 @@ function! s:load_bundles()
   \   'depends': ['Shougo/context_filetype.vim', 'ujihisa/neco-look', 'pocke/neco-gh-issues', 'Shougo/neco-syntax'],
   \ }
 
-  NeoBundleLazy 'osyo-manga/vim-marching', {
-  \   'on_ft': ['c', 'cpp'],
-  \   'depends': ['Shougo/vimproc.vim', 'osyo-manga/vim-reunions'],
-  \ }
-
   NeoBundle     'Shougo/neosnippet'
   NeoBundle     'Shougo/neosnippet-snippets'
   NeoBundleFetch 'tekkoc/PHPSnippetsCreator'
@@ -411,14 +406,6 @@ if neobundle#tap('neocomplete')
   call neobundle#untap()
 endif
 "}}}
-
-" vim-marching {{{
-if neobundle#tap('vim-marching')
-  let g:marching_enable_neocomplete = 1
-
-  call neobundle#untap()
-endif
-" }}}
 
 " neosnippet {{{
 if neobundle#tap('neosnippet')
