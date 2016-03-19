@@ -596,7 +596,7 @@ endif
 " }}}
 
 " vim-operator-ruby-rescue {{{
-if neobundle#tap('vim-operator-trailing-space')
+if neobundle#tap('vim-operator-ruby-rescue')
   map <Space>r <Plug>(operator-ruby-rescue)
 
   call neobundle#untap()
