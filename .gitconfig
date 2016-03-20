@@ -34,7 +34,6 @@
   git    = !git
   tig    = !tig
   gr     = grep -I
-  rmbr   = !curl https://gist.githubusercontent.com/pocke/5bb9cb2767c26a4b4c11/raw/4352f9c24fa92980dd5fd32896c0da2c3cf717a2/remove_unused_branch.rb | ruby
 
 [push]
   default = simple

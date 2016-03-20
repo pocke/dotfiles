@@ -256,3 +256,8 @@ function subsh()
   autoload -Uz add-zsh-hook
   add-zsh-hook precmd "__precmd_for_subsh"
 }
+
+function git-rmbr()
+{
+  ruby "${basedir}/rmbr.rb"
+}
