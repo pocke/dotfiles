@@ -1027,12 +1027,6 @@ if neobundle#tap('vim-automatic')
   \       'height': 8,
   \     }
   \   },
-  \   {
-  \     'match': { 'bufname': '^\[quickrun output rspec\]' },
-  \     'set': {
-  \       'height': '20%'
-  \     }
-  \   }
   \ ]
 
   call neobundle#untap()
