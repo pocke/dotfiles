@@ -960,9 +960,7 @@ endif
 " vim-asterisk {{{
 if neobundle#tap('vim-asterisk')
   map * <Plug>(incsearch-nohl)<Plug>(asterisk-*)
-  map # <Plug>(incsearch-nohl)<Plug>(asterisk-#)
   map z* <Plug>(incsearch-nohl)<Plug>(asterisk-z*)
-  map z# <Plug>(incsearch-nohl)<Plug>(asterisk-z#)
 
   call neobundle#untap()
 endif
