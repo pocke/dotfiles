@@ -1357,4 +1357,19 @@ NeoBundleSource vim-operator-user
 call operator#user#define('google-search', s:SID . 'operator_google')
 map go <Plug>(operator-google-search)
 
+function! PluralSingularize(word) abort
+  let s:word = a:word
+  ruby << EOC
+  require 'active_support'
+  require 'active_support/core_ext'
+  word = Vim.evaluate('s:word')
+  res = word.pluralize != word ? word.pluralize : word.singularize
+  Vim.command "let s:word = #{res.inspect}"
+EOC
+  let res = 'ciw' . s:word . "\<ESC>"
+  unlet s:word
+  return res
+endfunction
+nnoremap <expr># PluralSingularize(expand('<cword>'))
+
 " vim:set foldmethod=marker:
