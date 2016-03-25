@@ -336,10 +336,10 @@ function! s:load_bundles()
   NeoBundle 'pocke/vueim'
 endfunction
 
-if neobundle#load_cache()
+" if neobundle#load_cache()
   call s:load_bundles()
-  NeoBundleSaveCache
-endif
+  " NeoBundleSaveCache
+" endif
 
 call neobundle#end()
 filetype plugin indent on     " Required!
