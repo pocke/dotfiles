@@ -19,12 +19,6 @@ augroup END
 
 command! -nargs=* AutoCmd autocmd MyVimrc <args>
 
-function! s:get_SID()
-  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeget_SID$')
-endfunction
-let s:SID = s:get_SID()
-delfunction s:get_SID
-
 
 " neobundle {{{
 if has('vim_starting')
@@ -1342,7 +1336,7 @@ endfunction
 AutoCmd WinEnter * call s:auto_close_quickfix()
 " }}}
 
-function! s:operator_google(mosion_wize)
+function! OperatorGoogle(mosion_wize)
   NeoBundleSource open-browser.vim
   if line("'[") != line("']")
     return
@@ -1354,7 +1348,7 @@ function! s:operator_google(mosion_wize)
 endfunction
 
 NeoBundleSource vim-operator-user
-call operator#user#define('google-search', s:SID . 'operator_google')
+call operator#user#define('google-search', 'OperatorGoogle')
 map go <Plug>(operator-google-search)
 
 function! PluralSingularize(word) abort
