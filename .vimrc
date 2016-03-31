@@ -1182,6 +1182,8 @@ set clipboard& clipboard^=unnamedplus
 set mouse=a
 set spelllang+=cjk
 
+set tildeop
+
 " Vim script で \ を入力した時にインデントしない
 let g:vim_indent_cont = 0
 
