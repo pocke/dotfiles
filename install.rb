@@ -21,15 +21,15 @@ FileUtils.mkdir_p(File.expand_path('~/.config/peco/'))
   .vim/after
   .vim/colors
 ].each do |file|
-  unless File.exists?(File.expand_path("~/#{file}"))
+  unless File.exist?(File.expand_path("~/#{file}"))
     exec("ln -s ~/dotfiles/#{file} ~/#{file}")
   end
 end
 
-is_arch = File.exists?('/etc/pacman.conf')
+is_arch = File.exist?('/etc/pacman.conf')
 exec('sudo pacman -S words nodejs npm go tmux tig') if is_arch
 
-unless File.exists?(File.expand_path("~/.gitconfig"))
+unless File.exist?(File.expand_path("~/.gitconfig"))
   exec(<<-EOS
 cat <<EOF > ~/.gitconfig
 [include]
@@ -41,7 +41,7 @@ EOF
   )
 end
 
-unless File.exists?(File.expand_path("~/.zshrc"))
+unless File.exist?(File.expand_path("~/.zshrc"))
   exec('echo "source dotfiles/.zshrc" >> ~/.zshrc')
 end
 
