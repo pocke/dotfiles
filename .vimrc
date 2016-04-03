@@ -163,16 +163,6 @@ function! s:load_bundles()
   NeoBundleLazy 'jelera/vim-javascript-syntax',
   \   FiletypeConfig("javascript")
   NeoBundle     'jason0x43/vim-js-indent'
-  NeoBundleLazy 'marijnh/tern_for_vim', {
-  \   'build': {
-  \     'others': 'npm install'
-  \   },
-  \   'on_func': ['tern#Complete', 'tern#Enable'],
-  \   'on_ft': ['javascript'],
-  \   'on_cmd': [
-  \     'TernDef', 'TernDoc', 'TernType', 'TernRefs', 'TernRename'
-  \   ]
-  \ }
   " AltJS {{{
   NeoBundleLazy 'kchmck/vim-coffee-script',
   \   FiletypeConfig("coffee")
@@ -724,14 +714,6 @@ endif
 
 
 " syntax plugins {{{
-" tern_for_vim {{{
-if neobundle#tap('tern_for_vim')
-  let g:tern_map_keys = 0
-
-  call neobundle#untap()
-endif
-" }}}
-
 let g:tsuquyomi_disable_quickfix = 1
 
 " vim-css3-syntax {{{
