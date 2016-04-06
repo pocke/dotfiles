@@ -261,3 +261,11 @@ function git-rmbr()
 {
   ruby "${basedir}/rmbr.rb"
 }
+
+case "${OSTYPE}" in
+  darwin*)
+    source "${basedir}/mac.zsh"
+    ;;
+  *)
+    echo "$ Didn't match anything"
+esac
