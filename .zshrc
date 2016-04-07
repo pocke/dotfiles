@@ -267,5 +267,4 @@ case "${OSTYPE}" in
     source "${basedir}/mac.zsh"
     ;;
   *)
-    echo "$ Didn't match anything"
 esac
