@@ -208,11 +208,8 @@ function! s:load_bundles()
   NeoBundleLazy 'OrangeT/vim-csharp',
   \   FiletypeConfig(['cs', 'csi', 'csx'])
 
-  NeoBundle     'https://vimperator-labs.googlecode.com/hg/', {
-  \   'name': 'vimperator-syntax',
-  \   'type': 'hg',
-  \   'rtp':  'vimperator/contrib/vim/'
-  \ }
+  NeoBundleLazy 'vimperator/vimperator.vim',
+  \   FiletypeConfig("vimperator")
   " }}}
 
   " Application Plugins {{{
