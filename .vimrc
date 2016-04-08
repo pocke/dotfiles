@@ -1157,6 +1157,9 @@ set tabpagemax=100
 
 " h clipboard-excludeを参照。excludeは一番最後じゃないとだめ
 set clipboard& clipboard^=unnamedplus
+if has('mac')
+  set clipboard& clipboard^=unnamed
+endif
 
 set mouse=a
 set spelllang+=cjk
