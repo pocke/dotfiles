@@ -199,7 +199,6 @@ function! s:load_bundles()
   \   FiletypeConfig("yaml")
   " If lazy, compound filetype is wrong...
   NeoBundle     'vim-ruby/vim-ruby'
-  NeoBundle     'gre/play2vim'
   NeoBundleLazy 'PProvost/vim-ps1',
   \   FiletypeConfig("ps1")
   NeoBundleLazy 'keith/tmux.vim',
