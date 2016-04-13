@@ -1081,9 +1081,6 @@ set conceallevel=0
 " Shift-oで待たされるのを改善
 set ttimeoutlen=10
 
-" 保存されていないバッファがあっても他のバッファを開ける
-set hidden
-
 " swapファイルを作らない
 set noswapfile
 
