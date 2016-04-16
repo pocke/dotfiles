@@ -56,10 +56,6 @@
 [github]
   user = pocke
 
-[tig "bind"]
-  generic = g move-first-line
-  generic = G move-last-line
-
 [ghq]
   root = ~/ghq
   root = ~/go/src
@@ -68,6 +64,3 @@
 
 [merge]
   ff = false
-
-[web]
-  browser = xdg-open
