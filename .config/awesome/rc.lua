@@ -46,20 +46,6 @@ naughty.config.defaults.font      = "Ricty 16"
 local theme = awful.util.getdir("config") .. "/themes/default/theme.lua"
 beautiful.init(theme)
 
-function wallpaper_toggle()
-  local arch =  "/home/pocke/.config/awesome/themes/default/New-Arch-Bling.png"
-  local gf = "/home/pocke/.config/awesome/themes/default/girlfriend.jpg"
-  if beautiful.wallpaper == arch then
-    beautiful.wallpaper = gf
-  else
-    beautiful.wallpaper = arch
-  end
-
-  for s = 1, screen.count() do
-    gears.wallpaper.maximized(beautiful.wallpaper, 1, true)
-  end
-end
-
 -- This is used later as the default terminal and editor to run.
 terminal = "sakura"
 editor = os.getenv("EDITOR") or "nano"
@@ -294,7 +280,6 @@ globalkeys = awful.util.table.join(
     -- Menubar
     -- awful.key({ modkey }, "p", function() menubar.show() end),
     -- pocke
-    awful.key({ modkey, }, "b", wallpaper_toggle ),
     awful.key({ modkey, }, "v", function () awful.util.spawn('gvim') end)
 )
 
