@@ -552,7 +552,7 @@ endif
 
 " vim-operator-replace {{{
 if neobundle#tap('vim-operator-replace')
-  map _ <Plug>(operator-replace)
+  map - <Plug>(operator-replace)
 
   call neobundle#untap()
 endif
