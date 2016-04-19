@@ -32,7 +32,6 @@
   ps     = push
   psu    = !git push -u origin "$(git rev-parse --abbrev-ref HEAD)"
   git    = !git
-  tig    = !tig
   gr     = grep -I
 
 [push]
