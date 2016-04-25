@@ -44,6 +44,9 @@
 [help]
   autocorrect = -1
 
+[fetch]
+  prune = true
+
 [url "git@github.com:"]
   pushinsteadof = "git://github.com/"
   pushinsteadof = "https://github.com"
