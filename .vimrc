@@ -818,10 +818,12 @@ endif
 
 " open-browser.vim {{{
 if neobundle#tap('open-browser.vim')
+  let s:cmd = has('mac') ? 'open' : 'xdg-open'
   let g:openbrowser_browser_commands = [{
-  \   "name": "xdg-open",
+  \   "name": s:cmd,
   \   "args": ["{browser}", "{uri}"]
   \ }]
+  unlet s:cmd
 
   call neobundle#untap()
 endif
