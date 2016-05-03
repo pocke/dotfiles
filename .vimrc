@@ -209,6 +209,11 @@ function! s:load_bundles()
 
   NeoBundleLazy 'vimperator/vimperator.vim',
   \   FiletypeConfig("vimperator")
+
+  NeoBundleLazy 'apple/swift', {
+  \   'on_ft': 'swift',
+  \   'rtp': 'utils/vim/',
+  \ }
   " }}}
 
   " Application Plugins {{{
