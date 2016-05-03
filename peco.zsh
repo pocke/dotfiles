@@ -17,7 +17,8 @@ bindkey '^r' peco-select-history
 
 function peco-ghq-move()
 {
-  local selected_dir="$(ghq list --full-path | peco --query "$LBUFFER")"
+
+  local selected_dir="$(ghq list --full-path | sed -e 's!'$HOME'!~!' | peco --query "$LBUFFER")"
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
