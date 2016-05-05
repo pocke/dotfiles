@@ -916,9 +916,16 @@ if neobundle#tap('vim-watchdogs')
     \   "cmdopt": '%{PathToGccOpt()}',
     \ }
 
+    let g:quickrun_config['watchdogs_checker/swiftc_parse'] = {
+    \   "command": "swiftc",
+    \   "exec": '%c -parse %s:p',
+    \   "errorformat": '%f:%l:%c: %m',
+    \ }
+
     let g:quickrun_config['typescript/watchdogs_checker'] = {'type': 'watchdogs_checker/tslint'}
     let g:quickrun_config['ruby.rspec/watchdogs_checker'] = {'type': 'watchdogs_checker/ruby'}
     let g:quickrun_config['go/watchdogs_checker']         = {'type': 'watchdogs_checker/go_metalinter'}
+    let g:quickrun_config['swift/watchdogs_checker']      = {'type': 'watchdogs_checker/swiftc_parse'}
 
     let g:watchdogs_check_BufWritePost_enable = 1
     call watchdogs#setup(g:quickrun_config)
