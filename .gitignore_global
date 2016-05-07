@@ -1,3 +1,4 @@
 .sw[a-z]
 .*.sw[a-z]
 tags
+.DS_Store
