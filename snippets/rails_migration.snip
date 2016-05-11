@@ -59,11 +59,11 @@ options     head
 
 snippet     change_column_default
 options     head
-  change_column_default :${1:table_name}, ${2:column_name}, ${3:#:default}
+  change_column_default :${1:table_name}, :${2:column_name}, ${3:#:default}
 
 snippet     change_column_null
 options     head
-  change_column_null :${1:table_name}, ${2:column_name}, ${3:#:null}${4:#:, default}
+  change_column_null :${1:table_name}, :${2:column_name}, ${3:#:null}${4:#:, default}
 
 snippet     remove_reference
 options     head
