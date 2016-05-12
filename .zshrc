@@ -121,9 +121,17 @@ zshaddhistory()
 
 command_not_found_handler()
 {
+  case "${OSTYPE}" in
+    darwin*)
+      local sed='gsed'
+      ;;
+    *)
+      local sed='sed'
+      ;;
+  esac
   tail -1 $HISTFILE |
     grep -F "$*" > /dev/null 2>&1 &&
-    sed -i '$d' $HISTFILE
+      $sed -i '$d' $HISTFILE
   return 127
 }
 
