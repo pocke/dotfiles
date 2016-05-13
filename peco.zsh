@@ -14,6 +14,17 @@ function peco-select-history()
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+function peco-open-gh()
+{
+  local selected_dir="$(ghq list --full-path | sed -e 's!'$HOME'!~!' | peco --query "$LBUFFER")"
+  if [ -n "$selected_dir" ]; then
+    BUFFER="gh-open ${selected_dir}"
+    zle accept-line
+  fi
+}
+zle -N peco-open-gh
+bindkey '^o' peco-open-gh
+
 
 function peco-ghq-move()
 {
