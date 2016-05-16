@@ -1228,7 +1228,7 @@ endfunction
 
 AutoCmd VimResized * wincmd =
 
-
+AutoCmd BufWritePost *.go silent  call system('go build &')
 
 
 " keybind {{{
