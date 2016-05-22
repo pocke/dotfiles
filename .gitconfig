@@ -14,7 +14,6 @@
 
 [alias]
   st     = status --short --branch
-  ol     = log --oneline --graph
   co     = checkout
   br     = branch
   ci     = commit -v
@@ -26,7 +25,6 @@
   ri     = rebase -i
   df     = diff
   dc     = diff --cached
-  sh     = show
   pl     = pull --ff
   plr    = pull --rebase
   ps     = push
