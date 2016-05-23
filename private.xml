@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>Right shift to KANA/EISUU(Toggle)</name>
+    <identifier>option.my.right_shift_to_kana_eisuu_toggle</identifier>
+    <autogen>
+      __KeyToKey__ 
+      KeyCode::SHIFT_R, 
+      KeyCode::VK_JIS_TOGGLE_EISUU_KANA
+    </autogen>
+  </item>
+
+  <item>
+    <name>Swap tilde and backslash</name>
+    <identifier>option.my.swap_tilde_and_backslash</identifier>
+    <autogen>__KeyToKey__ KeyCode::BACKQUOTE, KeyCode::BACKSLASH</autogen>
+    <autogen>__KeyToKey__ KeyCode::BACKSLASH, KeyCode::BACKQUOTE</autogen>
+  </item>
+
+  <item>
+    <name>Copy and Paste by ctrl shift c / v in terminal</name>
+    <only>TERMINAL</only>
+    <identifier>option.my.copy_and_paste_in_terminal</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::V, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+      KeyCode::V, ModifierFlag::COMMAND_L
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      KeyCode::C, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+      KeyCode::C, ModifierFlag::COMMAND_L
+    </autogen>
+  </item>
+
+
+  <replacementdef>
+    <replacementname>PC_STYLE_BINDINGS_IGNORE_APPS</replacementname>
+    <replacementvalue>
+      VIRTUALMACHINE,
+      REMOTEDESKTOPCONNECTION,
+      VNC,
+      TEAMVIEWER,
+      EMACS,
+      TERMINAL,
+      X11,
+      CITRIX_XEN_APP_VIEWER,
+      VI,
+    </replacementvalue>
+  </replacementdef>
+</root>
