@@ -37,7 +37,7 @@ function! s:load_bundles()
 
   " 補完
   NeoBundle     'Shougo/neocomplete', {
-  \   'depends': ['Shougo/context_filetype.vim', 'ujihisa/neco-look', 'pocke/neco-gh-issues', 'Shougo/neco-syntax'],
+  \   'depends': ['Shougo/context_filetype.vim', 'ujihisa/neco-look', 'Shougo/neco-syntax'],
   \ }
 
   NeoBundle     'Shougo/neosnippet'
