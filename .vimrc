@@ -144,7 +144,7 @@ function! s:load_bundles()
   \   'on_map': ['<Plug>(easymotion-']
   \ }
   NeoBundleLazy 'rhysd/clever-f.vim', {
-  \   'on_map': ['f', 'F']
+  \   'on_map': ['f', 'F', 't']
   \ }
   " }}}
 
