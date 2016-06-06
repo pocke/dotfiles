@@ -68,6 +68,19 @@ abbr        define_method() do...end
     ${0}
   end
 
+snippet     stackprof
+options     head
+  require 'stackprof'
+  StackProf.run(mode: :cpu, out: '${1:stackprof-out}') do
+    ${0}
+  end
+
+snippet     benchmark
+options     head
+  require 'benchmark'
+  Benchmark.bm do |x|
+    x.report{${0}}
+  end
 
 # ------------------------  override default snippets
 snippet     def
