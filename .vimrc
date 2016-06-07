@@ -1196,7 +1196,6 @@ AutoCmd Syntax markdown syntax sync fromstart
 AutoCmd FileType markdown,text,gitcommit setl spell
 AutoCmd BufNewFile,BufRead config/locales/*.yml setl spell
 AutoCmd FileType ruby setl tags+=~/.gem/ruby/2.3.0/gems/tags
-AutoCmd FileType ruby inoremap <buffer><C-b> (&:)<Left>
 
 " 長いFiletypeを省略する
 AutoCmd FileType js nested setlocal ft=javascript
