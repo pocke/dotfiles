@@ -10,13 +10,14 @@ FileUtils.mkdir_p(File.expand_path('~/.vim/bundle'))
 FileUtils.mkdir_p(File.expand_path('~/.zsh'))
 FileUtils.mkdir_p(File.expand_path('~/.config/awesome/'))
 FileUtils.mkdir_p(File.expand_path('~/.config/fontconfig/'))
+FileUtils.mkdir_p(File.expand_path('~/.config/sakura/'))
 FileUtils.mkdir_p(File.expand_path('~/.config/peco/'))
 
 
 %w[
   .gemrc .rspec .tigrc .vimperatorrc .xinitrc .yaourtrc
   .tmux.conf .vimrc .Xmodmap .ctags .gvimrc
-  .config/awesome/rc.lua .config/awesome/themes .config/fontconfig/fonts.conf .config/peco/config.json
+  .config/awesome/rc.lua .config/awesome/themes .config/fontconfig/fonts.conf .config/peco/config.json .config/sakura/sakura.conf
   .bundle/config
   .vim/after
   .vim/colors
