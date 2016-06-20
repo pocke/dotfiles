@@ -10,6 +10,8 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
+local battmon = require("plugins/battmon/battmon")
+
 
 
 -- {{{ Error handling
@@ -197,6 +199,11 @@ for s = 1, screen.count() do
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
+
+    -- https://github.com/rhenium/awesome-battmon
+    for key, batt in pairs(battmon.all()) do
+      right_layout:add(batt)
+    end
 
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()

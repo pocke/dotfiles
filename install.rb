@@ -27,6 +27,8 @@ FileUtils.mkdir_p(File.expand_path('~/.config/peco/'))
   end
 end
 
+exec "git clone https://github.com/rhenium/awesome-battmon.git ~/.config/awesome/plugins/battmon"
+
 is_arch = File.exist?('/etc/pacman.conf')
 exec('sudo pacman -S words nodejs npm go tmux tig; true') if is_arch
 
