@@ -1,5 +1,17 @@
+
 <?xml version="1.0"?>
 <root>
+  <devicevendordef>
+    <vendorname>FILCO</vendorname>
+    <vendorid>0x04b4</vendorid>
+  </devicevendordef>
+
+  <deviceproductdef>
+    <productname>FILCO_KEYBOARD</productname>
+    <productid>0x0101</productid>
+  </deviceproductdef>
+
+
   <item>
     <name>Right shift to KANA/EISUU(Toggle)</name>
     <identifier>option.my.right_shift_to_kana_eisuu_toggle</identifier>
@@ -13,6 +25,11 @@
   <item>
     <name>Swap tilde and backslash</name>
     <identifier>option.my.swap_tilde_and_backslash</identifier>
+
+    <device_only>
+      DeviceVendor::FILCO,
+      DeviceProduct::FILCO_KEYBOARD,
+    </device_only>
     <autogen>__KeyToKey__ KeyCode::BACKQUOTE, KeyCode::BACKSLASH</autogen>
     <autogen>__KeyToKey__ KeyCode::BACKSLASH, KeyCode::BACKQUOTE</autogen>
   </item>
