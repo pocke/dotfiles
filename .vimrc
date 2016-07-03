@@ -1324,4 +1324,6 @@ EOC
 endfunction
 nnoremap <expr># PluralSingularize(expand('<cword>'))
 
+set rtp+=~/ghq/github.com/the-lambda-church/merlin/vim/merlin
+
 " vim:set foldmethod=marker:
