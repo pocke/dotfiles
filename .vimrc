@@ -208,6 +208,9 @@ function! s:load_bundles()
   \   FiletypeConfig('swift')
   NeoBundleLazy 'pocke/swift-ide-test-comp.vim',
   \   FiletypeConfig('swift')
+
+  NeoBundleLazy 'rgrinberg/vim-ocaml',
+  \   FiletypeConfig(['ocaml', 'oasis', 'ocamlbuild_tags', 'omake', 'opam', 'sexplib'])
   " }}}
 
   " Application Plugins {{{
