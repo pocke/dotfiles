@@ -107,8 +107,6 @@ function! s:load_bundles()
   \   OperatorConfig('<Plug>(operator-camelize-toggle)')
   NeoBundleLazy 'kana/vim-operator-replace',
   \   OperatorConfig('<Plug>(operator-replace)')
-  NeoBundleLazy 'pocke/vim-operator-markdown',
-  \   OperatorConfig('<Plug>(operator-markdown-')
   NeoBundleLazy 'pocke/vim-operator-trailing-space',
   \   OperatorConfig('<Plug>(operator-trailing-space')
 
@@ -546,14 +544,6 @@ if neobundle#tap('vim-operator-replace')
 endif
 " }}}
 
-" vim-operator-markdown {{{
-if neobundle#tap('vim-operator-markdown')
-  AutoCmd FileType markdown map <buffer>< <Plug>(operator-markdown-left)
-  AutoCmd FileType markdown map <buffer>> <Plug>(operator-markdown-right)
-
-  call neobundle#untap()
-endif
-" }}}
 
 " vim-operator-trailing-space {{{
 if neobundle#tap('vim-operator-trailing-space')
