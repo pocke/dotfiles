@@ -60,6 +60,7 @@ function! s:load_bundles()
   \     'xml',
   \     'xls',
   \     'markdown',
+  \     'javascript',
   \   ]
   \ }
   NeoBundle 'LeafCage/yankround.vim'
