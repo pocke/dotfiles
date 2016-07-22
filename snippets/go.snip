@@ -222,3 +222,11 @@ snippet     recover
 abbr        func() interface{}
 options     word
   recover()
+
+
+snippet     file-exist
+  func ${1:fileExist}(filename string) bool {
+      _, err := os.Stat(filename)
+      return err == nil
+  }
+  ${0:TARGET}
