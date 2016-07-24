@@ -19,6 +19,8 @@ augroup END
 
 command! -nargs=* AutoCmd autocmd MyVimrc <args>
 
+command! NXOmap -nargs=+ nmap <args> | xmap <args> | omap <args>
+
 
 " neobundle {{{
 if has('vim_starting')
@@ -594,8 +596,8 @@ if neobundle#tap('incsearch.vim')
     let g:incsearch#magic = '\v'
     let g:incsearch#auto_nohlsearch = 1
 
-    map n  <Plug>(incsearch-nohl-n)zz
-    map N  <Plug>(incsearch-nohl-N)zz
+    NXOmap n  <Plug>(incsearch-nohl-n)zz
+    NXOmap N  <Plug>(incsearch-nohl-N)zz
 
     IncSearchNoreMap <CR> <CR>zz
     IncSearchNoreMap <C-h> <BS>
