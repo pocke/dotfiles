@@ -55,12 +55,23 @@ options     head
     ${0:TARGET}
   }
 
-snippet     import
-abbr        import {member, ...} from "...";
+snippet     import-defualt
+abbr        import defaultMember from "module-name";
 options     head
-  import {${1:MEMBERS}} from "${0:TARGET}";
+  import ${1:defaultMember} from "${0:TARGET}";
 
 snippet     import-all
 abbr        import * as NAME from "...";
 options     head
   import * as ${1:NAME} from "${0:TARGET}";
+
+snippet     import
+abbr        import { member, ... } from "module-name";
+options     head
+  import { ${1:MEMBERS} } from "${0:TARGET}";
+
+snippet     import-defualt-member
+abbr        import defaultMember, { member, ... } from "module-name";
+options     head
+  import ${1:defaultMember}, { ${2:MEMBERS} } from "${0:TARGET}";
+  
