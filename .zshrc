@@ -62,6 +62,13 @@ fi
 ### alias
 source "${basedir}/alias.zsh"
 
+case "${OSTYPE}" in
+  darwin*)
+    source "${basedir}/mac.zsh"
+    ;;
+  *)
+esac
+
 ### cd
 setopt auto_cd            # ディレクトリ名だけでcd
 setopt auto_pushd         # 勝手にpush
@@ -269,10 +276,3 @@ function git-rmbr()
 {
   ruby "${basedir}/rmbr.rb"
 }
-
-case "${OSTYPE}" in
-  darwin*)
-    source "${basedir}/mac.zsh"
-    ;;
-  *)
-esac
