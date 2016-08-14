@@ -29,6 +29,7 @@
   plr    = pull --rebase
   ps     = push
   psu    = !git push -u origin "$(git rev-parse --abbrev-ref HEAD)"
+  psf    = push --force-with-lease
   git    = !git
 
 [push]
