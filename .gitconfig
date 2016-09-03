@@ -61,6 +61,3 @@
   root = ~/go/src
   root = ~/.vim/bundle/
   root = ~/.mikutter/plugin/
-
-[merge]
-  ff = false
