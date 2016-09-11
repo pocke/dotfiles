@@ -1244,7 +1244,7 @@ nnoremap <silent> <C-l> :<C-u>tabnext<CR>
 nnoremap <silent> <C-h> :<C-u>tabprevious<CR>
 
 " タグジャンプを新しいタブで開く
-nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>zz
+" nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>zz
 nnoremap <F4> :<C-u>%s/<C-r>//
 vnoremap <F4> :s/<C-r>//
 
