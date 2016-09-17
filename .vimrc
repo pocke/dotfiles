@@ -858,7 +858,9 @@ if neobundle#tap('vim-watchdogs')
       HierUpdate
       QuickfixStatusEnable
     endfunction
-    call quickrun#register_outputter("quickfix4watchdogs", s:quickfix4watchdogs)
+    let s:quickfix4watchdogs.name = 'quickfix4watchdogs'
+    let s:quickfix4watchdogs.kind = 'outputter'
+    call quickrun#module#register(s:quickfix4watchdogs)
 
     let g:quickrun_config['watchdogs_checker/_'] = {
     \   "outputter": "quickfix4watchdogs"
