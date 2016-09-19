@@ -223,6 +223,11 @@ function /()
   fi
 }
 
+function f/()
+{
+  git ls-files G $@
+}
+
 # s/$1/$2/g
 function sub()
 {
