@@ -52,12 +52,7 @@ fi
 
 setopt no_complete_aliases
 
-### peco
 basedir=$(dirname $0)
-
-if which peco > /dev/null 2>&1 && [ -e "${basedir}/peco.zsh" ]; then
-  source "${basedir}/peco.zsh"
-fi
 
 ### alias
 source "${basedir}/alias.zsh"
@@ -281,3 +276,8 @@ function git-rmbr()
 {
   ruby "${basedir}/rmbr.rb"
 }
+
+### peco
+if which peco > /dev/null 2>&1 && [ -e "${basedir}/peco.zsh" ]; then
+  source "${basedir}/peco.zsh"
+fi
