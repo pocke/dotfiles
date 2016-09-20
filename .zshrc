@@ -34,7 +34,7 @@ disable r
 
 ### compinit
 autoload -U compinit        # 補完が強くなる
-compinit
+compinit -u
 setopt auto_param_slash     # ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
 setopt magic_equal_subst    # = 以降でも補完
 #  補完の際(大|小)文字を区別しない,ドットの直前を*に置き換えて補完
