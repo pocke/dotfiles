@@ -50,9 +50,6 @@
   pushinsteadof = "git://github.com/"
   pushinsteadof = "https://github.com"
 
-[rebase]
-  autosquash = true
-
 [github]
   user = pocke
 
