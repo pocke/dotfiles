@@ -250,6 +250,10 @@ function! s:load_bundles()
   \   }
   \ }
   NeoBundleLazy 'tyru/open-browser.vim'
+  NeoBundleLazy 'tyru/open-browser-github.vim', {
+  \   'on_cmd': ['OpenGithubFile'],
+  \   'depends': ['tyru/open-browser.vim'],
+  \ }
 
   " コマンド実行
   NeoBundleLazy 'thinca/vim-quickrun', {
