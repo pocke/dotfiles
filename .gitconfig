@@ -32,6 +32,7 @@
   psf    = push --force-with-lease
   git    = !git
   ls     = !ls --color=auto -F
+  meom   = merge origin/master
 
 [push]
   default = simple
