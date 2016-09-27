@@ -29,6 +29,8 @@ fi
 alias -g N='> /dev/null 2>&1'
 alias -g ALL='**/*~.git/*~*/.git/*(.)'
 alias -g V='| vim -c "set buftype=nofile" - '
+# http://qiita.com/Kuniwak/items/b711d6c3e402dfd9356b
+alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 
 ### suffix alias
 function extract() {
