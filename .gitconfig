@@ -33,6 +33,7 @@
   git    = !git
   ls     = !ls --color=auto -F
   meom   = merge origin/master
+  rao    = remote add origin
 
 [push]
   default = simple
