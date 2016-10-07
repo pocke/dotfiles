@@ -28,7 +28,7 @@
   pl     = pull --ff
   plr    = pull --rebase
   ps     = push
-  psu    = push -u
+  psu    = !git push -u origin "$(git rev-parse --abbrev-ref HEAD)"
   psf    = push --force-with-lease
   git    = !git
   ls     = !ls --color=auto -F
