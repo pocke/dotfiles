@@ -62,7 +62,7 @@ function __vimperator_ggc() {
 
   fetch(
     `http://localhost:8080?host=${host}&owner=${owner}&repo=${repo}`,
-    {mode: 'cors', method: 'POST'}
+    {method: 'POST'}
   );
 }
 END
