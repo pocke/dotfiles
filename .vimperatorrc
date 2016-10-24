@@ -14,6 +14,9 @@
 
 inoremap <C-a> <Ins><C-a><Ins>
 inoremap <C-m> <CR>
+inoremap <C-n> <Esc>gt
+inoremap <C-p> <Esc>gT
+
 nnoremap s :tabopen<Space>google<Space>
 nnoremap <silent> <Esc> :<C-u>nohlsearch<CR>
 nnoremap ; :
@@ -23,6 +26,16 @@ nnoremap y :js util.copyToClipboard(buffer.URL, true)<CR>
 nnoremap Y :js util.copyToClipboard(("[" + buffer.title + "]" + "(" + buffer.URL + ")"), true)<CR>
 nnoremap <C-d> <PageDown>
 nnoremap <C-u> <PageUp>
+
+nnoremap <C-1> :tabn 1<CR>
+nnoremap <C-2> :tabn 2<CR>
+nnoremap <C-3> :tabn 3<CR>
+nnoremap <C-4> :tabn 4<CR>
+nnoremap <C-5> :tabn 5<CR>
+nnoremap <C-6> :tabn 6<CR>
+nnoremap <C-7> :tabn 7<CR>
+nnoremap <C-8> :tabn 8<CR>
+nnoremap <C-9> :tabn 9<CR>
 
 
 
