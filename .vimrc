@@ -219,12 +219,9 @@ function! s:load_bundles()
 
   " Application Plugins {{{
 
-  " Unite {{{
-  NeoBundleLazy 'Shougo/unite.vim', {
-  \   'on_cmd': [ "Unite", "UniteWithBufferDir" ],
-  \   'depends': ['Shougo/neomru.vim'],
+  NeoBundleLazy 'Shougo/denite.nvim', {
+  \   'on_cmd': [ "Denite"],
   \ }
-  " }}}
 
   NeoBundleLazy 'thinca/vim-ref', {
   \   'on_cmd': ['Ref'],
@@ -725,44 +722,24 @@ endif
 
 " Application Plugins {{{
 
-" Unite{{{
-" unite.vim {{{
-if neobundle#tap('unite.vim')
+" denite.vim {{{
+if neobundle#tap('denite.nvim')
   function! neobundle#tapped.hooks.on_source(bundle)
-    let g:unite_enable_start_insert=1
-    let g:unite_source_history_yank_enable=1
-    let g:unite_source_file_mru_limit=200
+    call denite#custom#map('insert', "<C-n>", "move_to_next_line")
+    call denite#custom#map('insert', "<C-p>", "move_to_prev_line")
   endfunction
 
-  nnoremap <SID>(unite) <Nop>
-  nmap <Space>u <SID>(unite)
-  nnoremap <silent> <SID>(unite)t :<C-u>Unite file file_mru buffer -buffer-name='file-buffer' -tab<CR>
-  nnoremap <silent> <SID>(unite)u :<C-u>Unite file file_mru buffer -buffer-name='file-buffer'<CR>
-  nnoremap <silent> <SID>(unite)v :<C-u>vs<CR>:Unite file file_mru buffer -buffer-name='file-buffer'<CR>
-  nnoremap <silent> <SID>(unite)s :<C-u>sp<CR>:Unite file file_mru buffer -buffer-name='file-buffer'<CR>
-  nnoremap <silent> <SID>(unite)G :<C-u>Unite grep/git:. -tab<CR>
-  nnoremap <silent><expr> <SID>(unite)g ":<C-u>Unite -input=" . expand('<cword>') . " grep/git:. -tab<CR>"
-
-
-  AutoCmd FileType unite call s:unite_fix_key()
-  function! s:unite_slash() abort
-    if getpos('.')[2] == 1
-      return '/'
-    else
-      return '*/'
-    endif
-  endfunction
-
-  function! s:unite_fix_key() abort
-    if bufname('%') =~# "file-buffer"
-      inoremap <buffer><expr> / <SID>unite_slash()
-      inoremap <buffer> * **/
-    endif
-  endfunction
+  nnoremap <SID>(denite) <Nop>
+  nmap <Space>u <SID>(denite)
+  nnoremap <silent> <SID>(denite)t :<C-u>tabnew<CR>:Denite file_rec<CR>
+  nnoremap <silent> <SID>(denite)u :<C-u>Denite file_rec<CR>
+  nnoremap <silent> <SID>(denite)v :<C-u>vs<CR>:Denite file_rec<CR>
+  nnoremap <silent> <SID>(denite)s :<C-u>sp<CR>:Denite file_rec<CR>
+  nnoremap <silent> <SID>(denite)G :<C-u>tabnew<CR>:Denite grep<CR>
+  nnoremap <silent><expr> <SID>(denite)g "<C-u>:tabnew<CR>:Denite -input=" . expand('<cword>') . " grep<CR><CR>"
 
   call neobundle#untap()
 endif
-" }}}
 " }}}
 
 
