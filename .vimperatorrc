@@ -16,6 +16,12 @@ inoremap <C-a> <Ins><C-a><Ins>
 inoremap <C-m> <CR>
 inoremap <C-n> <Esc>gt
 inoremap <C-p> <Esc>gT
+inorema <C-S-n> <Esc>:tabmove +1<CR>
+inorema <C-S-p> <Esc>:tabmove -1<CR>
+
+
+nnorema <C-S-n> :tabmove +1<CR>
+nnorema <C-S-p> :tabmove -1<CR>
 
 nnoremap s :tabopen<Space>google<Space>
 nnoremap <silent> <Esc> :<C-u>nohlsearch<CR>
