@@ -161,6 +161,11 @@ function! s:load_bundles()
   " AltJS {{{
   NeoBundleLazy 'kchmck/vim-coffee-script',
   \   FiletypeConfig("coffee")
+  NeoBundleLazy 'AndrewRadev/vim-eco', {
+  \   'on_ft': 'eco',
+  \   'depends': ['kchmck/vim-coffee-script']
+  \ }
+
   NeoBundleLazy 'leafgarland/typescript-vim',
   \   FiletypeConfig("typescript")
   NeoBundleLazy 'Quramy/tsuquyomi',
