@@ -727,6 +727,15 @@ if neobundle#tap('denite.nvim')
   function! neobundle#tapped.hooks.on_source(bundle)
     call denite#custom#map('insert', "<C-n>", "move_to_next_line")
     call denite#custom#map('insert', "<C-p>", "move_to_prev_line")
+
+    if executable('rg')
+      call denite#custom#var('grep', 'command', ['rg'])
+      call denite#custom#var('grep', 'recursive_opts', [])
+      call denite#custom#var('grep', 'final_opts', [])
+      call denite#custom#var('grep', 'separator', ['--'])
+      call denite#custom#var('grep', 'default_opts',
+      \   ['--vimgrep', '--no-heading'])
+    endif
   endfunction
 
   nnoremap <SID>(denite) <Nop>
