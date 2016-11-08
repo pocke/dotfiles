@@ -996,6 +996,8 @@ if neobundle#tap('vim-altr')
 
     " For golang test
     call altr#define('%.go', '%_test.go')
+
+    call altr#define('db/migrate/*.rb')
   endfunction
 
   call neobundle#untap()
