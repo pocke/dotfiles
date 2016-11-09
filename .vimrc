@@ -226,6 +226,11 @@ function! s:load_bundles()
 
   NeoBundleLazy 'Shougo/denite.nvim', {
   \   'on_cmd': [ "Denite"],
+  \   'depends': ['nixprime/cpsm/'],
+  \ }
+
+  NeoBundleLazy 'nixprime/cpsm/', {
+  \   'build': 'sh -c "PY3=ON ./install.sh"'
   \ }
 
   NeoBundleLazy 'thinca/vim-ref', {
@@ -732,6 +737,9 @@ if neobundle#tap('denite.nvim')
   function! neobundle#tapped.hooks.on_source(bundle)
     call denite#custom#map('insert', "<C-n>", "move_to_next_line")
     call denite#custom#map('insert', "<C-p>", "move_to_prev_line")
+
+    call denite#custom#source(
+    \ 'file_rec', 'matchers', ['matcher_cpsm'])
 
     if executable('rg')
       call denite#custom#var('grep', 'command', ['rg'])
