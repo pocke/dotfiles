@@ -1302,6 +1302,26 @@ NeoBundleSource vim-operator-user
 call operator#user#define('google-search', 'OperatorGoogle')
 map go <Plug>(operator-google-search)
 
+function! OperatorDenite(mosion_wize)
+  if line("'[") != line("']")
+    return
+  endif
+  let start = col("'[") - 1
+  let end   = col("']")
+  let sel = strpart(getline('.'), start, end - start)
+
+  let [args, context] = denite#helper#_parse_options_args('file_rec')
+
+  let context.firstline = line('.')
+  let context.lastline = line('.')
+  let context.bufnr = bufnr('%')
+  let context.input = sel
+
+  call denite#start(args, context)
+endfunction
+call operator#user#define('denite-file_rec', 'OperatorDenite')
+map <Space>uo <Plug>(operator-denite-file_rec)
+
 function! PluralSingularize(word) abort
   let s:word = a:word
   ruby << EOC
