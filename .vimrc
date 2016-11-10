@@ -1224,19 +1224,6 @@ inoremap <C-e> <End>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-" :h hogehoge@ とかなってhelpが見つからないのを解消
-cnoremap <CR> <C-\>e <SID>cmdline_cr()<CR><CR>
-function! s:cmdline_cr()
-  let cmdline_orig = getcmdline()
-  if cmdline_orig !~# '\v^h%[elp] .+\@$'
-    return cmdline_orig
-  endif
-
-  let cmdline_ret = substitute(cmdline_orig, '\v\@$', '', '')
-  return cmdline_ret
-endfunction
-
-
 " Esc 2回で強調を解除
 " Can't use noh in function
 function! s:hier_clear()
