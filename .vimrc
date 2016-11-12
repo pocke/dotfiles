@@ -297,7 +297,6 @@ function! s:load_bundles()
   "}}}
 
 
-  NeoBundle     'kana/vim-submode'
   NeoBundle     'kana/vim-arpeggio'
 endfunction
 
@@ -919,24 +918,6 @@ if neobundle#tap('vim-altr')
 endif
 
 
-
-if neobundle#tap('vim-submode')
-  let g:submode_keep_leaving_key = 1
-  function! s:my_x()
-      undojoin
-      normal! "_x
-  endfunction
-
-  nnoremap <silent> <Plug>(my-x) :<C-u>call <SID>my_x()<CR>
-  call submode#enter_with('my_x', 'n', '', 'x', '"_x')
-  call submode#map('my_x', 'n', 'r', 'x', '<Plug>(my-x)')
-
-  call neobundle#untap()
-endif
-
-
-
-
 let g:netrw_http_xcmd = '-L -o'
 
 
@@ -1161,6 +1142,8 @@ nnoremap Y y$
 nnoremap <silent><C-s> :<C-u>set spell!<CR>
 nnoremap <silent><Tab> :<C-u>set cursorcolumn!<CR>:<C-u>set cursorline!<CR>
 vnoremap <silent><Tab> :<C-u>set cursorcolumn!<CR>:<C-u>set cursorline!<CR>
+
+nnoremap x "_x
 
 snoremap <C-w> a<C-h>
 
