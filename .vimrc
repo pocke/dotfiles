@@ -22,7 +22,6 @@ command! -nargs=* AutoCmd autocmd MyVimrc <args>
 command! NXOmap -nargs=+ nmap <args> | xmap <args> | omap <args>
 
 
-" neobundle {{{
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -35,7 +34,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 function! s:load_bundles()
   NeoBundleFetch 'Shougo/neobundle.vim'
 
-  " 入力系プラグイン {{{
 
   " 補完
   NeoBundle     'Shougo/neocomplete', {
@@ -67,7 +65,6 @@ function! s:load_bundles()
   \ }
   NeoBundle 'LeafCage/yankround.vim'
 
-  " text object {{{
   function! TextobjConfig(mappings) abort
     return {
     \   'depends': 'kana/vim-textobj-user',
@@ -91,9 +88,7 @@ function! s:load_bundles()
   \   TextobjConfig(['ac', 'ic'])
 
   delfunction TextobjConfig
-  " }}}
 
-  " operator {{{
   function! OperatorConfig(mappings)
     return {
     \   'depends': 'kana/vim-operator-user',
@@ -115,11 +110,8 @@ function! s:load_bundles()
 
 
   delfunction OperatorConfig
-  " }}}
 
-  " }}}
 
-  " 表示系プラグイン {{{
   NeoBundle     'thinca/vim-splash'
   NeoBundleLazy 'vim-scripts/AnsiEsc.vim', {
   \   'on_cmd': ['AnsiEsc'],
@@ -134,9 +126,7 @@ function! s:load_bundles()
   \ }
 
   NeoBundle     'w0ng/vim-hybrid'
-  " }}}
 
-  " 移動系プラグイン {{{
   " ぬるぬるスクロール
   NeoBundle     'yonchu/accelerated-smooth-scroll'
   NeoBundleLazy 'easymotion/vim-easymotion', {
@@ -145,20 +135,16 @@ function! s:load_bundles()
   NeoBundleLazy 'rhysd/clever-f.vim', {
   \   'on_map': ['f', 'F', 't']
   \ }
-  " }}}
 
-  " syntax and filetype plugins {{{
   function! FiletypeConfig(ft)
     return {
     \   'on_ft': a:ft,
     \ }
   endfunction
 
-  " JavaScript {{{
   NeoBundleLazy 'jelera/vim-javascript-syntax',
   \   FiletypeConfig("javascript")
   NeoBundle     'jason0x43/vim-js-indent'
-  " AltJS {{{
   NeoBundleLazy 'kchmck/vim-coffee-script',
   \   FiletypeConfig("coffee")
   NeoBundleLazy 'AndrewRadev/vim-eco', {
@@ -170,8 +156,6 @@ function! s:load_bundles()
   \   FiletypeConfig("typescript")
   NeoBundleLazy 'Quramy/tsuquyomi',
   \   FiletypeConfig("typescript")
-  " }}}
-  " }}}
 
   NeoBundleLazy 'hail2u/vim-css3-syntax',
   \   FiletypeConfig("css")
@@ -182,12 +166,10 @@ function! s:load_bundles()
   NeoBundleLazy 'slim-template/vim-slim',
   \   FiletypeConfig("slim")
 
-  " scala {{{
   NeoBundleLazy 'derekwyatt/vim-scala',
   \   FiletypeConfig("scala")
   NeoBundleLazy 'derekwyatt/vim-sbt',
   \   FiletypeConfig("sbt")
-  " }}}
 
   NeoBundleLazy 'fatih/vim-go',
   \   FiletypeConfig("go")
@@ -220,9 +202,7 @@ function! s:load_bundles()
 
   NeoBundleLazy 'rgrinberg/vim-ocaml',
   \   FiletypeConfig(['ocaml', 'oasis', 'ocamlbuild_tags', 'omake', 'opam', 'sexplib'])
-  " }}}
 
-  " Application Plugins {{{
 
   NeoBundleLazy 'Shougo/denite.nvim', {
   \   'on_cmd': [ "Denite"],
@@ -242,7 +222,6 @@ function! s:load_bundles()
   \   'on_cmd': ['Scouter', 'Scouter!'],
   \ }
 
-  " }}}
 
   NeoBundle     'sudo.vim'
   NeoBundleLazy 'editorconfig/editorconfig-vim'
@@ -310,7 +289,6 @@ function! s:load_bundles()
   \   'on_map': '<Plug>(altr-',
   \ }
 
-  " vim {{{
   NeoBundleLazy 'vim-jp/vimdoc-ja'
   NeoBundleLazy 'thinca/vim-prettyprint', {
   \   'on_cmd': [{'name': 'PP', 'complete': 'expression'}],
@@ -319,10 +297,8 @@ function! s:load_bundles()
   "}}}
 
 
-  " keybind {{{
   NeoBundle     'kana/vim-submode'
   NeoBundle     'kana/vim-arpeggio'
-  " }}}
 endfunction
 
 " if neobundle#load_cache()
@@ -336,11 +312,8 @@ filetype plugin indent on     " Required!
 
 
 
-" plugins settings {{{
 call arpeggio#load()
 
-" 入力系プラグイン {{{
-" neocomplete {{{
 if neobundle#tap('neocomplete')
   " 起動時に有効化
   let g:neocomplete#enable_at_startup = 1
@@ -396,7 +369,6 @@ if neobundle#tap('neocomplete')
 endif
 "}}}
 
-" neosnippet {{{
 if neobundle#tap('neosnippet')
   "http://kazuph.hateblo.jp/entry/2013/01/19/193745
 
@@ -430,7 +402,6 @@ if neobundle#tap('neosnippet')
 endif
 "}}}
 
-" vim-smartinput {{{
 if neobundle#tap('vim-smartinput')
 
   function! neobundle#tapped.hooks.on_source(bundle)
@@ -462,9 +433,7 @@ if neobundle#tap('vim-smartinput')
 
   call neobundle#untap()
 endif
-" }}}
 
-" yankround.vim {{{
 if neobundle#tap('yankround.vim')
   let g:yankround_dir         = '~/.vim/cache/yankround'
   let g:yankround_max_history = 64
@@ -481,20 +450,15 @@ if neobundle#tap('yankround.vim')
 
   call neobundle#untap()
 endif
-" }}}
 
-" vim-trip {{{
 if neobundle#tap('vim-trip')
   nmap <C-a> <Plug>(trip-increment)
   nmap <C-x> <Plug>(trip-decrement)
 
   call neobundle#untap()
 endif
-" }}}
 
-" text object {{{
 
-" vim-expand-region {{{
 if neobundle#tap('vim-expand-region')
   map <CR> <Plug>(expand_region_expand)
   map <BS> <Plug>(expand_region_shrink)
@@ -519,12 +483,8 @@ if neobundle#tap('vim-expand-region')
 
   call neobundle#untap()
 endif
-" }}}
 
-" }}}
 
-" operator {{{
-" vim-operator-surround {{{
 if neobundle#tap('vim-operator-surround')
   Arpeggio map <silent>sa <Plug>(operator-surround-append)
   Arpeggio map <silent>sd <Plug>(operator-surround-delete)
@@ -532,9 +492,7 @@ if neobundle#tap('vim-operator-surround')
 
   call neobundle#untap()
 endif
-" }}}
 
-" vim-operator-comment {{{
 if neobundle#tap('vim-operator-comment')
   Arpeggio map <silent>co <Plug>(operator-comment)
   Arpeggio map <silent>cu <Plug>(operator-uncomment)
@@ -543,38 +501,28 @@ if neobundle#tap('vim-operator-comment')
 
   call neobundle#untap()
 endif
-" }}}
 
-" operator-camelize.vim {{{
 if neobundle#tap('operator-camelize.vim')
   Arpeggio map <silent>ca <Plug>(operator-camelize-toggle)
 
   call neobundle#untap()
 endif
-" }}}
 
-" vim-operator-replace {{{
 if neobundle#tap('vim-operator-replace')
   map - <Plug>(operator-replace)
 
   call neobundle#untap()
 endif
-" }}}
 
 
-" vim-operator-trailing-space {{{
 if neobundle#tap('vim-operator-trailing-space')
   map <Space><Space> <Plug>(operator-trailing-space)
 
   call neobundle#untap()
 endif
-" }}}
-" }}}
 
 
-" 表示系プラグイン {{{
 
-" vim-splash {{{
 if neobundle#tap('vim-splash')
   let g:splash#path = $HOME . '/dotfiles/octocat.txt'
   " Don't work starting 'vim -t {tag}'
@@ -582,9 +530,7 @@ if neobundle#tap('vim-splash')
 
   call neobundle#untap()
 endif
-" }}}
 
-" lightline.vim {{{
 if neobundle#tap('lightline.vim')
   let g:lightline = {
   \   'active': {
@@ -599,9 +545,7 @@ if neobundle#tap('lightline.vim')
 
   call neobundle#untap()
 endif
-" }}}
 
-" incsearch.vim {{{
 if neobundle#tap('incsearch.vim')
   map / <Plug>(incsearch-forward)
   map g/ <Plug>(incsearch-stay)
@@ -619,9 +563,7 @@ if neobundle#tap('incsearch.vim')
 
   call neobundle#untap()
 endif
-" }}}
 
-" ruby_hl_lvar.vim {{{
 if neobundle#tap('ruby_hl_lvar.vim')
   let g:ruby_hl_lvar_show_warnings = 1
   function! neobundle#tapped.hooks.on_post_source(bundle)
@@ -658,18 +600,12 @@ if neobundle#tap('ruby_hl_lvar.vim')
 
   call neobundle#untap()
 endif
-" }}}
 
 
-" }}}
 
 
-" 移動系プラグイン {{{
 
-" accelerated-smooth-scroll {{{
-" }}}
 
-" vim-easymotion {{{
 if neobundle#tap('vim-easymotion')
   let g:EasyMotion_smartcase   = 1
   let g:EasyMotion_use_migemo  = 1
@@ -678,9 +614,7 @@ if neobundle#tap('vim-easymotion')
 
   call neobundle#untap()
 endif
-" }}}
 
-" clever-f {{{
 if neobundle#tap('clever-f.vim')
   function! neobundle#tapped.hooks.on_source(bundle)
     let g:clever_f_ignore_case           = 1
@@ -690,24 +624,18 @@ if neobundle#tap('clever-f.vim')
 
   call neobundle#untap()
 endif
-" }}}
-
-" }}}
 
 
-" syntax plugins {{{
+
 let g:tsuquyomi_disable_quickfix = 1
 
-" vim-css3-syntax {{{
 if neobundle#tap('vim-css3-syntax')
   AutoCmd FileType css setlocal iskeyword+=-
 
   call neobundle#untap()
 endif
-" }}}
 
 
-" vim-go {{{
 if neobundle#tap('vim-go')
   function! neobundle#tapped.hooks.on_source(bundle)
     if executable("goimports")
@@ -726,13 +654,9 @@ if neobundle#tap('vim-go')
 
   call neobundle#untap()
 endif
-" }}}
-" }}}
 
 
-" Application Plugins {{{
 
-" denite.vim {{{
 if neobundle#tap('denite.nvim')
   function! neobundle#tapped.hooks.on_source(bundle)
     call denite#custom#map('insert', "<C-n>", "move_to_next_line")
@@ -762,10 +686,8 @@ if neobundle#tap('denite.nvim')
 
   call neobundle#untap()
 endif
-" }}}
 
 
-" vim-ref {{{
 if neobundle#tap('vim-ref')
   silent! nmap <silent> <unique> K <Plug>(ref-keyword)
   silent! vmap <silent> <unique> K <Plug>(ref-keyword)
@@ -776,13 +698,10 @@ if neobundle#tap('vim-ref')
 
   call neobundle#untap()
 endif
-" }}}
-
-" }}}
 
 
 
-" editorconfig-vim {{{
+
 if neobundle#tap('editorconfig-vim')
   function! s:load_editorconfig()
     if findfile('.editorconfig', '.;') != ''
@@ -795,10 +714,8 @@ if neobundle#tap('editorconfig-vim')
 
   call neobundle#untap()
 endif
-" }}}
 
 
-" open-browser.vim {{{
 if neobundle#tap('open-browser.vim')
   let s:cmd = has('mac') ? 'open' : 'xdg-open'
   let g:openbrowser_browser_commands = [{
@@ -809,10 +726,8 @@ if neobundle#tap('open-browser.vim')
 
   call neobundle#untap()
 endif
-" }}}
 
 
-" vim-quickrun {{{
 if neobundle#tap('vim-quickrun')
   let g:quickrun_config = {
   \   '_': {
@@ -832,10 +747,8 @@ if neobundle#tap('vim-quickrun')
 
   call neobundle#untap()
 endif
-" }}}
 
 
-" vim-watchdogs {{{
 if neobundle#tap('vim-watchdogs')
   augroup source-watchdogs
     autocmd!
@@ -916,23 +829,18 @@ if neobundle#tap('vim-watchdogs')
     endfunction
   endfunction
 
-
   call neobundle#untap()
 endif
-" }}}
 
-" vim-asterisk {{{
 if neobundle#tap('vim-asterisk')
   map * <Plug>(incsearch-nohl)<Plug>(asterisk-*)
   map z* <Plug>(incsearch-nohl)<Plug>(asterisk-z*)
 
   call neobundle#untap()
 endif
-" }}}
 
 
 
-" vim-fugitive {{{
 if neobundle#tap('vim-fugitive')
   function! neobundle#tapped.hooks.on_post_source(bundle)
     doautoall fugitive BufNewFile
@@ -940,9 +848,7 @@ if neobundle#tap('vim-fugitive')
 
   call neobundle#untap()
 endif
-" }}}
 
-" committia.vim {{{
 if neobundle#tap('committia.vim')
   let g:committia_hooks = {}
   function! g:committia_hooks.edit_open(info)
@@ -956,10 +862,8 @@ if neobundle#tap('committia.vim')
 
   call neobundle#untap()
 endif
-" }}}
 
 
-" vim-automatic {{{
 if neobundle#tap('vim-automatic')
   function! s:my_temp_win_init(config, context)
     nnoremap <buffer> q :<C-u>q<CR>
@@ -993,9 +897,7 @@ if neobundle#tap('vim-automatic')
 
   call neobundle#untap()
 endif
-" }}}
 
-" vim-altr {{{
 if neobundle#tap('vim-altr')
   nmap <PageUp>   <Plug>(altr-forward)
   nmap <PageDown> <Plug>(altr-back)
@@ -1015,12 +917,9 @@ if neobundle#tap('vim-altr')
 
   call neobundle#untap()
 endif
-" }}}
 
 
-" keybind {{{
 
-" vim-submode {{{
 if neobundle#tap('vim-submode')
   let g:submode_keep_leaving_key = 1
   function! s:my_x()
@@ -1034,19 +933,13 @@ if neobundle#tap('vim-submode')
 
   call neobundle#untap()
 endif
-" }}}
-
-" }}}
 
 
 
-" netrw {{{
+
 let g:netrw_http_xcmd = '-L -o'
-" }}}
 
-" }}}
 
-" other {{{
 syntax enable
 
 " 256色
@@ -1209,7 +1102,6 @@ AutoCmd VimResized * wincmd =
 AutoCmd BufWritePost *.go silent  call system('go build &')
 
 
-" keybind {{{
 nnoremap ; :
 vnoremap ; :
 " コマンドラインでのC-n|p と Up, Downの入れ替え
@@ -1275,7 +1167,6 @@ snoremap <C-w> a<C-h>
 iabbrev stirng string
 iabbrev Ingeter Integer
 iabbrev cosnt const
-" }}}
 
 
 " http://hail2u.net/blog/software/vim-auto-close-quickfix-window.html
@@ -1285,7 +1176,6 @@ function! s:auto_close_quickfix()
   endif
 endfunction
 AutoCmd WinEnter * call s:auto_close_quickfix()
-" }}}
 
 function! OperatorGoogle(mosion_wize)
   NeoBundleSource open-browser.vim
