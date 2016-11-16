@@ -676,12 +676,12 @@ if neobundle#tap('denite.nvim')
 
   nnoremap <SID>(denite) <Nop>
   nmap <Space>u <SID>(denite)
-  nnoremap <silent> <SID>(denite)t :<C-u>tabnew<CR>:Denite file_rec<CR>
+  nnoremap <silent> <SID>(denite)t :<C-u>Denite -default-action=tabopen file_rec<CR>
   nnoremap <silent> <SID>(denite)u :<C-u>Denite file_rec<CR>
   nnoremap <silent> <SID>(denite)v :<C-u>vs<CR>:Denite file_rec<CR>
   nnoremap <silent> <SID>(denite)s :<C-u>sp<CR>:Denite file_rec<CR>
-  nnoremap <silent> <SID>(denite)G :<C-u>tabnew<CR>:Denite grep<CR>
-  nnoremap <silent><expr> <SID>(denite)g "<C-u>:tabnew<CR>:Denite -input=" . expand('<cword>') . " grep<CR><CR>"
+  nnoremap <silent> <SID>(denite)G :<C-u>Denite -default-action=tabopen grep<CR>
+  nnoremap <silent> <SID>(denite)g :<C-u>DeniteCursorWord -default-action=tabopen grep<CR>
 
   call neobundle#untap()
 endif
