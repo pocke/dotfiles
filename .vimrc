@@ -811,6 +811,11 @@ if neobundle#tap('vim-watchdogs')
     \   "errorformat": '%f:%l:%c: %m',
     \ }
 
+    let g:quickrun_config['watchdogs_checker/ruby'] = {
+    \   "command" : "ruby",
+    \   "exec"    : "%c %o -c %s:p > /dev/null",
+    \ }
+
     let g:quickrun_config['typescript/watchdogs_checker'] = {'type': 'watchdogs_checker/tslint'}
     let g:quickrun_config['ruby.rspec/watchdogs_checker'] = {'type': 'watchdogs_checker/ruby'}
     let g:quickrun_config['go/watchdogs_checker']         = {'type': 'watchdogs_checker/go_metalinter'}
