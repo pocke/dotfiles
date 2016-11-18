@@ -71,7 +71,6 @@ function __vimperator_ggc() {
   }
 
   const paths = buffer.URL.split('/');
-
   const host = paths[2];
   const owner = paths[3];
   const repo = paths[4];
@@ -79,8 +78,10 @@ function __vimperator_ggc() {
     return;
   }
 
+  const lang = window.content.window.document.querySelector('.lang').textContent;
+
   fetch(
-    `http://localhost:8080?host=${host}&owner=${owner}&repo=${repo}`,
+    `http://localhost:8080?host=${host}&owner=${owner}&repo=${repo}&lang=${lang}`,
     {method: 'POST'}
   );
 }
