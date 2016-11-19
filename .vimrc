@@ -816,6 +816,12 @@ if neobundle#tap('vim-watchdogs')
     \   "exec"    : "%c %o -c %s:p > /dev/null",
     \ }
 
+    let g:quickrun_config['watchdogs_checker/jsonlint'] = {
+    \   "command" : "jsonlint",
+    \   "exec"    : "%c %o -c %s:p > /dev/null",
+    \   "errorformat" : '%f: line %l\\, col %c\\, %m',
+    \ }
+
     let g:quickrun_config['typescript/watchdogs_checker'] = {'type': 'watchdogs_checker/tslint'}
     let g:quickrun_config['ruby.rspec/watchdogs_checker'] = {'type': 'watchdogs_checker/ruby'}
     let g:quickrun_config['go/watchdogs_checker']         = {'type': 'watchdogs_checker/go_metalinter'}
