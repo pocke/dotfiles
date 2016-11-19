@@ -78,7 +78,11 @@ function __vimperator_ggc() {
     return;
   }
 
-  const lang = window.content.window.document.querySelector('.lang').textContent;
+  const lang_el = window.content.window.document.querySelector('.lang');
+  if (!lang_el) {
+    return;
+  }
+  const lang = lang_el.textContent;
 
   fetch(
     `http://localhost:8080?host=${host}&owner=${owner}&repo=${repo}&lang=${lang}`,
