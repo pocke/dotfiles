@@ -209,7 +209,7 @@ function! s:load_bundles()
   \   'depends': ['nixprime/cpsm/'],
   \ }
 
-  NeoBundleLazy 'nixprime/cpsm/', {
+  NeoBundleLazy 'nixprime/cpsm', {
   \   'build': 'sh -c "PY3=ON ./install.sh"'
   \ }
 
