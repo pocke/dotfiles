@@ -333,6 +333,7 @@ if neobundle#tap('neocomplete')
 
   let g:neocomplete#max_keyword_width = 10000
 
+  let g:neocomplete#sources#tags#cache_limit_size = 10000000
 
   if !exists('g:neocomplete#delimiter_patterns')
     let g:neocomplete#delimiter_patterns= {}
