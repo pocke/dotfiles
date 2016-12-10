@@ -673,14 +673,18 @@ if neobundle#tap('denite.nvim')
       call denite#custom#var('grep', 'default_opts',
       \   ['--vimgrep', '--no-heading'])
     endif
+
+    call denite#custom#alias('source', 'file_rec/git', 'file_rec')
+    call denite#custom#var('file_rec/git', 'command',
+    \ ['git', 'ls-files', '-co', '--exclude-standard'])
   endfunction
 
   nnoremap <SID>(denite) <Nop>
   nmap <Space>u <SID>(denite)
-  nnoremap <silent> <SID>(denite)t :<C-u>Denite -default-action=tabopen file_rec<CR>
-  nnoremap <silent> <SID>(denite)u :<C-u>Denite file_rec<CR>
-  nnoremap <silent> <SID>(denite)v :<C-u>vs<CR>:Denite file_rec<CR>
-  nnoremap <silent> <SID>(denite)s :<C-u>sp<CR>:Denite file_rec<CR>
+  nnoremap <silent> <SID>(denite)t :<C-u>Denite -default-action=tabopen `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
+  nnoremap <silent> <SID>(denite)u :<C-u>Denite `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
+  nnoremap <silent> <SID>(denite)v :<C-u>vs<CR>:<C-u>Denite `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
+  nnoremap <silent> <SID>(denite)s :<C-u>sp<CR>:<C-u>Denite `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
   nnoremap <silent> <SID>(denite)G :<C-u>Denite -default-action=tabopen grep<CR>
   nnoremap <silent> <SID>(denite)g :<C-u>DeniteCursorWord -default-action=tabopen grep<CR>
 
