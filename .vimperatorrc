@@ -54,6 +54,8 @@ set focuscontent
 
 set hintchars=;fjasdghklqwertyuiopzxcvbnm
 
+set visualbell
+hi Bell display: none;
 
 
 
