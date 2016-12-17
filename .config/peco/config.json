@@ -8,6 +8,5 @@
     "C-f": "peco.ToggleSingleKeyJump",
     "C-u": "peco.ScrollPageUp",
     "C-d": "peco.ScrollPageDown"
-  },
-  "InitialFilter": "Fuzzy"
+  }
 }
