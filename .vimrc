@@ -687,6 +687,7 @@ if neobundle#tap('denite.nvim')
   nnoremap <silent> <SID>(denite)s :<C-u>sp<CR>:<C-u>Denite `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
   nnoremap <silent> <SID>(denite)G :<C-u>Denite -default-action=tabopen grep<CR>
   nnoremap <silent> <SID>(denite)g :<C-u>DeniteCursorWord -default-action=tabopen grep<CR>
+  nnoremap <silent> <SID>(denite)b :<C-u>Denite buffer<CR>
 
   call neobundle#untap()
 endif
