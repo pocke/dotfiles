@@ -128,7 +128,7 @@ function! s:load_bundles()
   NeoBundle     'w0ng/vim-hybrid'
 
   " ぬるぬるスクロール
-  NeoBundle     'yonchu/accelerated-smooth-scroll'
+  NeoBundle     'yuttie/comfortable-motion.vim'
   NeoBundleLazy 'easymotion/vim-easymotion', {
   \   'on_map': ['<Plug>(easymotion-']
   \ }
@@ -603,7 +603,13 @@ endif
 
 
 
+if neobundle#tap('comfortable-motion.vim')
+  nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
+  nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 
+  nnoremap <silent> <C-f> :call comfortable_motion#flick(400)<CR>
+  nnoremap <silent> <C-b> :call comfortable_motion#flick(-400)<CR>
+endif
 
 
 if neobundle#tap('vim-easymotion')
