@@ -165,6 +165,8 @@ function! s:load_bundles()
   \   FiletypeConfig("stylus")
   NeoBundleLazy 'slim-template/vim-slim',
   \   FiletypeConfig("slim")
+  NeoBundleLazy 'othree/html5.vim',
+  \   FiletypeConfig("html")
 
   NeoBundleLazy 'derekwyatt/vim-scala',
   \   FiletypeConfig("scala")
