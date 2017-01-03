@@ -264,6 +264,15 @@ function ghq-new()
   __new_base "$HOME/ghq/github.com/pocke/$1"
 }
 
+# $1 is a project name.
+function gem-new()
+{
+  cd "$HOME/ghq/github.com/pocke/"
+  bundle gem $1 &&
+    cd $1 &&
+    git ci -m 'bunlde gem'
+}
+
 # $1 is command name
 function subsh()
 {
