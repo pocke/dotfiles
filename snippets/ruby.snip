@@ -67,7 +67,7 @@ snippet     benchmark
 options     head
   require 'benchmark'
   Benchmark.bm do |x|
-    x.report{${0}}
+    x.report{10000.times{${0}}}
   end
 
 # ------------------------  override default snippets
