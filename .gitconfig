@@ -7,7 +7,11 @@
 
 [user]
   name  = Masataka Kuwabara
-  email = p.ck.t22@gmail.com
+  email = kuwabara@pocke.me
+  signingkey = 0FB988875EA6F45F
+
+[commit]
+  gpgsign = true
 
 [color]
   ui = auto
