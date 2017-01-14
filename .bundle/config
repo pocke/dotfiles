@@ -1,5 +1,5 @@
 ---
-BUNDLE_PATH: "~/.gem/ruby/2.3.0/"
+BUNDLE_PATH: "~/.gem/ruby/2.4.0/"
 BUNDLE_JOBS: '10'
 BUNDLE_DISABLE_SHARED_GEMS: true
 BUNDLE_GEM__COC: 'false'
