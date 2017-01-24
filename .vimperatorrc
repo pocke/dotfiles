@@ -44,6 +44,16 @@ nnoremap <C-7> :tabn 7<CR>
 nnoremap <C-8> :tabn 8<CR>
 nnoremap <C-9> :tabn 9<CR>
 
+inoremap <C-1> <Esc>:tabn 1<CR>
+inoremap <C-2> <Esc>:tabn 2<CR>
+inoremap <C-3> <Esc>:tabn 3<CR>
+inoremap <C-4> <Esc>:tabn 4<CR>
+inoremap <C-5> <Esc>:tabn 5<CR>
+inoremap <C-6> <Esc>:tabn 6<CR>
+inoremap <C-7> <Esc>:tabn 7<CR>
+inoremap <C-8> <Esc>:tabn 8<CR>
+inoremap <C-9> <Esc>:tabn 9<CR>
+
 
 
 
