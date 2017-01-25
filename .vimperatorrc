@@ -12,7 +12,7 @@
 
 "   -------------- keybind
 
-inoremap <C-a> <Ins><C-a><Ins>
+inoremap <M-a> <Ins><C-a><Ins>
 inoremap <C-m> <CR>
 inoremap <C-n> <Esc>gt
 inoremap <C-p> <Esc>gT
