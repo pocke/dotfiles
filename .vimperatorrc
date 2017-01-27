@@ -24,7 +24,7 @@ nnorema <C-S-n> :tabmove +1<CR>
 nnorema <C-S-p> :tabmove -1<CR>
 
 nnoremap s :tabopen<Space>google<Space>
-nnorema gr :tabopen<Space>google<Space>site:https://docs.ruby-lang.org<Space>
+nnorema gr :tabopen<Space>google<Space>site:https://docs.ruby-lang.org/en/<Space>
 nnoremap <silent> <Esc> :<C-u>nohlsearch<CR>
 nnoremap ; :
 nnoremap : ;
