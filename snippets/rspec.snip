@@ -68,3 +68,15 @@ snippet     subject
 snippet     with_pry_testcase
 options     word
   with_pry_testcase
+
+snippet     shared_examples
+options     head
+  shared_examples ${1:NAME} do
+    ${0:TARGET}
+  end
+
+snippet     shared_context
+options     head
+  shared_context ${1:NAME} do
+    ${0:TARGET}
+  end
