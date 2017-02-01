@@ -80,3 +80,11 @@ options     head
   shared_context ${1:NAME} do
     ${0:TARGET}
   end
+
+snippet     include_examples
+options     head
+  include_examples ${0}
+
+snippet     include_context
+options     head
+  include_context ${0}
