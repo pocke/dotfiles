@@ -514,6 +514,10 @@ elseif screen.count() == 2 then
     rule = { class = "Firefox"},
     properties = {screen = '2', tag = '5'},
   })
+  table.insert(awful.rules.rules, {
+    rule = { class = "Vivaldi-snapshot"},
+    properties = {screen = '2', tag = '5'},
+  })
 end
 -- }}}
 
