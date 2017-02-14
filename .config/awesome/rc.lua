@@ -10,7 +10,6 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
-local battmon = require("plugins/battmon/battmon")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -223,8 +222,6 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
-            -- https://github.com/rhenium/awesome-battmon
-            battmon.all()[1], -- TODO: fix this workaround
         },
     }
 end)
