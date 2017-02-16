@@ -290,3 +290,13 @@ function git-rmbr()
 if which peco > /dev/null 2>&1 && [ -e "${basedir}/peco.zsh" ]; then
   source "${basedir}/peco.zsh"
 fi
+
+function sideci()
+{
+  ruby -e '
+    spawn(%q!sakura -x "ptmux sideci"!)
+    spawn(%q!sakura -x "ptmux node"!)
+    spawn(%q!sakura -x "ptmux setaria"!)
+    spawn(%q!sakura -x "ptmux catpost"!)
+  '
+}
