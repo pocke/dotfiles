@@ -277,9 +277,6 @@ function! s:load_bundles()
   \ }
 
   " git
-  NeoBundleLazy 'tpope/vim-fugitive', {
-  \   'on_cmd': ['Gblame'],
-  \ }
   NeoBundle     'rhysd/committia.vim'
 
   " window管理
@@ -865,14 +862,6 @@ endif
 
 
 
-if neobundle#tap('vim-fugitive')
-  function! neobundle#tapped.hooks.on_post_source(bundle)
-    doautoall fugitive BufNewFile
-  endfunction
-
-  call neobundle#untap()
-endif
-
 if neobundle#tap('committia.vim')
   let g:committia_hooks = {}
   function! g:committia_hooks.edit_open(info)
@@ -1138,6 +1127,7 @@ nnoremap <silent> <C-h> :<C-u>tabprevious<CR>
 " nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>zz
 nnoremap <F4> :<C-u>%s/<C-r>//
 vnoremap <F4> :s/<C-r>//
+nnoremap <F3> :!tig blame %<CR>
 
 nnoremap <Space>w :<C-u>w<CR>
 nnoremap <Space>q :<C-u>q<CR>

@@ -42,3 +42,5 @@ endfunction
 call ColorschemeFix()
 
 AutoCmd ColorScheme * call ColorschemeFix()
+
+nnoremap <F3> :!sakura -x 'tig blame %'<CR>
