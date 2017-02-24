@@ -55,6 +55,7 @@ function! s:load_bundles()
   \     'html',
   \     'xhtml',
   \     'css',
+  \     'svg',
   \     'sass',
   \     'styl',
   \     'xml',
