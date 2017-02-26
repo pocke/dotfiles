@@ -1192,4 +1192,6 @@ map go <Plug>(operator-google-search)
 
 set rtp+=~/ghq/github.com/the-lambda-church/merlin/vim/merlin
 
+silent mkspell! ~/.vim/spell/en.utf-8.add
+
 " vim:set foldmethod=marker:

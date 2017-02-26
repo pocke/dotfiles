@@ -21,6 +21,7 @@ FileUtils.mkdir_p(File.expand_path('~/.config/peco/'))
   .bundle/config
   .vim/after
   .vim/colors
+  .vim/spell
 ].each do |file|
   unless File.exist?(File.expand_path("~/#{file}"))
     exec("ln -s ~/dotfiles/#{file} ~/#{file}")
