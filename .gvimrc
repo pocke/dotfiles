@@ -43,4 +43,4 @@ call ColorschemeFix()
 
 AutoCmd ColorScheme * call ColorschemeFix()
 
-nnoremap <F3> :!sakura -x 'tig blame %'<CR>
+nnoremap <F3> :silent! !sakura -x 'tig blame +<C-r>=line('.')<CR> %'<CR>
