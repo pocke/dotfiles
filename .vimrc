@@ -85,8 +85,6 @@ function! s:load_bundles()
   \   TextobjConfig(['ae', 'ie'])
   NeoBundleLazy 'whatyouhide/vim-textobj-xmlattr',
   \   TextobjConfig(['ax', 'ix'])
-  NeoBundleLazy 'pocke/vim-textobj-markdown',
-  \   TextobjConfig(['ac', 'ic'])
 
   delfunction TextobjConfig
 
@@ -191,9 +189,6 @@ function! s:load_bundles()
 
   NeoBundleLazy 'OrangeT/vim-csharp',
   \   FiletypeConfig(['cs', 'csi', 'csx'])
-
-  NeoBundleLazy 'vimperator/vimperator.vim',
-  \   FiletypeConfig("vimperator")
 
   NeoBundleLazy 'keith/swift.vim',
   \   FiletypeConfig('swift')
@@ -1094,7 +1089,7 @@ endfunction
 
 AutoCmd VimResized * wincmd =
 
-AutoCmd BufWritePost *.go silent  call system('go build &')
+AutoCmd BufWritePost *.go silent call system('go build &')
 highlight link deniteMatchedChar Normal
 
 nnoremap ; :
