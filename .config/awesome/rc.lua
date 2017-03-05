@@ -290,7 +290,7 @@ globalkeys = awful.util.table.join(
               {description = "quit awesome", group = "awesome"}),
 
     awful.key({ modkey,           }, "q", function () awful.util.spawn("xtrlock -b") end),
-    awful.key({ modkey,           }, "p", function () awful.util.spawn("maim -s") end),
+    awful.key({ modkey,           }, "p", function () awful.util.spawn("maim -s " .. os.getenv('HOME') .. "/" .. os.date("%y%m%d%H%M%S") .. ".png") end),
     awful.key({ modkey,           }, "v", function () awful.util.spawn('gvim') end),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
