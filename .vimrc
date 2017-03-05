@@ -689,7 +689,7 @@ if neobundle#tap('denite.nvim')
   nnoremap <silent> <SID>(denite)G :<C-u>Denite -default-action=tabopen grep<CR>
   nnoremap <silent> <SID>(denite)g :<C-u>DeniteCursorWord -default-action=tabopen grep<CR>
   nnoremap <silent> <SID>(denite)b :<C-u>Denite buffer -default-action=switch<CR>
-  nnoremap <silent> ;              :<C-u>Denite command_history<CR>
+  nnoremap <silent> :              :<C-u>Denite command_history<CR>
 
   call neobundle#untap()
 endif
@@ -1093,6 +1093,7 @@ AutoCmd VimResized * wincmd =
 AutoCmd BufWritePost *.go silent call system('go build &')
 highlight link deniteMatchedChar Normal
 
+nnoremap ; :
 vnoremap ; :
 " コマンドラインでのC-n|p と Up, Downの入れ替え
 cnoremap <C-n>  <Down>
