@@ -38,6 +38,7 @@
   ls     = !ls --color=auto -F
   meom   = merge origin/master
   rao    = remote add origin
+  fo     = fetch origin
 
 [push]
   default = simple

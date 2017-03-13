@@ -32,6 +32,7 @@ alias -g V='| vim -c "set buftype=nofile" - '
 # http://qiita.com/Kuniwak/items/b711d6c3e402dfd9356b
 alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
 alias -g S='`git log --oneline | peco | cut -d" " -f 1`'
+alias -g OM='origin/master'
 
 ### suffix alias
 function extract() {
