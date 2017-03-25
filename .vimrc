@@ -50,20 +50,7 @@ function! s:load_bundles()
   NeoBundleLazy 'kana/vim-smartinput', {
   \   'on_i': 1,
   \ }
-  NeoBundleLazy 'mattn/emmet-vim', {
-  \   'on_ft': [
-  \     'html',
-  \     'xhtml',
-  \     'css',
-  \     'svg',
-  \     'sass',
-  \     'styl',
-  \     'xml',
-  \     'xls',
-  \     'markdown',
-  \     'javascript',
-  \   ]
-  \ }
+  NeoBundle 'mattn/emmet-vim'
   NeoBundle 'LeafCage/yankround.vim'
 
   function! TextobjConfig(mappings) abort
