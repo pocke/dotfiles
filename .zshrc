@@ -281,11 +281,6 @@ function subsh()
   add-zsh-hook precmd "__precmd_for_subsh"
 }
 
-function git-rmbr()
-{
-  ruby "${basedir}/rmbr.rb"
-}
-
 ### peco
 if which peco > /dev/null 2>&1 && [ -e "${basedir}/peco.zsh" ]; then
   source "${basedir}/peco.zsh"
