@@ -626,6 +626,7 @@ endif
 
 if neobundle#tap('vim-go')
   function! neobundle#tapped.hooks.on_source(bundle)
+    let g:go_gocode_unimported_packages = 1
     if executable("goimports")
       let g:go_fmt_command = "goimports"
     endif
