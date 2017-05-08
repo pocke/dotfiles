@@ -1,1 +1,2 @@
 gem: --no-ri --no-rdoc --user-install
+gemsrc_use_ghq: ~/ghq
