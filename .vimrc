@@ -1166,6 +1166,7 @@ call operator#user#define('google-search', 'OperatorGoogle')
 map go <Plug>(operator-google-search)
 
 set rtp+=~/ghq/github.com/the-lambda-church/merlin/vim/merlin
+set rtp+=~/go/src/github.com/pocke/whichpr/
 
 silent mkspell! ~/.vim/spell/en.utf-8.add
 
