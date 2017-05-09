@@ -1055,6 +1055,7 @@ AutoCmd FileType js nested setlocal ft=javascript
 AutoCmd FileType md nested setlocal ft=markdown
 
 AutoCmd FileType ruby setl iskeyword+=?
+let g:ruby_path = ""
 
 " help key mappings
 AutoCmd FileType help call s:set_help_keymap()
