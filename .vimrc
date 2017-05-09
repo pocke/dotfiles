@@ -1141,6 +1141,7 @@ snoremap <C-w> a<C-h>
 iabbrev stirng string
 iabbrev Ingeter Integer
 iabbrev cosnt const
+iabbrev retrun return
 
 
 " http://hail2u.net/blog/software/vim-auto-close-quickfix-window.html
