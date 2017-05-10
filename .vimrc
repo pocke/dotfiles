@@ -1142,6 +1142,7 @@ iabbrev stirng string
 iabbrev Ingeter Integer
 iabbrev cosnt const
 iabbrev retrun return
+iabbrev laod load
 
 
 " http://hail2u.net/blog/software/vim-auto-close-quickfix-window.html
