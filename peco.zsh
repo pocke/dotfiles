@@ -50,3 +50,19 @@ function peco-select-file()
 }
 zle -N peco-select-file
 bindkey '^F' peco-select-file
+
+function peco-select-tmux-session()
+{
+  if [ -n "$TMUX" ]; then
+    echo 'Do not use this command in a tmux session.'
+    return 1
+  fi
+
+  local session="$(tmux list-sessions | peco | cut -d : -f 1)"
+  if [ -n "$session" ]; then
+    BUFFER="tmux a -t $session"
+    zle accept-line
+  fi
+}
+zle -N peco-select-tmux-session
+bindkey '^T' peco-select-tmux-session
