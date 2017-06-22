@@ -296,3 +296,8 @@ function sideci()
     spawn(%q!sakura -x "ptmux catpost"!)
   '
 }
+
+function t()
+{
+  tmux new-session -s $(basename $(pwd))
+}

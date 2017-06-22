@@ -14,7 +14,6 @@ alias jman='LANG=ja_JP.UTF-8 man'
 alias be='bundle exec'
 alias b='bundle'
 alias tmux='TERM=screen-256color tmux -2'
-alias t='tmux'
 alias sozshrc='source ~/.zshrc'
 alias taketemp='cd "$(mktemp -d)"'
 function -(){cd -} # alias では実現できない?
