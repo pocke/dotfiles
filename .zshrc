@@ -299,5 +299,5 @@ function sideci()
 
 function t()
 {
-  tmux new-session -s $(basename $(pwd))
+  tmux new-session -s $(basename $(pwd) | sed -e 's/\./-/g')
 }
