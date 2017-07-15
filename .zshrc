@@ -212,7 +212,7 @@ function is_git_dir()
 
 function /()
 {
-  if  is_git_dir; then
+  if is_git_dir; then
     git grep $@
   else
     grep $@
