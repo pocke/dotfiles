@@ -66,6 +66,11 @@ options     head
     x.report{10000.times{${0}}}
   end
 
+snippet     tap
+options     word
+  tap { |${1:#:arg}| ${0} }
+
+
 # ------------------------  override default snippets
 snippet     def
 abbr        def ... end
