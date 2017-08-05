@@ -198,11 +198,6 @@ function! s:load_bundles()
   \   'build': 'sh -c "PY3=ON ./install.sh"'
   \ }
 
-  NeoBundleLazy 'thinca/vim-ref', {
-  \   'on_cmd': ['Ref'],
-  \   'on_map': ['<Plug>(ref-keyword)']
-  \ }
-
   NeoBundleLazy 'thinca/vim-scouter', {
   \   'on_cmd': ['Scouter', 'Scouter!'],
   \ }
