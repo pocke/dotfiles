@@ -293,3 +293,10 @@ function t()
 {
   tmux new-session -s $(basename $(pwd) | sed -e 's/\./-/g')
 }
+
+function yank-buffer()
+{
+  echo -n "$BUFFER" C
+}
+zle -N yank-buffer
+bindkey '^y' yank-buffer
