@@ -88,3 +88,18 @@ options     head
 snippet     include_context
 options     head
   include_context ${0}
+
+
+# For RuboCop
+
+snippet     expect_offense
+options     head
+  expect_offense(<<-RUBY)
+    ${0}
+  RUBY
+
+snippet     expect_no_offenses
+options     head
+  expect_no_offenses(<<-RUBY)
+    ${0}
+  RUBY
