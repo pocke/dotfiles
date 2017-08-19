@@ -70,6 +70,12 @@ snippet     tap
 options     word
   tap { |${1:#:arg}| ${0} }
 
+snippet     def_node_matcher
+options     head
+  def_node_matcher :${1:name}, <<-PATTERN
+    ${0}
+  PATTERN
+
 
 # ------------------------  override default snippets
 snippet     def
