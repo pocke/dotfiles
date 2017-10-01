@@ -45,6 +45,7 @@ function! s:load_bundles()
   NeoBundleFetch 'tekkoc/PHPSnippetsCreator'
   NeoBundle     'pocke/neosnippet-incomment'
   NeoBundle     'pocke/serverspec.vim'
+  NeoBundle     'pocke/iro.vim'
 
 
   NeoBundleLazy 'kana/vim-smartinput', {
@@ -107,10 +108,6 @@ function! s:load_bundles()
   \   'on_map': ['<Plug>(incsearch-'],
   \ }
 
-  NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
-  \   'on_ft': ['ruby'],
-  \ }
-
   NeoBundle     'w0ng/vim-hybrid'
 
   " ぬるぬるスクロール
@@ -165,10 +162,7 @@ function! s:load_bundles()
   \   FiletypeConfig("ace")
   NeoBundleLazy 'cespare/vim-toml',
   \   FiletypeConfig("toml")
-  NeoBundleLazy 'stephpy/vim-yaml',
-  \   FiletypeConfig("yaml")
   " If lazy, compound filetype is wrong...
-  NeoBundle     'vim-ruby/vim-ruby'
   NeoBundleLazy 'PProvost/vim-ps1',
   \   FiletypeConfig("ps1")
   NeoBundleLazy 'keith/tmux.vim',
@@ -539,44 +533,6 @@ if neobundle#tap('incsearch.vim')
 
   call neobundle#untap()
 endif
-
-if neobundle#tap('ruby_hl_lvar.vim')
-  let g:ruby_hl_lvar_show_warnings = 1
-  function! neobundle#tapped.hooks.on_post_source(bundle)
-    let g:ruby_hl_lvar_hl_group = 'PreProc'
-
-    silent! execute 'doautocmd FileType' &filetype
-
-    let g:neosnippet_expanding_or_jumpping = 0
-    function! s:ruby_hl_lvar_on_textchanged() abort
-      if g:neosnippet_expanding_or_jumpping
-        let g:neosnippet_expanding_or_jumpping = 0
-      else
-        call ruby_hl_lvar#refresh(0)
-      endif
-    endfunction
-
-    " override
-    function! Ruby_hl_lvar_filetype()
-      let groupname = 'vim_hl_lvar_'.bufnr('%')
-      execute 'augroup '.groupname
-        autocmd!
-        if &filetype =~# '\<ruby\>'
-          if g:ruby_hl_lvar_auto_enable
-            call ruby_hl_lvar#refresh(1)
-            autocmd TextChanged  <buffer> call s:ruby_hl_lvar_on_textchanged()
-            autocmd InsertLeave  <buffer> call ruby_hl_lvar#refresh(0)
-          else
-            call ruby_hl_lvar#disable(1)
-          endif
-        endif
-      augroup END
-    endfunction
-  endfunction
-
-  call neobundle#untap()
-endif
-
 
 
 if neobundle#tap('comfortable-motion.vim')
