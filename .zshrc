@@ -283,7 +283,6 @@ function sideci()
 {
   ruby -e '
     spawn(%q!sakura -x "ptmux sideci"!)
-    spawn(%q!sakura -x "ptmux node"!)
     spawn(%q!sakura -x "ptmux setaria"!)
     spawn(%q!sakura -x "ptmux catpost"!)
   '
