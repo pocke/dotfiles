@@ -46,6 +46,8 @@ function! s:load_bundles()
   NeoBundle     'pocke/neosnippet-incomment'
   NeoBundle     'pocke/serverspec.vim'
   NeoBundle     'pocke/iro.vim'
+  NeoBundle     'pocke/stackprof.vim'
+  autocmd FileType stackprof nmap <buffer><CR> <Plug>(stackprof-method-open)
 
 
   NeoBundleLazy 'kana/vim-smartinput', {
