@@ -183,6 +183,8 @@ function! s:load_bundles()
 
   NeoBundleLazy 'rgrinberg/vim-ocaml',
   \   FiletypeConfig(['ocaml', 'oasis', 'ocamlbuild_tags', 'omake', 'opam', 'sexplib'])
+  NeoBundleLazy 'msteinert/vim-ragel',
+  \   FiletypeConfig('ragel')
 
 
   NeoBundleLazy 'Shougo/denite.nvim', {
