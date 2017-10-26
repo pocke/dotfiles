@@ -1133,4 +1133,9 @@ set rtp+=~/go/src/github.com/pocke/whichpr/
 
 silent mkspell! ~/.vim/spell/en.utf-8.add
 
+let g:iro#enabled_filetypes = {
+\   'ruby': 1,
+\   'yaml': 1,
+\ }
+
 " vim:set foldmethod=marker:
