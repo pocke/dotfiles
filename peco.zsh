@@ -58,9 +58,17 @@ function peco-select-tmux-session()
     return 1
   fi
 
-  local session="$(tmux list-sessions | peco | cut -d : -f 1)"
-  if [ -n "$session" ]; then
+  local pecoed="$(cat <(tmux list-sessions) <(ghq list --full-path | sed -e 's!'$HOME'!~!') | peco)"
+  if [ -z "$pecoed" ]; then
+    return
+  fi
+
+  if echo "$pecoed" | ruby -e 'exit(!!(gets.chomp =~ /\[\d+x\d+\](\s\(attached\))?$/))'; then
+    local session="$(echo "$pecoed" | cut -d : -f 1)"
     BUFFER="tmux a -t $session"
+    zle accept-line
+  else
+    BUFFER="cd $pecoed; t"
     zle accept-line
   fi
 }
