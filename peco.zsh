@@ -39,18 +39,6 @@ function peco-ghq-move()
 zle -N peco-ghq-move
 bindkey '^G' peco-ghq-move
 
-function peco-select-file()
-{
-  local selected_file="$(git ls-files | peco --initial-filter=Fuzzy)"
-  if [ -n "$selected_file" ]; then
-    RBUFFER=$selected_file
-    CURSOR=$#BUFFER
-  fi
-  zle clear-screen
-}
-zle -N peco-select-file
-bindkey '^F' peco-select-file
-
 function peco-select-tmux-session()
 {
   if [ -n "$TMUX" ]; then
