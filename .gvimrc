@@ -7,7 +7,7 @@ colorscheme hybrid
 set cursorline
 set cursorcolumn
 
-set guifontwide=Ricty-Regular\ 13
+set guifontwide=Ricty\ 13
 set guifont=Ricty\ 13
 
 " Hide toolbar and menus.
