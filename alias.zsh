@@ -16,6 +16,7 @@ alias b='bundle'
 alias tmux='TERM=screen-256color tmux -2'
 alias sozshrc='source ~/.zshrc'
 alias taketemp='cd "$(mktemp -d)"'
+alias rd='rubocop _100000.dev_'
 function -(){cd -} # alias では実現できない?
 
 ### global alias
