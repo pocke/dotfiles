@@ -117,6 +117,7 @@ function! s:load_bundles()
   NeoBundleLazy 'easymotion/vim-easymotion', {
   \   'on_map': ['<Plug>(easymotion-']
   \ }
+  NeoBundle 'haya14busa/vim-edgemotion'
   NeoBundleLazy 'rhysd/clever-f.vim', {
   \   'on_map': ['f', 'F', 't']
   \ }
@@ -553,6 +554,23 @@ if neobundle#tap('vim-easymotion')
   let g:EasyMotion_use_migemo  = 1
 
   nmap e <Plug>(easymotion-s2)
+
+  call neobundle#untap()
+endif
+
+if neobundle#tap('clever-f.vim')
+  function! neobundle#tapped.hooks.on_source(bundle)
+    let g:clever_f_ignore_case           = 1
+    let g:clever_f_fix_key_direction     = 1
+    let g:clever_f_chars_match_any_signs = "\<C-f>"
+  endfunction
+
+  call neobundle#untap()
+endif
+
+if neobundle#tap('vim-edgemotion')
+  map <Space>j <Plug>(edgemotion-j)
+  map <Space>k <Plug>(edgemotion-k)
 
   call neobundle#untap()
 endif
