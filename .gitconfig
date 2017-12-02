@@ -48,6 +48,7 @@
   editor = vim +1 -c 'set fenc=utf-8'
   preloadindex = true
   pager = /usr/share/git/diff-highlight/diff-highlight | less -x2
+  commentChar =  ]
 
 [help]
   autocorrect = -1
