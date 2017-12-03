@@ -1157,4 +1157,31 @@ let g:iro#enabled_filetypes = {
 \   'yaml': 1,
 \ }
 
+
+
+" TOOD:
+"   - Improve function names
+"   - Use blacklist
+"   - Improve performance
+"   - Plugin-ize
+function! Define() abort
+  let lowers = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+  for ch in lowers
+    execute 'inoremap <expr>' . ch . ' K("' . ch . '")'
+  endfor
+endfunction
+
+function! K(ch) abort
+  let blacklist = ['URL']
+  let line = getline('.')
+  let col_n = col('.')
+  if line !~# '\v[A-Z][A-Z]%' . string(col_n) . 'c'
+    return a:ch
+  endif
+  return "\<BS>\<BS>" . line[col_n-3] . tolower(line[col_n-2]) . a:ch
+endfunction
+
+call Define()
+
+
 " vim:set foldmethod=marker:
