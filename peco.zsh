@@ -50,3 +50,11 @@ function peco-select-tmux-session()
 }
 zle -N peco-select-tmux-session
 bindkey '^T' peco-select-tmux-session
+
+function peco-emoji()
+{
+  local emoji=$(emojilist | peco | cut -d ' ' -f 1)
+  BUFFER="${LBUFFER}${emoji}${RBUFFER}"
+}
+zle -N peco-emoji
+bindkey '^E^E' peco-emoji
