@@ -1173,12 +1173,17 @@ function! Define() abort
 endfunction
 
 function! K(ch) abort
-  let blacklist = ['URL']
+  let whitelist = ['CR', 'JR']
   let line = getline('.')
   let col_n = col('.')
   if line !~# '\v[A-Z][A-Z]%' . string(col_n) . 'c'
     return a:ch
   endif
+  for w in whitelist
+    if line =~# '\V' . w . '\v%' . string(col_n) . 'c'
+      return a:ch
+    endif
+  endfor
   return "\<BS>\<BS>" . line[col_n-3] . tolower(line[col_n-2]) . a:ch
 endfunction
 
