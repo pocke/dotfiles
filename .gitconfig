@@ -36,7 +36,6 @@
   psf    = push --force-with-lease
   git    = !git
   ls     = !ls --color=auto -F
-  meom   = merge origin/master
   rao    = remote add origin
   fo     = fetch origin
   fpr    = "!f(){ git fetch origin pull/$1/head:$1; git checkout $1; };f"
