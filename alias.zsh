@@ -99,3 +99,8 @@ function extract() {
   fi
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
+
+for dir in ~/.rbenv/versions/*; do
+  local v="$(basename ${dir})"
+  alias "ruby-${v}=RBENV_VERSION=${v} ruby"
+done
