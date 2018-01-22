@@ -330,7 +330,7 @@ if neobundle#tap('neocomplete')
   let g:neocomplete#force_omni_input_patterns.typescript = '[^. \t]\.\%(\h\w*\)\?' " Same as JavaScript
   let g:neocomplete#force_omni_input_patterns.go = '[^. \t]\.\%(\h\w*\)\?'         " Same as JavaScript
 
-  let s:neco_dicts_dir = $HOME . '/dicts'
+  let s:neco_dicts_dir = $HOME . '/ghq/github.com/pocke/dicts/'
   if isdirectory(s:neco_dicts_dir)
     let g:neocomplete#sources#dictionary#dictionaries = {
     \   'ruby': s:neco_dicts_dir . '/ruby.dict',
