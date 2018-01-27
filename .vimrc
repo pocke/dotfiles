@@ -1173,7 +1173,7 @@ function! Define() abort
 endfunction
 
 function! K(ch) abort
-  let whitelist = ['CR', 'JR']
+  let whitelist = ['CR', 'JR', 'RS']
   let line = getline('.')
   let col_n = col('.')
   if line !~# '\v[A-Z][A-Z]%' . string(col_n) . 'c'
