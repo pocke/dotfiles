@@ -980,7 +980,7 @@ set noerrorbells
 
 set updatetime=1000
 
-set tabpagemax=100
+set tabpagemax=1000
 
 " h clipboard-excludeを参照。excludeは一番最後じゃないとだめ
 set clipboard& clipboard^=unnamedplus
