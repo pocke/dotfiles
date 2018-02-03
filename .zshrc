@@ -15,6 +15,7 @@ export EDITOR=vim
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$HOME/bin:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
 export MANPAGER="/bin/sh -c \"col -b -x | vim -c 'set buftype=nofile' -c 'set ft=man' -\""
 export RUBYOPT='-W'
 
@@ -312,3 +313,5 @@ function ent()
 
   sakura -x "zsh -c 'source ~/.zshrc && cd ${dir} && t'"
 }
+
+eval "$(rbenv init -)"
