@@ -993,6 +993,8 @@ set spelllang+=cjk
 
 set tildeop
 
+set rubydll=/home/pocke/.rbenv/versions/trunk/lib/libruby.so
+
 " Vim script で \ を入力した時にインデントしない
 let g:vim_indent_cont = 0
 
@@ -1188,6 +1190,5 @@ function! K(ch) abort
 endfunction
 
 call Define()
-
 
 " vim:set foldmethod=marker:
