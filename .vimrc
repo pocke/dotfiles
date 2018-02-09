@@ -871,7 +871,7 @@ if neobundle#tap('vim-altr')
     call altr#define('app/%/%.rb', 'spec/%/%_spec.rb')
 
     call altr#define('config/locales/%en.%yml', 'config/locales/%ja.%yml')
-    call altr#define('test/test_%.rb', 'lib/%.rb', 'spec/%_spec.rb')
+    call altr#define('test/test_%.rb', 'test/%_test.rb', 'lib/%.rb', 'spec/%_spec.rb')
 
     " For golang test
     call altr#define('%.go', '%_test.go')
