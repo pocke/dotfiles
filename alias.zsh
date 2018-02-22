@@ -17,7 +17,6 @@ alias tmux='TERM=screen-256color tmux -2'
 alias sozshrc='source ~/.zshrc'
 alias taketemp='cd "$(mktemp -d)"'
 alias jruby='RBENV_VERSION=jruby-9.1.15.0 jruby'
-alias rd='rubocop _100000.dev_'
 function -(){cd -} # alias では実現できない?
 
 ### global alias
