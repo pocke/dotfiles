@@ -274,6 +274,7 @@ function! s:load_bundles()
   "}}}
 
 
+  NeoBundle 'mopp/autodirmake.vim'
   NeoBundle     'kana/vim-arpeggio'
 endfunction
 
