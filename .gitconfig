@@ -38,7 +38,7 @@
   ls     = !ls --color=auto -F
   rao    = remote add origin
   fo     = fetch origin
-  fpr    = "!f(){ git fetch origin pull/$1/head:$1; git checkout $1; };f"
+  fpr    = "!f(){ git fetch origin pull/$1/head; git co FETCH_HEAD; };f"
 
 [push]
   default = simple
