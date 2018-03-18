@@ -297,21 +297,4 @@ function yank-buffer()
 zle -N yank-buffer
 bindkey '^y' yank-buffer
 
-function ent()
-{
-  local WORKDIR_ROOT=/home/pocke/workdir
-  local branch_name="$1"
-  if ! git rev-parse "${branch_name}" > /dev/null 2>&1; then
-    git branch "${branch_name}"
-  fi
-
-  local dir="${WORKDIR_ROOT}$(pwd | ruby -e 'print gets.chomp')-${branch_name}"
-  if [ ! -d "${dir}" ]; then
-    mkdir -p "${dir}"
-    git worktree add "${dir}" "${branch_name}"
-  fi
-
-  sakura -x "zsh -c 'source ~/.zshrc && cd ${dir} && t'"
-}
-
 eval "$(rbenv init -)"
