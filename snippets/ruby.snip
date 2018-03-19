@@ -82,6 +82,14 @@ options     head
     ${0}
   PATTERN
 
+snippet     attr_reader
+options     head
+  attr_reader :${1:name}
+
+snippet     attr_writer
+options     head
+  attr_writer :${1:name}
+
 
 # ------------------------  override default snippets
 snippet     def
