@@ -1,4 +1,3 @@
-gemsrc_use_ghq: ~/ghq
 install: --no-document
 update: --no-document
 gem: --no-user-install
