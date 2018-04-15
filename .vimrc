@@ -44,18 +44,12 @@ function! s:load_bundles()
   NeoBundle     'Shougo/neosnippet-snippets'
   NeoBundleFetch 'tekkoc/PHPSnippetsCreator'
   NeoBundle     'pocke/neosnippet-incomment'
-  NeoBundle     'pocke/serverspec.vim'
   NeoBundle     'pocke/iro.vim'
-  NeoBundle     'pocke/stackprof.vim'
-  NeoBundle     'pocke/yaml-path.vim'
-  autocmd FileType stackprof nmap <buffer><CR> <Plug>(stackprof-method-open)
-
 
   NeoBundleLazy 'kana/vim-smartinput', {
   \   'on_i': 1,
   \ }
   NeoBundle 'mattn/emmet-vim'
-  NeoBundle 'LeafCage/yankround.vim'
 
   function! TextobjConfig(mappings) abort
     return {
@@ -68,10 +62,6 @@ function! s:load_bundles()
   \   'on_map': ['<Plug>(expand_region_'],
   \ }
   NeoBundleLazy 'kana/vim-textobj-user'
-  NeoBundleLazy 'rhysd/vim-textobj-ruby',
-  \   TextobjConfig(['ar', 'ir'])
-  NeoBundleLazy 'sgur/vim-textobj-parameter',
-  \   TextobjConfig(['a,', 'i,'])
   NeoBundleLazy 'kana/vim-textobj-entire',
   \   TextobjConfig(['ae', 'ie'])
   NeoBundleLazy 'whatyouhide/vim-textobj-xmlattr',
@@ -198,11 +188,6 @@ function! s:load_bundles()
   \   'build': 'sh -c "PY3=ON ./install.sh"'
   \ }
 
-  NeoBundleLazy 'thinca/vim-scouter', {
-  \   'on_cmd': ['Scouter', 'Scouter!'],
-  \ }
-
-
   NeoBundle     'sudo.vim'
   NeoBundleLazy 'editorconfig/editorconfig-vim'
 
@@ -225,15 +210,6 @@ function! s:load_bundles()
   NeoBundleLazy 'thinca/vim-quickrun', {
   \   'on_map': [['nxo', '<Plug>(quickrun)']],
   \   'on_cmd': 'QuickRun',
-  \ }
-  " markdown quickrun
-  NeoBundleLazy 'superbrothers/vim-quickrun-markdown-gfm', {
-  \   'on_ft': 'markdown',
-  \   'depends': [
-  \     'mattn/webapi-vim',
-  \     'thinca/vim-quickrun',
-  \     'tyru/open-browser.vim'
-  \   ]
   \ }
   " 構文チェック
   NeoBundleLazy 'osyo-manga/vim-watchdogs', {
@@ -267,22 +243,14 @@ function! s:load_bundles()
   \ }
 
   NeoBundleLazy 'vim-jp/vimdoc-ja'
-  NeoBundleLazy 'thinca/vim-prettyprint', {
-  \   'on_cmd': [{'name': 'PP', 'complete': 'expression'}],
-  \   'on_func': 'PP',
-  \ }
   "}}}
 
 
-  NeoBundle 'mopp/autodirmake.vim'
+  NeoBundle     'mopp/autodirmake.vim'
   NeoBundle     'kana/vim-arpeggio'
 endfunction
 
-" if neobundle#load_cache()
-  call s:load_bundles()
-  " NeoBundleSaveCache
-" endif
-
+call s:load_bundles()
 call neobundle#end()
 filetype plugin indent on     " Required!
 "}}}
@@ -411,23 +379,6 @@ if neobundle#tap('vim-smartinput')
   call neobundle#untap()
 endif
 
-if neobundle#tap('yankround.vim')
-  let g:yankround_dir         = '~/.vim/cache/yankround'
-  let g:yankround_max_history = 64
-
-  nmap p <Plug>(yankround-p)
-  xmap p <Plug>(yankround-p)
-  nmap P <Plug>(yankround-P)
-
-  " 直接nmapするとキーマップが展開されてしまうため、一旦マップを置き換える
-  nnoremap <silent> <SID>(bp) :<C-u>bp<CR>
-  nnoremap <silent> <SID>(bn) :<C-u>bn<CR>
-  nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "\<SID>(bp)"
-  nmap <expr><C-n> yankround#is_active() ? "\<Plug>(yankround-next)" : "\<SID>(bn)"
-
-  call neobundle#untap()
-endif
-
 if neobundle#tap('vim-trip')
   nmap <C-a> <Plug>(trip-increment)
   nmap <C-x> <Plug>(trip-decrement)
@@ -450,9 +401,6 @@ if neobundle#tap('vim-expand-region')
     \   'i]': 0,
     \   'ae': 1,
     \ }
-    let g:expand_region_text_objects_ruby = copy(g:expand_region_text_objects)
-    let g:expand_region_text_objects_ruby.ir = 1
-    let g:expand_region_text_objects_ruby.ar = 1
     let g:expand_region_text_objects_html = copy(g:expand_region_text_objects)
     let g:expand_region_text_objects_html.it = 1
     let g:expand_region_text_objects_html.ax = 1
