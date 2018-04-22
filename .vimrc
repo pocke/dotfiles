@@ -93,9 +93,7 @@ function! s:load_bundles()
 
 
   NeoBundle     'thinca/vim-splash'
-  NeoBundleLazy 'vim-scripts/AnsiEsc.vim', {
-  \   'on_cmd': ['AnsiEsc'],
-  \ }
+  NeoBundle     'pocke/ansi_color.vim'
   NeoBundle     'itchyny/lightline.vim'
   NeoBundleLazy 'haya14busa/incsearch.vim', {
   \   'on_map': ['<Plug>(incsearch-'],
