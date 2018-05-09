@@ -175,6 +175,9 @@ function! s:load_bundles()
   \   FiletypeConfig(['ocaml', 'oasis', 'ocamlbuild_tags', 'omake', 'opam', 'sexplib'])
   NeoBundleLazy 'msteinert/vim-ragel',
   \   FiletypeConfig('ragel')
+  NeoBundleLazy 'google/vim-jsonnet',
+  \   FiletypeConfig('jsonnet')
+
 
 
   NeoBundleLazy 'Shougo/denite.nvim', {
