@@ -17,7 +17,7 @@ FileUtils.mkdir_p(File.expand_path('~/.config/peco/'))
 %w[
   .gemrc .rspec .tigrc .xinitrc .yaourtrc
   .tmux.conf .vimrc .Xmodmap .ctags .gvimrc
-  .config/awesome/rc.lua .config/awesome/themes .config/fontconfig/fonts.conf .config/peco/config.json .config/sakura/sakura.conf
+  .config/awesome/rc.lua .config/awesome/themes .config/fontconfig/fonts.conf .config/peco/config.json .config/sakura/sakura.conf .config/karabiner/
   .bundle/config
   .vim/after
   .vim/colors
