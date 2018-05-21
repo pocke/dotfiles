@@ -943,7 +943,12 @@ set spelllang+=cjk
 
 set tildeop
 
-set rubydll=/home/pocke/.rbenv/versions/trunk/lib/libruby.so
+
+if has('mac')
+  set rubydll=/home/pocke/.rbenv/versions/trunk/lib/libruby.so
+else
+  set rubydll=/Users/pocke/.rbenv/versions/trunk/lib/libruby.dylib
+endif
 
 " Vim script で \ を入力した時にインデントしない
 let g:vim_indent_cont = 0
