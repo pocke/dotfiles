@@ -1,0 +1,32 @@
+{
+  "title": "Control F4 as Command W",
+  "rules": [
+    {
+      "description": "Close tab by Control F4",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f4",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "w",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
