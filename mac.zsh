@@ -1,3 +1,3 @@
 export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 alias -g C='| pbcopy'
-alias ls="ls -G -F"
+ls --help | grep GNU > /dev/null || alias ls="ls -G -F"
