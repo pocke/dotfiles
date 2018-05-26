@@ -945,9 +945,9 @@ set tildeop
 
 
 if has('mac')
-  set rubydll=/home/pocke/.rbenv/versions/trunk/lib/libruby.so
-else
   set rubydll=/Users/pocke/.rbenv/versions/trunk/lib/libruby.dylib
+else
+  set rubydll=/home/pocke/.rbenv/versions/trunk/lib/libruby.so
 endif
 
 " Vim script で \ を入力した時にインデントしない
