@@ -486,7 +486,8 @@
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$",
-                "^net\\.kovidgoyal\\.kitty$"
+                "^net\\.kovidgoyal\\.kitty$",
+                "^io\\.bdash$"
               ]
             }
           ]
