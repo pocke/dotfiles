@@ -177,6 +177,8 @@ function! s:load_bundles()
   \   FiletypeConfig('ragel')
   NeoBundleLazy 'google/vim-jsonnet',
   \   FiletypeConfig('jsonnet')
+  NeoBundleLazy 'evanphx/kpeg/', {'on_ft': 'kpeg', 'rtp': 'vim/syntax_kpeg'}
+
 
 
 
