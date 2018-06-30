@@ -19,6 +19,22 @@ alias taketemp='cd "$(mktemp -d)"'
 alias jruby='RBENV_VERSION=jruby-9.1.15.0 jruby'
 function -(){cd -} # alias では実現できない?
 
+function recent-git-branches()
+{
+  git reflog --pretty=%D |
+    ruby -e '
+      $<.read
+        .each_line
+        .flat_map{|line| line.split(", ")}
+        .reject{|ref|
+          ref.chomp.empty? ||
+            ref.start_with?("tag: ", "origin/", "pocke/", "HEAD")
+        }
+        .uniq.tap do |res|
+          puts res
+        end'
+}
+
 ### global alias
 alias -g G='| grep'
 alias -g H='| head'
@@ -29,7 +45,8 @@ fi
 alias -g N='> /dev/null 2>&1'
 alias -g V='| vim -c "set buftype=nofile" - '
 # http://qiita.com/Kuniwak/items/b711d6c3e402dfd9356b
-alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g"`'
+local recent_branches_command='git reflog --pretty=%D | ruby -e "puts STDIN.read.each_line.flat_map{|line| line.split(%!, !)}"'
+alias -g B='`recent-git-branches | peco --prompt "GIT BRANCH>" | head -n 1`'
 alias -g OM='origin/master'
 
 ### suffix alias
