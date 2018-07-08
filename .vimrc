@@ -251,6 +251,7 @@ function! s:load_bundles()
 
   NeoBundle     'mopp/autodirmake.vim'
   NeoBundle     'kana/vim-arpeggio'
+  NeoBundle     'vim-jp/vital.vim'
 endfunction
 
 call s:load_bundles()
