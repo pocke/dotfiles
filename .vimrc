@@ -1082,6 +1082,7 @@ iabbrev laod load
 iabbrev recieve receive
 iabbrev recieved received
 iabbrev have_recieved have_received
+iabbrev TOOD TODO
 
 
 " http://hail2u.net/blog/software/vim-auto-close-quickfix-window.html
