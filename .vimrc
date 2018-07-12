@@ -542,6 +542,7 @@ endif
 
 
 let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_completion_detail = 1
 
 if neobundle#tap('vim-css3-syntax')
   AutoCmd FileType css setlocal iskeyword+=-
