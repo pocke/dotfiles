@@ -759,7 +759,7 @@ if neobundle#tap('vim-watchdogs')
 endif
 
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue call s:run_prettier()
+AutoCmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue call s:run_prettier()
 
 function! s:run_prettier() abort
   let package_json = findfile('package.json', expand('%:p:h') . ';')
