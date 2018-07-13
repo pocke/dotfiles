@@ -225,6 +225,7 @@ function! s:load_bundles()
   \     'dannyob/quickfixstatus'
   \   ]
   \ }
+  NeoBundle 'prettier/vim-prettier', {'build': 'yarn install'}
 
 
   " Visual Mode でも * で検索
@@ -756,6 +757,28 @@ if neobundle#tap('vim-watchdogs')
 
   call neobundle#untap()
 endif
+
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue call s:run_prettier()
+
+function! s:run_prettier() abort
+  let package_json = findfile('package.json', expand('%:p:h') . ';')
+  if package_json == ''
+    return
+  endif
+  let content = readfile(package_json)
+  let enabled = v:false
+  for line in content
+    if line =~# 'prettier'
+      let enabled = v:true
+      break
+    endif
+  endfor
+
+  if enabled
+    Prettier
+  endif
+endfunction
 
 if neobundle#tap('vim-asterisk')
   map * <Plug>(incsearch-nohl)<Plug>(asterisk-*)
