@@ -19,6 +19,7 @@ augroup END
 
 command! -nargs=* AutoCmd autocmd MyVimrc <args>
 
+" 多分これ壊れてる
 command! NXOmap -nargs=+ nmap <args> | xmap <args> | omap <args>
 
 
