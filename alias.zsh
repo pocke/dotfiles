@@ -48,6 +48,7 @@ alias -g V='| vim -c "set buftype=nofile" - '
 local recent_branches_command='git reflog --pretty=%D | ruby -e "puts STDIN.read.each_line.flat_map{|line| line.split(%!, !)}"'
 alias -g B='`recent-git-branches | peco --prompt "GIT BRANCH>" | head -n 1`'
 alias -g OM='origin/master'
+alias -g OT='origin/trunk'
 
 ### suffix alias
 function extract() {
