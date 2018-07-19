@@ -1109,6 +1109,7 @@ iabbrev recieve receive
 iabbrev recieved received
 iabbrev have_recieved have_received
 iabbrev TOOD TODO
+iabbrev destory destroy
 
 
 " http://hail2u.net/blog/software/vim-auto-close-quickfix-window.html
