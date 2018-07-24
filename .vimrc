@@ -989,6 +989,7 @@ AutoCmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 AutoCmd BufNewFile,BufRead ISSUE_EDITMSG              set filetype=markdown
 AutoCmd BufNewFile,BufRead *.jbuilder                 set filetype=ruby
 AutoCmd BufNewFile,BufRead *.jb                       set filetype=ruby
+AutoCmd BufNewFile,BufRead *.schema                   set filetype=ruby " For ridgepole
 AutoCmd BufNewFile,BufRead Guardfile                  set filetype=ruby
 AutoCmd BufNewFile,BufRead .pryrc                     set filetype=ruby
 AutoCmd BufNewFile,BufRead *_spec.rb                  set filetype=ruby.rspec
