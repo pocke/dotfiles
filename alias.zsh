@@ -121,16 +121,3 @@ for dir in ~/.rbenv/versions/*; do
   local v="$(basename ${dir})"
   alias "ruby-${v}=RBENV_VERSION=${v} ruby"
 done
-
-function fork-or-duplicate-remote() {
-  if git remote -v | grep '^pocke'; then
-    echo 'remote pocke has been registered.'
-    return
-  fi
-
-  if git remote -v | grep '^origin' | head -1 | grep -E '(/pocke/)|(:pocke/)' > /dev/null; then
-    git remote add pocke "$(git remote get-url origin)"
-  else
-    hub fork
-  fi
-}
