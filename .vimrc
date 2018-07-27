@@ -969,6 +969,7 @@ set mouse=a
 set spelllang+=cjk
 
 set tildeop
+set nomore
 
 
 if has('mac')
