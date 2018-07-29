@@ -861,6 +861,7 @@ endif
 
 
 let g:netrw_http_xcmd = '-L -o'
+let g:openbrowser_github_url_exists_check = 'ignore'
 
 
 syntax enable
