@@ -595,6 +595,8 @@ if neobundle#tap('denite.nvim')
     call denite#custom#alias('source', 'file_rec/git', 'file_rec')
     call denite#custom#var('file_rec/git', 'command',
     \ ['git', 'ls-files', '-co', '--exclude-standard'])
+
+    call denite#custom#option('_', 'highlight_matched_char', 'Normal')
   endfunction
 
   nnoremap <SID>(denite) <Nop>
