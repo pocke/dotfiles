@@ -514,16 +514,6 @@ if neobundle#tap('vim-easymotion')
   call neobundle#untap()
 endif
 
-if neobundle#tap('clever-f.vim')
-  function! neobundle#tapped.hooks.on_source(bundle)
-    let g:clever_f_ignore_case           = 1
-    let g:clever_f_fix_key_direction     = 1
-    let g:clever_f_chars_match_any_signs = "\<C-f>"
-  endfunction
-
-  call neobundle#untap()
-endif
-
 if neobundle#tap('vim-edgemotion')
   map <Space>j <Plug>(edgemotion-j)
   map <Space>k <Plug>(edgemotion-k)
