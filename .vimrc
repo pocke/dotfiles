@@ -1183,4 +1183,7 @@ endfunction
 
 call Define()
 
+" Hack to suppress warning message of redefined `p` by if_ruby
+silent ruby ()
+
 " vim:set foldmethod=marker:
