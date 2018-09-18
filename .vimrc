@@ -1029,7 +1029,6 @@ AutoCmd BufReadCmd *:[0-9]\+ nested call s:edit_with_lnum(expand('<afile>'))
 function! s:edit_with_lnum(path_with_lnum) abort
   let lnum = matchstr(a:path_with_lnum, '\v[0-9]+$')
   let path = matchstr(a:path_with_lnum, '\v^.+\ze:[0-9]+$')
-  echom path
   exec 'e' path
   exec lnum
 endfunction
