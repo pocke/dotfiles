@@ -385,6 +385,12 @@ if neobundle#tap('vim-smartinput')
   call neobundle#untap()
 endif
 
+let g:user_emmet_settings = {
+\    'html': {
+\        'empty_element_suffix': ' />',
+\    }
+\}
+
 if neobundle#tap('vim-trip')
   nmap <C-a> <Plug>(trip-increment)
   nmap <C-x> <Plug>(trip-decrement)
