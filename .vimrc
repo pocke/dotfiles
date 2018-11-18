@@ -563,7 +563,6 @@ if neobundle#tap('vim-go')
     endfunction
 
     AutoCmd FileType go call s:go_cmd_alias()
-    let $GOGC='off'
   endfunction
 
   call neobundle#untap()
