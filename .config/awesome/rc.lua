@@ -460,6 +460,8 @@ awful.rules.rules = {
 
         name = {
           "Event Tester",  -- xev.
+          "Emulator",
+          "Android Emulator - Nexus_5X_API_28:5554",
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
@@ -471,10 +473,6 @@ awful.rules.rules = {
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = true }
     },
-
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
 
     { rule = { class = "Gvim" },
       properties = { size_hints_honor = false } },
