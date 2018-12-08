@@ -391,6 +391,12 @@ let g:user_emmet_settings = {
 \    }
 \}
 
+inoremap <silent><C-y>, <C-r>=MyEmmetClosePopup()<CR><C-r>=emmet#expandAbbr(0,"")<CR>
+
+function! MyEmmetClosePopup() abort
+  return pumvisible() ? "\<right>\<left>" : ''
+endfunction
+
 if neobundle#tap('vim-trip')
   nmap <C-a> <Plug>(trip-increment)
   nmap <C-x> <Plug>(trip-decrement)
