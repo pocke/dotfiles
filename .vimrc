@@ -181,7 +181,8 @@ function! s:load_bundles()
   NeoBundleLazy 'evanphx/kpeg/', {'on_ft': 'kpeg', 'rtp': 'vim/syntax_kpeg'}
 
 
-
+  NeoBundle 'prabirshrestha/async.vim'
+  NeoBundle 'prabirshrestha/vim-lsp'
 
   NeoBundleLazy 'Shougo/denite.nvim', {
   \   'on_cmd': [ "Denite"],
@@ -574,6 +575,16 @@ if neobundle#tap('vim-go')
   call neobundle#untap()
 endif
 
+if neobundle#tap('vim-lsp')
+  if executable('go-langserver')
+      au User lsp_setup call lsp#register_server({
+          \ 'name': 'go-langserver',
+          \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
+          \ 'whitelist': ['go'],
+          \ })
+  endif
+  call neobundle#untap()
+endif
 
 
 if neobundle#tap('denite.nvim')
