@@ -1088,8 +1088,6 @@ nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>:<C-u>call <SID>hier_clear()<CR
 nnoremap <silent> <C-l> :<C-u>tabnext<CR>
 nnoremap <silent> <C-h> :<C-u>tabprevious<CR>
 
-" タグジャンプを新しいタブで開く
-" nnoremap <F3> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>zz
 nnoremap <F4> :<C-u>%s/<C-r>//
 vnoremap <F4> :s/<C-r>//
 nnoremap <F3> :silent! !tig blame +<C-r>=line('.')<CR> %<CR>:redraw!<CR>
