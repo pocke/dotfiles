@@ -583,6 +583,22 @@ if neobundle#tap('vim-lsp')
           \ 'whitelist': ['go'],
           \ })
   endif
+
+  if executable('golsp')
+      au User lsp_setup call lsp#register_server({
+          \ 'name': 'golsp',
+          \ 'cmd': {server_info->['golsp', '-mode', 'stdio']},
+          \ 'whitelist': ['go'],
+          \ })
+  endif
+
+  if executable('bingo')
+      au User lsp_setup call lsp#register_server({
+          \ 'name': 'bingo',
+          \ 'cmd': {server_info->['bingo', '-mode', 'stdio']},
+          \ 'whitelist': ['go'],
+          \ })
+  endif
   call neobundle#untap()
 endif
 
