@@ -80,3 +80,5 @@ hi link gitcommitSummary Normal
 
 " markdown
 hi markdownCode                                           cterm=bold
+
+hi goExtIfErr  ctermfg=darkGray
