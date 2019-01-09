@@ -195,7 +195,7 @@ function! s:load_bundles()
 
   NeoBundle     'sudo.vim'
   NeoBundleLazy 'editorconfig/editorconfig-vim'
-  NeoBundleLazy 'pocke/ika2.vim'
+  NeoBundle 'pocke/ika2.vim'
 
   " 非同期処理
   NeoBundle     'Shougo/vimproc.vim', {
