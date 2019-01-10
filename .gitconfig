@@ -8,10 +8,6 @@
 [user]
   name  = Masataka Pocke Kuwabara
   email = kuwabara@pocke.me
-  signingkey = 0FB988875EA6F45F
-
-[commit]
-  gpgsign = true
 
 [color]
   ui = auto
