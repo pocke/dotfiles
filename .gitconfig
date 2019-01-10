@@ -1,9 +1,18 @@
-# Usage
+# Usage:
 # file: ~/.gitconfig
 #   [include]
 #     path = this/file/path/.gitconfig
 #   [core]
 #     excludesfile = /your/file/path/.gitignore_global
+#
+# GPG sign:
+# Run gpg --gen-key
+#     gpg --armor --export XXX # and paste the output to GitHub
+# Add the following code to ~/.gitconfig
+#   [user]
+#     signingkey = XXX
+#   [commit]
+#     gpgsign = true
 
 [user]
   name  = Masataka Pocke Kuwabara
