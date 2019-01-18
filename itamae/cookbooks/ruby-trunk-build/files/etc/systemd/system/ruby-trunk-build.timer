@@ -1,0 +1,9 @@
+[Unit]
+Description=Build Ruby trunk daily
+
+[Timer]
+OnCalendar=*-*-* 04:13
+Persistent=true
+
+[Install]
+WantedBy=timers.target

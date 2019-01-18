@@ -1,0 +1,8 @@
+[Unit]
+Description=Build Ruby trunk
+
+[Service]
+Type=oneshot
+User=pocke
+Group=users
+ExecStart=/opt/ruby-trunk-build/ruby-trunk-build.sh
