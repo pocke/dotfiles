@@ -8,8 +8,10 @@ function retry() {
   local i
   local st
   for i in {1..5}; do
+    set +e
     "$@"
     st=$?
+    set -e
     test $st -eq 0 && break
     sleep $i
   done
