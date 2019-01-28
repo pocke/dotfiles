@@ -1,0 +1,8 @@
+[Unit]
+Description=Download pacman packages
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+ExecStart=pacman -Syuw --noconfirm

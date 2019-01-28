@@ -1,0 +1,9 @@
+[Unit]
+Description=Download pacman packages daily
+
+[Timer]
+OnCalendar=*-*-* 12:17
+Persistent=true
+
+[Install]
+WantedBy=timers.target
