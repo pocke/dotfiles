@@ -276,15 +276,6 @@ if which peco > /dev/null 2>&1 && [ -e "${basedir}/peco.zsh" ]; then
   source "${basedir}/peco.zsh"
 fi
 
-function sideci()
-{
-  ruby -e '
-    spawn(%q!sakura -x "ptmux sideci"!)
-    spawn(%q!sakura -x "ptmux setaria"!)
-    spawn(%q!sakura -x "ptmux catpost"!)
-  '
-}
-
 function t()
 {
   tmux new-session -s $(pwd |sed -E 's!^.+/([^/]+/[^/]+)$!\1!g' | sed -e 's/\./-/g')
