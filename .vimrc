@@ -759,18 +759,6 @@ if neobundle#tap('vim-watchdogs')
     \   "errorformat" : '%f:%l: %m,%-G%.%#',
     \ }
 
-    let g:quickrun_config['watchdogs_checker/go_test'] = {
-    \   'command':     'go',
-    \   'exec':        '%c test %o ./%s:.:h',
-    \   "errorformat" : '%f:%l: %m,%-G%.%#',
-    \ }
-
-    let g:quickrun_config['watchdogs_checker/go_metalinter'] = {
-    \   'command': 'gometalinter',
-    \   'exec': '%c --fast --disable=golint --disable=gas --dupl-threshold 100 %o ./%s:.:h',
-    \   'errorformat': '%f:%l:%c:%*[^:]:%m,%f:%l::%*[^:]:%m'
-    \ }
-
     let g:quickrun_config['c/watchdogs_checker'] = {
     \   "type": "watchdogs_checker/gcc",
     \   "cmdopt": '%{PathToGccOpt()}',
