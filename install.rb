@@ -32,9 +32,6 @@ unless File.exist?(File.expand_path("~/.config/awesome/plugins/battmon"))
   exec "git clone https://github.com/rhenium/awesome-battmon.git ~/.config/awesome/plugins/battmon"
 end
 
-is_arch = File.exist?('/etc/pacman.conf')
-exec('sudo pacman -S words nodejs npm go tmux tig; true') if is_arch
-
 unless File.exist?(File.expand_path("~/.gitconfig"))
   exec(<<-EOS
 cat <<EOF > ~/.gitconfig
