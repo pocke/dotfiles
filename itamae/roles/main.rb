@@ -10,6 +10,22 @@ directory File.expand_path('~/.config/fontconfig/')
 directory File.expand_path('~/.config/sakura/')
 directory File.expand_path('~/.config/peco/')
 
+%w[
+  .gemrc .rspec .tigrc .xinitrc .yaourtrc .pryrc
+  .tmux.conf .vimrc .Xmodmap .ctags .gvimrc
+  .config/awesome/rc.lua .config/awesome/themes .config/fontconfig/fonts.conf .config/peco/config.json .config/sakura/sakura.conf .config/karabiner/
+  .bundle/config
+  .vim/after
+  .vim/colors
+  .vim/spell
+].each do |file|
+  from = File.expand_path("~/#{file}")
+  to = File.expand_path("~/dotfiles/#{file}")
+  link from do
+    to to
+  end
+end
+
 if File.exist?('/etc/arch-release')
   %w[
     curl

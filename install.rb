@@ -5,20 +5,6 @@ def exec(cmd)
   fail(cmd) unless system(cmd)
 end
 
-%w[
-  .gemrc .rspec .tigrc .xinitrc .yaourtrc .pryrc
-  .tmux.conf .vimrc .Xmodmap .ctags .gvimrc
-  .config/awesome/rc.lua .config/awesome/themes .config/fontconfig/fonts.conf .config/peco/config.json .config/sakura/sakura.conf .config/karabiner/
-  .bundle/config
-  .vim/after
-  .vim/colors
-  .vim/spell
-].each do |file|
-  unless File.exist?(File.expand_path("~/#{file}"))
-    exec("ln -s ~/dotfiles/#{file} ~/#{file}")
-  end
-end
-
 unless File.exist?(File.expand_path("~/.config/awesome/plugins/battmon"))
   exec "git clone https://github.com/rhenium/awesome-battmon.git ~/.config/awesome/plugins/battmon"
 end
