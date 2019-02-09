@@ -1,6 +1,15 @@
 include_recipe '../cookbooks/ruby-trunk-build'
 include_recipe '../cookbooks/pacman-syuw'
 
+directory File.expand_path('~/.bundle')
+directory File.expand_path('~/.vim/bundle')
+directory File.expand_path('~/.zsh')
+directory File.expand_path('~/.config/')
+directory File.expand_path('~/.config/awesome/')
+directory File.expand_path('~/.config/fontconfig/')
+directory File.expand_path('~/.config/sakura/')
+directory File.expand_path('~/.config/peco/')
+
 if File.exist?('/etc/arch-release')
   %w[
     curl

@@ -5,15 +5,6 @@ def exec(cmd)
   fail(cmd) unless system(cmd)
 end
 
-FileUtils.mkdir_p(File.expand_path('~/.bundle'))
-FileUtils.mkdir_p(File.expand_path('~/.vim/bundle'))
-FileUtils.mkdir_p(File.expand_path('~/.zsh'))
-FileUtils.mkdir_p(File.expand_path('~/.config/awesome/'))
-FileUtils.mkdir_p(File.expand_path('~/.config/fontconfig/'))
-FileUtils.mkdir_p(File.expand_path('~/.config/sakura/'))
-FileUtils.mkdir_p(File.expand_path('~/.config/peco/'))
-
-
 %w[
   .gemrc .rspec .tigrc .xinitrc .yaourtrc .pryrc
   .tmux.conf .vimrc .Xmodmap .ctags .gvimrc
