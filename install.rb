@@ -5,10 +5,6 @@ def exec(cmd)
   fail(cmd) unless system(cmd)
 end
 
-unless File.exist?(File.expand_path("~/.config/awesome/plugins/battmon"))
-  exec "git clone https://github.com/rhenium/awesome-battmon.git ~/.config/awesome/plugins/battmon"
-end
-
 unless File.exist?(File.expand_path("~/.gitconfig"))
   exec(<<-EOS
 cat <<EOF > ~/.gitconfig
