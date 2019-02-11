@@ -1,7 +1,6 @@
 include_recipe '../cookbooks/ruby-trunk-build'
 include_recipe '../cookbooks/pacman-syuw'
 
-directory File.expand_path('~/.bundle')
 directory File.expand_path('~/.vim/bundle')
 directory File.expand_path('~/.zsh')
 directory File.expand_path('~/.config/')
@@ -14,7 +13,6 @@ directory File.expand_path('~/.config/peco/')
   .gemrc .rspec .tigrc .xinitrc .yaourtrc .pryrc
   .tmux.conf .vimrc .Xmodmap .ctags .gvimrc
   .config/awesome/rc.lua .config/awesome/themes .config/fontconfig/fonts.conf .config/peco/config.json .config/sakura/sakura.conf .config/karabiner/
-  .bundle/config
   .vim/after
   .vim/colors
   .vim/spell

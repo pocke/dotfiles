@@ -1,6 +1,0 @@
----
-BUNDLE_JOBS: "10"
-BUNDLE_DISABLE_SHARED_GEMS: "true"
-BUNDLE_GEM__COC: "false"
-BUNDLE_GEM__MIT: "false"
-BUNDLE_GEM__TEST: "false"
