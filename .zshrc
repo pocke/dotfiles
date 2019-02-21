@@ -281,11 +281,4 @@ function t()
   tmux new-session -s $(pwd |sed -E 's!^.+/([^/]+/[^/]+)$!\1!g' | sed -e 's/\./-/g')
 }
 
-function yank-buffer()
-{
-  echo -n "$BUFFER" C
-}
-zle -N yank-buffer
-bindkey '^y' yank-buffer
-
 eval "$(rbenv init -)"
