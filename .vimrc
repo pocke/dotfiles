@@ -192,6 +192,7 @@ function! s:load_bundles()
   NeoBundleLazy 'nixprime/cpsm', {
   \   'build': 'sh -c "PY3=ON ./install.sh"'
   \ }
+  NeoBundle 'lambdalisue/gina.vim'
 
   NeoBundle     'sudo.vim'
   NeoBundleLazy 'editorconfig/editorconfig-vim'
