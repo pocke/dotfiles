@@ -1003,6 +1003,7 @@ if has('mac')
 endif
 
 set mouse=a
+set ttymouse=sgr
 set spelllang+=cjk
 
 set tildeop
