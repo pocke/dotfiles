@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo true
+xtrlock -b & sudo pm-suspend

@@ -16,6 +16,7 @@ directory File.expand_path('~/.config/peco/')
   .vim/after
   .vim/colors
   .vim/spell
+  bin
 ].each do |file|
   from = File.expand_path("~/#{file}")
   to = File.expand_path("~/dotfiles/#{file}")
