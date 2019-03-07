@@ -10,7 +10,7 @@ directory File.expand_path('~/.config/sakura/')
 directory File.expand_path('~/.config/peco/')
 
 %w[
-  .gemrc .rspec .tigrc .xinitrc .yaourtrc .pryrc
+  .gemrc .rspec .tigrc .xinitrc .pryrc
   .tmux.conf .vimrc .Xmodmap .ctags .gvimrc
   .config/awesome/rc.lua .config/awesome/themes .config/fontconfig/fonts.conf .config/peco/config.json .config/sakura/sakura.conf .config/karabiner/
   .vim/after
