@@ -7,7 +7,7 @@ SRC='/tmp/ruby-trunk-build-src'
 function retry() {
   local i
   local st
-  for i in {1..5}; do
+  for i in {1..10}; do
     set +e
     "$@"
     st=$?
