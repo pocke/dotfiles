@@ -1009,6 +1009,7 @@ set spelllang+=cjk
 set tildeop
 set nomore
 
+set termwinkey=<C-j>
 
 if has('mac')
   set rubydll=/Users/pocke/.rbenv/versions/trunk/lib/libruby.dylib
