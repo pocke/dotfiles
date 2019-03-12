@@ -1010,6 +1010,7 @@ set tildeop
 set nomore
 
 set termwinkey=<C-j>
+tnoremap <Esc><Esc> <C-j>N
 
 if has('mac')
   set rubydll=/Users/pocke/.rbenv/versions/trunk/lib/libruby.dylib
