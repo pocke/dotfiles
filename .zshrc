@@ -87,9 +87,15 @@ precmd () {
 prompt_git='%B%1(v|%F{cyan}%1v
 %f|)'
 
+if [ $VIM_TERMINAL ]; then
+  local VIM_PROMPT="[%B%F{green}VIM%f%b]"
+else
+  local VIM_PROMPT=""
+fi
+
 # default
 prompt_exit_status="(%(?.%F{green}%?%f.%F{red}%?%f))"
-PROMPT="%B${prompt_git}[%F{cyan}INS%f]${prompt_exit_status} %#%b "
+PROMPT="${VIM_PROMPT}%B${prompt_git}[%F{cyan}INS%f]${prompt_exit_status} %#%b "
 RPROMPT='%B( %F{magenta}%~%f )Oo%b'
 
 # vim keybind mode
@@ -98,7 +104,7 @@ function zle-line-init zle-keymap-select {
   if [ "${KEYMAP}" = 'vicmd' ]; then
     vim_mode='%F{red}NOR%f'
   fi
-  PROMPT="%B${prompt_git}[${vim_mode}]${prompt_exit_status} %#%b "
+  PROMPT="%B${prompt_git}%b${VIM_PROMPT}%B[${vim_mode}]${prompt_exit_status} %#%b "
   zle reset-prompt
 }
 zle -N zle-line-init
