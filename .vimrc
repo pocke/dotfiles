@@ -1230,4 +1230,6 @@ call Define()
 " Hack to suppress warning message of redefined `p` by if_ruby
 silent ruby ()
 
+call remote_startserver('tvim')
+
 " vim:set foldmethod=marker:
