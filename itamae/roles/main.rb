@@ -1,7 +1,3 @@
-include_recipe '../cookbooks/ruby-trunk-build'
-include_recipe '../cookbooks/pacman-syuw'
-include_recipe '../cookbooks/dotfiles-private'
-
 directory File.expand_path('~/.vim/bundle')
 directory File.expand_path('~/.zsh')
 directory File.expand_path('~/.config/')
@@ -9,6 +5,10 @@ directory File.expand_path('~/.config/awesome/')
 directory File.expand_path('~/.config/fontconfig/')
 directory File.expand_path('~/.config/sakura/')
 directory File.expand_path('~/.config/peco/')
+
+include_recipe '../cookbooks/ruby-trunk-build'
+include_recipe '../cookbooks/pacman-syuw'
+include_recipe '../cookbooks/dotfiles-private'
 
 %w[
   .gemrc .rspec .tigrc .xinitrc .pryrc
