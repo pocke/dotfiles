@@ -11,7 +11,7 @@ include_recipe '../cookbooks/pacman-syuw'
 include_recipe '../cookbooks/dotfiles-private'
 
 %w[
-  .gemrc .rspec .tigrc .xinitrc .pryrc
+  .gemrc .rspec .tigrc .xinitrc .pryrc .irbrc
   .tmux.conf .vimrc .Xmodmap .ctags .gvimrc
   .config/awesome/rc.lua .config/awesome/themes .config/fontconfig/fonts.conf .config/peco/config.json .config/sakura/sakura.conf .config/karabiner/
   .vim/after
