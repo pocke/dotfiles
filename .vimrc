@@ -710,9 +710,16 @@ if neobundle#tap('vim-quickrun')
   \     'type':      'markdown/gfm',
   \     'outputter': 'browser'
   \   },
+  \   'rubyvm_ast': {
+  \     'type': 'rubyvm_ast',
+  \     'command': '~/bin/print-focused-ast.rb',
+  \     'exec':  "ruby %C %s --line %{line('.')} --column %{col('.') - 1}",
+  \     'hook/shebang/enable': 0,
+  \   }
   \ }
 
   nnoremap <silent><Leader>r :QuickRun<CR>
+  nnoremap <silent><Leader>a :QuickRun rubyvm_ast<CR>
 
   call neobundle#untap()
 endif
