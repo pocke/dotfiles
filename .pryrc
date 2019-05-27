@@ -15,3 +15,18 @@ def octokit_client
     end
   end
 end
+
+$__is_pry_rubyvm_ast_mode = false
+
+def ast!
+  $__is_pry_rubyvm_ast_mode = !$__is_pry_rubyvm_ast_mode
+end
+
+Pry.config.hooks.add_hook(:before_eval, :"ast<3") do |code, _pry|
+  next if code == "ast!\n"
+  next unless $__is_pry_rubyvm_ast_mode
+
+  x = code.inspect
+  code.clear
+  code << "RubyVM::AbstractSyntaxTree.parse(#{x})"
+end
