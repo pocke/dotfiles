@@ -702,9 +702,9 @@ endif
 if neobundle#tap('vim-quickrun')
   let g:quickrun_config = {
   \   '_': {
-  \     'runner': 'vimproc',
-  \     'runner/vimproc/updatetime': 60,
-  \     'tempfile': '%{expand("%:p:h") . "/" . system("echo -n $(uuidgen)")}'
+  \     'runner': 'job',
+  \     'tempfile': '%{expand("%:p:h") . "/" . system("echo -n $(uuidgen)")}',
+  \     'outputter/buffer/split': 'belowright',
   \   },
   \   'markdown': {
   \     'type':      'markdown/gfm',
@@ -873,6 +873,7 @@ if neobundle#tap('vim-automatic')
   \     'match': { 'bufname': '\V[quickrun output]' },
   \     'set': {
   \       'height': 8,
+  \       'move': v:null,
   \     }
   \   },
   \ ]
