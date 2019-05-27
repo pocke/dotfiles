@@ -712,8 +712,6 @@ if neobundle#tap('vim-quickrun')
   \   },
   \ }
 
-  AutoCmd FileType quickrun AnsiEsc
-
   nnoremap <silent><Leader>r :QuickRun<CR>
 
   call neobundle#untap()
