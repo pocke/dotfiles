@@ -389,9 +389,12 @@ if neobundle#tap('vim-smartinput')
 endif
 
 let g:user_emmet_settings = {
-\    'html': {
-\        'empty_element_suffix': ' />',
-\    }
+\   'html': {
+\     'empty_element_suffix': ' />',
+\   },
+\   'typescript': {
+\     'extends': 'tsx',
+\   }
 \}
 
 inoremap <silent><C-y>, <C-r>=MyEmmetClosePopup()<CR><C-r>=emmet#expandAbbr(0,"")<CR>
