@@ -67,4 +67,21 @@ if File.exist?('/etc/arch-release')
       user 'root'
     end
   end
+
+  # Install yay
+  execute "curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" do
+    cwd '/tmp/'
+    not_if 'which yay'
+  end
+
+  execute "tar -xvf yay.tar.gz" do
+    cwd '/tmp/'
+    not_if 'which yay'
+  end
+
+  execute "makepkg -si --noconfirm" do
+    cwd '/tmp/yay'
+    not_if 'which yay'
+    only_if 'test -d /tmp/yay'
+  end
 end
