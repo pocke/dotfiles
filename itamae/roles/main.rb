@@ -26,11 +26,17 @@ include_recipe '../cookbooks/dotfiles-private'
   end
 end
 
+git File.expand_path('~/.zsh/zsh-syntax-highlighting') do
+  repository 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+end
+
 if File.exist?('/etc/arch-release')
   %w[
     curl
     docker
     docker-compose
+    fcitx fcitx-gtk2 fcitx-gtk3 fcitx-mozc  fcitx-qt5
+    gnome-keyring
     go
     gvim
     maim
@@ -48,6 +54,7 @@ if File.exist?('/etc/arch-release')
     ruby
     sakura
     slop
+    thunar
     tig
     tmux
     unzip
@@ -87,6 +94,8 @@ if File.exist?('/etc/arch-release')
   end
 
   pkgs = %w[
+    google-chrome
+    hub
     ruby-build
     rbenv
     ttf-ricty
