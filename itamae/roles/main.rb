@@ -69,6 +69,7 @@ if File.exist?('/etc/arch-release')
     xorg-xrandr
     xorg-xset
     xsel
+    xtrlock
     yarn
     zip
     zsh
