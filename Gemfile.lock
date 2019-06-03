@@ -1,0 +1,32 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ansi (1.5.0)
+    hashie (3.6.0)
+    itamae (1.10.4)
+      ansi
+      hashie
+      schash (~> 0.1.0)
+      specinfra (>= 2.64.0, < 3.0.0)
+      thor
+    net-scp (2.0.0)
+      net-ssh (>= 2.6.5, < 6.0.0)
+    net-ssh (5.2.0)
+    net-telnet (0.1.1)
+    schash (0.1.2)
+    sfl (2.3)
+    specinfra (2.77.3)
+      net-scp
+      net-ssh (>= 2.7)
+      net-telnet (= 0.1.1)
+      sfl
+    thor (0.20.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  itamae
+
+BUNDLED WITH
+   2.1.0.pre.1
