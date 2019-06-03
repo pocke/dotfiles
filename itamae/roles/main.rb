@@ -45,12 +45,14 @@ if File.exist?('/etc/arch-release')
     ragel
     ristretto
     ruby
+    sakura
     slop
     tig
     tmux
     unzip
     wget
     words
+    xorg-xbacklight
     xorg-xev
     xorg-xmodmap
     xorg-xprop
