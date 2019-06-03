@@ -31,7 +31,9 @@ git File.expand_path('~/.zsh/zsh-syntax-highlighting') do
 end
 
 if File.exist?('/etc/arch-release')
-  remote_file '/etc/X11/xorg.conf.d/10-logicool-mouse.conf'
+  remote_file '/etc/X11/xorg.conf.d/10-logicool-mouse.conf' do
+    user 'root'
+  end
 
   %w[
     curl
