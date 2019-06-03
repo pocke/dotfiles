@@ -34,6 +34,7 @@ if File.exist?('/etc/arch-release')
     go
     gvim
     maim
+    mate-system-monitor
     nodejs
     noto-fonts
     noto-fonts-cjk
