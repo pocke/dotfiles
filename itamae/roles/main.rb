@@ -76,6 +76,11 @@ if File.exist?('/etc/arch-release')
     end
   end
 
+  service 'docker' do
+    user 'root'
+    action :enable
+  end
+
   # Install yay
   execute "curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" do
     cwd '/tmp/'
