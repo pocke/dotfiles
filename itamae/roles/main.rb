@@ -85,4 +85,11 @@ if File.exist?('/etc/arch-release')
     not_if 'which yay'
     only_if 'test -d /tmp/yay'
   end
+
+  pkgs = %w[
+    ruby-build
+    rbenv
+    ttf-ricty
+  ]
+  execute "yay -S --noconfirm --needed #{pkgs.join(' ')}"
 end
