@@ -186,7 +186,7 @@ function! s:load_bundles()
 
   NeoBundleLazy 'Shougo/denite.nvim', {
   \   'on_cmd': [ "Denite"],
-  \   'depends': ['nixprime/cpsm/'],
+  \   'depends': ['nixprime/cpsm/', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc'],
   \ }
 
   NeoBundleLazy 'nixprime/cpsm', {
