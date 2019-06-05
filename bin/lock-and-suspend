@@ -1,4 +1,3 @@
 #!/bin/bash
 
-sudo true
-xtrlock -b & sudo pm-suspend
+xtrlock -b & systemctl suspend
