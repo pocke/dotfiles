@@ -54,5 +54,5 @@ raise "Specify --line and --column" if line.nil? || column.nil?
 
 node = RubyVM::AbstractSyntaxTree.parse(ARGF.read)
 
-pp find_target_node(node)
+pp find_target_node(node) || node
 
