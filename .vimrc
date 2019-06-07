@@ -1210,6 +1210,7 @@ function! TniteStart(cmds, open_cmd) abort
     echom 'failed to open terminal'
     return
   endif
+  tnoremap <buffer><nowait><Esc> <Esc>
 endfunction
 
 function! TniteTabOpen(bufn, open_cmd) abort
@@ -1234,9 +1235,9 @@ function! TniteInput() abort
   return r
 endfunction
 
-nnoremap <silent><Space>ut :<C-u>call TniteStart(["sh", "-c", "git ls-files \| peco"], "tabedit")<CR>
-nnoremap <silent><Space>uu :<C-u>call TniteStart(["sh", "-c", "git ls-files \| peco"], "edit")<CR>
-nnoremap <silent><Space>ug :<C-u>call TniteStart(["sh", "-c", "git grep --line-number " . shellescape(expand('<cword>')) . " \| peco \| cut -d : -f 1,2"], "tabedit")<CR>
-nnoremap <silent><Space>uG :<C-u>call TniteStart(["sh", "-c", "git grep --line-number " . shellescape(TniteInput()) . " \| peco \| cut -d : -f 1,2"], "tabedit")<CR>
+nnoremap <silent><Space>ut :<C-u>call TniteStart(["sh", "-c", "git ls-files \| peco --initial-filter Fuzzy"], "tabedit")<CR>
+nnoremap <silent><Space>uu :<C-u>call TniteStart(["sh", "-c", "git ls-files \| peco --initial-filter Fuzzy"], "edit")<CR>
+nnoremap <silent><Space>ug :<C-u>call TniteStart(["sh", "-c", "git grep --line-number " . shellescape(expand('<cword>')) . " \| peco --initial-filter Fuzzy \| cut -d : -f 1,2"], "tabedit")<CR>
+nnoremap <silent><Space>uG :<C-u>call TniteStart(["sh", "-c", "git grep --line-number " . shellescape(TniteInput()) . " \| peco --initial-filter Fuzzy \| cut -d : -f 1,2"], "tabedit")<CR>
 
 " vim:set foldmethod=marker:
