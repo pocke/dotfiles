@@ -193,6 +193,7 @@ function! s:load_bundles()
   NeoBundleLazy 'editorconfig/editorconfig-vim'
   NeoBundle 'pocke/ika2.vim'
   NeoBundleLazy 'pocke/cuculus.vim',
+  NeoBundle 'pocke/tnite.vim',
   \   FiletypeConfig("ruby")
   AutoCmd FileType ruby nnoremap <silent><buffer> % :<C-u>call cuculus#jump()<CR>
   AutoCmd CursorMoved *.rb call cuculus#display_pair_to_popup()
@@ -1203,41 +1204,14 @@ silent ruby ()
 
 call remote_startserver('tvim')
 
-function! TniteStart(cmds, open_cmd) abort
-  let buf_num = 0
-  let buf_num = term_start(a:cmds, {"exit_cb": { -> TniteTabOpen(buf_num, a:open_cmd) }})
-  if buf_num == 0
-    echom 'failed to open terminal'
-    return
-  endif
+function! TniteStartWithMap(cmds, action) abort
+  call tnite#start(a:cmds, a:action)
   tnoremap <buffer><nowait><Esc> <Esc>
 endfunction
 
-function! TniteTabOpen(bufn, open_cmd) abort
-  " Sleep is necessary to wait render output of command
-  sleep 100m
-  let winn = bufwinnr(a:bufn)
-
-  let lines = getbufline(a:bufn, 1)
-  execute winn . 'close'
-  for fname in lines
-    if trim(fname) == ""
-      continue
-    endif
-    execute a:open_cmd fname
-  endfor
-endfunction
-
-function! TniteInput() abort
-  call inputsave()
-  let r = input("grep pattern> ")
-  call inputrestore()
-  return r
-endfunction
-
-nnoremap <silent><Space>ut :<C-u>call TniteStart(["sh", "-c", "git ls-files \| peco --initial-filter Fuzzy"], "tabedit")<CR>
-nnoremap <silent><Space>uu :<C-u>call TniteStart(["sh", "-c", "git ls-files \| peco --initial-filter Fuzzy"], "edit")<CR>
-nnoremap <silent><Space>ug :<C-u>call TniteStart(["sh", "-c", "git grep --line-number " . shellescape(expand('<cword>')) . " \| peco --initial-filter Fuzzy \| cut -d : -f 1,2"], "tabedit")<CR>
-nnoremap <silent><Space>uG :<C-u>call TniteStart(["sh", "-c", "git grep --line-number " . shellescape(TniteInput()) . " \| peco --initial-filter Fuzzy \| cut -d : -f 1,2"], "tabedit")<CR>
+nnoremap <silent><Space>ut :<C-u>call TniteStartWithMap(["sh", "-c", "git ls-files \| peco --initial-filter Fuzzy"], "tabedit")<CR>
+nnoremap <silent><Space>uu :<C-u>call TniteStartWithMap(["sh", "-c", "git ls-files \| peco --initial-filter Fuzzy"], "edit")<CR>
+nnoremap <silent><Space>ug :<C-u>call TniteStartWithMap(["sh", "-c", "git grep --line-number " . shellescape(expand('<cword>')) . " \| peco --initial-filter Fuzzy \| cut -d : -f 1,2"], "tabedit")<CR>
+nnoremap <silent><Space>uG :<C-u>call TniteStartWithMap(["sh", "-c", "git grep --line-number " . shellescape(tnite#read_from_prompt("grep pattern> ")) . " \| peco --initial-filter Fuzzy \| cut -d : -f 1,2"], "tabedit")<CR>
 
 " vim:set foldmethod=marker:
