@@ -197,6 +197,10 @@ function! s:load_bundles()
   NeoBundle     'sudo.vim'
   NeoBundleLazy 'editorconfig/editorconfig-vim'
   NeoBundle 'pocke/ika2.vim'
+  NeoBundleLazy 'pocke/cuculus.vim',
+  \   FiletypeConfig("ruby")
+  AutoCmd FileType ruby nnoremap <silent><buffer> % :<C-u>call cuculus#jump()<CR>
+  AutoCmd CursorMoved *.rb call cuculus#display_pair_to_popup()
 
   " 非同期処理
   NeoBundle     'Shougo/vimproc.vim', {
