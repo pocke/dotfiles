@@ -184,11 +184,6 @@ function! s:load_bundles()
   NeoBundle 'prabirshrestha/async.vim'
   NeoBundle 'prabirshrestha/vim-lsp'
 
-  NeoBundleLazy 'Shougo/denite.nvim', {
-  \   'on_cmd': [ "Denite"],
-  \   'depends': ['nixprime/cpsm/', 'roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc'],
-  \ }
-
   NeoBundleLazy 'nixprime/cpsm', {
   \   'build': 'sh -c "PY3=ON ./install.sh"'
   \ }
@@ -627,43 +622,6 @@ if neobundle#tap('vim-lsp')
   call neobundle#untap()
 endif
 
-
-if neobundle#tap('denite.nvim')
-  function! neobundle#tapped.hooks.on_source(bundle)
-    call denite#custom#map('insert', "<C-n>", "<denite:move_to_next_line>", 'noremap')
-    call denite#custom#map('insert', "<C-p>", "<denite:move_to_previous_line>", 'noremap')
-
-    call denite#custom#source(
-    \ 'file_rec', 'matchers', ['matcher_cpsm'])
-
-    if executable('rg')
-      call denite#custom#var('grep', 'command', ['rg'])
-      call denite#custom#var('grep', 'recursive_opts', [])
-      call denite#custom#var('grep', 'final_opts', [])
-      call denite#custom#var('grep', 'separator', ['--'])
-      call denite#custom#var('grep', 'default_opts',
-      \   ['--vimgrep', '--no-heading'])
-    endif
-
-    call denite#custom#alias('source', 'file_rec/git', 'file_rec')
-    call denite#custom#var('file_rec/git', 'command',
-    \ ['git', 'ls-files', '-co', '--exclude-standard'])
-
-    call denite#custom#option('_', 'highlight_matched_char', 'Normal')
-  endfunction
-
-  nnoremap <SID>(denite) <Nop>
-  nmap <Space>u <SID>(denite)
-  nnoremap <silent> <SID>(denite)t :<C-u>Denite -default-action=tabswitch `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
-  nnoremap <silent> <SID>(denite)u :<C-u>Denite -default-action=switch `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
-  nnoremap <silent> <SID>(denite)v :<C-u>vs<CR>:<C-u>Denite `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
-  nnoremap <silent> <SID>(denite)s :<C-u>sp<CR>:<C-u>Denite `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
-  nnoremap <silent> <SID>(denite)G :<C-u>Denite -default-action=tabopen grep<CR>
-  nnoremap <silent> <SID>(denite)g :<C-u>DeniteCursorWord -default-action=tabopen grep<CR>
-  nnoremap <silent> <SID>(denite)b :<C-u>Denite buffer -default-action=switch<CR>
-
-  call neobundle#untap()
-endif
 
 
 if neobundle#tap('vim-ref')
@@ -1244,5 +1202,41 @@ call Define()
 silent ruby ()
 
 call remote_startserver('tvim')
+
+function! TniteStart(cmds, open_cmd) abort
+  let buf_num = 0
+  let buf_num = term_start(a:cmds, {"exit_cb": { -> TniteTabOpen(buf_num, a:open_cmd) }})
+  if buf_num == 0
+    echom 'failed to open terminal'
+    return
+  endif
+endfunction
+
+function! TniteTabOpen(bufn, open_cmd) abort
+  " Sleep is necessary to wait render output of command
+  sleep 100m
+  let winn = bufwinnr(a:bufn)
+
+  let lines = getbufline(a:bufn, 1)
+  execute winn . 'close'
+  for fname in lines
+    if trim(fname) == ""
+      continue
+    endif
+    execute a:open_cmd fname
+  endfor
+endfunction
+
+function! TniteInput() abort
+  call inputsave()
+  let r = input("grep pattern> ")
+  call inputrestore()
+  return r
+endfunction
+
+nnoremap <silent><Space>ut :<C-u>call TniteStart(["sh", "-c", "git ls-files \| peco"], "tabedit")<CR>
+nnoremap <silent><Space>uu :<C-u>call TniteStart(["sh", "-c", "git ls-files \| peco"], "edit")<CR>
+nnoremap <silent><Space>ug :<C-u>call TniteStart(["sh", "-c", "git grep --line-number " . shellescape(expand('<cword>')) . " \| peco \| cut -d : -f 1,2"], "tabedit")<CR>
+nnoremap <silent><Space>uG :<C-u>call TniteStart(["sh", "-c", "git grep --line-number " . shellescape(TniteInput()) . " \| peco \| cut -d : -f 1,2"], "tabedit")<CR>
 
 " vim:set foldmethod=marker:
