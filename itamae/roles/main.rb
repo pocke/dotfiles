@@ -86,22 +86,7 @@ if File.exist?('/etc/arch-release')
     action :enable
   end
 
-  # Install yay
-  execute "curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" do
-    cwd '/tmp/'
-    not_if 'which yay'
-  end
-
-  execute "tar -xvf yay.tar.gz" do
-    cwd '/tmp/'
-    not_if 'which yay'
-  end
-
-  execute "makepkg -si --noconfirm" do
-    cwd '/tmp/yay'
-    not_if 'which yay'
-    only_if 'test -d /tmp/yay'
-  end
+  aur_package 'yay'
 
   pkgs = %w[
     google-chrome
@@ -110,5 +95,7 @@ if File.exist?('/etc/arch-release')
     rbenv
     ttf-ricty
   ]
-  execute "yay -S --noconfirm --needed #{pkgs.join(' ')}"
+  pkgs.each do |pkg|
+    aur_package pkg
+  end
 end
