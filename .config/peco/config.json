@@ -1,6 +1,6 @@
 {
   "Style": {
-    "Selected": ["default", "on_green",   "bold"],
+    "Selected": ["default", "on_black",   "bold"],
     "Query":    ["blue",    "on_default", "bold"],
     "Matched":  ["cyan",    "on_default", "bold"]
   },
