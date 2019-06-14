@@ -712,6 +712,7 @@ if neobundle#tap('vim-watchdogs')
     call quickrun#module#register(s:quickfix4watchdogs)
 
     let g:quickrun_config['watchdogs_checker/_'] = {
+    \   'runner': 'job',
     \   "outputter": "quickfix4watchdogs"
     \ }
 
