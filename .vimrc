@@ -1196,14 +1196,33 @@ silent ruby ()
 
 call remote_startserver('tvim')
 
-function! TniteStartWithMap(cmds, action) abort
-  call tnite#start(a:cmds, a:action)
+function! TniteStartWithMap(cmds, action, option) abort
+  call tnite#start(a:cmds, a:action, a:option)
   tnoremap <buffer><nowait><Esc> <Esc>
 endfunction
 
-nnoremap <silent><Space>ut :<C-u>call TniteStartWithMap(["sh", "-c", "git ls-files \| peco --initial-filter Fuzzy"], "tabedit")<CR>
-nnoremap <silent><Space>uu :<C-u>call TniteStartWithMap(["sh", "-c", "git ls-files \| peco --initial-filter Fuzzy"], "edit")<CR>
-nnoremap <silent><Space>ug :<C-u>call TniteStartWithMap(["sh", "-c", "git grep --line-number " . shellescape(expand('<cword>')) . " \| peco --initial-filter Fuzzy \| cut -d : -f 1,2"], "tabedit")<CR>
-nnoremap <silent><Space>uG :<C-u>call TniteStartWithMap(["sh", "-c", "git grep --line-number " . shellescape(tnite#read_from_prompt("grep pattern> ")) . " \| peco --initial-filter Fuzzy \| cut -d : -f 1,2"], "tabedit")<CR>
+let TniteTab = { -> TniteStartWithMap(["sh", "-c", "git ls-files | peco --initial-filter Fuzzy"], "tabswitch", {}) }
+let TniteBuf = { -> TniteStartWithMap(["sh", "-c", "git ls-files | peco --initial-filter Fuzzy"], "switch", {}) }
+let TniteGrepCword = { -> TniteStartWithMap(
+\   ["sh", "-c", "git grep --line-number " . shellescape(expand('<cword>')) . " | peco --initial-filter Fuzzy | cut -d : -f 1,2"],
+\   "tabswitch",
+\   { "jump_to_line": v:true })
+\ }
+let TniteGrep = { -> TniteStartWithMap(
+\   ["sh", "-c", "git grep --line-number " . shellescape(tnite#read_from_prompt("grep pattern> ")) . " | peco --initial-filter Fuzzy | cut -d : -f 1,2"],
+\   "tabswitch",
+\   { "jump_to_line": v:true })
+\ }
+let TniteJump = { -> TniteStartWithMap(
+\   ["sh", "-c", "nl -b a -w1 -s ':\t' " . shellescape(expand('%:p')) . "| peco | cut -d : -f 1"],
+\   "jump",
+\   {}
+\ )}
+
+nnoremap <silent><Space>ut :<C-u>call TniteTab()<CR>
+nnoremap <silent><Space>uu :<C-u>call TniteBuf()<CR>
+nnoremap <silent><Space>ug :<C-u>call TniteGrepCword()<CR>
+nnoremap <silent><Space>uG :<C-u>call TniteGrep()<CR>
+nnoremap <silent><Space>uj :<C-u>call TniteJump()<CR>
 
 " vim:set foldmethod=marker:
