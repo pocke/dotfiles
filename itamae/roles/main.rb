@@ -5,6 +5,7 @@ directory File.expand_path('~/.config/awesome/')
 directory File.expand_path('~/.config/fontconfig/')
 directory File.expand_path('~/.config/sakura/')
 directory File.expand_path('~/.config/peco/')
+directory File.expand_path('~/.config/get/')
 
 include_recipe '../cookbooks/ruby-trunk-build'
 include_recipe '../cookbooks/pacman-syuw'
@@ -14,6 +15,7 @@ include_recipe '../cookbooks/dotfiles-private'
   .gemrc .rspec .tigrc .xinitrc .pryrc .irbrc
   .tmux.conf .vimrc .Xmodmap .ctags .gvimrc
   .config/awesome/rc.lua .config/awesome/themes .config/fontconfig/fonts.conf .config/peco/config.json .config/sakura/sakura.conf .config/karabiner/
+  .config/get/args
   .vim/after
   .vim/colors
   .vim/spell
