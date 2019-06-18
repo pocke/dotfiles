@@ -39,7 +39,7 @@ function peco-select-tmux-session()
     return
   fi
 
-  if echo "$pecoed" | ruby -e 'exit(!!(gets.chomp =~ /\[\d+x\d+\](\s\(attached\))?$/))'; then
+  if echo "$pecoed" | ruby -e 'exit(!!(gets.chomp =~ %r!^.+: \d+ windows \(created!))'; then
     local session="$(echo "$pecoed" | cut -d : -f 1)"
     BUFFER="tmux a -t $session"
     zle accept-line
