@@ -1208,6 +1208,16 @@ let TniteGrepCword = { -> TniteStartWithMap(
 \   "tabswitch",
 \   { "jump_to_line": v:true })
 \ }
+let TniteGrepCwordW = { -> TniteStartWithMap(
+\   ["sh", "-c", "git grep -w --line-number " . shellescape(expand('<cword>')) . " | peco --initial-filter Fuzzy | cut -d : -f 1,2"],
+\   "tabswitch",
+\   { "jump_to_line": v:true })
+\ }
+let TniteGrepCwordI = { -> TniteStartWithMap(
+\   ["sh", "-c", "git grep -i --line-number " . shellescape(expand('<cword>')) . " | peco --initial-filter Fuzzy | cut -d : -f 1,2"],
+\   "tabswitch",
+\   { "jump_to_line": v:true })
+\ }
 let TniteGrep = { -> TniteStartWithMap(
 \   ["sh", "-c", "git grep --line-number " . shellescape(tnite#read_from_prompt("grep pattern> ")) . " | peco --initial-filter Fuzzy | cut -d : -f 1,2"],
 \   "tabswitch",
@@ -1222,6 +1232,8 @@ let TniteJump = { -> TniteStartWithMap(
 nnoremap <silent><Space>ut :<C-u>call TniteTab()<CR>
 nnoremap <silent><Space>uu :<C-u>call TniteBuf()<CR>
 nnoremap <silent><Space>ug :<C-u>call TniteGrepCword()<CR>
+nnoremap <silent><Space>uw :<C-u>call TniteGrepCwordW()<CR>
+nnoremap <silent><Space>ui :<C-u>call TniteGrepCwordI()<CR>
 nnoremap <silent><Space>uG :<C-u>call TniteGrep()<CR>
 nnoremap <silent><Space>uj :<C-u>call TniteJump()<CR>
 
