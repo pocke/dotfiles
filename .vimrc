@@ -672,7 +672,12 @@ if neobundle#tap('vim-quickrun')
   \     'command': '~/bin/print-focused-ast.rb',
   \     'exec':  "ruby %C %s --line %{line('.')} --column %{col('.') - 1}",
   \     'hook/shebang/enable': 0,
-  \   }
+  \   },
+  \   'rspec': {
+  \     'type': 'rspec',
+  \     'exec':  "bundle exec rspec %s",
+  \     'hook/shebang/enable': 0,
+  \   },
   \ }
 
   nnoremap <silent><Leader>r :QuickRun<CR>
