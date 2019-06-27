@@ -18,14 +18,12 @@ function retry() {
   return $st
 }
 
-if [ ! -d $SRC ]; then
-  retry git clone --depth 1 https://github.com/ruby/ruby $SRC
-  cd $SRC
-else
-  cd $SRC
-  retry git fetch
-  git checkout origin/trunk
+if [ -d $SRC ]; then
+  rm -rf $SRC
 fi
+
+retry git clone --depth 1 https://github.com/ruby/ruby $SRC
+cd $SRC
 
 
 
