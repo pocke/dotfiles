@@ -101,3 +101,8 @@ if File.exist?('/etc/arch-release')
     aur_package pkg
   end
 end
+
+execute 'timedatectl set-ntp true' do
+  user 'root'
+  not_if 'timedatectl status | grep synchronized | grep yes'
+end
