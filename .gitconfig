@@ -44,6 +44,7 @@
   rao    = remote add origin
   fo     = fetch origin
   fpr    = "!f(){ git fetch origin pull/$1/head; git co FETCH_HEAD; };f"
+  comp   = !hub compare "$(git name-rev --name-only @)"
 
 [push]
   default = simple
