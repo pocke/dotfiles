@@ -1241,5 +1241,6 @@ nnoremap <silent><Space>uw :<C-u>call TniteGrepCwordW()<CR>
 nnoremap <silent><Space>ui :<C-u>call TniteGrepCwordI()<CR>
 nnoremap <silent><Space>uG :<C-u>call TniteGrep()<CR>
 nnoremap <silent><Space>uj :<C-u>call TniteJump()<CR>
+nnoremap <silent><Space>/  :<C-u>call TniteJump()<CR>
 
 " vim:set foldmethod=marker:
