@@ -184,9 +184,6 @@ function! s:load_bundles()
   NeoBundle 'prabirshrestha/async.vim'
   NeoBundle 'prabirshrestha/vim-lsp'
 
-  NeoBundleLazy 'nixprime/cpsm', {
-  \   'build': 'sh -c "PY3=ON ./install.sh"'
-  \ }
   NeoBundle 'lambdalisue/gina.vim'
 
   NeoBundle     'sudo.vim'
