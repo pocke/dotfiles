@@ -677,6 +677,29 @@ if neobundle#tap('vim-quickrun')
   \   },
   \ }
 
+  function! neobundle#tapped.hooks.on_source(bundle)
+    let s:my_quickrun_hook = { 'kind': 'hook', 'name': 'my_hook' }
+    function! s:my_quickrun_hook.on_ready(session, context) abort
+      if $TMUX != ''
+        call system('tmux set status-left-style none')
+      endif
+    endfunction
+
+    function! s:my_quickrun_hook.on_success(session, context) abort
+      if $TMUX != ''
+        call system('tmux set status-left-style bg=green')
+      endif
+    endfunction
+
+    function! s:my_quickrun_hook.on_failure(session, context) abort
+      if $TMUX != ''
+        call system('tmux set status-left-style bg=red')
+      endif
+    endfunction
+
+    call quickrun#module#register(s:my_quickrun_hook)
+  endfunction
+
   nnoremap <silent><Leader>r :QuickRun<CR>
   nnoremap <silent><Leader>a :QuickRun rubyvm_ast<CR>
 
