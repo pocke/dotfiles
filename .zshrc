@@ -17,7 +17,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$HOME/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 export MANPAGER="/bin/sh -c \"col -b -x | vim -c 'set buftype=nofile' -c 'set ft=man' -\""
-export RUBYOPT='-W'
+export RUBYOPT='-w'
 
 WORDCHARS="${WORDCHARS:s!/!!}"
 REPORTTIME=3                # 3秒以上かかったコマンドは実行時間を表示する
