@@ -2,3 +2,4 @@ set wrap-lines = yes
 set line-graphics = ascii
 
 bind generic g move-first-line
+bind generic p @whichpr open %(commit)
