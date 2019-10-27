@@ -196,6 +196,16 @@ function! s:load_bundles()
 
   NeoBundle 'pocke/tnite.vim'
 
+  " 非同期処理
+  " It is necessary for NeoBundle
+  NeoBundle     'Shougo/vimproc.vim', {
+  \ 'build' : {
+  \     'windows' : 'make -f make_mingw32.mak',
+  \     'cygwin' : 'make -f make_cygwin.mak',
+  \     'mac' : 'make -f make_mac.mak',
+  \     'unix' : 'make -f make_unix.mak'
+  \   }
+  \ }
   NeoBundleLazy 'tyru/open-browser.vim'
   NeoBundleLazy 'tyru/open-browser-github.vim', {
   \   'on_cmd': ['OpenGithubFile'],
