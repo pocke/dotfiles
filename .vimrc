@@ -1052,11 +1052,11 @@ AutoCmd FileType markdown,text,gitcommit setl spell
 AutoCmd BufNewFile,BufRead config/locales/*.yml setl spell
 
 " 長いFiletypeを省略する
-AutoCmd FileType js nested setlocal ft=javascript
-AutoCmd FileType ts nested setlocal ft=typescript
-AutoCmd FileType md nested setlocal ft=markdown
+AutoCmd FileType js ++nested setlocal ft=javascript
+AutoCmd FileType ts ++nested setlocal ft=typescript
+AutoCmd FileType md ++nested setlocal ft=markdown
 
-AutoCmd FileType typescriptreact nested setlocal ft=typescript
+AutoCmd FileType typescriptreact ++nested setlocal ft=typescript
 
 AutoCmd FileType ruby setl iskeyword+=?
 let g:ruby_path = ""
@@ -1073,7 +1073,7 @@ function! s:set_help_keymap()
   nnoremap <buffer> <BS> <C-t>
 endfunction
 
-AutoCmd BufReadCmd *:[0-9]\+ nested call s:edit_with_lnum(expand('<afile>'))
+AutoCmd BufReadCmd *:[0-9]\+ ++nested call s:edit_with_lnum(expand('<afile>'))
 
 function! s:edit_with_lnum(path_with_lnum) abort
   let lnum = matchstr(a:path_with_lnum, '\v[0-9]+$')
