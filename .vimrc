@@ -1053,7 +1053,10 @@ AutoCmd BufNewFile,BufRead config/locales/*.yml setl spell
 
 " 長いFiletypeを省略する
 AutoCmd FileType js nested setlocal ft=javascript
+AutoCmd FileType ts nested setlocal ft=typescript
 AutoCmd FileType md nested setlocal ft=markdown
+
+AutoCmd FileType typescriptreact nested setlocal ft=typescript
 
 AutoCmd FileType ruby setl iskeyword+=?
 let g:ruby_path = ""
