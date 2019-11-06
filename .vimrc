@@ -127,6 +127,8 @@ function! s:load_bundles()
   \   'on_ft': 'eco',
   \   'depends': ['kchmck/vim-coffee-script']
   \ }
+  NeoBundleLazy 'pocke/ruby-signature.vim',
+  \   FiletypeConfig("ruby-signature")
 
   NeoBundleLazy 'leafgarland/typescript-vim',
   \   FiletypeConfig("typescript")
@@ -1032,6 +1034,7 @@ AutoCmd BufNewFile,BufRead *.jb                       set filetype=ruby
 AutoCmd BufNewFile,BufRead *.schema                   set filetype=ruby " For ridgepole
 AutoCmd BufNewFile,BufRead Guardfile                  set filetype=ruby
 AutoCmd BufNewFile,BufRead .pryrc                     set filetype=ruby
+AutoCmd BufNewFile,BufRead Steepfile                  set filetype=ruby
 AutoCmd BufNewFile,BufRead *_spec.rb                  set filetype=ruby.rspec
 
 
