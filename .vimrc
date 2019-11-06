@@ -137,19 +137,12 @@ function! s:load_bundles()
 
   NeoBundleLazy 'hail2u/vim-css3-syntax',
   \   FiletypeConfig("css")
-  NeoBundleLazy 'groenewege/vim-less',
-  \   FiletypeConfig("less")
   NeoBundleLazy 'wavded/vim-stylus',
   \   FiletypeConfig("stylus")
   NeoBundleLazy 'slim-template/vim-slim',
   \   FiletypeConfig("slim")
   NeoBundleLazy 'othree/html5.vim',
   \   FiletypeConfig("html")
-
-  NeoBundleLazy 'derekwyatt/vim-scala',
-  \   FiletypeConfig("scala")
-  NeoBundleLazy 'derekwyatt/vim-sbt',
-  \   FiletypeConfig("sbt")
 
   NeoBundleLazy 'fatih/vim-go',
   \   FiletypeConfig("go")
@@ -163,9 +156,6 @@ function! s:load_bundles()
   NeoBundleLazy 'keith/tmux.vim',
   \   FiletypeConfig("tmux")
 
-  NeoBundleLazy 'OrangeT/vim-csharp',
-  \   FiletypeConfig(['cs', 'csi', 'csx'])
-
   NeoBundleLazy 'keith/swift.vim',
   \   FiletypeConfig('swift')
   NeoBundleLazy 'pocke/swift-ide-test-comp.vim',
@@ -174,8 +164,6 @@ function! s:load_bundles()
   NeoBundleLazy 'davidhalter/jedi-vim',
   \   FiletypeConfig('python')
 
-  NeoBundleLazy 'rgrinberg/vim-ocaml',
-  \   FiletypeConfig(['ocaml', 'oasis', 'ocamlbuild_tags', 'omake', 'opam', 'sexplib'])
   NeoBundleLazy 'msteinert/vim-ragel',
   \   FiletypeConfig('ragel')
   NeoBundleLazy 'google/vim-jsonnet',
