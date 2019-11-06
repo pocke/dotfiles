@@ -93,7 +93,6 @@ function! s:load_bundles()
   delfunction OperatorConfig
 
 
-  NeoBundle     'thinca/vim-splash'
   NeoBundle     'pocke/ansi_color.vim'
   NeoBundle     'itchyny/lightline.vim'
   NeoBundleLazy 'haya14busa/incsearch.vim', {
@@ -459,14 +458,6 @@ if neobundle#tap('vim-operator-trailing-space')
 endif
 
 
-
-if neobundle#tap('vim-splash')
-  let g:splash#path = $HOME . '/dotfiles/octocat.txt'
-  " Don't work starting 'vim -t {tag}'
-  autocmd BufReadPre * autocmd! plugin-splash VimEnter
-
-  call neobundle#untap()
-endif
 
 if neobundle#tap('lightline.vim')
   let g:lightline = {
