@@ -1043,6 +1043,7 @@ AutoCmd FileType typescriptreact ++nested setlocal ft=typescript
 AutoCmd FileType ruby setl iskeyword+=?
 let g:ruby_path = ""
 AutoCmd FileType javascript,typescript setlocal suffixesadd=.js,.jsx,.ts,.tsx
+autocmd FileType javascript,typescript syntax sync minlines=1000 maxlines=2000
 
 " help key mappings
 AutoCmd FileType help call s:set_help_keymap()
