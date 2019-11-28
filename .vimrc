@@ -46,6 +46,7 @@ function! s:load_bundles()
   NeoBundleFetch 'tekkoc/PHPSnippetsCreator'
   NeoBundle     'pocke/neosnippet-incomment'
   NeoBundle     'pocke/iro.vim'
+  NeoBundle     'pocke/jumpcards.vim'
 
   NeoBundleLazy 'kana/vim-smartinput', {
   \   'on_i': 1,
@@ -1100,7 +1101,7 @@ nnoremap <silent> <C-h> :<C-u>tabprevious<CR>
 
 nnoremap <F4> :<C-u>%s/<C-r>//
 vnoremap <F4> :s/<C-r>//
-nnoremap <F3> :silent! tab term ++close tig blame +<C-r>=line('.')<CR> %<CR>:redraw!<CR>
+nnoremap <F3> :silent! tab term ++close tig blame +<C-r>=line('.')<CR> %<CR>
 " TODO: filetype
 nnoremap <F12> :TsuquyomiImport<CR>
 
@@ -1258,5 +1259,6 @@ nnoremap <silent><Space>ui :<C-u>call TniteGrepCwordI()<CR>
 nnoremap <silent><Space>uG :<C-u>call TniteGrep()<CR>
 nnoremap <silent><Space>uj :<C-u>call TniteJump()<CR>
 nnoremap <silent><Space>/  :<C-u>call TniteJump()<CR>
+
 
 " vim:set foldmethod=marker:
