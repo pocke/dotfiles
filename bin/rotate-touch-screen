@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Get the ID from xinput
+ID=14
+xinput set-prop "$ID" "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
