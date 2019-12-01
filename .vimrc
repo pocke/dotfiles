@@ -158,8 +158,6 @@ function! s:load_bundles()
 
   NeoBundleLazy 'keith/swift.vim',
   \   FiletypeConfig('swift')
-  NeoBundleLazy 'pocke/swift-ide-test-comp.vim',
-  \   FiletypeConfig('swift')
 
   NeoBundleLazy 'davidhalter/jedi-vim',
   \   FiletypeConfig('python')
