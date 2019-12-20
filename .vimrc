@@ -183,6 +183,8 @@ function! s:load_bundles()
   AutoCmd CursorMoved * call cuculus#display_pair_to_popup()
 
   NeoBundle 'pocke/tnite.vim'
+  NeoBundle 'pocke/hatenikki.vim'
+  nnoremap <Space>n :tabe hatenikki://today<CR>
 
   " 非同期処理
   " It is necessary for NeoBundle
