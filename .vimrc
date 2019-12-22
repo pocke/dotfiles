@@ -150,7 +150,6 @@ function! s:load_bundles()
   \   FiletypeConfig("ace")
   NeoBundleLazy 'cespare/vim-toml',
   \   FiletypeConfig("toml")
-  " If lazy, compound filetype is wrong...
   NeoBundleLazy 'PProvost/vim-ps1',
   \   FiletypeConfig("ps1")
   NeoBundleLazy 'keith/tmux.vim',
