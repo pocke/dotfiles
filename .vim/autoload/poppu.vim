@@ -1,13 +1,17 @@
 let g:poppu#range_finder = {
 \   'vim': {
-\     'start': { content, _indent, _idx -> match(content, '\v^\s*function') != -1 },
-\     'end': { content, _indent, _idx -> match(content, '\v^\s*endf') != -1 },
-\   }
+\     'start': { ctx -> match(ctx.content, '\v^\s*function') != -1 },
+\     'end': { ctx -> match(ctx.content, '\v^\s*endf') != -1 },
+\   },
+\   'ruby': {
+\     'start': { ctx -> match(ctx.content, '\v<def>|<class>|<module>') != -1 },
+\     'end': { ctx -> match(ctx.content, '\v^\s*<end>') != -1 && match(ctx.content, '\S') == match(ctx.start_content, '\S') },
+\   },
 \ }
 
 let g:poppu#default_finder = {
-\   'start': { _content, _indent, idx -> idx > 3 },
-\   'end': { _content, _indent, idx -> idx > 3 },
+\   'start': { ctx -> ctx.index > 3 },
+\   'end': { ctx -> ctx.index > 3 },
 \ }
 
 " FIXME
@@ -25,27 +29,27 @@ function! poppu#clip_here() abort
   const finder = get(g:poppu#range_finder, &filetype, g:poppu#default_finder)
 
   const cur_lnum = getcurpos()[1]
+  const ctx = {}
   let start_lnum = cur_lnum
   while v:true
     if start_lnum == 0 | break | endif
 
-    let content = getline(start_lnum)
-    " TODO: indentation
-    let indent = v:null
-    if finder.start(content, indent, cur_lnum - start_lnum)
+    let ctx.content = getline(start_lnum)
+    let ctx.index = cur_lnum - start_lnum
+    if finder.start(ctx)
       break
     endif
     let start_lnum -= 1
   endwhile
+  let ctx.start_content = ctx.content
 
   let end_lnum = cur_lnum
   while v:true
     if end_lnum == line('$') | break | endif
 
-    let content = getline(end_lnum)
-    " TODO: indentation
-    let indent = v:null
-    if finder.end(content, indent, end_lnum - cur_lnum)
+    let ctx.content = getline(end_lnum)
+    let ctx.index = end_lnum - cur_lnum
+    if finder.end(ctx)
       break
     endif
     let end_lnum += 1
@@ -112,7 +116,7 @@ function! s:Clip.render() abort
   \   'border': [1,1,1,1],
   \ })
   let ft = getbufvar(self.bufnr, '&filetype')
-  call win_execute(self.winid, 'set filetype=' . ft)
+  call win_execute(self.winid, 'noautocmd set filetype=' . ft)
   call win_execute(self.winid, 'syntax enable')
   let border_height = 2
   let s:popup_line += len(self.content) + border_height
