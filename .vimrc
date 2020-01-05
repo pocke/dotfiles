@@ -242,7 +242,6 @@ function! s:load_bundles()
 
 
   NeoBundle     'mopp/autodirmake.vim'
-  NeoBundle     'kana/vim-arpeggio'
   NeoBundle     'vim-jp/vital.vim'
 endfunction
 
@@ -252,8 +251,6 @@ filetype plugin indent on     " Required!
 "}}}
 
 
-
-call arpeggio#load()
 
 if neobundle#tap('neocomplete')
   " 起動時に有効化
@@ -422,24 +419,24 @@ endif
 
 
 if neobundle#tap('vim-operator-surround')
-  Arpeggio map <silent>sa <Plug>(operator-surround-append)
-  Arpeggio map <silent>sd <Plug>(operator-surround-delete)
-  Arpeggio map <silent>sr <Plug>(operator-surround-replace)
+  map <silent><space>sa <Plug>(operator-surround-append)
+  map <silent><space>sd <Plug>(operator-surround-delete)
+  map <silent><space>sr <Plug>(operator-surround-replace)
 
   call neobundle#untap()
 endif
 
 if neobundle#tap('vim-operator-comment')
-  Arpeggio map <silent>co <Plug>(operator-comment)
-  Arpeggio map <silent>cu <Plug>(operator-uncomment)
-  Arpeggio map <silent>CO <Plug>(operator-comment)<Plug>(operator-comment)
-  Arpeggio map <silent>CU <Plug>(operator-uncomment)<Plug>(operator-uncomment)
+  map <silent><space>co <Plug>(operator-comment)
+  map <silent><space>cu <Plug>(operator-uncomment)
+  map <silent><space>CO <Plug>(operator-comment)<Plug>(operator-comment)
+  map <silent><space>CU <Plug>(operator-uncomment)<Plug>(operator-uncomment)
 
   call neobundle#untap()
 endif
 
 if neobundle#tap('operator-camelize.vim')
-  Arpeggio map <silent>ca <Plug>(operator-camelize-toggle)
+  map <silent><space>ca <Plug>(operator-camelize-toggle)
 
   call neobundle#untap()
 endif
