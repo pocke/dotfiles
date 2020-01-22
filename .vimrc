@@ -646,7 +646,7 @@ if neobundle#tap('vim-quickrun')
   \     'exec':  "ruby %C %s --line %{line('.')} --column %{col('.') - 1}",
   \     'hook/shebang/enable': 0,
   \   },
-  \   'rspec': {
+  \   'ruby.rspec': {
   \     'type': 'rspec',
   \     'exec':  "bundle exec rspec %s",
   \     'hook/shebang/enable': 0,
