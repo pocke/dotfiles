@@ -69,6 +69,6 @@
   user = pocke
 
 [ghq]
-  root = ~/ghq
   root = ~/go/src
   root = ~/.vim/bundle/
+  root = ~/ghq
