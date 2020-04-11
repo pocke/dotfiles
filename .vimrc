@@ -1208,8 +1208,6 @@ call Define()
 " Hack to suppress warning message of redefined `p` by if_ruby
 silent ruby ()
 
-call remote_startserver('tvim')
-
 function! TniteStartWithMap(cmds, action, option) abort
   call tnite#start(a:cmds, a:action, a:option)
   tnoremap <buffer><nowait><Esc> <Esc>
