@@ -171,8 +171,6 @@ function! s:load_bundles()
   NeoBundle 'prabirshrestha/async.vim'
   NeoBundle 'prabirshrestha/vim-lsp'
 
-  NeoBundle 'lambdalisue/gina.vim'
-
   NeoBundle     'sudo.vim'
   NeoBundleLazy 'editorconfig/editorconfig-vim'
   NeoBundle 'pocke/ika2.vim'
