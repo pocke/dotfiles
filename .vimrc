@@ -1060,7 +1060,6 @@ endfunction
 AutoCmd VimResized * wincmd =
 
 AutoCmd BufWritePost *.go silent call system('go build &')
-highlight link deniteMatchedChar Normal
 
 nnoremap ; :
 vnoremap ; :
