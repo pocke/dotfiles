@@ -57,7 +57,7 @@ hi TabLineFill                        ctermbg=252         cterm=NONE
 hi Comment      ctermfg=gray
 hi Constant     ctermfg=205
 hi Identifier   ctermfg=LightBlue
-hi Statement    ctermfg=DarkYellow
+hi Statement    ctermfg=81
 "hi PreProc
 "hi Type
 hi Special      ctermfg=165
