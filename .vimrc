@@ -1090,7 +1090,7 @@ nnoremap <silent> <C-h> :<C-u>tabprevious<CR>
 
 nnoremap <F4> :<C-u>%s/<C-r>//
 vnoremap <F4> :s/<C-r>//
-nnoremap <F3> :silent! tab term ++close tig blame +<C-r>=line('.')<CR> %<CR>
+nnoremap <F3> :silent! !tig blame +<C-r>=line('.')<CR> %<CR>:redraw!<CR>
 " TODO: filetype
 nnoremap <F12> :TsuquyomiImport<CR>
 
