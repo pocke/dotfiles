@@ -90,6 +90,15 @@ snippet     attr_writer
 options     head
   attr_writer :${1:name}
 
+snippet     bundler-inline
+options     head
+  require 'bundler/inline'
+
+  gemfile do
+    source 'https://rubygems.org'
+    gem '${1:name}'
+  end
+
 
 # ------------------------  override default snippets
 snippet     def
