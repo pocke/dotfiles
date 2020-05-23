@@ -62,7 +62,7 @@ options     head
 snippet     benchmark
 options     head
   require 'benchmark'
-  Benchmark.bm do |x|
+  Benchmark.bmbm do |x|
     x.report{10000.times{${0}}}
   end
 
