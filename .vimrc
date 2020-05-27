@@ -127,8 +127,8 @@ function! s:load_bundles()
   \   'on_ft': 'eco',
   \   'depends': ['kchmck/vim-coffee-script']
   \ }
-  NeoBundleLazy 'pocke/ruby-signature.vim',
-  \   FiletypeConfig("ruby-signature")
+  NeoBundleLazy 'pocke/rbs.vim',
+  \   FiletypeConfig("rbs")
 
   NeoBundleLazy 'leafgarland/typescript-vim',
   \   FiletypeConfig("typescript")
