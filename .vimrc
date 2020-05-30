@@ -178,6 +178,7 @@ function! s:load_bundles()
   \   FiletypeConfig("ruby")
   AutoCmd FileType ruby nnoremap <silent><buffer> % :<C-u>call cuculus#jump()<CR>
   AutoCmd CursorMoved * call cuculus#display_pair_to_popup()
+  NeoBundle 'pocke/rurema.vim'
 
   NeoBundle 'pocke/tnite.vim'
   NeoBundle 'pocke/hatenikki.vim'
