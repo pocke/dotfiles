@@ -599,7 +599,7 @@ if neobundle#tap('vim-lsp')
   if executable('steep')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'steep',
-        \ 'cmd': {server_info->['bundle', 'exec', 'steep', 'langserver', '--log-output=/tmp/steep.log', '--verbose']},
+        \ 'cmd': {server_info->['bash', '-c', 'RUBYOPT= bundle exec steep langserver --log-output=/tmp/steep.log --verbose']},
         \ 'whitelist': ['ruby'],
         \ })
   endif
