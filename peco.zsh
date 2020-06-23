@@ -29,11 +29,6 @@ bindkey '^G' peco-ghq-move
 
 function peco-select-tmux-session()
 {
-  if [ -n "$TMUX" ]; then
-    echo 'Do not use this command in a tmux session.'
-    return 1
-  fi
-
   local pecoed="$(cat <(tmux list-sessions) <(ghq list --full-path | sed -e 's!'$HOME'!~!') | peco)"
   if [ -z "$pecoed" ]; then
     return
@@ -41,12 +36,19 @@ function peco-select-tmux-session()
 
   if echo "$pecoed" | ruby -e 'exit(!!(gets.chomp =~ %r!^.+: \d+ windows \(created!))'; then
     local session="$(echo "$pecoed" | cut -d : -f 1)"
-    BUFFER="tmux a -t $session"
-    zle accept-line
+    if [ -n "$TMUX" ]; then
+      BUFFER="tmux switch-client -t $session"
+    else
+      BUFFER="tmux a -t $session"
+    fi
   else
-    BUFFER="cd $pecoed; t"
-    zle accept-line
+    if [ -n "$TMUX" ]; then
+      BUFFER="cd $pecoed; tmux switch-client -t \$(t -dP)"
+    else
+      BUFFER="cd $pecoed; t"
+    fi
   fi
+  zle accept-line
 }
 zle -N peco-select-tmux-session
 bindkey '^T' peco-select-tmux-session

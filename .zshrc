@@ -284,7 +284,7 @@ fi
 
 function t()
 {
-  tmux new-session -s $(pwd |sed -E 's!^.+/([^/]+/[^/]+)$!\1!g' | sed -e 's/\./-/g')
+  tmux new-session -s $(pwd |sed -E 's!^.+/([^/]+/[^/]+)$!\1!g' | sed -e 's/\./-/g') $@
 }
 
 eval "$(rbenv init -)"
