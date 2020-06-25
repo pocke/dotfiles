@@ -3,3 +3,4 @@ set line-graphics = ascii
 
 bind generic g move-first-line
 bind generic p @whichpr open %(commit)
+bind generic c @bash -c 'echo -n %(commit) | xsel --input --clipboard'
