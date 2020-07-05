@@ -287,4 +287,10 @@ function t()
   tmux new-session -s $(pwd |sed -E 's!^.+/([^/]+/[^/]+)$!\1!g' | sed -e 's/\./-/g') $@
 }
 
+function be()
+{
+  bundle check > /dev/null || bundle install
+  bundle exec $@
+}
+
 eval "$(rbenv init -)"
