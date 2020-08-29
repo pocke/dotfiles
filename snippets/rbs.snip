@@ -10,6 +10,12 @@ options     head
     ${0}
   end
 
+snippet     interface
+options     head
+  interface ${1:NAME}
+    ${0}
+  end
+
 snippet def
 options head
   def ${1:NAME}: (${2:ARGS}) -> ${3:RETURN}
