@@ -15,24 +15,3 @@ options     head
   it('${1:NAME}', () => {
     ${2:#:TARGET}
   });
-
-snippet     react-template
-options     head
-  import * as React from 'react';
-
-  interface Props {
-  }
-
-  interface State {
-  }
-
-  export class ${1:NAME} extends React.Component<Props, State> {
-    constructor(props: Props) {
-      super(props);
-      this.state = {};
-    }
-
-    render() {
-      return "Hello, React!"
-    }
-  }
