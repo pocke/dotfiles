@@ -14,5 +14,3 @@ add mod4 = Super_L
 !change Shift_R to Zenkaku_Hankaku
 remove Shift = Shift_R
 keysym Shift_R = Zenkaku_Hankaku
-
-keysym Insert = End
