@@ -170,6 +170,8 @@ function! s:load_bundles()
 
   NeoBundle 'prabirshrestha/async.vim'
   NeoBundle 'prabirshrestha/vim-lsp'
+  NeoBundle 'thomasfaingnaert/vim-lsp-snippets'
+  NeoBundle 'thomasfaingnaert/vim-lsp-neosnippet'
 
   NeoBundle     'sudo.vim'
   NeoBundleLazy 'editorconfig/editorconfig-vim'
