@@ -44,7 +44,7 @@
   fo     = fetch origin
   fpr    = "!f(){ git fetch origin pull/$1/head; git co FETCH_HEAD; };f"
   comp   = !hub compare "$(git name-rev --name-only @)"
-  new-br = !git checkout -b "$(git log --format=%s -n 1 @ | ruby -pe '$_=$_.chomp.gsub!(/[^a-zA-Z0-9_]/, ?-)')"
+  new-br = !git checkout -b "$(git log --format=%s -n 1 @ | ruby -pe '$_=$_.chomp.gsub!(/[^a-zA-Z0-9_]/, ?_)')"
 
 [push]
   default = simple
