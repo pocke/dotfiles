@@ -19,3 +19,15 @@ options     head
 snippet def
 options head
   def ${1:NAME}: (${2:ARGS}) -> ${3:RETURN}
+
+snippet     attr_reader
+options     head
+  attr_reader ${1:NAME}: ${2:TYPE}
+
+snippet     attr_writer
+options     head
+  attr_reader ${1:NAME}: ${2:TYPE}
+
+snippet     attr_accessor
+options     head
+  attr_reader ${1:NAME}: ${2:TYPE}
