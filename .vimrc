@@ -602,7 +602,7 @@ if neobundle#tap('vim-lsp')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'steep',
         \ 'cmd': {server_info->['bash', '-c', 'RUBYOPT= bundle exec steep langserver --log-output=/tmp/steep.log --verbose 2> /tmp/steep.error.log']},
-        \ 'whitelist': ['ruby'],
+        \ 'whitelist': ['ruby', 'rbs'],
         \ })
   endif
   call neobundle#untap()
