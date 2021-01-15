@@ -72,3 +72,6 @@
   root = ~/go/src
   root = ~/.vim/bundle/
   root = ~/ghq
+
+[init]
+  defaultBranch = master
