@@ -50,7 +50,6 @@ function! s:load_bundles()
   NeoBundleFetch 'tekkoc/PHPSnippetsCreator'
   NeoBundle     'pocke/neosnippet-incomment'
   NeoBundle     'pocke/iro.vim'
-  NeoBundle     'pocke/jumpcards.vim'
 
   NeoBundleLazy 'kana/vim-smartinput', {
   \   'on_i': 1,
