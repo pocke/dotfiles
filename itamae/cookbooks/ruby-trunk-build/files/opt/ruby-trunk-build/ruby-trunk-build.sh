@@ -27,7 +27,7 @@ cd $SRC
 
 
 
-autoreconf
+autoreconf --install
 ./configure --prefix=$HOME/.rbenv/versions/trunk --enable-shared
 make -j
 make install
