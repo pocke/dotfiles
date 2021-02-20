@@ -32,6 +32,8 @@ tpset "Evdev Wheel Emulation Timeout" 200
 tpset "Evdev Wheel Emulation Axes" 6 7 4 5
 tpset "Device Accel Constant Deceleration" 0.95
 
+/usr/bin/start-pulseaudio-x11
+
 exec awesome
 # exec gnome-session
 # exec startkde
