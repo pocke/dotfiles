@@ -15,3 +15,7 @@ options     head
   it('${1:NAME}', () => {
     ${2:#:TARGET}
   });
+
+snippet     useState
+options     head
+  const [${1:state}, set`$1`] = React.useState(${0:TARGET});
