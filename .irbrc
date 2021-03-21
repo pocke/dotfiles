@@ -26,4 +26,4 @@ def ls(obj)
   end
 
   nil
-end
+end if RUBY_VERSION < '3.1'
