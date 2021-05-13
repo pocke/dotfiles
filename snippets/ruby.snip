@@ -50,7 +50,7 @@ abbr        define_method() do...end
 snippet     stackprof
 options     head
   require 'stackprof'
-  StackProf.run(mode: :cpu, out: '${1:stackprof-out}') do
+  StackProf.run(mode: :wall, out: '${1:stackprof-out}', raw: true) do
     ${0}
   end
 
