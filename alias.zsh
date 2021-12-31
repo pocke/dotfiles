@@ -44,7 +44,7 @@ alias -g N='> /dev/null 2>&1'
 alias -g V='| vim -c "set buftype=nofile" - '
 # http://qiita.com/Kuniwak/items/b711d6c3e402dfd9356b
 alias -g B='`recent-git-branches | peco --prompt "GIT BRANCH>" | head -n 1`'
-alias -g OM='origin/master'
+alias -g OM='$((git rev-parse origin/master > /dev/null 2>&1 && echo -n origin/master) || echo -n origin/main)'
 alias -g PID='"$(ps ax | tac | peco | ruby -pale "\$_=\$F[0]")"'
 
 ### suffix alias
