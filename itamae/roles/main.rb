@@ -7,8 +7,12 @@ directory File.expand_path('~/.config/sakura/')
 directory File.expand_path('~/.config/peco/')
 directory File.expand_path('~/.config/get/')
 
-include_recipe '../cookbooks/ruby-trunk-build'
-include_recipe '../cookbooks/pacman-syuw'
+is_arch = File.exist?('/etc/arch-release')
+
+if is_arch
+  include_recipe '../cookbooks/ruby-trunk-build'
+  include_recipe '../cookbooks/pacman-syuw'
+end
 include_recipe '../cookbooks/dotfiles-private'
 
 %w[
@@ -32,7 +36,7 @@ git File.expand_path('~/.zsh/zsh-syntax-highlighting') do
   repository 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
 end
 
-if File.exist?('/etc/arch-release')
+if is_arch
   remote_file '/etc/X11/xorg.conf.d/10-logicool-mouse.conf' do
     user 'root'
   end
@@ -100,9 +104,10 @@ if File.exist?('/etc/arch-release')
   pkgs.each do |pkg|
     aur_package pkg
   end
+
+  execute 'timedatectl set-ntp true' do
+    user 'root'
+    not_if 'timedatectl status | grep synchronized | grep yes'
+  end
 end
 
-execute 'timedatectl set-ntp true' do
-  user 'root'
-  not_if 'timedatectl status | grep synchronized | grep yes'
-end
