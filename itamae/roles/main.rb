@@ -36,6 +36,10 @@ git File.expand_path('~/.zsh/zsh-syntax-highlighting') do
   repository 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
 end
 
+git File.expand_path('~/.vim/bundle/neobundle.vim') do
+  repository 'https://github.com/Shougo/neobundle.vim.git'
+end
+
 if is_arch
   remote_file '/etc/X11/xorg.conf.d/10-logicool-mouse.conf' do
     user 'root'
