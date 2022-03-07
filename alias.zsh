@@ -14,7 +14,6 @@ alias jman='LANG=ja_JP.UTF-8 man'
 alias b='bundle'
 alias tmux='TERM=screen-256color tmux -2'
 alias taketemp='cd "$(mktemp -d)"'
-alias k='docker exec -it kibela-app'
 function -(){cd -} # alias では実現できない?
 
 function recent-git-branches()
