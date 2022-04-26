@@ -3,4 +3,4 @@ set line-graphics = ascii
 
 bind generic g move-first-line
 bind generic p @whichpr open %(commit)
-bind generic c @bash -c 'echo -n %(commit) | xsel --input --clipboard'
+bind generic c @zsh -c 'if which xsel > /dev/null 2>&1; then; echo -n %(commit) | xsel --input --clipboard; else; echo -n %(commit) | pbcopy; fi'
