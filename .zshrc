@@ -241,7 +241,7 @@ function sub()
   local from=$1
   local to=$2
 
-  git grep -l $from | xargs sed -i -e "s/${from}/${to}/g"
+  git grep -l $from | xargs sed -i '' -e "s/${from}/${to}/g"
 }
 
 # $1 is a directory path.
