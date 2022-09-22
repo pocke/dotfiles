@@ -551,7 +551,7 @@ if neobundle#tap('vim-lsp')
   if executable('steep')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'steep',
-        \ 'cmd': {server_info->['bash', '-c', 'bundle exec steep langserver --log-output=/tmp/steep.log --verbose 2> /tmp/steep.error.log || env BUNDLE_GEMFILE=steep/Gemfile bundle exec steep langserver --log-output=/tmp/steep.log --verbose 2> /tmp/steep.error.log']},
+        \ 'cmd': {server_info->['bash', '-c', 'bundle exec steep langserver --log-output=/tmp/steep.log --verbose 2> /tmp/steep.error.log']},
         \ 'whitelist': ['ruby', 'rbs'],
         \ })
   endif
