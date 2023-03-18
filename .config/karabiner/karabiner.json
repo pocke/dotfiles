@@ -88,7 +88,8 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.apple\\.Terminal$"
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -119,7 +120,8 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.apple\\.Terminal$"
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -178,6 +180,7 @@
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^com\\.apple\\.Terminal$",
+                                            "^com\\.microsoft\\.VSCode$",
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
@@ -235,6 +238,7 @@
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^com\\.apple\\.Terminal$",
+                                            "^com\\.microsoft\\.VSCode$",
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
@@ -292,6 +296,7 @@
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^com\\.apple\\.Terminal$",
+                                            "^com\\.microsoft\\.VSCode$",
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
@@ -354,6 +359,7 @@
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^com\\.apple\\.Terminal$",
+                                            "^com\\.microsoft\\.VSCode$",
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
@@ -416,6 +422,7 @@
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^com\\.apple\\.Terminal$",
+                                            "^com\\.microsoft\\.VSCode$",
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
@@ -479,6 +486,7 @@
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^com\\.apple\\.Terminal$",
+                                            "^com\\.microsoft\\.VSCode$",
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
@@ -541,6 +549,7 @@
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^com\\.apple\\.Terminal$",
+                                            "^com\\.microsoft\\.VSCode$",
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
@@ -603,6 +612,7 @@
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^com\\.apple\\.Terminal$",
+                                            "^com\\.microsoft\\.VSCode$",
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
@@ -660,6 +670,7 @@
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^com\\.apple\\.Terminal$",
+                                            "^com\\.microsoft\\.VSCode$",
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
@@ -1505,6 +1516,7 @@
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^com\\.apple\\.Terminal$",
+                                            "^com\\.microsoft\\.VSCode$",
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
@@ -1563,6 +1575,7 @@
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^com\\.apple\\.Terminal$",
+                                            "^com\\.microsoft\\.VSCode$",
                                             "^com\\.googlecode\\.iterm2$",
                                             "^co\\.zeit\\.hyperterm$",
                                             "^co\\.zeit\\.hyper$",
