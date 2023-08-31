@@ -4,6 +4,8 @@ set -xe
 
 SRC='/tmp/ruby-trunk-build-src'
 
+test -f /opt/homebrew/bin/brew && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 function retry() {
   local i
   local st

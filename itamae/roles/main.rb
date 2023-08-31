@@ -10,9 +10,9 @@ directory File.expand_path('~/.config/get/')
 is_arch = File.exist?('/etc/arch-release')
 
 if is_arch
-  include_recipe '../cookbooks/ruby-trunk-build'
   include_recipe '../cookbooks/pacman-syuw'
 end
+include_recipe '../cookbooks/ruby-trunk-build'
 include_recipe '../cookbooks/dotfiles-private'
 
 %w[
