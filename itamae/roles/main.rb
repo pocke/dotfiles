@@ -1,5 +1,6 @@
 directory File.expand_path('~/.vim/bundle')
 directory File.expand_path('~/.zsh')
+directory File.expand_path('~/.claude')
 directory File.expand_path('~/.config/')
 directory File.expand_path('~/.config/awesome/')
 directory File.expand_path('~/.config/fontconfig/')
@@ -23,7 +24,7 @@ include_recipe '../cookbooks/dotfiles-private'
   .vim/after
   .vim/colors
   .vim/spell
-  bin
+  .claude/CLAUDE.md
 ].each do |file|
   from = File.expand_path("~/#{file}")
   to = File.expand_path("~/dotfiles/#{file}")
