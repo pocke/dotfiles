@@ -164,8 +164,6 @@ function! s:load_bundles()
   NeoBundleLazy 'davidhalter/jedi-vim',
   \   FiletypeConfig('python')
 
-  NeoBundleLazy 'msteinert/vim-ragel',
-  \   FiletypeConfig('ragel')
   NeoBundleLazy 'google/vim-jsonnet',
   \   FiletypeConfig('jsonnet')
   NeoBundleLazy 'evanphx/kpeg/', {'on_ft': 'kpeg', 'rtp': 'vim/syntax_kpeg'}
