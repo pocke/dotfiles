@@ -5,9 +5,6 @@ let s:SID = s:get_SID()
 delfunction s:get_SID
 
 
-NeoBundleSource vim-operator-user
-
-
 function! s:operator_vim_execute(motion_wise)
   if line("'[") != line("']")
     return
@@ -23,9 +20,8 @@ call operator#user#define('vim-execute', s:SID . 'operator_vim_execute')
 map <buffer> E <Plug>(operator-vim-execute)
 
 
-" http://deris.hatenablog.jp/entry/2013/07/05/023835 {{{
-function! s:open_neo_bundle_path(motion_wise)
-  NeoBundleSource open-browser.vim
+" Open plugin GitHub page from 'user/repo' style string
+function! s:open_plugin_path(motion_wise)
   if line("'[") != line("']")
     return
   endif
@@ -34,7 +30,7 @@ function! s:open_neo_bundle_path(motion_wise)
   let sel = strpart(getline('.'), start, end - start)
   let sel = substitute(sel, '^\%(github\|gh\|git@github\.com\):\(.\+\)', 'https://github.com/\1', '')
   let sel = substitute(sel, '^\%(bitbucket\|bb\):\(.\+\)', 'https://bitbucket.org/\1', '')
-  let sel = substitute(sel, '^gist:\(.\+\)', 'https://gist.github.com/\1', '')
+  let sel = substitute(sel, '^\%(gist\):\(.\+\)', 'https://gist.github.com/\1', '')
   let sel = substitute(sel, '^git://', 'https://', '')
   if sel =~ '^https\?://'
     call openbrowser#open(sel)
@@ -45,6 +41,6 @@ function! s:open_neo_bundle_path(motion_wise)
   endif
 endfunction
 
-call operator#user#define('open-neobundlepath', s:SID . 'open_neo_bundle_path')
+call operator#user#define('open-pluginpath', s:SID . 'open_plugin_path')
 
-map <buffer> gz <Plug>(operator-open-neobundlepath)
+map <buffer> gz <Plug>(operator-open-pluginpath)
