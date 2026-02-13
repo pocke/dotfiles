@@ -1,4 +1,4 @@
-directory File.expand_path('~/.vim/bundle')
+directory File.expand_path('~/.vim/pack/minpac/opt')
 directory File.expand_path('~/.zsh')
 directory File.expand_path('~/.claude')
 directory File.expand_path('~/.config/')
@@ -37,8 +37,8 @@ git File.expand_path('~/.zsh/zsh-syntax-highlighting') do
   repository 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
 end
 
-git File.expand_path('~/.vim/bundle/neobundle.vim') do
-  repository 'https://github.com/Shougo/neobundle.vim.git'
+git File.expand_path('~/.vim/pack/minpac/opt/minpac') do
+  repository 'https://github.com/k-takata/minpac.git'
 end
 
 if is_arch

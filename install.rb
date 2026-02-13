@@ -21,8 +21,8 @@ unless File.exist?(File.expand_path("~/.zshrc"))
   exec('echo "source dotfiles/.zshrc" >> ~/.zshrc')
 end
 
-unless Dir.exist?(File.expand_path('~/.vim/bundle/neobundle.vim'))
-  exec('git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim')
+unless Dir.exist?(File.expand_path('~/.vim/pack/minpac/opt/minpac'))
+  exec('git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac')
 end
 
 unless Dir.exist?(File.expand_path('~/.zsh/zsh-syntax-highlighting'))
