@@ -3,4 +3,4 @@ set line-graphics = ascii
 
 bind generic g move-first-line
 bind generic p @whichpr open %(commit)
-bind generic c @zsh -c 'if which xsel > /dev/null 2>&1; then; echo -n %(commit) | xsel --input --clipboard; else; echo -n %(commit) | pbcopy; fi'
+bind generic c @zsh -c 'if grep -qi microsoft /proc/version 2>/dev/null; then; echo -n %(commit) | win32yank.exe -i --crlf; elif which xsel > /dev/null 2>&1; then; echo -n %(commit) | xsel --input --clipboard; else; echo -n %(commit) | pbcopy; fi'

@@ -39,6 +39,9 @@ alias -g T='| tail'
 if which xsel > /dev/null 2>&1; then
   alias -g C='| xsel --input --clipboard'
 fi
+if which win32yank.exe > /dev/null 2>&1; then
+  alias -g C='| win32yank.exe -i --crlf'
+fi
 alias -g N='> /dev/null 2>&1'
 alias -g V='| vim -c "set buftype=nofile" - '
 # http://qiita.com/Kuniwak/items/b711d6c3e402dfd9356b
