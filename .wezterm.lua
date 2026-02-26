@@ -36,5 +36,6 @@ config.colors = {
 }
 
 config.window_background_opacity = 0.95
+config.swallow_mouse_click_on_window_focus = true
 
 return config
