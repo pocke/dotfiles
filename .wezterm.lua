@@ -40,4 +40,8 @@ config.swallow_mouse_click_on_window_focus = true
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.use_ime = true
 
+config.window_frame = {
+  font_size = 13.5,
+}
+
 return config
