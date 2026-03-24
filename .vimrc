@@ -56,6 +56,9 @@ function! s:init_minpac() abort
   call minpac#add('mattn/emmet-vim')
   call minpac#add('pocke/rbs.vim')
 
+  " Fuzzy finder
+  call minpac#add('pocke/tnite.vim')
+
   " Utility
   call minpac#add('editorconfig/editorconfig-vim', {'type': 'opt'})
   call minpac#add('mopp/autodirmake.vim')
@@ -192,6 +195,49 @@ function! s:load_editorconfig()
 endfunction
 
 AutoCmd VimEnter * call s:load_editorconfig()
+
+" --- tnite ---
+function! TniteStartWithMap(cmds, action, option)
+  call tnite#start(a:cmds, a:action, a:option)
+  tnoremap <buffer><nowait><Esc> <Esc>
+endfunction
+
+let TniteTab = { -> TniteStartWithMap(["sh", "-c", "git ls-files | peco --initial-filter Fuzzy"], "tabswitch", {}) }
+let TniteBuf = { -> TniteStartWithMap(["sh", "-c", "git ls-files | peco --initial-filter Fuzzy"], "switch", {}) }
+let TniteGrepCword = { -> TniteStartWithMap(
+\   ["sh", "-c", "git grep --line-number " . shellescape(expand('<cword>')) . " | peco --initial-filter Fuzzy | cut -d : -f 1,2"],
+\   "tabswitch",
+\   { "jump_to_line": v:true })
+\ }
+let TniteGrepCwordW = { -> TniteStartWithMap(
+\   ["sh", "-c", "git grep -w --line-number " . shellescape(expand('<cword>')) . " | peco --initial-filter Fuzzy | cut -d : -f 1,2"],
+\   "tabswitch",
+\   { "jump_to_line": v:true })
+\ }
+let TniteGrepCwordI = { -> TniteStartWithMap(
+\   ["sh", "-c", "git grep -i --line-number " . shellescape(expand('<cword>')) . " | peco --initial-filter Fuzzy | cut -d : -f 1,2"],
+\   "tabswitch",
+\   { "jump_to_line": v:true })
+\ }
+let TniteGrep = { -> TniteStartWithMap(
+\   ["sh", "-c", "git grep --line-number " . shellescape(tnite#read_from_prompt("grep pattern> ")) . " | peco --initial-filter Fuzzy | cut -d : -f 1,2"],
+\   "tabswitch",
+\   { "jump_to_line": v:true })
+\ }
+let TniteJump = { -> TniteStartWithMap(
+\   ["sh", "-c", "nl -b a -w1 -s ':\t' " . shellescape(expand('%:p')) . "| peco | cut -d : -f 1"],
+\   "jump",
+\   {}
+\ )}
+
+nnoremap <silent><Space>ut :<C-u>call TniteTab()<CR>
+nnoremap <silent><Space>uu :<C-u>call TniteBuf()<CR>
+nnoremap <silent><Space>ug :<C-u>call TniteGrepCword()<CR>
+nnoremap <silent><Space>uw :<C-u>call TniteGrepCwordW()<CR>
+nnoremap <silent><Space>ui :<C-u>call TniteGrepCwordI()<CR>
+nnoremap <silent><Space>uG :<C-u>call TniteGrep()<CR>
+nnoremap <silent><Space>uj :<C-u>call TniteJump()<CR>
+nnoremap <silent><Space>/  :<C-u>call TniteJump()<CR>
 
 " --- open-browser ---
 let s:cmd = has('mac') ? 'open' : 'xdg-open'
