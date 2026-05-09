@@ -5,6 +5,10 @@ config.keys = {
   { key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\n") },
 }
 
+if wezterm.target_triple:find('windows') then
+  config.default_prog = { 'powershell.exe', '-NoLogo' }
+end
+
 config.colors = {
   foreground = '#C0C0C0',
   background = '#2E373A',
