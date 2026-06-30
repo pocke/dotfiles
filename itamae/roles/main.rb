@@ -25,6 +25,7 @@ include_recipe '../cookbooks/dotfiles-private'
   .vim/colors
   .vim/spell
   .claude/CLAUDE.md
+  .claude/settings.json
   .claude/skills
 ].each do |file|
   from = File.expand_path("~/#{file}")
