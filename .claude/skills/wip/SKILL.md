@@ -53,4 +53,4 @@ _更新: <YYYY-MM-DD HH:MM> by Claude (<model>)_
 ## 注意
 
 - **読み込みは hook、手続きはこの skill**。重複して常時 context を食わせない。
-- PR をオープンしたらそのブランチのメモは用済み。残っていても害はない（gitignore 済み）が、気になれば `.claude/artifacts/<branch>/` ごと削除してよい。
+- PR をオープンした後もメモは削除せず残す。後から参照することがある（gitignore 済みなので残しても害はない）。
