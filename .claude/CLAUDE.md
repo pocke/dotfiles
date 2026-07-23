@@ -64,9 +64,6 @@
 
 git add と git commit は`&&`で繋げず、2回のコマンド実行に分けて。
 
-## GitHubへのアクセス
-
-GitHub のデータにアクセスする際は、`gh`コマンドよりもGitHub MCPを優先して。
 
 ## 一句・一首
 
