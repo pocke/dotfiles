@@ -7,7 +7,6 @@ description: 作業中ブランチの「解決したい課題・合意した解�
 
 ブランチ単位の「作業中メモ」を `.claude/artifacts/<branch>/wip.md` に保つ。
 セッションを切ってブランチを切り替えても、次回ここを読めば作業を再開できる。
-**恒久的な事実は memory、このブランチ限定・PR が出たら用済みの揮発メモが wip** と役割を分ける。
 `.claude/artifacts/<branch>/` はブランチ単位の成果物ディレクトリ（gitignore 済み）。
 セッション開始時の自動読み込みは **SessionStart hook**（`wip-session-start.sh`）が担う。この skill は **作成・更新・参照の手続き置き場**。
 
