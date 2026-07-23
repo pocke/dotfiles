@@ -2,15 +2,6 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "enabledPlugins": {
-    "ruby-lsp@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true
-  },
-  "editorMode": "vim",
-  "remoteControlAtStartup": true,
-  "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "tui": "fullscreen",
   "hooks": {
     "SessionStart": [
       {
@@ -22,5 +13,14 @@
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "ruby-lsp@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true
+  },
+  "tui": "fullscreen",
+  "editorMode": "vim",
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
 }
