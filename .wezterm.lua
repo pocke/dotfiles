@@ -6,7 +6,7 @@ config.keys = {
 }
 
 if wezterm.target_triple:find('windows') then
-  config.default_prog = { 'powershell.exe', '-NoLogo' }
+  config.default_prog = { 'pwsh.exe', '-NoLogo' }
 end
 
 config.colors = {
