@@ -62,6 +62,11 @@
   prune = true
   parallel = 8
 
+# コンフリクトの解決内容を記録し、同じコンフリクトの再発時に自動で再適用する。
+# stacked PR の運用では下の層を直すたびに上の層を rebase するため、同じ解決を何度も繰り返すことになる。
+[rerere]
+  enabled = true
+
 [url "git@github.com:"]
   pushinsteadof = "git://github.com/"
   pushinsteadof = "https://github.com"
