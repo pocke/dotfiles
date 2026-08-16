@@ -138,7 +138,5 @@ repo-setup() {
     -F has_wiki=false \
     -F delete_branch_on_merge=true \
     -F allow_auto_merge=true \
-    -F allow_merge_commit=false \
-    -F allow_rebase_merge=false \
     --jq '"✅ \(.full_name)  wiki=\(.has_wiki) del_branch=\(.delete_branch_on_merge) automerge=\(.allow_auto_merge)"'
 }
