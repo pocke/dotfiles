@@ -121,3 +121,24 @@ for dir in ~/.rbenv/versions/*; do
   local v="$(basename ${dir})"
   alias "ruby-${v}=RBENV_VERSION=${v} ruby"
 done
+
+repo-setup() {
+  local url slug
+  url=$(git remote get-url origin 2>/dev/null) || {
+    echo "repo-setup: origin remote not found" >&2
+    return 1
+  }
+
+  # git@github.com:o/r.git / https://github.com/o/r / ssh://git@host/o/r
+  # どの形式でも末尾2要素を owner/repo として取り出す
+  slug=$(printf '%s' "$url" | sed -E 's#(\.git)?/?$##; s#^.*[:/]([^:/]+/[^/]+)$#\1#')
+
+  echo "applying → $slug"
+  gh api -X PATCH "repos/$slug" \
+    -F has_wiki=false \
+    -F delete_branch_on_merge=true \
+    -F allow_auto_merge=true \
+    -F allow_merge_commit=false \
+    -F allow_rebase_merge=false \
+    --jq '"✅ \(.full_name)  wiki=\(.has_wiki) del_branch=\(.delete_branch_on_merge) automerge=\(.allow_auto_merge)"'
+}
