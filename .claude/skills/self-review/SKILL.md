@@ -60,9 +60,14 @@ description: コミット済みの変更を、sub agent によるレビューと
 対応結果 (修正の diff / 見送り理由 / 回答) は次ラウンドのレビュアーに渡すため記録しておく。
 ループ内で作った修正コミットは以降のラウンドで検証されるため、ループ終了後に改めてセルフレビューを起動する必要はない。
 
-記録は `.claude/artifacts/<branch>/self-review.md` に追記する (`feature/foo` なら `.claude/artifacts/feature/foo/self-review.md`)。`git branch --show-current` が空を返す detached HEAD では `<branch>` の代わりに短縮コミットハッシュを使う。最初の書き込み前に `git check-ignore .claude/artifacts` でこのパスが git に無視されることを確認する。無視されないリポジトリでは記録を書かず、報告だけで済ませる。ログは commit も push もしない。
+記録は `.claude/artifacts/<branch>/self-review.md` に追記する。
 
-ラウンドごとに見出しを作り、その下にヘッダ行と区切り行を置いて、指摘 1 件を 1 行ずつ追記する:
+- `feature/foo` なら `.claude/artifacts/feature/foo/self-review.md`
+- `git branch --show-current` が空を返す detached HEAD では、`<branch>` の代わりに短縮コミットハッシュを使う
+- 最初の書き込み前に `git check-ignore .claude/artifacts` を実行し、git がこのパスを無視するか確かめる。無視しないリポジトリには記録を書かず、報告だけで済ませる
+- ログは commit も push もしない
+
+ラウンドごとに見出しを作り、その下に使ったモデルとレビュアーの verdict を 1 行書く。さらにヘッダ行と区切り行を置いて、指摘 1 件を 1 行ずつ追記する:
 
 ```
 | 重大度 | 区分 | 該当箇所 | 指摘 | 対応 |
