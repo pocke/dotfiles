@@ -16,7 +16,16 @@
   },
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true
+    "security-guidance@claude-plugins-official": true,
+    "wakeguard@wakeguard": true
+  },
+  "extraKnownMarketplaces": {
+    "wakeguard": {
+      "source": {
+        "source": "github",
+        "repo": "pocke/wakeguard"
+      }
+    }
   },
   "tui": "fullscreen",
   "editorMode": "vim",
