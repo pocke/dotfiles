@@ -12,6 +12,16 @@
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/dotfiles/.claude/hooks/llm-session-title.sh"
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {
