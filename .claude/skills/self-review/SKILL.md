@@ -76,8 +76,6 @@ description: コミット済みの変更を、sub agent によるレビューと
 
 - `feature/foo` なら `.claude/artifacts/feature/foo/self-review.md`
 - `git branch --show-current` が空を返す detached HEAD では、`<branch>` の代わりに短縮コミットハッシュを使う
-- 最初の書き込み前に `git -C "$(git rev-parse --show-toplevel)" check-ignore <書き込むパス>` を実行し、git がそのパスを無視するか確かめる。`.gitignore_global` の `/.claude/artifacts/` は作業ツリーの先頭にアンカーされるので、サブディレクトリから相対パスで検査すると一致しない
-- 無視しないリポジトリには記録を書かない。その場合もゲートで記録のみにした指摘の一覧はセッション内で保持し、終了時の報告に含める
 - ログは commit も push もしない
 
 ラウンドごとに見出しを作り、その下にレビュアーごとの担当観点・実際に動いたモデル・verdict を 1 行ずつ書く。起動に失敗した、または結果が返らなかったレビュアーも 1 行書き、verdict の代わりに `失敗 (起動不可)` `結果なし (打ち切り)` のように記す。これを書かないと、そのモデルが指摘ゼロだったのか結果を返さなかったのかを後から区別できない。さらにヘッダ行と区切り行を置いて、指摘 1 件を 1 行ずつ追記する:

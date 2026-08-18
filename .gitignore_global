@@ -5,4 +5,4 @@ tags
 /.claude/settings.local.json
 /.claude/worktrees/
 /CLAUDE.local.md
-/.claude/artifacts/
+.claude/artifacts/
