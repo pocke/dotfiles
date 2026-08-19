@@ -15,6 +15,7 @@ export EDITOR=vim
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 export MANPAGER="/bin/sh -c \"col -b -x | vim -c 'set buftype=nofile' -c 'set ft=man' -\""
 export RUBYOPT='-w'
 export DISABLE_SPRING=1
@@ -294,4 +295,3 @@ function be()
 }
 
 eval "$(rbenv init -)"
-export PATH=$HOME/bin:$PATH
