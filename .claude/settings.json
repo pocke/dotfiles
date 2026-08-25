@@ -1,6 +1,22 @@
 {
+  "_comment": "permissions.ask below guards pushes that land on a default branch, and it is porous by construction: patterns match the literal command string, one rule per spelling, and a spelling nobody listed goes through. What is open on Claude Code 2.1.245 — the first two measured against a local bare repo by whether the ref arrived, the rest derived from the match semantics. A compound command turns the whole list off: `cd DIR && git push origin master` pushed while `git -C DIR push origin master`, the same effective command, was stopped; the mechanism is unexplained, since the same shape with `echo` in place of `git` stopped. `git -C DIR ps BRANCH` goes through: the `ps` alias keeps a word-boundary prefix rule so anything in front of it drops the match, and every branch glob requires the string `push`; `git ps upstream BRANCH` is open for the same reason, and `Bash(*git*ps origin*)` closes only the origin spelling. Exact and word-boundary-prefix rules fall to anything before or inside them — `git push -u origin`, `git push -f`, `git push upstream`, `git -C DIR push origin`, which sends the checked-out branch under push.default = simple. Matching is case-sensitive, so `Master` and `MAIN` miss. The glob rules do survive `git -C DIR` and flag insertion, which is why the branch names and the psu/psf aliases are written that way; `ps` is not, because a two-letter glob fires on any argument containing them — `groups.rb`, a branch named `tips` — and an ask nobody can answer is a hard failure rather than a pause. Whole-string matching costs the other direction too: `git psu` is how a topic branch is normally pushed here and it prompts every time, `git push origin HEAD` prompts, a branch called `main-nav` or `developer-docs` prompts, and a command that merely mentions `git push origin master` — a nested `claude -p`, say — fails outright where nobody can answer. .claude/CLAUDE.md carries the rule in prose for the agent, and that is the guard that does not depend on spelling.",
   "permissions": {
-    "defaultMode": "auto"
+    "defaultMode": "auto",
+    "ask": [
+      "Bash(git push)",
+      "Bash(git push origin)",
+      "Bash(git ps:*)",
+      "Bash(*git*ps origin*)",
+      "Bash(*git*psu*)",
+      "Bash(*git*psf*)",
+      "Bash(*git*push*--all*)",
+      "Bash(*git*push*--mirror*)",
+      "Bash(*git*push*master*)",
+      "Bash(*git*push*main*)",
+      "Bash(*git*push*develop*)",
+      "Bash(*git*push*release*)",
+      "Bash(*git*push*HEAD*)"
+    ]
   },
   "autoMode": {
     "environment": [
