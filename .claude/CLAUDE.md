@@ -108,6 +108,16 @@ Ruby/Railsを例に挙げると次のようになる。他の言語やフレー�
 
 git add と git commit は`&&`で繋げず、2回のコマンド実行に分けて。
 
+### デフォルトブランチへは push しない
+
+`master`, `main`, `develop`, `release` へは push しないで。リポジトリの default branch がこれ以外の名前ならそれも同じ。push 先がこれらのブランチになるなら、実行する前に必ず確認を取って。topic branch を push して PR を作る形にする。
+
+`~/ghq` 以下には OSS を upstream から直接 clone したリポジトリがあり、その `origin` は fork ではなく upstream 自身を指している。そこで default branch に push すると、fork を経由せず他人のプロジェクトの本流に直接着地する。
+
+ブランチ名を書かない形でも同じところに着地する。`git push origin` は `push.default = simple` なので今いるブランチがそのまま飛ぶし、`git push --all` は全ブランチを、`git push --mirror` は全 ref を送る。`.gitconfig` の `ps` / `psu` / `psf` も同じ。
+
+settings.json の `permissions.ask` にも同じ意図のパターンを置いてあるが、あれはコマンド文字列の一致でしか判定できない。書き方を変えれば抜けるので、最後に頼りになるのはこの規則。
+
 
 ## Pull Request
 
