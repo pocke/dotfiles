@@ -23,7 +23,7 @@
       "### Org-wide",
       "**Organization**: not named here. Sessions also run in private employer repositories whose organization is deliberately kept out of this file; treat enterprise-looking internal material as confidential by default — fine in the repo where that work lives, out of place in any public one.",
       "**Cloud provider(s)**: None configured",
-      "**Repository visibility**: assume private unless the remote host and repo name indicate otherwise, or a visibility check in the transcript shows public. github.com/ruby/* and github.com/pocke/dotfiles are PUBLIC — any push, PR, or release there is publishing. The rest of github.com/pocke/ is predominantly public OSS (622 of 668 at the last count), so treat a repository under that owner as PUBLIC unless a check shows otherwise.",
+      "**Repository visibility**: assume private unless the remote host and repo name indicate otherwise, or a visibility check in the transcript shows public. That check is `gh repo view <owner>/<repo> --json visibility --jq .visibility`, or the same command with no argument for the repository in the working directory; it answers PUBLIC, PRIVATE or INTERNAL, and anything other than PUBLIC is not public. No entry here states that a particular repository is public — a repository whose visibility is not in the transcript has not been checked, whoever owns it and however its siblings are configured.",
       "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
       "**Secrets management**: None configured",
       "**Default / protected branches**: None configured",
