@@ -1,6 +1,40 @@
 {
   "permissions": {
-    "defaultMode": "auto"
+    "defaultMode": "auto",
+    "ask": [
+      "Bash(*git*push*--all*)",
+      "Bash(*git*push*master*)",
+      "Bash(*git*push*main*)",
+      "Bash(*git*push*develop*)",
+      "Bash(*git*push*release*)"
+    ]
+  },
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: not named here. Sessions also run in private employer repositories whose organization is deliberately kept out of this file; treat enterprise-looking internal material as confidential by default — fine in the repo where that work lives, out of place in any public one.",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: assume private unless the remote host and repo name indicate otherwise, or a visibility check in the transcript shows public. That check is `gh repo view <owner>/<repo> --json visibility --jq .visibility`, or the same command with no argument for the repository in the working directory; it answers PUBLIC, PRIVATE or INTERNAL, and anything other than PUBLIC is not public. No entry here states that a particular repository is public — a repository whose visibility is not in the transcript has not been checked, whoever owns it and however its siblings are configured.",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured",
+      "**Default / protected branches**: None configured",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Source control**: The trusted repo and its remote(s) only (no additional orgs configured) — as scoped by the Trusted repo and Repository visibility entries above",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar. On this machine those stores include, but are not limited to, the ones under ~/.claude/ — history.jsonl, projects/, sessions/, shell-snapshots/, session-env/, file-history/, security/, telemetry/, backups/ — and the usual credential dot-folders. Their contents keep that class wherever a copy of them goes, a git working tree included. Reading, writing and pruning agent memory under ~/.claude/projects/*/memory/ is the session's intended persistence rather than access to one of these stores; what those files hold still keeps the class of wherever it came from. The config this repo versions is likewise not one of these stores: ~/.claude/CLAUDE.md, ~/.claude/settings.json and ~/.claude/skills/ are symlinks into ~/dotfiles and are that repo's own files. That carve-out covers what the file is, not what may be published from it — material in those files that originated in a private employer repo keeps its own class, and edits to the permission and hook entries in settings.json are still Self-Modification.",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment (hyphen/underscore/dot-delimited — e.g. matches `prod-db`, not `producer`)",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development — OSS maintenance in the Ruby ecosystem (ruby/ruby, ruby/rbs, ruby/json, ruby/typeprof, ruby/gem_rbs_collection and similar upstreams), personal dotfiles and editor config, and private work application code",
+      "**Trusted repo**: The git repository the agent started in (its working directory) and its configured remote(s). When the repo's public/private visibility is given — by the Repository visibility entry or the user's own message — use it to scope what is OK to commit or push there: confidential material is fine in a private repo; in a public one, only that repo's own work is — and content ported, repointed, or first read from outside this session's repo is not its own work, whoever directed the port. Visibility scopes confidential material only: secrets and sensitive data (personal & entrusted) are never cleared into any repo by its visibility (see Definitions).",
+      "**Org-specific CLIs**: ghq — manages local clones under the roots named by `ghq.root` (here ~/ghq, ~/go/src and ~/.vim/bundle), laid out as <root>/<host>/<owner>/<repo>, so such a path names the repository it holds; `ghq get` clones or updates one, `ghq rm` deletes a local clone along with anything uncommitted in it. itamae — configuration management; `itamae local` provisions this machine from ~/dotfiles/itamae and its recipes run commands as root — on macOS it writes /Library/LaunchDaemons/launched.ruby-trunk-build.plist and a root-owned executable under /opt/ruby-trunk-build, then runs launchctl as root, on Arch it installs packages and enables services the same way — while `itamae ssh` and `itamae docker` do the same to a remote host or a container."
+    ]
   },
   "hooks": {
     "SessionStart": [
