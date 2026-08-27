@@ -98,14 +98,17 @@ fi
 # ISG_PROJECT は isogitchaku がコンテナ全部に入れる変数
 if [ $ISG_PROJECT ]; then
   local ISG_PROMPT="[%B%F{yellow}ISG%f%b]"
+  # %% にしておかないと、名前の中の % をプロンプトの書式として解釈する
+  local ISG_RPROMPT="%F{yellow}${ISG_PROJECT//\%/%%}%f "
 else
   local ISG_PROMPT=""
+  local ISG_RPROMPT=""
 fi
 
 # default
 prompt_exit_status="(%(?.%F{green}%?%f.%F{red}%?%f))"
-PROMPT="${ISG_PROMPT}${VIM_PROMPT}%B${prompt_git}[%F{cyan}INS%f]${prompt_exit_status} %#%b "
-RPROMPT='%B( %F{magenta}%~%f )Oo%b'
+PROMPT="${VIM_PROMPT}%B${prompt_git}%b${ISG_PROMPT}%B[%F{cyan}INS%f]${prompt_exit_status} %#%b "
+RPROMPT="%B( ${ISG_RPROMPT}%F{magenta}%~%f )Oo%b"
 
 # vim keybind mode
 function zle-line-init zle-keymap-select {
@@ -113,7 +116,7 @@ function zle-line-init zle-keymap-select {
   if [ "${KEYMAP}" = 'vicmd' ]; then
     vim_mode='%F{red}NOR%f'
   fi
-  PROMPT="${ISG_PROMPT}%B${prompt_git}%b${VIM_PROMPT}%B[${vim_mode}]${prompt_exit_status} %#%b "
+  PROMPT="%B${prompt_git}%b${VIM_PROMPT}${ISG_PROMPT}%B[${vim_mode}]${prompt_exit_status} %#%b "
   zle reset-prompt
 }
 zle -N zle-line-init
