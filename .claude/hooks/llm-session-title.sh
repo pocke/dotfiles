@@ -70,7 +70,8 @@ fi
 
 : > "$pending"
 
-# wip 等のフックが発火して、その出力がタイトルに混ざるのを防ぐ。
+# 入れ子の claude -p でも settings.json とプラグインのフックは発火する。
+# 同期の SessionStart / UserPromptSubmit の stdout は additionalContext として渡るので、タイトルに混ざる
 # ツールは塞がない。番号や URL でしか作業対象を書いていないプロンプトでは、参照先を読まないと中身の分かるタイトルにならない
 generator_settings='{"disableAllHooks": true}'
 

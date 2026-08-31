@@ -4,7 +4,10 @@
 
 ## 自作のスキル
 
-`refine` / `self-review` / `wip` はここで直接書いている。更新も直接編集する。
+`refine` / `self-review` はここで直接書いている。更新も直接編集する。
+
+スキルが書き出す成果物は `.claude/artifacts/<branch>/` に置く。`.gitignore_global` の
+`.claude/artifacts/` に当たるので、リポジトリには入らない。
 
 ## 外部から入れたスキル
 
