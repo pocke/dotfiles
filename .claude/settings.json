@@ -54,6 +54,7 @@
       }
     }
   },
+  "model": "opus[1m]",
   "tui": "fullscreen",
   "editorMode": "vim",
   "remoteControlAtStartup": true,
