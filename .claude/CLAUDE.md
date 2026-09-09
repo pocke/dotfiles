@@ -107,7 +107,7 @@ Ruby/Railsを例に挙げると次のようになる。他の言語やフレー�
 実装は sonnet の sub agent にやらせる。Agent tool を `model: "sonnet"` で呼び、自分の model は切り替えない。
 
 sub agent の担当は、実装から始まってコミット・self-review skill によるセルフレビューと指摘の修正・push・PR 作成まで。どこまでやるかは依頼の内容に合わせる (コミットまでの依頼なら push と PR 作成は含めない)。
-自分がやるのは、課題の整理、実装方針の決定、sub agent への指示、返ってきた結果の確認。
+親agentがやるのは、課題の整理、実装方針の決定、sub agent への指示、返ってきた結果の確認。
 
 sub agent に渡すプロンプトには次を書く:
 
