@@ -9,6 +9,10 @@
 スキルが書き出す成果物は `.claude/artifacts/<branch>/` に置く。`.gitignore_global` の
 `.claude/artifacts/` に当たるので、リポジトリには入らない。
 
+`refine` / `self-review` はレビュアーを `.claude/agents/reviewer.md` (`subagent_type: "reviewer"`)
+で起動する。`reviewer.md` は `~/.claude/agents` (itamae/roles/main.rb でリンク) 経由で読み込まれ、
+`.claude/hooks/deny-write-in-git-worktree.rb` (Ruby) を PreToolUse hook として使う。
+
 ## 外部から入れたスキル
 
 `gh skill install` で入れたものは、SKILL.md の frontmatter に `metadata.github-repo` /
