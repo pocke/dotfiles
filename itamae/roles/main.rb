@@ -27,7 +27,6 @@ include_recipe '../cookbooks/dotfiles-private'
   .claude/CLAUDE.md
   .claude/settings.json
   .claude/skills
-  .claude/agents
 ].each do |file|
   from = File.expand_path("~/#{file}")
   to = File.expand_path("~/dotfiles/#{file}")
