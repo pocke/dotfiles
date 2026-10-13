@@ -2,6 +2,37 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "opus[1m]",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/dotfiles/.claude/hooks/llm-session-title.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "ruby-lsp@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "wakeguard@wakeguard": true
+  },
+  "extraKnownMarketplaces": {
+    "wakeguard": {
+      "source": {
+        "source": "github",
+        "repo": "pocke/wakeguard"
+      }
+    }
+  },
+  "tui": "fullscreen",
+  "editorMode": "vim",
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true,
   "autoMode": {
     "environment": [
       "### Org-wide",
@@ -28,36 +59,5 @@
       "**Trusted repo**: The git repository the agent started in (its working directory) and its configured remote(s). When the repo's public/private visibility is given — by the Repository visibility entry or the user's own message — use it to scope what is OK to commit or push there: confidential material is fine in a private repo; in a public one, only that repo's own work is — and content ported, repointed, or first read from outside this session's repo is not its own work, whoever directed the port. Visibility scopes confidential material only: secrets and sensitive data (personal & entrusted) are never cleared into any repo by its visibility (see Definitions).",
       "**Org-specific CLIs**: ghq — manages local clones under the roots named by `ghq.root` (here ~/ghq, ~/go/src and ~/.vim/bundle), laid out as <root>/<host>/<owner>/<repo>, so such a path names the repository it holds; `ghq get` clones or updates one, `ghq rm` deletes a local clone along with anything uncommitted in it. itamae — configuration management; `itamae local` provisions this machine from ~/dotfiles/itamae and its recipes run commands as root — on macOS it writes /Library/LaunchDaemons/launched.ruby-trunk-build.plist and a root-owned executable under /opt/ruby-trunk-build, then runs launchctl as root, on Arch it installs packages and enables services the same way — while `itamae ssh` and `itamae docker` do the same to a remote host or a container."
     ]
-  },
-  "hooks": {
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/dotfiles/.claude/hooks/llm-session-title.sh"
-          }
-        ]
-      }
-    ]
-  },
-  "enabledPlugins": {
-    "ruby-lsp@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true,
-    "wakeguard@wakeguard": true
-  },
-  "extraKnownMarketplaces": {
-    "wakeguard": {
-      "source": {
-        "source": "github",
-        "repo": "pocke/wakeguard"
-      }
-    }
-  },
-  "model": "opus[1m]",
-  "tui": "fullscreen",
-  "editorMode": "vim",
-  "remoteControlAtStartup": true,
-  "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  }
 }
