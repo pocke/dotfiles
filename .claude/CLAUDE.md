@@ -109,7 +109,7 @@ Ruby/Railsを例に挙げると次のようになる。他の言語やフレー�
 
 実装は sonnet の sub agent にやらせる。Agent tool を `model: "sonnet"` で呼び、自分の model は切り替えない。
 
-sub agent の担当は、実装から始まってコミット・self-review skill によるセルフレビューと指摘の修正・push・PR 作成まで。どこまでやるかは依頼の内容に合わせる (コミットまでの依頼なら push と PR 作成は含めない)。
+sub agent の担当は、実装から始まってコミット・self-review skill によるセルフレビューと指摘の修正・push・PR 作成・作成済み PR の title と description の更新まで。どこまでやるかは依頼の内容に合わせる (コミットまでの依頼なら push と PR 作成は含めない)。
 親agentがやるのは、課題の整理、実装方針の決定、sub agent への指示。
 
 sub agent に渡すプロンプトには次を書く:
@@ -118,10 +118,10 @@ sub agent に渡すプロンプトには次を書く:
 - 採用する実装方針。検討して退けた案があれば、それも理由付きで書く (sub agent が勝手に別の案を選ばないようにするため)
 - 完了条件 (通すべきテスト、実行して結果を確認するコマンド)
 - 自分が調べて分かっている事実 (既存実装の構造、API の仕様、参考 URL)。sub agent に同じ調査をやり直させない
-- 実装の後にやること。コミット、self-review skill の起動と指摘の修正、topic branch への push、PR 作成のうち、依頼に含まれるものを列挙する
+- 実装の後にやること。コミット、self-review skill の起動と指摘の修正、topic branch への push、PR 作成のうち、依頼に含まれるものを列挙する。PR が既にあるブランチへの push を頼むなら、「作成済みの PR に push したとき」の手順もその push に含める
 - コミットメッセージと PR description に載せる背景 (この変更をする理由、退けた案、参考 URL)。sub agent は方針を決めた経緯を知らないので、自分が渡さないと書けない
 - さらに sub agent を起動せず自分の手で実装すること
-- 報告してほしいもの。作成した PR の URL、セルフレビューで修正した指摘、見送った指摘とその理由
+- 報告してほしいもの。作成した PR の URL、作成済み PR の title と description を書き換えたか (書き換えなかったならその理由)、セルフレビューで修正した指摘、見送った指摘とその理由
 
 ### sub agent を使わない場合
 
@@ -157,9 +157,22 @@ PR を作成するときの title と description の規約。
   3. 判断材料が無ければ、コミットメッセージと同じ英語で書く
 - 日本語で書く場合は「日本語の文体」の規約を適用する
 
-PR に付いたコメントへの対応を依頼された場合、コードの修正とコミット・push だけを行い、GitHub 上のコメントには返信しない。返信してよいのは、依頼の中で返信を明示的に頼まれたときだけ。対応した内容や、対応しなかった指摘とその理由は、返答の中で報告して。
+PR に付いたコメントへの対応を依頼された場合、コードを直してコミット・push し、「作成済みの PR に push したとき」の手順で title と description を更新する。GitHub 上のコメントには返信しない。返信してよいのは、依頼の中で返信を明示的に頼まれたときだけ。対応した内容や、対応しなかった指摘とその理由は、返答の中で報告して。
 
 `gh pr create` / `pr edit` / `pr comment` / `issue create` / `issue edit` / `issue comment` は `--attach <file>` でローカルの画像・動画をアップロードできる。本文中の `![alt](./x.png)` は、同じファイルを `--attach` で渡すとアップロード先の URL に置き換わる。細かい挙動は `gh pr create --help` を見る。
+
+### 作成済みの PR に push したとき
+
+ブランチを push したら、そのたびに続けて PR の title と description を見直す。PR コメントへの対応、依頼の追加、self-review での修正、rebase だけの push など、push のきっかけは問わない。
+
+1. `gh pr view <branch> --json title,body,state,author` で PR を読む。PR が見つからない、`state` が `OPEN` でない、`author.login` が `gh api user --jq .login` の結果と一致しない (他人の PR) ときは 2 以降に進まない。他人の PR で記述がずれていたら、書き換えずに修正案を返答に書く
+2. `gh pr diff <branch>` で GitHub 上の PR 全体の差分を、`gh pr view <branch> --json commits` でコミットメッセージを読み、今の title と description と照らす。title は変更の概要として今の差分に合っているか、description は変更内容・背景・取らなかった選択肢・参考 URL に古い記述や抜けが無いかを見る
+3. ずれがあれば `gh pr edit <branch> --title ... --body-file -` で書き換える。末尾に「追記」「Update」の節を足さず、今の差分を説明する 1 つの文章として書き直す。書き方は `## Pull Request` 冒頭の「PR を作成するときの title と description の規約」に従い、言語は既存の description に合わせる。issue へのリンク (`Closes #N` など)、PR テンプレートの項目、`--attach` でアップロードした画像、人が書き足した文章は残す
+4. ずれが無ければ書き換えない。ただし 1〜2 を飛ばして「変わっていないはず」と判断しない
+
+gh-stack などで複数のブランチを一度に push したときは、PR のあるブランチごとに 1〜4 を行う。
+
+返答では、PR ごとに title と description を書き換えたか、書き換えなかったならその理由を報告する。sub agent が push した場合は、sub agent の報告を親がこの形で返答に含める。
 
 ## 一句・一首
 
